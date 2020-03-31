@@ -1,0 +1,9 @@
+Data for falling mass experimentDate: 16-Aug-2013Data taken by Lauren and John
+data point	time (sec) 	height (mm)	uncertainty (mm)
+0	0.0	180	3.5
+1	0.5	182	4.5
+2	1.0	178	4.0
+3	1.5	165	5.5
+4	2.0	160	2.5
+5	2.5	148	3.0
+6	3.0	136	2.5
