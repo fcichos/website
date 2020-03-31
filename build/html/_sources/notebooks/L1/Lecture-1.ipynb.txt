@@ -9,7 +9,7 @@
     }
    },
    "source": [
-    "[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fcichos/photonics2.github.io/master?filepath=site%2Fsource%2Fnotebooks%2FL1%2FLecture-1.ipynb)\n",
+    "[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fcichos/photonics2.github.io/master?filepath=ssource%2Fnotebooks%2FL1%2FLecture-1.ipynb)\n",
     "\n",
     "\n",
     "The Python programming language is useful for all kinds of scientific and engineering tasks. You can use it to analyze and plot data. You can also use it to numerically solve scientific problems that are difficult or even impossible to solve analytically. Python is freely available and has been, due to its modular structure, extended with a nearly infinite number of different purpose modules.  \n",
@@ -38,11 +38,11 @@
    "metadata": {},
    "source": [
     "***\n",
-    "## Jupyter Notebook Python Environment\n",
+    "# Jupyter Notebook Python Environment\n",
     "<a href=\"#top\">Jump to top</a>\n",
     "\n",
     "***\n",
-    "### General\n",
+    "## General\n",
     "The *Jupyter Notebook* is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text in a notebook form. Uses include: \n",
     "\n",
     "- data cleaning and transformation\n",
@@ -53,7 +53,7 @@
     "and much more. We will use the Jupyter Notebook environment in this lecture series. It is installed on the computers in the computer lab and will run in every web browser. The notebooks can be either shared online or copied to your USB strick. \n",
     "\n",
     "***\n",
-    "#### Installation\n",
+    "## Installation\n",
     "The best way to install this environment at home or other places is to use the anaconda distribution, which is available for the most important plattforms.\n",
     "This can be found at \n",
     "\n",
@@ -62,7 +62,7 @@
     "Each Jupyter notebook saves the given commands in a file. Note that the file typically ** does not store any results ** of computations even though plots of data are contained in the Jupyter notebook as a preview.\n",
     "\n",
     "***\n",
-    "#### Inside a Jupyter Notebook\n",
+    "## Inside a Jupyter Notebook\n",
     "\n",
     "A number of different cell types exist in a jupyter notebook. The following two types are the most important ones. \n",
     "\n",
@@ -225,7 +225,7 @@
    "metadata": {},
    "source": [
     "***\n",
-    "### Magic"
+    "## Magic"
    ]
   },
   {
@@ -402,8 +402,8 @@
    "source": [
     "***\n",
     "\n",
-    "## Introduction into Python\n",
-    "### Operators and Calculations\n",
+    "# Introduction into Python\n",
+    "## Operators and Calculations\n",
     "\n",
     "<a href=\"#top\">Jump to top</a>\n",
     "\n",
