@@ -39,14 +39,9 @@ extensions = [
 ]
 
 
-exclude_patterns = ['_build', '**.ipynb_checkpoints']
+exclude_patterns = ['_build', '.ipynb_checkpoints']
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -56,7 +51,6 @@ exclude_patterns = []
 #
 import sphinx_rtd_theme
 
-#html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
@@ -97,7 +91,7 @@ html_context = {
     # Set the following variables to generate the resulting github URL for each page.
     # Format Template: https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}
     'github_user': 'fcichos',
-    'github_repo': 'site',
+    'github_repo': 'website',
     'github_version': 'master/',
     'conf_py_path': '/source/'
 }
@@ -148,10 +142,9 @@ nbsphinx_prolog = r"""
         :format: html
     .. nbinfo::
         This page was generated from `{{ docname }}`__.
-        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/geo-python/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a href="https://mybinder.org/v2/gh/geo-python/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a>`
-    __ https://github.com/Geo-Python/{{ env.config.release }}/blob/master/{{ docname }}
+        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/website/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<a href="https://mybinder.org/v2/gh/website/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a>`
+    __ https://github.com/fcichos/{{ env.config.release }}/blob/master/{{ docname }}
 .. raw:: latex
     \vfil\penalty-1\vfilneg
     \vspace{\baselineskip}
