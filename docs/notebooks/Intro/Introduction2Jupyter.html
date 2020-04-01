@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to Jupyter &mdash; Lecture 1 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Lecture 1
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/intro.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Welcome to the Computations Sofware Course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NotebookEditor.html">Notebook editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Edit-mode">Edit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Command-mode">Command mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Keyboard-navigation">Keyboard navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Running-code">Running code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Run-menu">Run menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Managing-the-kernel">Managing the kernel</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L1/Lecture-1.html">Jupyter Notebook Python Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#General">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Inside-a-Jupyter-Notebook">Inside a Jupyter Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Magic">Magic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/Lecture-1.html#Introduction-into-Python">Introduction into Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Operators-and-Calculations">Operators and Calculations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Number-Types">Number Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/Lecture-1.html#Integers">Integers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L1/Lecture-1.html#Floating-Point">Floating Point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L1/Lecture-1.html#Complex-Numbers">Complex Numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Modules">Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Scripts-and-Script-Files">Scripts and Script Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Help!">Help!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Data-Types-in-Python">Data Types in Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/Lecture-1.html#Strings">Strings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Lists">Lists</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L1/Lecture-1.html#Tuples">Tuples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L1/Lecture-1.html#Arrays">Arrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L1/Lecture-1.html#Dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#What’s-next">What’s next</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html">A Short Primer on Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#Random-numbers">Random numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Uniformly-distributed-random-numbers---rand()">Uniformly distributed random numbers - rand()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Normally-distributed-random-numbers---randn()">Normally distributed random numbers - randn()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#Input-and-Output">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Screen-output">Screen output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Pandas-Module">Pandas Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#Advanced-Plotting">Advanced Plotting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Simple-Plotting">Simple Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Error-bars">Error bars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Log-log-plots">Log-log plots</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#3D-Plotting">3D Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#Animations">Animations</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Lecture 1</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction to Jupyter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/Intro/Introduction2Jupyter.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Introduction-to-Jupyter">
+<h1>Introduction to Jupyter<a class="headerlink" href="#Introduction-to-Jupyter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="What-is-Jupyter-Notebook?">
+<h2>What is Jupyter Notebook?<a class="headerlink" href="#What-is-Jupyter-Notebook?" title="Permalink to this headline">¶</a></h2>
+<p>A Jupyter Notebook is a web browser based <strong>interactive computing environment</strong> that enables users to create documents that include code to be executed, results from the executed code such as plots and images,and finally also an additional documentation in form of markdown text including equations in LaTeX.</p>
+<p>These documents provide a <strong>complete and self-contained record of a computation</strong> that can be converted to various formats and shared with others using email, <a class="reference external" href="https://www.dropbox.com/">Dropbox</a>, version control systems (like git/<a class="reference external" href="https://github.com">GitHub</a>) or <a class="reference external" href="http://nbviewer.jupyter.org">nbviewer.jupyter.org</a>.</p>
+<p>The Jupyter Notebook combines three components: * <strong>Notebook editor</strong>: an interactive application for writing and running code interactively and editing notebook documents. If you run Jupyter on desktop, you will be using Jupyter’s web application, whereas right now you are using Juno as your notebook editor. * <strong>Kernels</strong>: Separate processes started by Jupyter on your server, that runs users’ code in a given language and returns output back to the notebook web application. The kernel also
+handles things like computations for interactive widgets, tab completion and introspection. * <strong>Notebook documents</strong>: Self-contained documents that contain a representation of all content visible in the notebook editor, including inputs and outputs of the computations, markdown text, equations, images, and rich media representations of objects. Each notebook document has its own kernel.</p>
+</div>
+<div class="section" id="Notebook-editor">
+<h2>Notebook editor<a class="headerlink" href="#Notebook-editor" title="Permalink to this headline">¶</a></h2>
+<p>The Notebook editor is web application running in your browse. It enables you to</p>
+<ul class="simple">
+<li><p><strong>Edit code</strong> in individual cell</p></li>
+<li><p><strong>Run code</strong> in individuall cells in arbitrary oder and display results of the computation in various formats (HTML, LaTeX, PNG, SVG, PDF)</p></li>
+<li><p>Create and use <strong>interactive JavaScript widgets</strong>, which bind interactive user interface controls and visualizations to reactive kernel side computations.</p></li>
+<li><p>Add <strong>documentation text</strong> using <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> markup language, including LaTeX equations</p></li>
+</ul>
+</div>
+<div class="section" id="Kernels">
+<h2>Kernels<a class="headerlink" href="#Kernels" title="Permalink to this headline">¶</a></h2>
+<p>The Jupyter notebook is not bound to any specific programming language, but can be used for almost any type of language. Each Jupyter notebook starts a server application that is connected to a kernel that runs the code in the notebook. This kernel is dedicated to a specific programming language. Thus installing different kernels <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">100+ languages</a> allows you to execute code in <strong>Python</strong>, <strong>Julia</strong>, <strong>R</strong>, <strong>Ruby</strong>, <strong>Haskell</strong>,
+<strong>Scala</strong>, and many others.</p>
+<p>Yet, the default kernel runs Python code. The notebook provides a simple way for users to pick which of these kernels is used for a given notebook. Each of these kernels communicate with the notebook editor using JSON over ZeroMQ/WebSockets message protocol that is described <a class="reference external" href="https://jupyter-client.readthedocs.io/en/latest/messaging.html#messaging">here</a>. Most users don’t need to know about these details, but it helps to understand that “kernels run code”.</p>
+</div>
+<div class="section" id="Notebook-documents">
+<h2>Notebook documents<a class="headerlink" href="#Notebook-documents" title="Permalink to this headline">¶</a></h2>
+<p>Notebook documents, or notebooks, contain the <strong>inputs and outputs</strong> of an interactive session as well as <strong>dacumentation text</strong> that accompanies the code but is not meant for execution.</p>
+<p>A notebook is just a <strong>file on your server’s filesystem with a ``.ipynb`` extension</strong>. This allows you to share your notebook easily.</p>
+<p>Notebooks consist of a <strong>linear sequence of cells</strong>. There are three basic cell types: * <strong>Code cells:</strong> Input and output of live code that is run in the kernel. * <strong>Markdown cells:</strong> Narrative text with embedded LaTeX equations. * <strong>Raw cells:</strong> Unformatted text that is included, without modification, when notebooks are converted to different formats using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code>.</p>
+<p>Internally, notebook documents are <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a><strong>text files</strong> with <strong>binary data encoded in</strong><a class="reference external" href="http://en.wikipedia.org/wiki/Base64">base64</a>. This allows them to be <strong>read and manipulated programmatically</strong> by any programming language. Because JSON is a text format, notebook documents are version control friendly.</p>
+<p><strong>Notebooks can be exported</strong> to different static formats including HTML, reStructeredText, LaTeX, PDF, and slide shows (<a class="reference external" href="http://lab.hakim.se/reveal-js/">reveal.js</a>) using Jupyter’s <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> utility.</p>
+<p>Furthermore, any notebook document available from a <strong>public URL on or GitHub can be shared</strong> via <a class="reference external" href="http://nbviewer.jupyter.org">nbviewer</a>. This service loads the notebook document from the URL and renders it as a static web page. The resulting web page may thus be shared with others <strong>without their needing to install the Jupyter Notebook</strong>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Frank Cichos
+      <span class="lastupdated">
+        Last updated on Apr 01, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

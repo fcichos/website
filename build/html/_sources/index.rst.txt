@@ -14,8 +14,8 @@ Welcome to Computational Software Course!
    
    course-info/intro
    course-info/schedule
-   notebooks/Intro/Introduction to Juypter
-   Notebooks/Intro/Notebook Editor
+   notebooks/Intro/Introduction2Juypter
+   notebooks/Intro/NotebookEditor
 
 
 .. toctree::
