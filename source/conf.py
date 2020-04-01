@@ -106,13 +106,11 @@ nbsphinx_prolog = """
 
 .. only:: html
 
-    Go there: https://example.org/notebooks/{{ docname }}
-
     .. role:: raw-html(raw)
         :format: html
-        
-    .. nbinfo::
 
+    .. nbinfo::
+        This page was generated from `{{ docname }}`__.
         :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
 
 .. only:: latex
