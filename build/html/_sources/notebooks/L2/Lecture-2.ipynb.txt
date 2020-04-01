@@ -4,13 +4,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L2/Lecture-2.ipynb)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "## A Short Primer on Plotting\n",
     "\n",
     "Before we start today, we give a short primer on plotting, since plotting data is very useful tool to visualize data during our exploration of python. We will go into more details of the plotting functions in matplotlib later. Here we just concentrate on the basics. \n",
