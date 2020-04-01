@@ -11,9 +11,11 @@ Welcome to Computational Software Course!
    :maxdepth: 2
    :caption: Course Information:
 
+   
    course-info/intro
    course-info/schedule
-
+   notebooks/Intro/Introduction to Juypter
+   Notebooks/Intro/Notebook Editor
 
 
 .. toctree::
