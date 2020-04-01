@@ -13,7 +13,7 @@ Welcome to Computational Software Course!
    
    course-info/intro
    course-info/schedule
-   notebooks/Intro/Introduction2Juypter.ipynb
+   notebooks/Intro/Introduction2Jupyter.ipynb
    notebooks/Intro/NotebookEditor.ipynb
 
 
