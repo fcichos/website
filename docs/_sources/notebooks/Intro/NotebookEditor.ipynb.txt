@@ -32,7 +32,7 @@
    "source": [
     "Edit mode is indicated by a blue cell border and a prompt showing in the editor area:\n",
     "\n",
-    "<img src=\"img/edit_mode.png\" >\n",
+    "![](img/edit_mode.png)\n",
     "\n",
     "When a cell is in edit mode, you can type into the cell, like a normal text editor."
    ]
@@ -50,7 +50,7 @@
    "source": [
     "Command mode is indicated by a grey cell border:\n",
     "\n",
-    "<img src=\"img/command_mode.png\" >"
+    "![](img/command_mode.png)\n"
    ]
   },
   {

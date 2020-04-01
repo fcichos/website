@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Jupyter Notebook Python Environment &mdash; Computational Software 1 documentation</title>
+  <title>Variables and types &mdash; Computational Software 1 documentation</title>
   
 
   
@@ -110,40 +110,36 @@
 </ul>
 <p class="caption"><span class="caption-text">Lecture 1:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter Notebook Python Environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#General">General</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Inside-a-Jupyter-Notebook">Inside a Jupyter Notebook</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Magic">Magic</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#Introduction-into-Python">Introduction into Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Operators-and-Calculations">Operators and Calculations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Number-Types">Number Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Integers">Integers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Floating-Point">Floating Point</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Complex-Numbers">Complex Numbers</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Modules">Modules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Variables">Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Scripts-and-Script-Files">Scripts and Script Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Help!">Help!</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Data-Types-in-Python">Data Types in Python</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Strings">Strings</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Lists">Lists</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Tuples">Tuples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Arrays">Arrays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Dictionaries">Dictionaries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Variables and types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Symbol-names">Symbol names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Assignment">Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Number-types">Number types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Integers">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Floating-Point">Floating Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Type-casting">Type casting</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#What’s-next">What’s next</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Operators-and-comparisons">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Modules">Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Scripts-and-Script-Files">Scripts and Script Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Help!">Help!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Data-Types-in-Python">Data Types in Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Strings">Strings</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Lists">Lists</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Tuples">Tuples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Arrays">Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#What’s-next">What’s next</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 2:</span></p>
 <ul>
@@ -230,7 +226,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Jupyter Notebook Python Environment</li>
+      <li>Variables and types</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -493,366 +489,48 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<p><a class="reference external" href="https://mybinder.org/v2/gh/fcichos/photonics2.github.io/master?filepath=ssource%2Fnotebooks%2FL1%2FLecture-1.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
-<hr class="docutils" />
-<div class="section" id="Jupyter-Notebook-Python-Environment">
-<h1>Jupyter Notebook Python Environment<a class="headerlink" href="#Jupyter-Notebook-Python-Environment" title="Permalink to this headline">¶</a></h1>
-<p>Jump to top</p>
-<hr class="docutils" />
-<div class="section" id="General">
-<h2>General<a class="headerlink" href="#General" title="Permalink to this headline">¶</a></h2>
-<p>The <em>Jupyter Notebook</em> is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text in a notebook form. Uses include:</p>
-<ul class="simple">
-<li><p>data cleaning and transformation</p></li>
-<li><p>numerical simulation</p></li>
-<li><p>statistical modeling</p></li>
-<li><p>machine learning</p></li>
-</ul>
-<p>and much more. We will use the Jupyter Notebook environment in this lecture series. It is installed on the computers in the computer lab and will run in every web browser. The notebooks can be either shared online or copied to your USB strick.</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/fcichos/photonics2.github.io/master?filepath=source%2Fnotebooks%2FL1%2FLecture-1.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<div class="section" id="Variables-and-types">
+<h1>Variables and types<a class="headerlink" href="#Variables-and-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Symbol-names">
+<h2>Symbol names<a class="headerlink" href="#Symbol-names" title="Permalink to this headline">¶</a></h2>
+<p>Variable names in Python can contain alphanumerical characters <code class="docutils literal notranslate"><span class="pre">a-z</span></code>, <code class="docutils literal notranslate"><span class="pre">A-Z</span></code>, <code class="docutils literal notranslate"><span class="pre">0-9</span></code> and some special characters such as <code class="docutils literal notranslate"><span class="pre">_</span></code>. Normal variable names must start with a letter.</p>
+<p>By convention, variable names start with a lower-case letter, and Class names start with a capital letter.</p>
+<p>In addition, there are a number of Python keywords that cannot be used as variable names. These keywords are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">and</span><span class="p">,</span> <span class="k">as</span><span class="p">,</span> <span class="k">assert</span><span class="p">,</span> <span class="k">break</span><span class="p">,</span> <span class="n">class</span><span class="p">,</span> <span class="k">continue</span><span class="p">,</span> <span class="n">def</span><span class="p">,</span> <span class="k">del</span><span class="p">,</span> <span class="k">elif</span><span class="p">,</span> <span class="k">else</span><span class="p">,</span> <span class="k">except</span><span class="p">,</span>
+<span class="n">exec</span><span class="p">,</span> <span class="k">finally</span><span class="p">,</span> <span class="k">for</span><span class="p">,</span> <span class="n">from</span><span class="p">,</span> <span class="k">global</span><span class="p">,</span> <span class="k">if</span><span class="p">,</span> <span class="n">import</span><span class="p">,</span> <span class="ow">in</span><span class="p">,</span> <span class="ow">is</span><span class="p">,</span> <span class="k">lambda</span><span class="p">,</span> <span class="ow">not</span><span class="p">,</span> <span class="ow">or</span><span class="p">,</span>
+<span class="k">pass</span><span class="p">,</span> <span class="nb">print</span><span class="p">,</span> <span class="k">raise</span><span class="p">,</span> <span class="k">return</span><span class="p">,</span> <span class="k">try</span><span class="p">,</span> <span class="k">while</span><span class="p">,</span> <span class="k">with</span><span class="p">,</span> <span class="k">yield</span>
+</pre></div>
 </div>
-<hr class="docutils" />
-<div class="section" id="Installation">
-<h2>Installation<a class="headerlink" href="#Installation" title="Permalink to this headline">¶</a></h2>
-<p>The best way to install this environment at home or other places is to use the anaconda distribution, which is available for the most important plattforms. This can be found at</p>
-<p>The Anaconda package comes with a number of other applications, which can be used for python programming as well. We will use the Jupyter Notebook environment which you can start via the Anaconda Navigator application. Starting the Jupyer Notebook environment opens the Web browser with a standard overview of the current directory. From there you can create and edit new notebooks.</p>
-<p>Each Jupyter notebook saves the given commands in a file. Note that the file typically ** does not store any results ** of computations even though plots of data are contained in the Jupyter notebook as a preview.</p>
+<p>Note: Be aware of the keyword <code class="docutils literal notranslate"><span class="pre">lambda</span></code>, which could easily be a natural variable name in a scientific program. But being a keyword, it cannot be used as a variable name.</p>
 </div>
-<hr class="docutils" />
-<div class="section" id="Inside-a-Jupyter-Notebook">
-<h2>Inside a Jupyter Notebook<a class="headerlink" href="#Inside-a-Jupyter-Notebook" title="Permalink to this headline">¶</a></h2>
-<p>A number of different cell types exist in a jupyter notebook. The following two types are the most important ones.</p>
-<p>** Code Cell **</p>
-<p>The commonly used cell type is the ** <em>code</em> ** cell type, which allows you to insert python code. You can put in multiple lines of python code, ending each line with * enter *. The code in the line is executed by pressing “shift”+“enter”. You will notice the execution through an asterisk “*” in the brackets of the “In [ ]” label of the cell. This will turn into a number, after the cell has been executed.</p>
-<p>** Markdown Cell **</p>
-<p>Besides that, there is also a ** <em>markdown</em> ** cell type, which can contain written text, equations, links or images. These cells usually do not have an “In [ ]” label and you can edit their contents by double clicking on them. After editing, you may leave the edit mode by <strong>SHIFT-ENTER</strong> as well. The syntax for this refers to the markdown language, which is used also in some text editor. Here is a
-<a class="reference external" href="https://medium.com/ibm-data-science-experience/markdown-for-jupyter-notebooks-cheatsheet-386c05aeebed">link</a> to a short overview of usefult commands in the so called <strong>markup language</strong>.</p>
-<p>The markdown cell has the advantage, that you can insert also a description of your project and additional documentation such as equations in LaTeX syntax like</p>
-<p>$ <span class="math">\begin{equation}
-y(x)=\sin(x)
-\end{equation}</span> $</p>
-<p>There are also ways to refer to data obtained in the notebook. To get to know all the details refer to the search engine of your choice. A whole description of the markup language is available from the github website: <a class="reference external" href="https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/">Markup Language</a></p>
-<p>Make yourself familiar with the notebook and keyboard shortcuts as well. The notebook environment delivers some access to some basic system functions as well. It allows to list, change read the current working directory. Some of these functions are listed below.</p>
-<p>** display the current working directory **</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="section" id="Assignment">
+<h2>Assignment<a class="headerlink" href="#Assignment" title="Permalink to this headline">¶</a></h2>
+<p>The assignment operator in Python is <code class="docutils literal notranslate"><span class="pre">=</span></code>. Python is a dynamically typed language, so we do not need to specify the type of a variable when we create one.</p>
+<p>Assigning a value to a new variable creates the variable:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">pwd</span>
+<span></span><span class="c1"># variable assignments</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">my_variable</span> <span class="o">=</span> <span class="mf">12.2</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;/Users/fci&#39;
-</pre></div></div>
-</div>
-<p>** list the contents of the current directory **</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ls</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-black-fg ansi-yellow-bg">Adlm</span>/            <span class="ansi-blue-fg">Library</span>/         <span class="ansi-blue-fg">Things</span>/          <span class="ansi-blue-fg">opt</span>/
-<span class="ansi-blue-fg">Applications</span>/    <span class="ansi-blue-fg">Movies</span>/          Untitled.ipynb   <span class="ansi-blue-fg">render</span>/
-BZR.ipynb        <span class="ansi-blue-fg">Music</span>/           Untitled1.ipynb  <span class="ansi-blue-fg">rfm</span>/
-<span class="ansi-blue-fg">Desktop</span>/         <span class="ansi-blue-fg">Pictures</span>/        <span class="ansi-blue-fg">Zotero</span>/          <span class="ansi-blue-fg">xgen</span>/
-<span class="ansi-blue-fg">Documents</span>/       <span class="ansi-blue-fg">Public</span>/          <span class="ansi-red-fg">cpr</span>*
-<span class="ansi-blue-fg">Downloads</span>/       <span class="ansi-blue-fg">RPI</span>/             lipid.blend
-<span class="ansi-blue-fg">Dropbox</span>/         <span class="ansi-blue-fg">Test</span>/            lipid.blend1
-</pre></div></div>
-</div>
-<p>** change the current working directory **</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">cd</span> <span class="o">~</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-/Users/fci
-</pre></div></div>
-</div>
-<p>** make a new directory **</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mkdir</span> <span class="n">Test</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-mkdir: Test: File exists
-</pre></div></div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="Magic">
-<h2>Magic<a class="headerlink" href="#Magic" title="Permalink to this headline">¶</a></h2>
-<p>Besides this, the notebook also provides some functions known als magic functions. These magic functions can be listed with the help of the <em>lsmagic</em> command. One of the useful magic commands is the <em>%matplotlib inline</em> or the <em>%pylab</em> magic, that can be used to tell matplotlib to insert plotting output into the notbook and not an extra window.</p>
+<p>Although not explicitly specified, a variable does have a type associated with it. The type is derived from the value that was assigned to it.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">lsmagic</span>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Available line magics:
-%alias  %alias_magic  %autoawait  %autocall  %automagic  %autosave  %bookmark  %cat  %cd  %clear  %colors  %conda  %config  %connect_info  %cp  %debug  %dhist  %dirs  %doctest_mode  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %lf  %lk  %ll  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %lx  %macro  %magic  %man  %matplotlib  %mkdir  %more  %mv  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %pip  %popd  %pprint  %precision  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %rep  %rerun  %reset  %reset_selective  %rm  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
-
-Available cell magics:
-%%!  %%HTML  %%SVG  %%bash  %%capture  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%markdown  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
-
-Automagic is ON, % prefix IS NOT needed for line magics.
-</pre></div></div>
-</div>
-</div>
-</div>
-<div class="section" id="Introduction-into-Python">
-<h1>Introduction into Python<a class="headerlink" href="#Introduction-into-Python" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="Operators-and-Calculations">
-<h2>Operators and Calculations<a class="headerlink" href="#Operators-and-Calculations" title="Permalink to this headline">¶</a></h2>
-<p>Jump to top</p>
-<p>Each cell can be used to carry out calculations as in a calculator. Some basic operators are displayed below. Note the different number of decimal digits and number types, which will be addressed in the next section. For more complex mathematical function, modules exist, which can be imported. See <a class="reference external" href="#2.4-Modules">modules section</a> below.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-3
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mi">3</span><span class="o">*</span><span class="mi">9</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-27
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mf">7.</span><span class="o">/</span><span class="mf">9.0</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0.7777777777777778
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mi">12</span><span class="o">//</span><span class="mi">7</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-8
-</pre></div></div>
-</div>
-<hr class="docutils" />
-<div class="section" id="Number-Types">
-<h3>Number Types<a class="headerlink" href="#Number-Types" title="Permalink to this headline">¶</a></h3>
-<p>Jump to top</p>
-<p>Python allows as any programming language different types of variables. The type of a variable can be always accessed with the help of the <em>type()</em> command.</p>
-<hr class="docutils" />
-<div class="section" id="Integers">
-<h4>Integers<a class="headerlink" href="#Integers" title="Permalink to this headline">¶</a></h4>
-<p>Integers are 32 bit binary numbers and extend from -<span class="math notranslate nohighlight">\(2^{31}\)</span> to <span class="math notranslate nohighlight">\(2^{31}\)</span>-1. Python treats numbers without a decimal point automatically as an integer.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mi">1</span> <span class="c1"># integer number</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-int
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mi">7212122134828</span><span class="o">*</span><span class="mi">793700029912</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-5724261554141980896975136
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">type</span><span class="p">(</span><span class="mi">7212122134828</span><span class="o">*</span><span class="mi">793700029912</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-int
-</pre></div></div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="Floating-Point">
-<h4>Floating Point<a class="headerlink" href="#Floating-Point" title="Permalink to this headline">¶</a></h4>
-<p>Floating point values are values with a decimal point and go between <span class="math notranslate nohighlight">\(\pm 2\times 10^{-308}\)</span> and <span class="math notranslate nohighlight">\(\pm 2\times 10^{308}\)</span></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mf">3.141</span> <span class="c1"># float variable</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-3.141
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">type</span><span class="p">(</span><span class="mf">3.141</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -860,39 +538,113 @@ int
 float
 </pre></div></div>
 </div>
-</div>
-<hr class="docutils" />
-<div class="section" id="Complex-Numbers">
-<h4>Complex Numbers<a class="headerlink" href="#Complex-Numbers" title="Permalink to this headline">¶</a></h4>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<p>If we assign a new value to a variable, its type can change.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(2+4j)
+int
 </pre></div></div>
 </div>
+<p>If we try to use a variable that has not yet been defined we get an <code class="docutils literal notranslate"><span class="pre">NameError</span></code>:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-5-d9183e048de3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>y<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;y&#39; is not defined
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Number-types">
+<h2>Number types<a class="headerlink" href="#Number-types" title="Permalink to this headline">¶</a></h2>
+<p>Python allows as any programming language different types of variables. The type of a variable can be always accessed with the help of the <em>type()</em> command.</p>
+<div class="section" id="Integers">
+<h3>Integers<a class="headerlink" href="#Integers" title="Permalink to this headline">¶</a></h3>
+<p>Integers are 32 bit binary numbers and extend from -<span class="math notranslate nohighlight">\(2^{31}\)</span> to <span class="math notranslate nohighlight">\(2^{31}\)</span>-1. Python treats numbers without a decimal point automatically as an integer.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># integer number</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+int
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Floating-Point">
+<h3>Floating Point<a class="headerlink" href="#Floating-Point" title="Permalink to this headline">¶</a></h3>
+<p>Floating point values are values with a decimal point and go between <span class="math notranslate nohighlight">\(\pm 2\times 10^{-308}\)</span> and <span class="math notranslate nohighlight">\(\pm 2\times 10^{308}\)</span></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># float variable</span>
+<span class="n">x</span><span class="o">=</span> <span class="mf">3.141</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Complex-Numbers">
+<h3>Complex Numbers<a class="headerlink" href="#Complex-Numbers" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -902,17 +654,17 @@ complex
 </div>
 <p>Complex numbers have built in <em>accessors</em>. These accessors give for example access to the <em>real</em> and <em>imaginary</em> part of the complex number.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span></span><span class="n">r</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">real</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -920,17 +672,17 @@ complex
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">imag</span>
+<span></span><span class="n">i</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">imag</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -939,11 +691,223 @@ complex
 </div>
 <p>On the other side, one my also evaluate the complex conjugate of a complex number by one of those accessors. Note that this is provided by a function here, while the above real and imaginary part are values. The are some basic functions available, which act on complex numbers. More complex calculations are possible with functions built in to modules such as <em>cmath</em> or <em>numpy</em>.</p>
 <div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">c</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-4.0
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Type-casting">
+<h3>Type casting<a class="headerlink" href="#Type-casting" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.5 &lt;class &#39;float&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 &lt;class &#39;int&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">z</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1+0j) &lt;class &#39;complex&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+<span class="ansi-red-fg">TypeError</span>Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-19-19c840f40bd8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>x <span class="ansi-blue-fg">=</span> float<span class="ansi-blue-fg">(</span>z<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: can&#39;t convert complex to float
+</pre></div></div>
+</div>
+<p>Complex variables cannot be cast to floats or integers. We need to use <code class="docutils literal notranslate"><span class="pre">z.real</span></code> or <code class="docutils literal notranslate"><span class="pre">z.imag</span></code> to extract the part of the complex number we want:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="s2">&quot; -&gt; &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="s2">&quot; -&gt; &quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0  -&gt;  True &lt;class &#39;bool&#39;&gt;
+0.0  -&gt;  False &lt;class &#39;bool&#39;&gt;
+</pre></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Operators-and-comparisons">
+<h1>Operators and comparisons<a class="headerlink" href="#Operators-and-comparisons" title="Permalink to this headline">¶</a></h1>
+<p>Most operators and comparisons in Python work as one would expect:</p>
+<ul class="simple">
+<li><p>Arithmetic operators <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code> (integer division), ’**’ power</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(3, -1, 2, 0.5)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(3.0, -1.0, 2.0, 0.5)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Integer division of float numbers</span>
+<span class="mf">3.0</span> <span class="o">//</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Note! The power operators in python isn&#39;t ^, but **</span>
+<span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4
+</pre></div></div>
+</div>
+<p>Note: The <code class="docutils literal notranslate"><span class="pre">/</span></code> operator always performs a floating point division in Python 3.x. This is not true in Python 2.x, where the result of <code class="docutils literal notranslate"><span class="pre">/</span></code> is always an integer if the operands are integers. to be more specific, <code class="docutils literal notranslate"><span class="pre">1/2</span> <span class="pre">=</span> <span class="pre">0.5</span></code> (<code class="docutils literal notranslate"><span class="pre">float</span></code>) in Python 3.x, and <code class="docutils literal notranslate"><span class="pre">1/2</span> <span class="pre">=</span> <span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) in Python 2.x (but <code class="docutils literal notranslate"><span class="pre">1.0/2</span> <span class="pre">=</span> <span class="pre">0.5</span></code> in Python 2.x).</p>
+<ul class="simple">
+<li><p>The boolean operators are spelled out as the words <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p></li>
+</ul>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+<span></span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
@@ -953,14 +917,146 @@ complex
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(2-4j)
+False
 </pre></div></div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="ow">not</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<ul class="simple">
+<li><p>Comparison operators <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> (greater or equal), <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> (less or equal), <code class="docutils literal notranslate"><span class="pre">==</span></code> equality, <code class="docutils literal notranslate"><span class="pre">is</span></code> identical.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(True, False)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(False, False)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(True, True)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># equality</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># objects identical?</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">l1</span> <span class="ow">is</span> <span class="n">l2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="Modules">
-<h3>Modules<a class="headerlink" href="#Modules" title="Permalink to this headline">¶</a></h3>
+<h1>Modules<a class="headerlink" href="#Modules" title="Permalink to this headline">¶</a></h1>
 <p>Jump to top</p>
 <p>The Python computer language consists of a “core” language plus a vast collection of supplementary software that is contained in modules. Many of these modules come with the standard Python distribution and provide added functionality for performing computer system tasks. Other modules provide more specialized capabilities that not every user may want. You can think of these modules as a kind of library from which you can borrow according to your needs.</p>
 <p>There is a python module for almost everything ranging from Mie Scattering calculations in physics to Natural Language Processing for computers.</p>
@@ -1117,10 +1213,9 @@ complex
 </pre></div></div>
 </div>
 <p>Please bear in mind, that namespaces are great to keep things seperately. You might accidentially define a function which overwrites a module function that has been imported without a namespace. It may be really a tough thing to debug your code then in larger programs.</p>
-</div>
 <hr class="docutils" />
 <div class="section" id="Variables">
-<h3>Variables<a class="headerlink" href="#Variables" title="Permalink to this headline">¶</a></h3>
+<h2>Variables<a class="headerlink" href="#Variables" title="Permalink to this headline">¶</a></h2>
 <p>Jump to top</p>
 <p>Variables are names to store data. One can assign a value to a variable with the <em>=</em> operator and use this variable for further computation.</p>
 <div class="nbinput nblast docutils container">
@@ -1202,7 +1297,7 @@ float
 </div>
 <hr class="docutils" />
 <div class="section" id="Scripts-and-Script-Files">
-<h3>Scripts and Script Files<a class="headerlink" href="#Scripts-and-Script-Files" title="Permalink to this headline">¶</a></h3>
+<h2>Scripts and Script Files<a class="headerlink" href="#Scripts-and-Script-Files" title="Permalink to this headline">¶</a></h2>
 <p>Jump to top</p>
 <p>The Jupyter notebook allows you to use a single cell as a script, which performs a number of calculations. Such scripts may also be saved in a file and run from that file. Wihtin these scripts <em>#</em> denotes a comment.</p>
 <div class="nbinput docutils container">
@@ -1247,7 +1342,7 @@ ERROR:root:File `&#39;script.py&#39;` not found.
 </div>
 </div>
 <div class="section" id="Help!">
-<h3>Help!<a class="headerlink" href="#Help!" title="Permalink to this headline">¶</a></h3>
+<h2>Help!<a class="headerlink" href="#Help!" title="Permalink to this headline">¶</a></h2>
 <p>Jump to top</p>
 <p>Python has a built in help system, which is interactive and can be accessed with the <em>help()</em> command.</p>
 <div class="nbinput docutils container">
@@ -1304,7 +1399,7 @@ has the same effect as typing a particular string at the help&gt; prompt.
 </div>
 <hr class="docutils" />
 <div class="section" id="Data-Types-in-Python">
-<h3>Data Types in Python<a class="headerlink" href="#Data-Types-in-Python" title="Permalink to this headline">¶</a></h3>
+<h2>Data Types in Python<a class="headerlink" href="#Data-Types-in-Python" title="Permalink to this headline">¶</a></h2>
 <p>Jump to top</p>
 <p>Now that we know a bit about the general use of Python, it’s time to look at different data types we may find useful in our course. Besides the data types for the different number types mentioned above, there are also other types like <strong>strings</strong>, <strong>lists</strong>, <strong>tuples</strong>, <strong>arrays</strong> and <strong>dictionaries</strong>. There are usually a number of <em>methods</em> (functions) connected to each data type providing useful functions. We will not talk about these methods, except we need them. It is up to you to explore
 the internet a bit and search for suitable methods for your purpose.</p>
@@ -1318,7 +1413,7 @@ not make much use of them in this introduction to scientific Python, so our disc
 <p>The follwing few cells will give you a short introduction into each type.</p>
 <hr class="docutils" />
 <div class="section" id="Strings">
-<h4>Strings<a class="headerlink" href="#Strings" title="Permalink to this headline">¶</a></h4>
+<h3>Strings<a class="headerlink" href="#Strings" title="Permalink to this headline">¶</a></h3>
 <p>Jump to top</p>
 <p>Strings are lists of characters, which are created with the help of single or double quotes. They belong to the sequence data type like lists or tuples. They can be assigned to variables.</p>
 <div class="nbinput nblast docutils container">
@@ -1482,7 +1577,7 @@ True
 </div>
 <hr class="docutils" />
 <div class="section" id="Lists">
-<h3>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h3>
+<h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h2>
 <p>Jump to top</p>
 <p>Lists are sequences of one or more elements. The elements of lists can be numbers or strings, or both at the same time. Lists are defined by a pair of square brackets on either end with individual elements separated by commas. Here are two examples of lists:</p>
 <div class="nbinput nblast docutils container">
@@ -1805,7 +1900,7 @@ range(3, 10, 2)
 </div>
 <hr class="docutils" />
 <div class="section" id="Tuples">
-<h4>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h4>
+<h3>Tuples<a class="headerlink" href="#Tuples" title="Permalink to this headline">¶</a></h3>
 <p>Jump to top</p>
 <p>Tuples are also list, but immutable. That means, if a tuple has been once defined, it cannot be changed. Try to change an element to see the result.</p>
 <div class="nbinput nblast docutils container">
@@ -1820,7 +1915,7 @@ range(3, 10, 2)
 </div>
 <hr class="docutils" />
 <div class="section" id="Arrays">
-<h4>Arrays<a class="headerlink" href="#Arrays" title="Permalink to this headline">¶</a></h4>
+<h3>Arrays<a class="headerlink" href="#Arrays" title="Permalink to this headline">¶</a></h3>
 <p>Jump to top</p>
 <p>The NumPy array is the real workhorse of data structures for scientific and engineering applications. The NumPy array, formally called ndarray in NumPy documentation, is similar to a list but where all the elements of the list are of the same type. The elements of a NumPy array, or simply an array, are usually numbers, but can also be boolians, strings, or other objects. When the elements are numbers, they must all be of the same type. For example, they might be all integers or all floating
 point numbers. For numpy array’s we need to import the NumPy module.</p>
@@ -2275,7 +2370,7 @@ array([[0., 0., 0.],
 </div>
 <hr class="docutils" />
 <div class="section" id="Dictionaries">
-<h4>Dictionaries<a class="headerlink" href="#Dictionaries" title="Permalink to this headline">¶</a></h4>
+<h3>Dictionaries<a class="headerlink" href="#Dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>Jump to top</p>
 <p>A Python list is a collection of Python objects indexed by an ordered sequence of integers starting from zero. A dictionary is also collection of Python objects, just like a list, but one that is indexed by strings or numbers (not necessarily integers and not in any particular order) or even tuples! For example, suppose we want to make a dictionary of room numbers indexed by the name of the person who occupies each room. We create our dictionary using curly brackets {…}.</p>
 <div class="nbinput nblast docutils container">
@@ -2346,9 +2441,8 @@ dict_values([422, 322, 550])
 </div>
 <hr class="docutils" />
 <div class="section" id="What’s-next">
-<h2>What’s next<a class="headerlink" href="#What’s-next" title="Permalink to this headline">¶</a></h2>
+<h1>What’s next<a class="headerlink" href="#What’s-next" title="Permalink to this headline">¶</a></h1>
 <p>This has been a short overview over the basic things in Jupyter and Python. We will address more details on the way to our physical problems and data analysis code. As one of the most fundamental features required in physics is plotting of data, we will address plotting with a first primer next week in Lecture 2. Also input and output including keybord and files will be of our concern.</p>
-</div>
 </div>
 
 

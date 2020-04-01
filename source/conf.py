@@ -100,7 +100,7 @@ html_context = {
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Geo-Pythondoc'
+#htmlhelp_basename = 'Geo-Pythondoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -123,15 +123,6 @@ latex_elements = {
     # 'figure_align': 'htbp',
 }
 
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title,
-#  author, documentclass [howto, manual, or own class]).
-#latex_documents = [
-#    (master_doc, 'Geo-Python.tex', 'Geo-Python Documentation',
-#     'H. Tenkanen and D. Whipp', 'manual'),
-#]
-
-
 
 # -- Extension configuration -------------------------------------------------
 # This is processed by Jinja2 and inserted before each notebook
@@ -143,8 +134,8 @@ nbsphinx_prolog = r"""
         :format: html
     .. nbinfo::
         This page was generated from `{{ docname }}`__.
-        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/website/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a href="https://mybinder.org/v2/gh/website/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:'<br/><a href="https://mybinder.org/v2/gh/website/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge$
+        :raw-html:`<a href="https://mybinder.org/v2/gh/website/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20b$
     __ https://github.com/fcichos/{{ env.config.release }}/blob/master/{{ docname }}
 .. raw:: latex
     \vfil\penalty-1\vfilneg
