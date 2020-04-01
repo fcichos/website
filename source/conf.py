@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Lecture 1'
+project = 'Computational Software'
 copyright = '2020, Frank Cichos'
 author = 'Frank Cichos'
 
@@ -66,6 +66,7 @@ html_last_updated_fmt = ""
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
+
 html_theme_options = {
     "collapse_navigation" : False
 }

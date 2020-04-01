@@ -30,6 +30,9 @@ Welcome to Computational Software Course!
 
    notebooks/L2/Lecture-2.ipynb
 
+
+
+
 Indices and tables
 ==================
 
