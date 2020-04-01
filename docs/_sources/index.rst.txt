@@ -30,6 +30,12 @@ Feel free to ask questions to the contents of the modules.
    
    course-info/schedule
    course-info/assignments
+   
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Software in the Course:
+   
    notebooks/Intro/Introduction2Jupyter.ipynb
    notebooks/Intro/NotebookEditor.ipynb
 
