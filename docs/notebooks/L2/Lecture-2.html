@@ -488,7 +488,7 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<p><a class="reference external" href="https://mybinder.org/v2/gh/fcichos/photonics2.github.io/master?filepath=source%2Fnotebooks%2FL2%2FLecture-2.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L2/Lecture-2.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <div class="section" id="A-Short-Primer-on-Plotting">
 <h1>A Short Primer on Plotting<a class="headerlink" href="#A-Short-Primer-on-Plotting" title="Permalink to this headline">¶</a></h1>
 <p>Before we start today, we give a short primer on plotting, since plotting data is very useful tool to visualize data during our exploration of python. We will go into more details of the plotting functions in matplotlib later. Here we just concentrate on the basics.</p>
@@ -1163,8 +1163,8 @@ How are you my friend?
 </pre></div>
 </div>
 <p>We would like to read these data into a Python program, associating the data in each column with an appropriately named array. While there are a multitude of ways to do this in Python, the simplest by far is to use the NumPy <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.loadtxt.html">loadtxt</a> function, whose use we illustrate here. Suppose that the name of the text file is <strong>MyData.txt</strong>. Then we can read the data into four different arrays with the following statement</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1172,43 +1172,9 @@ How are you my friend?
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-33-1c5441bdaa0c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>dataPt<span class="ansi-blue-fg">,</span> time<span class="ansi-blue-fg">,</span> height<span class="ansi-blue-fg">,</span> error <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>loadtxt<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;./MyData.txt&#34;</span><span class="ansi-blue-fg">,</span> skiprows<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">4</span> <span class="ansi-blue-fg">,</span> unpack<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/var/mobile/Containers/Data/Application/8735ED60-4195-4AE2-8B05-E780A1B42B99/Library/Application Support/com.rationalmatter.junoapp/python-home/lib/python3.6/site-packages/numpy/lib/npyio.py</span> in <span class="ansi-cyan-fg">loadtxt</span><span class="ansi-blue-fg">(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows)</span>
-<span class="ansi-green-intense-fg ansi-bold">    960</span>             fname <span class="ansi-blue-fg">=</span> os_fspath<span class="ansi-blue-fg">(</span>fname<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    961</span>         <span class="ansi-green-fg">if</span> _is_string_like<span class="ansi-blue-fg">(</span>fname<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 962</span><span class="ansi-red-fg">             </span>fh <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>lib<span class="ansi-blue-fg">.</span>_datasource<span class="ansi-blue-fg">.</span>open<span class="ansi-blue-fg">(</span>fname<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;rt&#39;</span><span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span>encoding<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    963</span>             fencoding <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>fh<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;encoding&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;latin1&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    964</span>             fh <span class="ansi-blue-fg">=</span> iter<span class="ansi-blue-fg">(</span>fh<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/var/mobile/Containers/Data/Application/8735ED60-4195-4AE2-8B05-E780A1B42B99/Library/Application Support/com.rationalmatter.junoapp/python-home/lib/python3.6/site-packages/numpy/lib/_datasource.py</span> in <span class="ansi-cyan-fg">open</span><span class="ansi-blue-fg">(path, mode, destpath, encoding, newline)</span>
-<span class="ansi-green-intense-fg ansi-bold">    264</span>
-<span class="ansi-green-intense-fg ansi-bold">    265</span>     ds <span class="ansi-blue-fg">=</span> DataSource<span class="ansi-blue-fg">(</span>destpath<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 266</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> ds<span class="ansi-blue-fg">.</span>open<span class="ansi-blue-fg">(</span>path<span class="ansi-blue-fg">,</span> mode<span class="ansi-blue-fg">,</span> encoding<span class="ansi-blue-fg">=</span>encoding<span class="ansi-blue-fg">,</span> newline<span class="ansi-blue-fg">=</span>newline<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    267</span>
-<span class="ansi-green-intense-fg ansi-bold">    268</span>
-
-<span class="ansi-green-fg">/var/mobile/Containers/Data/Application/8735ED60-4195-4AE2-8B05-E780A1B42B99/Library/Application Support/com.rationalmatter.junoapp/python-home/lib/python3.6/site-packages/numpy/lib/_datasource.py</span> in <span class="ansi-cyan-fg">open</span><span class="ansi-blue-fg">(self, path, mode, encoding, newline)</span>
-<span class="ansi-green-intense-fg ansi-bold">    622</span>                                       encoding=encoding, newline=newline)
-<span class="ansi-green-intense-fg ansi-bold">    623</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 624</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> IOError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;%s not found.&#34;</span> <span class="ansi-blue-fg">%</span> path<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    625</span>
-<span class="ansi-green-intense-fg ansi-bold">    626</span>
-
-<span class="ansi-red-fg">OSError</span>: ./MyData.txt not found.
-</pre></div></div>
-</div>
 <p>If you don’t want to read in all the columns of data, you can specify which columns to read in using the usecols key word. For example, the call</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1226,7 +1192,7 @@ How are you my friend?
 </div>
 <p>We illustrate savetext below with a script that first creates four arrays by reading in the data file MyData.txt, as discussed in the previous section, and then writes that same data set to another file MyDataOut.txt.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1235,7 +1201,7 @@ How are you my friend?
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1244,11 +1210,11 @@ How are you my friend?
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>more MyDataOut.txt
+<span></span><span class="o">!</span>cat MyDataOut.txt
 </pre></div>
 </div>
 </div>
@@ -1263,7 +1229,6 @@ How are you my friend?
          4.0          2.0        160.0          2.5
          5.0          2.5        148.0          3.0
          6.0          3.0        136.0          2.5
-&gt;Out.txt (END)
 </pre></div></div>
 </div>
 <p><strong>Exercise</strong></p>
