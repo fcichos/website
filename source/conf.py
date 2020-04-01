@@ -85,6 +85,7 @@ html_theme_options = {
 #
 # html_sidebars = {}
 
+
 html_context = {
     # Enable the "Edit in GitHub link within the header of each page.
     'display_github': True,
@@ -97,28 +98,26 @@ html_context = {
 }
 
 
-
 # -- Extension configuration -------------------------------------------------
 # This is processed by Jinja2 and inserted before each notebook
-nbsphinx_prolog = r"""
+
+nbsphinx_prolog = """
 {% set docname = env.doc2path(env.docname, base='source') %}
-{% set docname2 = env.doc2path(env.docname, base='') %}
+
 .. only:: html
+
+    Go there: https://example.org/notebooks/{{ docname }}
+
     .. role:: raw-html(raw)
         :format: html
+        
     .. nbinfo::
-        This page was generated from `{{ docname }}`__.
-        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a href="https://mybinder.org/v2/gh/fcichos/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a>`
-        :raw-html:`<a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a>`
-    __ https://github.com/fcichos/{{ env.config.release }}/blob/master/{{ docname }}
-.. raw:: latex
-    \vfil\penalty-1\vfilneg
-    \vspace{\baselineskip}
-    \textcolor{gray}{The following section was generated from
-    \texttt{\strut{}{{ docname }}}\\[-0.5\baselineskip]
-    \noindent\rule{\textwidth}{0.4pt}}
-    \vspace{-2\baselineskip}
+
+        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
+
+.. only:: latex
+
+    The following section was created from :file:`{{ docname }}`.
 """
 
 nbsphinx_allow_errors = True
