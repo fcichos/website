@@ -38,9 +38,8 @@ extensions = [
     'IPython.sphinxext.ipython_directive',
 ]
 
-
-exclude_patterns = ['_build', '.ipynb_checkpoints']
 # Add any paths that contain templates here, relative to this directory.
+exclude_patterns = ['_build', '**.ipynb_checkpoints']
 templates_path = ['_templates']
 
 
@@ -74,7 +73,7 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+#html_static_path = ['_static']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -97,31 +96,6 @@ html_context = {
     'conf_py_path': '/source/'
 }
 
-# -- Options for HTMLHelp output ---------------------------------------------
-
-# Output file base name for HTML help builder.
-#htmlhelp_basename = 'Geo-Pythondoc'
-
-
-# -- Options for LaTeX output ------------------------------------------------
-
-latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
-}
 
 
 # -- Extension configuration -------------------------------------------------
@@ -134,8 +108,9 @@ nbsphinx_prolog = r"""
         :format: html
     .. nbinfo::
         This page was generated from `{{ docname }}`__.
-        :raw-html:'<br/><a href="https://mybinder.org/v2/gh/website/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge$
-        :raw-html:`<a href="https://mybinder.org/v2/gh/website/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20b$
+        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/{{ env.config.release }}/master?urlpath=lab/tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<a href="https://mybinder.org/v2/gh/fcichos/notebooks/master?urlpath=lab/tree/{{ docname2 }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-student%20binder-red.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<a href="https://notebooks.csc.fi/#/blueprint/df93f30d14e44b51907d135726eb6ef4"><img alt="CSC badge" src="https://img.shields.io/badge/launch-CSC%20notebook-blue.svg" style="vertical-align:text-bottom"></a>`
     __ https://github.com/fcichos/{{ env.config.release }}/blob/master/{{ docname }}
 .. raw:: latex
     \vfil\penalty-1\vfilneg
@@ -151,4 +126,3 @@ nbsphinx_allow_errors = True
 # Sphinx versioning settings
 scv_show_banner = True
 scv_whitelist_branches = ('master', 'develop')
-

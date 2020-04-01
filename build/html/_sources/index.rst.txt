@@ -34,16 +34,19 @@ Feel free to ask questions to the contents of the modules.
    
 .. toctree::
    :maxdepth: 2
-   :caption: Software in the Course:
+   :caption: Jupyter Notebooks:
    
+   lectures/Intro/overview
    notebooks/Intro/Introduction2Jupyter.ipynb
    notebooks/Intro/NotebookEditor.ipynb
+   notebooks/Intro/EditCells.ipynb
 
 
 .. toctree::
    :maxdepth: 2
    :caption: Lecture 1:
 
+   lectures/L1/overview
    notebooks/L1/Lecture-1.ipynb
 
 
