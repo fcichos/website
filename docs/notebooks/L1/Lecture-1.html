@@ -88,6 +88,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Software in the Course:</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../Intro/Introduction2Jupyter.html">Introduction to Jupyter</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#What-is-Jupyter-Notebook?">What is Jupyter Notebook?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-editor">Notebook editor</a></li>
@@ -491,19 +494,6 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <p><a class="reference external" href="https://mybinder.org/v2/gh/fcichos/photonics2.github.io/master?filepath=ssource%2Fnotebooks%2FL1%2FLecture-1.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
-<p>The Python programming language is useful for all kinds of scientific and engineering tasks. You can use it to analyze and plot data. You can also use it to numerically solve scientific problems that are difficult or even impossible to solve analytically. Python is freely available and has been, due to its modular structure, extended with a nearly infinite number of different purpose modules.</p>
-<p>This course intends to introduce you into the programming with Python and shall involve to a large extent excercises. It is certainly aimed at the beginner and not the expert.</p>
-<p>We will start with a basic introduction into the programming language Python. We will show you some basic functionalities, the rading of data, plotting data and analyzing data, which are some of the tasks you will encounter during your studies. We will especially also focus on the fitting of data and an error estimation.</p>
-<p>Afterwards, we will tackle ther numerical solution of physical problems from</p>
-<ul class="simple">
-<li><p>mechanics</p></li>
-<li><p>electrostatics</p></li>
-<li><p>waves</p></li>
-<li><p>quantum mechanics</p></li>
-<li><p>optics</p></li>
-</ul>
-<p>so that you also see, how different problems can be addressed. We will not present a comprehensive list of numerical simulation schemes, but use the examples to stimulate your curiosity. As there are slight differences in the syntax of different Python versions, we will in the following always refer to <strong>Python 3</strong> standards.</p>
-<p>But there are plenty of tutorials and documentation even related to physics in the internet. Feel free to ask questions to the contents of the module. The two names above contain links to our email addresses. Drop by if you want to talk to us in personal.</p>
 <hr class="docutils" />
 <div class="section" id="Jupyter-Notebook-Python-Environment">
 <h1>Jupyter Notebook Python Environment<a class="headerlink" href="#Jupyter-Notebook-Python-Environment" title="Permalink to this headline">¶</a></h1>
@@ -627,7 +617,7 @@ mkdir: Test: File exists
 <h2>Magic<a class="headerlink" href="#Magic" title="Permalink to this headline">¶</a></h2>
 <p>Besides this, the notebook also provides some functions known als magic functions. These magic functions can be listed with the help of the <em>lsmagic</em> command. One of the useful magic commands is the <em>%matplotlib inline</em> or the <em>%pylab</em> magic, that can be used to tell matplotlib to insert plotting output into the notbook and not an extra window.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -636,7 +626,7 @@ mkdir: Test: File exists
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -652,7 +642,6 @@ Automagic is ON, % prefix IS NOT needed for line magics.
 </div>
 </div>
 </div>
-<hr class="docutils" />
 <div class="section" id="Introduction-into-Python">
 <h1>Introduction into Python<a class="headerlink" href="#Introduction-into-Python" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Operators-and-Calculations">
