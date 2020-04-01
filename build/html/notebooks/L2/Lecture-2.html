@@ -176,10 +176,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#3D-Plotting">3D Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#3D-Plotting">3D Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#What’s-next">What’s next</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#Animations">Animations</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -2189,190 +2191,12 @@ Text(0.5, 0, &#39;z&#39;)
 <img alt="../../_images/notebooks_L2_Lecture-2_119_0.png" src="../../_images/notebooks_L2_Lecture-2_119_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="Animations">
-<h1>Animations<a class="headerlink" href="#Animations" title="Permalink to this headline">¶</a></h1>
-<p>To display function animations, matplotlib has a special module to carry out animations. The <em>FuncAnimation</em> command takes several arguments.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><strong>fig</strong> figure to draw the data in</p></li>
-<li><p><strong>animate</strong> the function which varies to recalculate the plotting data, it gets the frame <span class="math notranslate nohighlight">\(i\)</span> number as an argument</p></li>
-<li><p><strong>init_func</strong> function which initialzes the line data arrays</p></li>
-<li><p><strong>frames</strong> number of frames which shall be displayed</p></li>
-<li><p><strong>intervall</strong> time intervall for the display in ms</p></li>
-<li><p><strong>blit</strong> this is a special way of buffering, doen’t work on osx, but might on Windows</p></li>
-</ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">matplotlib</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-4-a49a4afc47c5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_line_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;matplotlib&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_line_magic</span><span class="ansi-blue-fg">(self, magic_name, line, _stack_depth)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2305</span>                 kwargs<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;local_ns&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> sys<span class="ansi-blue-fg">.</span>_getframe<span class="ansi-blue-fg">(</span>stack_depth<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>f_locals
-<span class="ansi-green-intense-fg ansi-bold">   2306</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>builtin_trap<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 2307</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> fn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2308</span>             <span class="ansi-green-fg">return</span> result
-<span class="ansi-green-intense-fg ansi-bold">   2309</span>
-
-<span class="ansi-green-fg">&lt;/Users/fci/anaconda3/lib/python3.7/site-packages/decorator.py:decorator-gen-108&gt;</span> in <span class="ansi-cyan-fg">matplotlib</span><span class="ansi-blue-fg">(self, line)</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/IPython/core/magic.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">(f, *a, **k)</span>
-<span class="ansi-green-intense-fg ansi-bold">    185</span>     <span class="ansi-red-fg"># but it&#39;s overkill for just that one bit of state.</span>
-<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-green-fg">def</span> magic_deco<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 187</span><span class="ansi-red-fg">         </span>call <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span> f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">:</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    188</span>
-<span class="ansi-green-intense-fg ansi-bold">    189</span>         <span class="ansi-green-fg">if</span> callable<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/IPython/core/magics/pylab.py</span> in <span class="ansi-cyan-fg">matplotlib</span><span class="ansi-blue-fg">(self, line)</span>
-<span class="ansi-green-intense-fg ansi-bold">     97</span>             print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Available matplotlib backends: %s&#34;</span> <span class="ansi-blue-fg">%</span> backends_list<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     98</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 99</span><span class="ansi-red-fg">             </span>gui<span class="ansi-blue-fg">,</span> backend <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>shell<span class="ansi-blue-fg">.</span>enable_matplotlib<span class="ansi-blue-fg">(</span>args<span class="ansi-blue-fg">.</span>gui<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    100</span>             self<span class="ansi-blue-fg">.</span>_show_matplotlib_backend<span class="ansi-blue-fg">(</span>args<span class="ansi-blue-fg">.</span>gui<span class="ansi-blue-fg">,</span> backend<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    101</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">enable_matplotlib</span><span class="ansi-blue-fg">(self, gui)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3382</span>                 gui<span class="ansi-blue-fg">,</span> backend <span class="ansi-blue-fg">=</span> pt<span class="ansi-blue-fg">.</span>find_gui_and_backend<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>pylab_gui_select<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3383</span>
-<span class="ansi-green-fg">-&gt; 3384</span><span class="ansi-red-fg">         </span>pt<span class="ansi-blue-fg">.</span>activate_matplotlib<span class="ansi-blue-fg">(</span>backend<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3385</span>         pt<span class="ansi-blue-fg">.</span>configure_inline_support<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> backend<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3386</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/IPython/core/pylabtools.py</span> in <span class="ansi-cyan-fg">activate_matplotlib</span><span class="ansi-blue-fg">(backend)</span>
-<span class="ansi-green-intense-fg ansi-bold">    311</span>     matplotlib<span class="ansi-blue-fg">.</span>rcParams<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;backend&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> backend
-<span class="ansi-green-intense-fg ansi-bold">    312</span>
-<span class="ansi-green-fg">--&gt; 313</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">import</span> matplotlib<span class="ansi-blue-fg">.</span>pyplot
-<span class="ansi-green-intense-fg ansi-bold">    314</span>     matplotlib<span class="ansi-blue-fg">.</span>pyplot<span class="ansi-blue-fg">.</span>switch_backend<span class="ansi-blue-fg">(</span>backend<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    315</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/matplotlib/pyplot.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">   2370</span>     dict<span class="ansi-blue-fg">.</span>__setitem__<span class="ansi-blue-fg">(</span>rcParams<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;backend&#34;</span><span class="ansi-blue-fg">,</span> rcsetup<span class="ansi-blue-fg">.</span>_auto_backend_sentinel<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2371</span> <span class="ansi-red-fg"># Set up the backend.</span>
-<span class="ansi-green-fg">-&gt; 2372</span><span class="ansi-red-fg"> </span>switch_backend<span class="ansi-blue-fg">(</span>rcParams<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;backend&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2373</span>
-<span class="ansi-green-intense-fg ansi-bold">   2374</span> <span class="ansi-red-fg"># Just to be safe.  Interactive mode can be turned on without</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/matplotlib/pyplot.py</span> in <span class="ansi-cyan-fg">switch_backend</span><span class="ansi-blue-fg">(newbackend)</span>
-<span class="ansi-green-intense-fg ansi-bold">    205</span>         else &#34;matplotlib.backends.backend_{}&#34;.format(newbackend.lower()))
-<span class="ansi-green-intense-fg ansi-bold">    206</span>
-<span class="ansi-green-fg">--&gt; 207</span><span class="ansi-red-fg">     </span>backend_mod <span class="ansi-blue-fg">=</span> importlib<span class="ansi-blue-fg">.</span>import_module<span class="ansi-blue-fg">(</span>backend_name<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    208</span>     Backend = type(
-<span class="ansi-green-intense-fg ansi-bold">    209</span>         &#34;Backend&#34;, (matplotlib.backends._Backend,), vars(backend_mod))
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/importlib/__init__.py</span> in <span class="ansi-cyan-fg">import_module</span><span class="ansi-blue-fg">(name, package)</span>
-<span class="ansi-green-intense-fg ansi-bold">    125</span>                 <span class="ansi-green-fg">break</span>
-<span class="ansi-green-intense-fg ansi-bold">    126</span>             level <span class="ansi-blue-fg">+=</span> <span class="ansi-cyan-fg">1</span>
-<span class="ansi-green-fg">--&gt; 127</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> _bootstrap<span class="ansi-blue-fg">.</span>_gcd_import<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">[</span>level<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> package<span class="ansi-blue-fg">,</span> level<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    128</span>
-<span class="ansi-green-intense-fg ansi-bold">    129</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_macosx.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span> <span class="ansi-green-fg">import</span> matplotlib
-<span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib<span class="ansi-blue-fg">.</span>backends <span class="ansi-green-fg">import</span> _macosx
-<span class="ansi-green-intense-fg ansi-bold">     15</span>
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>backend_agg <span class="ansi-green-fg">import</span> FigureCanvasAgg
-
-<span class="ansi-red-fg">ImportError</span>: Python is not installed as a framework. The Mac OS X backend will not be able to function correctly if Python is not installed as a framework. See the Python documentation for more information on installing Python as a framework on Mac OS X. Please either reinstall Python as a framework, or try one of the other backends. If you are using (Ana)Conda please install python.app and replace the use of &#39;python&#39; with &#39;pythonw&#39;. See &#39;Working with Matplotlib on OSX&#39; in the Matplotlib FAQ for more information.
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
-
-<span class="c1"># First set up the figure, the axis, and the plot element we want to animate</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># initialization function: plot the background of each frame</span>
-<span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],</span> <span class="p">[])</span>
-    <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
-
-<span class="c1"># animation function.  This is called sequentially</span>
-<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">i</span><span class="p">))</span>
-    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">line</span><span class="p">,</span>
-
-<span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
-                               <span class="n">frames</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-9ebb16ae9050&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> animation
-<span class="ansi-green-intense-fg ansi-bold">      4</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-red-fg"># First set up the figure, the axis, and the plot element we want to animate</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/matplotlib/pyplot.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">   2370</span>     dict<span class="ansi-blue-fg">.</span>__setitem__<span class="ansi-blue-fg">(</span>rcParams<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;backend&#34;</span><span class="ansi-blue-fg">,</span> rcsetup<span class="ansi-blue-fg">.</span>_auto_backend_sentinel<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2371</span> <span class="ansi-red-fg"># Set up the backend.</span>
-<span class="ansi-green-fg">-&gt; 2372</span><span class="ansi-red-fg"> </span>switch_backend<span class="ansi-blue-fg">(</span>rcParams<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;backend&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   2373</span>
-<span class="ansi-green-intense-fg ansi-bold">   2374</span> <span class="ansi-red-fg"># Just to be safe.  Interactive mode can be turned on without</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/matplotlib/pyplot.py</span> in <span class="ansi-cyan-fg">switch_backend</span><span class="ansi-blue-fg">(newbackend)</span>
-<span class="ansi-green-intense-fg ansi-bold">    205</span>         else &#34;matplotlib.backends.backend_{}&#34;.format(newbackend.lower()))
-<span class="ansi-green-intense-fg ansi-bold">    206</span>
-<span class="ansi-green-fg">--&gt; 207</span><span class="ansi-red-fg">     </span>backend_mod <span class="ansi-blue-fg">=</span> importlib<span class="ansi-blue-fg">.</span>import_module<span class="ansi-blue-fg">(</span>backend_name<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    208</span>     Backend = type(
-<span class="ansi-green-intense-fg ansi-bold">    209</span>         &#34;Backend&#34;, (matplotlib.backends._Backend,), vars(backend_mod))
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/importlib/__init__.py</span> in <span class="ansi-cyan-fg">import_module</span><span class="ansi-blue-fg">(name, package)</span>
-<span class="ansi-green-intense-fg ansi-bold">    125</span>                 <span class="ansi-green-fg">break</span>
-<span class="ansi-green-intense-fg ansi-bold">    126</span>             level <span class="ansi-blue-fg">+=</span> <span class="ansi-cyan-fg">1</span>
-<span class="ansi-green-fg">--&gt; 127</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> _bootstrap<span class="ansi-blue-fg">.</span>_gcd_import<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">[</span>level<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> package<span class="ansi-blue-fg">,</span> level<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    128</span>
-<span class="ansi-green-intense-fg ansi-bold">    129</span>
-
-<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/matplotlib/backends/backend_macosx.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span> <span class="ansi-green-fg">import</span> matplotlib
-<span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib<span class="ansi-blue-fg">.</span>backends <span class="ansi-green-fg">import</span> _macosx
-<span class="ansi-green-intense-fg ansi-bold">     15</span>
-<span class="ansi-green-intense-fg ansi-bold">     16</span> <span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>backend_agg <span class="ansi-green-fg">import</span> FigureCanvasAgg
-
-<span class="ansi-red-fg">ImportError</span>: Python is not installed as a framework. The Mac OS X backend will not be able to function correctly if Python is not installed as a framework. See the Python documentation for more information on installing Python as a framework on Mac OS X. Please either reinstall Python as a framework, or try one of the other backends. If you are using (Ana)Conda please install python.app and replace the use of &#39;python&#39; with &#39;pythonw&#39;. See &#39;Working with Matplotlib on OSX&#39; in the Matplotlib FAQ for more information.
-</pre></div></div>
-</div>
-<p>There are a number of other options for creating animated graphics in python. You will learn about pygame for example in the exercises.</p>
 <hr class="docutils" />
+<div class="section" id="What’s-next">
+<h3>What’s next<a class="headerlink" href="#What’s-next" title="Permalink to this headline">¶</a></h3>
 <p>After you have carried out for yourself all the exercises before, you are fit in plotting in various ways.</p>
+</div>
+</div>
 </div>
 
 
