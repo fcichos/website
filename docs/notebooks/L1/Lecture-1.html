@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="A Short Primer on Plotting" href="../L2/Lecture-2.html" />
+    <link rel="next" title="Lecture Contents" href="../../lectures/L2/overview.html" />
     <link rel="prev" title="Lecture Contents" href="../../lectures/L1/overview.html" /> 
 </head>
 
@@ -139,11 +139,20 @@
 <li class="toctree-l2"><a class="reference internal" href="#Dictionaries">Dictionaries</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#Modules">Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Contents-and-documentation-of-a-module">Contents and documentation of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Exceptions">Exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#What’s-next">What’s next</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 2:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html">A Short Primer on Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html">A Short Primer on Plotting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Probability-density-for-finding-an-oscillating-particle">Probability density for finding an oscillating particle</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/Lecture-2.html#Random-numbers">Random numbers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Uniformly-distributed-random-numbers---rand()">Uniformly distributed random numbers - rand()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L2/Lecture-2.html#Normally-distributed-random-numbers---randn()">Normally distributed random numbers - randn()</a></li>
@@ -1619,7 +1628,6 @@ y = 20
 </pre></div></div>
 </div>
 </div>
-<hr class="docutils" />
 <div class="section" id="Dictionaries">
 <h2>Dictionaries<a class="headerlink" href="#Dictionaries" title="Permalink to this headline">¶</a></h2>
 <p><strong>Dictionaries</strong> are like lists, but the elements of dictionaries are accessed in a different way than for lists. The elements of lists and arrays are numbered consecutively, and to access an element of a list or an array, you simply refer to the number corresponding to its position in the sequence. The elements of dictionaries are accessed by “keys”, which can be either strings or (arbitrary) integers (in no particular order). Dictionaries are an important part of core Python. However, we do
@@ -1689,6 +1697,241 @@ dict_values([422, 322, 550])
 </div>
 </div>
 </div>
+<div class="section" id="Modules">
+<h1>Modules<a class="headerlink" href="#Modules" title="Permalink to this headline">¶</a></h1>
+<p>Most of the functionality in Python is provided by <em>modules</em>. The Python Standard Library is a large collection of modules that provides <em>cross-platform</em> implementations of common facilities such as access to the operating system, file I/O, string management, network communication, and much more.</p>
+<p>To use a module in a Python program it first has to be imported. A module can be imported using the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement. For example, to import the module <code class="docutils literal notranslate"><span class="pre">math</span></code>, which contains many standard mathematical functions, we can do:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0
+</pre></div></div>
+</div>
+<p>This includes the whole module and makes it available for use later in the program. Alternatively, we can chose to import all symbols (functions and variables) in a module to the current namespace (so that we don’t need to use the prefix “<code class="docutils literal notranslate"><span class="pre">math.</span></code>” every time we use something from the <code class="docutils literal notranslate"><span class="pre">math</span></code> module:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0
+</pre></div></div>
+</div>
+<p>This pattern can be very convenient, but in large programs that include many modules it is often a good idea to keep the symbols from each module in their own namespaces, by using the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">math</span></code> pattern. This would elminate potentially confusing problems with name space collisions.</p>
+<div class="section" id="Contents-and-documentation-of-a-module">
+<h2>Contents and documentation of a module<a class="headerlink" href="#Contents-and-documentation-of-a-module" title="Permalink to this headline">¶</a></h2>
+<p>Once a module is imported, we can list the symbols it provides using the <code class="docutils literal notranslate"><span class="pre">dir</span></code> function:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[127]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;acos&#39;, &#39;acosh&#39;, &#39;asin&#39;, &#39;asinh&#39;, &#39;atan&#39;, &#39;atan2&#39;, &#39;atanh&#39;, &#39;ceil&#39;, &#39;copysign&#39;, &#39;cos&#39;, &#39;cosh&#39;, &#39;degrees&#39;, &#39;e&#39;, &#39;erf&#39;, &#39;erfc&#39;, &#39;exp&#39;, &#39;expm1&#39;, &#39;fabs&#39;, &#39;factorial&#39;, &#39;floor&#39;, &#39;fmod&#39;, &#39;frexp&#39;, &#39;fsum&#39;, &#39;gamma&#39;, &#39;gcd&#39;, &#39;hypot&#39;, &#39;inf&#39;, &#39;isclose&#39;, &#39;isfinite&#39;, &#39;isinf&#39;, &#39;isnan&#39;, &#39;ldexp&#39;, &#39;lgamma&#39;, &#39;log&#39;, &#39;log10&#39;, &#39;log1p&#39;, &#39;log2&#39;, &#39;modf&#39;, &#39;nan&#39;, &#39;pi&#39;, &#39;pow&#39;, &#39;radians&#39;, &#39;remainder&#39;, &#39;sin&#39;, &#39;sinh&#39;, &#39;sqrt&#39;, &#39;tan&#39;, &#39;tanh&#39;, &#39;tau&#39;, &#39;trunc&#39;]
+</pre></div></div>
+</div>
+<p>And using the function <code class="docutils literal notranslate"><span class="pre">help</span></code> we can get a description of each function (almost .. not all functions have docstrings, as they are technically called, but the vast majority of functions are documented this way).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[128]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on built-in function log in module math:
+
+log(...)
+    log(x, [base=math.e])
+    Return the logarithm of x to the given base.
+
+    If the base not specified, returns the natural logarithm (base e) of x.
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[130]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[130]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2.302585092994046
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[131]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[131]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3.3219280948873626
+</pre></div></div>
+</div>
+<p>We can also use the <code class="docutils literal notranslate"><span class="pre">help</span></code> function directly on modules: Try</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Some very useful modules form the Python standard library are <code class="docutils literal notranslate"><span class="pre">os</span></code>, <code class="docutils literal notranslate"><span class="pre">sys</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">shutil</span></code>, <code class="docutils literal notranslate"><span class="pre">re</span></code>, <code class="docutils literal notranslate"><span class="pre">subprocess</span></code>, <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>, <code class="docutils literal notranslate"><span class="pre">threading</span></code>.</p>
+<p>A complete lists of standard modules for Python 3 is available at <a class="reference external" href="http://docs.python.org/3/library/">http://docs.python.org/3/library/</a> .</p>
+</div>
+</div>
+<div class="section" id="Exceptions">
+<h1>Exceptions<a class="headerlink" href="#Exceptions" title="Permalink to this headline">¶</a></h1>
+<p>In Python errors are managed with a special language construct called “Exceptions”. When errors occur exceptions can be raised, which interrupts the normal program flow and fallback to somewhere else in the code where the closest try-except statement is defined.</p>
+<p>To generate an exception we can use the <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement, which takes an argument that must be an instance of the class <code class="docutils literal notranslate"><span class="pre">BaseException</span></code> or a class derived from it.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;description of the error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">Exception</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-13-c32f93e4dfa0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span> Exception<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;description of the error&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">Exception</span>: description of the error
+</pre></div></div>
+</div>
+<p>A typical use of exceptions is to abort functions when some error condition occurs, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">arguments</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">verify</span><span class="p">(</span><span class="n">arguments</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid arguments&quot;</span><span class="p">)</span>
+
+    <span class="c1"># rest of the code goes here</span>
+</pre></div>
+</div>
+<p>To gracefully catch errors that are generated by functions and class methods, or by the Python interpreter itself, use the <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> statements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># normal code goes here</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># code for error handling goes here</span>
+    <span class="c1"># this code is not executed unless the code</span>
+    <span class="c1"># above generated an error</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+    <span class="c1"># generate an error: the variable test is not defined</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught an exception&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+test
+Caught an exception
+</pre></div></div>
+</div>
+<p>To get information about the error, we can access the <code class="docutils literal notranslate"><span class="pre">Exception</span></code> class instance that describes the exception by using for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+    <span class="c1"># generate an error: the variable test is not defined</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught an exception:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+test
+Caught an exception:name &#39;test&#39; is not defined
+</pre></div></div>
+</div>
+</div>
 <hr class="docutils" />
 <div class="section" id="What’s-next">
 <h1>What’s next<a class="headerlink" href="#What’s-next" title="Permalink to this headline">¶</a></h1>
@@ -1703,7 +1946,7 @@ dict_values([422, 322, 550])
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../L2/Lecture-2.html" class="btn btn-neutral float-right" title="A Short Primer on Plotting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../lectures/L2/overview.html" class="btn btn-neutral float-right" title="Lecture Contents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../lectures/L1/overview.html" class="btn btn-neutral float-left" title="Lecture Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -1717,7 +1960,7 @@ dict_values([422, 322, 550])
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 01, 2020.
+        Last updated on Apr 02, 2020.
       </span>
 
     </p>
