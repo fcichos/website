@@ -28,15 +28,16 @@ Feel free to ask questions to the contents of the modules.
    :maxdepth: 2
    :caption: Course Information:
    
-   course-info/schedule
-   course-info/assignments
+   course-info/website.rst
+   course-info/schedule.rst
+   course-info/assignments.rst
    
    
 .. toctree::
    :maxdepth: 2
    :caption: Jupyter Notebooks:
    
-   lectures/Intro/overview
+   lectures/Intro/overview.rst
    notebooks/Intro/Introduction2Jupyter.ipynb
    notebooks/Intro/NotebookEditor.ipynb
    notebooks/Intro/EditCells.ipynb
