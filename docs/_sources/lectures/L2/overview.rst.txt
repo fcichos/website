@@ -1,9 +1,11 @@
 Lecture Contents
 ================
 
-In this second lecture we will have a look at some
+After you have hopefully explored the Jupyter environment and are able to create and open notebooks, we can start with the basics of the Python language.
 
-1. Random number generation
-2. Input and output
-3. 2D Plotting
-4. 3D Plotting
+
+1. Variables and Types
+2. Operators and comparisons
+3. Data Types
+4. Modules
+
