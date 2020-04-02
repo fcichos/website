@@ -54,6 +54,7 @@ Feel free to ask questions to the contents of the modules.
    :maxdepth: 2
    :caption: Lecture 2:
 
+   lectures/L2/overview 
    notebooks/L2/Lecture-2.ipynb
 
 
