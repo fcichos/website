@@ -61,8 +61,10 @@ Feel free to ask questions to the contents of the modules.
    :caption: Lecture 2:
 
    lectures/L2/overview_2.rst
-   notebooks/L2/Lecture-2.ipynb
-
+   notebooks/L2/1_numpy.ipynb   
+   notebooks/L2/2_plotting.ipynb
+   notebooks/L2/3_randomnumbers.ipynb
+   
 
 
 
