@@ -46,7 +46,7 @@ Feel free to ask questions to the contents of the modules.
    :maxdepth: 2
    :caption: Lecture 1:
 
-   lectures/L1/overview
+   lectures/L1/overview_1.rst
    notebooks/L1/Lecture-1.ipynb
 
 
@@ -54,7 +54,7 @@ Feel free to ask questions to the contents of the modules.
    :maxdepth: 2
    :caption: Lecture 2:
 
-   lectures/L2/overview 
+   lectures/L2/overview_2.rst
    notebooks/L2/Lecture-2.ipynb
 
 
