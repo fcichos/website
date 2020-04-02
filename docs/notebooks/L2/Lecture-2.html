@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>A Short Primer on Plotting &mdash; Computational Software 1 documentation</title>
+  <title>Numpy arrays &mdash; Computational Software 1 documentation</title>
   
 
   
@@ -119,57 +119,71 @@
 <p class="caption"><span class="caption-text">Lecture 1:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/overview_1.html">Lecture Contents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../L1/Lecture-1.html">Variables and types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Symbol-names">Symbol names</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Variable-Assignment">Variable Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Number-types">Number types</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Integers">Integers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Floating-Point">Floating Point</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Complex-Numbers">Complex Numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L1/Lecture-1.html#Type-casting">Type casting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/variables.html">Variables and types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/variables.html#Symbol-names">Symbol names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/variables.html#Variable-Assignment">Variable Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/variables.html#Number-types">Number types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/variables.html#Integers">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/variables.html#Floating-Point">Floating Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/variables.html#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/variables.html#Type-casting">Type casting</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../L1/Lecture-1.html#Operators-and-comparisons">Operators and comparisons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../L1/Lecture-1.html#Data-Types-in-Python">Data Types in Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Strings">Strings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Lists">Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Tuples">Tuples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Dictionaries">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/operators.html">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/datatypes.html">Data Types in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/datatypes.html#Strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/datatypes.html#Lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/datatypes.html#Tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/datatypes.html#Dictionaries">Dictionaries</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../L1/Lecture-1.html#Modules">Modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L1/Lecture-1.html#Contents-and-documentation-of-a-module">Contents and documentation of a module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/modules.html">Modules and Exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/modules.html#Modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/modules.html#Contents-and-documentation-of-a-module">Contents and documentation of a module</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../L1/Lecture-1.html#Exceptions">Exceptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../L1/Lecture-1.html#What’s-next">What’s next</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/modules.html#Exceptions">Exceptions</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 2:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">A Short Primer on Plotting</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Numpy arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Creating-Numpy-Arrays">Creating Numpy Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#From-lists">From lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Using-array-generating-functions">Using array-generating functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linspace-and-logspace">linspace and logspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mgrid">mgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diag">diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zeros-and-ones">zeros and ones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#A-Short-Primer-on-Plotting">A Short Primer on Plotting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Probability-density-for-finding-an-oscillating-particle">Probability density for finding an oscillating particle</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#Random-numbers">Random numbers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Uniformly-distributed-random-numbers---rand()">Uniformly distributed random numbers - rand()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Normally-distributed-random-numbers---randn()">Normally distributed random numbers - randn()</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#Exponentially-distributed-numbers">Exponentially distributed numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Random-distribution-of-integers">Random distribution of integers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#Input-and-Output">Input and Output</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Keyboard-input">Keyboard input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Writing-data-to-a-text-file">Writing data to a text file</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#File-input/output">File input/output</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Reading-data-from-a-text-file">Reading data from a text file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Writing-data-to-a-text-file">Writing data to a text file</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Pandas-Module">Pandas Module</a></li>
 </ul>
 </li>
@@ -178,18 +192,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#Error-bars">Error bars</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Log-log-plots">Log-log plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#Logarithmic-plots">Logarithmic plots</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Semi-log-plots">Semi-log plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Log-log-plots">Log-log plots</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#3D-Plotting">3D Plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#What’s-next">What’s next</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#Contour-and-Density-Plots">Contour and Density Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#3D-Plotting">3D Plotting</a></li>
 </ul>
 </li>
 </ul>
@@ -237,7 +246,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>A Short Primer on Plotting</li>
+      <li>Numpy arrays</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -504,6 +513,587 @@ div.rendered_html tbody tr:hover {
 <p>This page was generated from <a href="#id3"><span class="problematic" id="id4">`source/notebooks/L2/Lecture-2.ipynb`__</span></a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L2/Lecture-2.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
+<div class="section" id="Numpy-arrays">
+<h1>Numpy arrays<a class="headerlink" href="#Numpy-arrays" title="Permalink to this headline">¶</a></h1>
+<p>The NumPy array is the real workhorse of data structures for scientific and engineering applications. The NumPy array, formally called ndarray in NumPy documentation, is similar to a list but where all the elements of the list are of the same type. The elements of a NumPy array, or simply an array, are usually numbers, but can also be boolians, strings, or other objects. When the elements are numbers, they must all be of the same type. For example, they might be all integers or all floating
+point numbers. For numpy array’s we need to import the NumPy module.</p>
+<div class="section" id="Creating-Numpy-Arrays">
+<h2>Creating Numpy Arrays<a class="headerlink" href="#Creating-Numpy-Arrays" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of ways to initialize new numpy arrays, for example from</p>
+<ul class="simple">
+<li><p>a Python list or tuples</p></li>
+<li><p>using functions that are dedicated to generating numpy arrays, such as <code class="docutils literal notranslate"><span class="pre">arange</span></code>, <code class="docutils literal notranslate"><span class="pre">linspace</span></code>, etc.</p></li>
+<li><p>reading data from files</p></li>
+</ul>
+<div class="section" id="From-lists">
+<h3>From lists<a class="headerlink" href="#From-lists" title="Permalink to this headline">¶</a></h3>
+<p>For example, to create new vector and matrix arrays from Python lists we can use the <code class="docutils literal notranslate"><span class="pre">numpy.array</span></code> function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#this is a list</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">127</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#this creates an array out of a list</span>
+<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+numpy.ndarray
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Using-array-generating-functions">
+<h3>Using array-generating functions<a class="headerlink" href="#Using-array-generating-functions" title="Permalink to this headline">¶</a></h3>
+<p>For larger arrays it is inpractical to initialize the data manually, using explicit python lists. Instead we can use one of the many functions in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> that generate arrays of different forms. Some of the more common are:</p>
+<p>The <em>linspace</em> function creates an array of N evenly spaced points between a starting point and an ending point. The form of the function is linspace(start, stop, N).If the third argument N is omitted,then N=50. <em>logspace</em> is doing equivelent things with logaritmic spacing. Other types of array creation techniques are listed below. Try around with these commands to get a feeling what they do.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># create a range</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># arguments: start, stop, step</span>
+
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([-1.00000000e+00, -9.00000000e-01, -8.00000000e-01, -7.00000000e-01,
+       -6.00000000e-01, -5.00000000e-01, -4.00000000e-01, -3.00000000e-01,
+       -2.00000000e-01, -1.00000000e-01, -2.22044605e-16,  1.00000000e-01,
+        2.00000000e-01,  3.00000000e-01,  4.00000000e-01,  5.00000000e-01,
+        6.00000000e-01,  7.00000000e-01,  8.00000000e-01,  9.00000000e-01])
+</pre></div></div>
+</div>
+<div class="section" id="linspace-and-logspace">
+<h4>linspace and logspace<a class="headerlink" href="#linspace-and-logspace" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># using linspace, both end points ARE included</span>
+<span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 0.        ,  0.41666667,  0.83333333,  1.25      ,  1.66666667,
+        2.08333333,  2.5       ,  2.91666667,  3.33333333,  3.75      ,
+        4.16666667,  4.58333333,  5.        ,  5.41666667,  5.83333333,
+        6.25      ,  6.66666667,  7.08333333,  7.5       ,  7.91666667,
+        8.33333333,  8.75      ,  9.16666667,  9.58333333, 10.        ])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1.00000000e+00, 3.03773178e+00, 9.22781435e+00, 2.80316249e+01,
+       8.51525577e+01, 2.58670631e+02, 7.85771994e+02, 2.38696456e+03,
+       7.25095809e+03, 2.20264658e+04])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="mgrid">
+<h4>mgrid<a class="headerlink" href="#mgrid" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># similar to meshgrid in MATLAB</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0, 0, 0, 0, 0],
+       [1, 1, 1, 1, 1],
+       [2, 2, 2, 2, 2],
+       [3, 3, 3, 3, 3],
+       [4, 4, 4, 4, 4]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4]])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="diag">
+<h4>diag<a class="headerlink" href="#diag" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># a diagonal matrix</span>
+<span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1, 0, 0],
+       [0, 2, 0],
+       [0, 0, 3]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># diagonal with offset from the main diagonal</span>
+<span class="n">diag</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0, 1, 0, 0],
+       [0, 0, 2, 0],
+       [0, 0, 0, 3],
+       [0, 0, 0, 0]])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="zeros-and-ones">
+<h4>zeros and ones<a class="headerlink" href="#zeros-and-ones" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1., 1., 1.],
+       [1., 1., 1.],
+       [1., 1., 1.]])
+</pre></div></div>
+</div>
+<p>All kinds of mathematica operations can be carried out on arrays. Typically these operation act element wise as seen from the examples below.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0. , 1.5, 3. , 4.5, 6. , 7.5, 9. ])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.  , 0.75, 1.5 , 2.25, 3.  , 3.75, 4.5 ])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 0.  ,  2.25,  9.  , 20.25, 36.  , 56.25, 81.  ])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 0.        ,  0.99749499,  0.14112001, -0.97753012, -0.2794155 ,
+        0.93799998,  0.41211849])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1.00000000e+00, 2.23130160e-01, 4.97870684e-02, 1.11089965e-02,
+       2.47875218e-03, 5.53084370e-04, 1.23409804e-04])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.66666667, 1.16666667, 1.66666667, 2.16666667, 2.66666667,
+       3.16666667, 3.66666667])
+</pre></div></div>
+</div>
+<p>Operation between multiple vectors allow in particular very quick operations. The operations address then elements of the same index. These operations are called vector operations since the concern the whole array at the same time. The product between two vectors results therefore not in a dot product, which gives one number but in an array of multiplied elements.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">34.</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mf">5.</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">68.</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">20.</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([102.,  -7.,  25.])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">*</span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2312.,  -60.,  100.])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[108]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[108]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 9.98743918e-29, -8.08553640e-02,  1.03057681e-08])
+</pre></div></div>
+</div>
+<p><strong>Slicing</strong> of arrays works the same way as for lists and can be very useful to vectorize calculations as shown in the example below. Here the position <span class="math notranslate nohighlight">\(y\)</span> of an object has been measured at times <span class="math notranslate nohighlight">\(t\)</span> and stored in an array each. We wish to calculate the average velocity at the times <span class="math notranslate nohighlight">\(t_{i}\)</span> from the arrays by</p>
+<p><span class="math">\begin{equation}
+v_{i}=\frac{y_i-y_{i-1}}{t_{i}-t_{i-1}}
+\end{equation}</span></p>
+<p>This can be done by slicing the arrays as displayed below. Find out, why the sling starts or stops at <span class="math notranslate nohighlight">\(1\)</span> or <span class="math notranslate nohighlight">\(-1\)</span>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[109]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.</span> <span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">5.</span> <span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="mf">18.9</span><span class="p">,</span> <span class="mf">28.7</span><span class="p">,</span> <span class="mf">40.</span> <span class="p">])</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.</span> <span class="p">,</span> <span class="mf">0.49</span><span class="p">,</span> <span class="mf">1.</span> <span class="p">,</span> <span class="mf">1.5</span> <span class="p">,</span> <span class="mf">2.08</span><span class="p">,</span> <span class="mf">2.55</span><span class="p">,</span> <span class="mf">3.2</span> <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[110]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">t</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[111]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">v</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[111]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 2.65306122,  7.25490196, 11.8       , 13.79310345, 20.85106383,
+       17.38461538])
+</pre></div></div>
+</div>
+<p>Multidimensional arrays can be created in python as well. There are again different ways to do that. Play around with the examples and search for other variants as well.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[113]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[113]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[114]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[115]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[115]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[0., 0., 0.],
+       [0., 0., 0.],
+       [0., 0., 0.]])
+</pre></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="A-Short-Primer-on-Plotting">
 <h1>A Short Primer on Plotting<a class="headerlink" href="#A-Short-Primer-on-Plotting" title="Permalink to this headline">¶</a></h1>
 <p>Before we start today, we give a short primer on plotting, since plotting data is very useful tool to visualize data during our exploration of python. We will go into more details of the plotting functions in matplotlib later. Here we just concentrate on the basics.</p>
@@ -557,7 +1147,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_3_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_3_0.png" src="../../_images/notebooks_L2_Lecture-2_3_0.png" style="width: 391px; height: 250px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_50_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_50_0.png" src="../../_images/notebooks_L2_Lecture-2_50_0.png" style="width: 391px; height: 250px;" /></a>
 </div>
 </div>
 <p>We should be always keen to make the diagrams as readable as possible. So we will add some axis labels.</p>
@@ -577,7 +1167,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_5_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_5_0.png" src="../../_images/notebooks_L2_Lecture-2_5_0.png" style="width: 422px; height: 281px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_52_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_52_0.png" src="../../_images/notebooks_L2_Lecture-2_52_0.png" style="width: 422px; height: 281px;" /></a>
 </div>
 </div>
 <p>If you prefer to use symbols for plotting just use the</p>
@@ -602,7 +1192,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_7_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_7_0.png" src="../../_images/notebooks_L2_Lecture-2_7_0.png" style="width: 422px; height: 281px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_54_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_54_0.png" src="../../_images/notebooks_L2_Lecture-2_54_0.png" style="width: 422px; height: 281px;" /></a>
 </div>
 </div>
 <p>A very useful plotting command is also the <em>hist</em> command. It generates a histogram of the data provided. If only the data is given, bins are calculated automatically. If you supply an array of intervalls with <em>hist(data,bins=b)</em>, where <em>b</em> is and array, the hist command calculates the histogram for the supplied bins. <em>normed=1</em> normalizes the area below the histogram to 1. The hist command not only returns the graph, but also the occurrences and bins used as shown in the example.</p>
@@ -624,7 +1214,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_9_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_9_0.png" src="../../_images/notebooks_L2_Lecture-2_9_0.png" style="width: 419px; height: 281px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_56_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_56_0.png" src="../../_images/notebooks_L2_Lecture-2_56_0.png" style="width: 419px; height: 281px;" /></a>
 </div>
 </div>
 <div class="section" id="Probability-density-for-finding-an-oscillating-particle">
@@ -740,7 +1330,7 @@ array([[0.4464557 , 0.00164394],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_20_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_20_0.png" src="../../_images/notebooks_L2_Lecture-2_20_0.png" style="width: 388px; height: 250px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_67_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_67_0.png" src="../../_images/notebooks_L2_Lecture-2_67_0.png" style="width: 388px; height: 250px;" /></a>
 </div>
 </div>
 </div>
@@ -770,57 +1360,9 @@ array([ 1.25789782,  0.34826833, -0.24002721, -1.78688233,  0.8157295 ,
         0.61731643,  0.00479542,  0.27609282, -0.03677498, -1.29016459])
 </pre></div></div>
 </div>
-<p><strong>Exercise</strong></p>
-<p>Plot a histogram of the random numbers drawn from a normal distribution as provided by the function <em>randn</em>. Write a script calculating the variance of the normally distributed random numbers using the numpy function <em>sum(data)</em>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_25_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_25_0.png" src="../../_images/notebooks_L2_Lecture-2_25_0.png" style="width: 378px; height: 250px;" /></a>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span><span class="o">+</span><span class="mi">9</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-8.997520222898135
-</pre></div></div>
-</div>
-<p><strong>Exercise</strong></p>
-<p>Write a short script which calculates normally distributed numbers with a variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> and a mean <span class="math notranslate nohighlight">\(x_0\)</span>. Plot a histogram of <span class="math notranslate nohighlight">\(10^6\)</span> random numbers using 50 bins. Calculate the mean and the variance of <span class="math notranslate nohighlight">\(10^6\)</span> random numbers drawn from this distribution.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#code goes here</span>
-</pre></div>
-</div>
-</div>
 <p>The following lines create random numbers, which are distributed by a normal distribution. You can use such normally distributed random numbers to generate a random walk. Such a random walk is a simple representation of Brownian motion of colloids suspended in a liquid. You will use study a random walk in the current exercise and connect it to the diffusion coefficient.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -828,21 +1370,8 @@ array([ 1.25789782,  0.34826833, -0.24002721, -1.78688233,  0.8157295 ,
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-12-9b7142fc2f32&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>x<span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span>randn<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">10000</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>cumsum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>randn<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">10000</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>cumsum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;randn&#39; is not defined
-</pre></div></div>
-</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -854,30 +1383,12 @@ array([ 1.25789782,  0.34826833, -0.24002721, -1.78688233,  0.8157295 ,
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-13-daa11f320a1b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> plt<span class="ansi-blue-fg">.</span>figure<span class="ansi-blue-fg">(</span>figsize<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">6</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>plt<span class="ansi-blue-fg">.</span>plot<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> plt<span class="ansi-blue-fg">.</span>xlabel<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;x&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># set the x-axis label</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> plt<span class="ansi-blue-fg">.</span>ylabel<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;y&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># set the y-axis label</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> plt<span class="ansi-blue-fg">.</span>show<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;x&#39; is not defined
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;Figure size 432x432 with 0 Axes&gt;
-</pre></div></div>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_73_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_73_0.png" src="../../_images/notebooks_L2_Lecture-2_73_0.png" style="width: 417px; height: 395px;" /></a>
+</div>
 </div>
 <p>Note that the above example uses the <em>cumsum()</em> function. The cumsum function of an array of number <span class="math notranslate nohighlight">\([x_0,x_1,x_2,..,x_n]\)</span> delivers an array with a progressive sum of elements <span class="math notranslate nohighlight">\([x_0,x_0+x_1,x_0+x_1+x_2,...,x_0+...+x_n]\)</span>. The line</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span>
@@ -885,10 +1396,8 @@ array([ 1.25789782,  0.34826833, -0.24002721, -1.78688233,  0.8157295 ,
 </div>
 <p>is therefore all you need to generate a random walk in two dimensions.</p>
 </div>
-</div>
-<hr class="docutils" />
 <div class="section" id="Exponentially-distributed-numbers">
-<h1>Exponentially distributed numbers<a class="headerlink" href="#Exponentially-distributed-numbers" title="Permalink to this headline">¶</a></h1>
+<h2>Exponentially distributed numbers<a class="headerlink" href="#Exponentially-distributed-numbers" title="Permalink to this headline">¶</a></h2>
 <p>A number of processes in physics reveal an exponential statistics. For example the probability to find a molecule under gravity at a certain height <span class="math notranslate nohighlight">\(h\)</span> is distributed by a Boltzmann law for a non-zero temperature.</p>
 <dl class="simple">
 <dt>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}</dt><dd><p>p(h)dh=p_{0}e^{-frac{mcdot gcdot h}{k_{rm B}T}}dh</p>
@@ -960,7 +1469,7 @@ array([5.11865413, 0.23400667, 1.83414266, ..., 0.12333082, 0.48806682,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_37_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_37_0.png" src="../../_images/notebooks_L2_Lecture-2_37_0.png" style="width: 378px; height: 250px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_79_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_79_0.png" src="../../_images/notebooks_L2_Lecture-2_79_0.png" style="width: 378px; height: 250px;" /></a>
 </div>
 </div>
 <p><strong>Exercise</strong></p>
@@ -985,7 +1494,7 @@ array([5.11865413, 0.23400667, 1.83414266, ..., 0.12333082, 0.48806682,
 </pre></div>
 </div>
 </div>
-<hr class="docutils" />
+</div>
 <div class="section" id="Random-distribution-of-integers">
 <h2>Random distribution of integers<a class="headerlink" href="#Random-distribution-of-integers" title="Permalink to this headline">¶</a></h2>
 <p>The function randint(low, high, num) produces a uniform random distribution of num integers between low (inclusive) and high (exclusive).</p>
@@ -1030,14 +1539,13 @@ array([ 5, 14, 12,  4, 16, 12, 12, 11,  9,  5])
 <p>There are a number of other methods available in the random module of numpy. Please refere to the <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.random.html">documentation</a>.</p>
 </div>
 </div>
-<hr class="docutils" />
 <div class="section" id="Input-and-Output">
 <h1>Input and Output<a class="headerlink" href="#Input-and-Output" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Keyboard-input">
 <h2>Keyboard input<a class="headerlink" href="#Keyboard-input" title="Permalink to this headline">¶</a></h2>
 <p>Python has a function called <em>input</em> for getting input from the user and assigning it a variable name. It has the form</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1051,11 +1559,11 @@ array([ 5, 14, 12,  4, 16, 12, 12, 11,  9,  5])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Tell me a number: 56
+Tell me a number:  12
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1065,7 +1573,7 @@ str
 </div>
 <p>The value contains the keyboard input as expected, but it is a string (the u stands for “uni-code” which refers to the string coding system Python uses). Because we want to use a number and not a string, we need to convert it from a string to a number. We can do that with the eval function by writing:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1075,7 +1583,7 @@ str
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1157,12 +1665,10 @@ How are you my friend?
 </pre></div></div>
 </div>
 </div>
-</div>
-<hr class="docutils" />
 <div class="section" id="File-input/output">
-<h1>File input/output<a class="headerlink" href="#File-input/output" title="Permalink to this headline">¶</a></h1>
+<h2>File input/output<a class="headerlink" href="#File-input/output" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Reading-data-from-a-text-file">
-<h2>Reading data from a text file<a class="headerlink" href="#Reading-data-from-a-text-file" title="Permalink to this headline">¶</a></h2>
+<h3>Reading data from a text file<a class="headerlink" href="#Reading-data-from-a-text-file" title="Permalink to this headline">¶</a></h3>
 <p>Often you would like to analyze data that you have stored in a text file. Consider, for example, the data file below for an experiment measuring the free fall of a mass.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Data</span> <span class="k">for</span> <span class="n">falling</span> <span class="n">mass</span> <span class="n">experiment</span>
 <span class="n">Date</span><span class="p">:</span> <span class="mi">16</span><span class="o">-</span><span class="n">Aug</span><span class="o">-</span><span class="mi">2013</span>
@@ -1179,7 +1685,7 @@ How are you my friend?
 </div>
 <p>We would like to read these data into a Python program, associating the data in each column with an appropriately named array. While there are a multitude of ways to do this in Python, the simplest by far is to use the NumPy <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.loadtxt.html">loadtxt</a> function, whose use we illustrate here. Suppose that the name of the text file is <strong>MyData.txt</strong>. Then we can read the data into four different arrays with the following statement</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1189,7 +1695,7 @@ How are you my friend?
 </div>
 <p>If you don’t want to read in all the columns of data, you can specify which columns to read in using the usecols key word. For example, the call</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1200,14 +1706,14 @@ How are you my friend?
 <p>reads in only columns 1 and 2; columns 0 and 3 are skipped.</p>
 </div>
 <div class="section" id="Writing-data-to-a-text-file">
-<h2>Writing data to a text file<a class="headerlink" href="#Writing-data-to-a-text-file" title="Permalink to this headline">¶</a></h2>
+<h3>Writing data to a text file<a class="headerlink" href="#Writing-data-to-a-text-file" title="Permalink to this headline">¶</a></h3>
 <p>There are plenty of ways to write data to a data file in Python. We will stick to one very simple one that’s suitable for writing data files in text format. It uses the NumPy <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.savetxt.html">savetxt</a> routine, which is the counterpart of the loadtxt routine introduced in the previous section. The general form of the routine is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">savetxt</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%0.18e</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">footer</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s2">&quot;# &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We illustrate savetext below with a script that first creates four arrays by reading in the data file MyData.txt, as discussed in the previous section, and then writes that same data set to another file MyDataOut.txt.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1216,7 +1722,7 @@ How are you my friend?
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1225,7 +1731,7 @@ How are you my friend?
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1249,12 +1755,13 @@ How are you my friend?
 <p><strong>Exercise</strong></p>
 <p>Create 10 different random walks in 2-dimensions. Assemble the x,y coordinates with the zip command and write it to a text file so that we can use it later for plotting.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#code goes here</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1264,7 +1771,7 @@ How are you my friend?
 <p>*  Easy handling of missing data*  Intelligent label-based slicing, fancy indexing, and subsetting of large data sets</p>
 <p>The data formats provided by the pandas module are used by several other modules, such as the <a class="reference external" href="https://soft-matter.github.io/trackpy/v0.3.2/">trackpy</a> which is a moduly for feature tracking and analysis in image series.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1281,7 +1788,7 @@ How are you my friend?
 </ul>
 <p>A <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html">Series</a> is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.). The axis labels are collectively referred to as the index.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1291,22 +1798,22 @@ How are you my friend?
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-a   -0.061517
-b   -1.705996
-c    0.476777
-d    1.361720
-e    0.198182
+a    0.400692
+b    0.192138
+c   -0.166063
+d   -0.075867
+e   -0.361814
 dtype: float64
 </pre></div></div>
 </div>
 <p>There is a whole lot of functionality built into pandas data types. You may of course also obtain the same functionality using numpy commands, but you may find the pandas abbrevations very useful.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1315,22 +1822,22 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-min    -1.705996
-max     1.424519
-sum     0.409871
-mean    0.058553
+min    -0.876509
+max     0.870088
+sum    -0.017335
+mean   -0.002476
 dtype: float64
 </pre></div></div>
 </div>
 <p>A <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/api.html#dataframe">DataFrame</a> is a two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). The example below shows how such a DataFrame can be generated from the scratch. In addition to the data supplied to the DataFrame method, an index column is generated when creating a DataFrame. As in the case of <em>Series</em> there is a whole lot of functionality integrated into the DataFrame data
 type which you may explore on the website.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1340,7 +1847,7 @@ type which you may explore on the website.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1372,43 +1879,43 @@ type which you may explore on the website.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>6</td>
-      <td>9</td>
-      <td>1</td>
       <td>4</td>
-      <td>0</td>
+      <td>9</td>
+      <td>2</td>
+      <td>2</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>3</td>
-      <td>6</td>
+      <td>4</td>
       <td>9</td>
-      <td>7</td>
-      <td>6</td>
+      <td>0</td>
+      <td>9</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>5</td>
-      <td>7</td>
+      <td>1</td>
       <td>3</td>
-      <td>3</td>
-      <td>3</td>
+      <td>2</td>
+      <td>6</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5</td>
-      <td>9</td>
-      <td>6</td>
-      <td>5</td>
       <td>8</td>
+      <td>0</td>
+      <td>8</td>
+      <td>1</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>9</td>
+      <td>4</td>
+      <td>2</td>
       <td>6</td>
+      <td>9</td>
       <td>3</td>
-      <td>8</td>
-      <td>8</td>
     </tr>
   </tbody>
 </table>
@@ -1416,7 +1923,7 @@ type which you may explore on the website.</p>
 </div>
 <p>Due to the labelling of the columns, each column may be accessed by its column label. Labeling by names improves readability considerably.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1425,22 +1932,22 @@ type which you may explore on the website.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0    6
-1    3
-2    5
-3    5
-4    9
+0    4
+1    4
+2    1
+3    8
+4    4
 Name: column 1, dtype: int64
 </pre></div></div>
 </div>
 <p>If you don’t like this format, you can always return to a simple numpy array with the <em>as_matrix()</em> method.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1449,21 +1956,21 @@ Name: column 1, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[6, 9, 1, 4, 0],
-       [3, 6, 9, 7, 6],
-       [5, 7, 3, 3, 3],
-       [5, 9, 6, 5, 8],
-       [9, 6, 3, 8, 8]])
+array([[4, 9, 2, 2, 8],
+       [4, 9, 0, 9, 5],
+       [1, 3, 2, 6, 0],
+       [8, 0, 8, 1, 4],
+       [4, 2, 6, 9, 3]])
 </pre></div></div>
 </div>
 <p>DataFrames may also be populated by text files such as comma separated value files (short <em>.csv</em>). These files contain data in text format but also a column label, which can be read by the pandas method <em>read_csv()</em>. You can find an example below, which reads the data from the dust sensor on my balcony from April, 11th. You see the different columns, where <strong>P1</strong> and <strong>P2</strong> correspond to the <strong>PM10</strong> and <strong>PM2.5</strong> dust values in <span class="math notranslate nohighlight">\(\mu g/m^3\)</span>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1474,7 +1981,7 @@ array([[6, 9, 1, 4, 0],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1591,7 +2098,7 @@ array([[6, 9, 1, 4, 0],
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1601,23 +2108,23 @@ array([[6, 9, 1, 4, 0],
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x11c9e3940&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f82d9c10c90&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_82_1.png"><img alt="../../_images/notebooks_L2_Lecture-2_82_1.png" src="../../_images/notebooks_L2_Lecture-2_82_1.png" style="width: 373px; height: 250px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_124_1.png"><img alt="../../_images/notebooks_L2_Lecture-2_124_1.png" src="../../_images/notebooks_L2_Lecture-2_124_1.png" style="width: 373px; height: 250px;" /></a>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1625,18 +2132,21 @@ array([[6, 9, 1, 4, 0],
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f82da88c290&gt;
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-14-328571aa3271&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;P1&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">/</span>data<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;P2&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>plot<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;data&#39; is not defined
-</pre></div></div>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_125_1.png"><img alt="../../_images/notebooks_L2_Lecture-2_125_1.png" src="../../_images/notebooks_L2_Lecture-2_125_1.png" style="width: 378px; height: 255px;" /></a>
+</div>
 </div>
 </div>
 </div>
@@ -1653,7 +2163,7 @@ array([[6, 9, 1, 4, 0],
 <div class="section" id="Simple-Plotting">
 <h2>Simple Plotting<a class="headerlink" href="#Simple-Plotting" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1671,11 +2181,11 @@ array([[6, 9, 1, 4, 0],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_86_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_86_0.png" src="../../_images/notebooks_L2_Lecture-2_86_0.png" style="width: 392px; height: 250px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_128_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_128_0.png" src="../../_images/notebooks_L2_Lecture-2_128_0.png" style="width: 392px; height: 250px;" /></a>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[114]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1706,7 +2216,7 @@ array([[6, 9, 1, 4, 0],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_87_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_87_0.png" src="../../_images/notebooks_L2_Lecture-2_87_0.png" style="width: 563px; height: 419px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_129_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_129_0.png" src="../../_images/notebooks_L2_Lecture-2_129_0.png" style="width: 567px; height: 424px;" /></a>
 </div>
 </div>
 <p>The functions that do the plotting begin on line 12. Let’s go through them one by one and see what they do. You will notice in several cases that keyword arguments (kwargs) are used in several cases. Keyword arguments are optional arguments that have the form kwarg= data, where data might be a number, a string, a tuple, or some other form of data.</p>
@@ -1756,7 +2266,7 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_90_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_90_0.png" src="../../_images/notebooks_L2_Lecture-2_90_0.png" style="width: 525px; height: 390px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_132_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_132_0.png" src="../../_images/notebooks_L2_Lecture-2_132_0.png" style="width: 525px; height: 390px;" /></a>
 </div>
 </div>
 </div>
@@ -1782,7 +2292,7 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_92_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_92_0.png" src="../../_images/notebooks_L2_Lecture-2_92_0.png" style="width: 487px; height: 365px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_134_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_134_0.png" src="../../_images/notebooks_L2_Lecture-2_134_0.png" style="width: 487px; height: 365px;" /></a>
 </div>
 </div>
 <p>** Masked arrays**</p>
@@ -1808,7 +2318,7 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_94_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_94_0.png" src="../../_images/notebooks_L2_Lecture-2_94_0.png" style="width: 487px; height: 365px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_136_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_136_0.png" src="../../_images/notebooks_L2_Lecture-2_136_0.png" style="width: 487px; height: 365px;" /></a>
 </div>
 </div>
 </div>
@@ -1862,17 +2372,16 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_Lecture-2_96_0.png" src="../../_images/notebooks_L2_Lecture-2_96_0.png" />
-</div>
+<img alt="../../_images/notebooks_L2_Lecture-2_138_0.png" src="../../_images/notebooks_L2_Lecture-2_138_0.png" />
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="Logarithmic-plots">
-<h1>Logarithmic plots<a class="headerlink" href="#Logarithmic-plots" title="Permalink to this headline">¶</a></h1>
+<h2>Logarithmic plots<a class="headerlink" href="#Logarithmic-plots" title="Permalink to this headline">¶</a></h2>
 <p>Data sets can span many orders of magnitude from fractional quantities much smaller than unity to values much larger than unity. In such cases it is often useful to plot the data on logarithmic axes.</p>
 <div class="section" id="Semi-log-plots">
-<h2>Semi-log plots<a class="headerlink" href="#Semi-log-plots" title="Permalink to this headline">¶</a></h2>
+<h3>Semi-log plots<a class="headerlink" href="#Semi-log-plots" title="Permalink to this headline">¶</a></h3>
 <p>For data sets that vary exponentially in the independent variable, it is often useful to use one or more logarithmic axes. Radioactive decay of unstable nuclei, for example, exhibits an exponential decrease in the number of particles emitted from the nuclei as a function of time.</p>
 <p>MatPlotLib provides two functions for making semi-logarithmic plots, semilogx and semilogy, for creating plots with logarithmic x and y axes, with linear y and x axes, respectively. We illustrate their use in the program below, which made the above plots.</p>
 <div class="nbinput docutils container">
@@ -1919,12 +2428,12 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_99_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_99_0.png" src="../../_images/notebooks_L2_Lecture-2_99_0.png" style="width: 707px; height: 275px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_141_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_141_0.png" src="../../_images/notebooks_L2_Lecture-2_141_0.png" style="width: 707px; height: 275px;" /></a>
 </div>
 </div>
 </div>
 <div class="section" id="Log-log-plots">
-<h2>Log-log plots<a class="headerlink" href="#Log-log-plots" title="Permalink to this headline">¶</a></h2>
+<h3>Log-log plots<a class="headerlink" href="#Log-log-plots" title="Permalink to this headline">¶</a></h3>
 <p>MatPlotLib can also make log-log or double-logarithmic plots using the function loglog. It is useful when both the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data span many orders of magnitude. Data that are described by a power law <span class="math notranslate nohighlight">\(y=Ax^b\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constants, appear as straight lines when plotted on a log-log plot. Again, the loglog function works just like the plot function but with logarithmic axes.</p>
 <p><strong>Exercise</strong></p>
 <p>Create a data file with the data shown below.</p>
@@ -1968,7 +2477,7 @@ y(t)=\left [3+\frac{1}{2}\sin\frac{\pi t}{5} \right]t e^{-t/10}
 </div>
 <hr class="docutils" />
 <div class="section" id="Contour-and-Density-Plots">
-<h1>Contour and Density Plots<a class="headerlink" href="#Contour-and-Density-Plots" title="Permalink to this headline">¶</a></h1>
+<h2>Contour and Density Plots<a class="headerlink" href="#Contour-and-Density-Plots" title="Permalink to this headline">¶</a></h2>
 <p>A contour plots are useful tools to study two dimensional data, meaning Z(X,Y). We use a simple example of a wave interference for two dimensional plotting in contour and density plots.</p>
 <p>Our wave shall be represented by a snapshot of a spherical wave at a certain time.</p>
 <p><span class="math">\begin{equation}
@@ -2024,7 +2533,7 @@ Z(X,Y)=\frac{1}{r}\sin\left( \frac{2\pi}{\lambda} r \right)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_106_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_106_0.png" src="../../_images/notebooks_L2_Lecture-2_106_0.png" style="width: 596px; height: 577px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_148_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_148_0.png" src="../../_images/notebooks_L2_Lecture-2_148_0.png" style="width: 596px; height: 577px;" /></a>
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2042,7 +2551,7 @@ Z(X,Y)=\frac{1}{r}\sin\left( \frac{2\pi}{\lambda} r \right)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_107_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_107_0.png" src="../../_images/notebooks_L2_Lecture-2_107_0.png" style="width: 568px; height: 583px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_149_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_149_0.png" src="../../_images/notebooks_L2_Lecture-2_149_0.png" style="width: 568px; height: 583px;" /></a>
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -2060,7 +2569,8 @@ Z(X,Y)=\frac{1}{r}\sin\left( \frac{2\pi}{\lambda} r \right)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_108_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_108_0.png" src="../../_images/notebooks_L2_Lecture-2_108_0.png" style="width: 568px; height: 557px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_150_0.png"><img alt="../../_images/notebooks_L2_Lecture-2_150_0.png" src="../../_images/notebooks_L2_Lecture-2_150_0.png" style="width: 568px; height: 557px;" /></a>
+</div>
 </div>
 </div>
 <div class="section" id="3D-Plotting">
@@ -2112,7 +2622,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_113_1.png"><img alt="../../_images/notebooks_L2_Lecture-2_113_1.png" src="../../_images/notebooks_L2_Lecture-2_113_1.png" style="width: 572px; height: 340px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_Lecture-2_155_1.png"><img alt="../../_images/notebooks_L2_Lecture-2_155_1.png" src="../../_images/notebooks_L2_Lecture-2_155_1.png" style="width: 572px; height: 340px;" /></a>
 </div>
 </div>
 <p>With this three-dimensional axes enabled, we can now plot a variety of three-dimensional plot types. Three-dimensional plotting is one of the functionalities that benefits immensely from viewing figures interactively rather than statically in the notebook; recall that to use interactive figures, you can use %matplotlib notebook rather than %matplotlib inline when running this code.</p>
@@ -2144,7 +2654,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_Lecture-2_116_0.png" src="../../_images/notebooks_L2_Lecture-2_116_0.png" />
+<img alt="../../_images/notebooks_L2_Lecture-2_158_0.png" src="../../_images/notebooks_L2_Lecture-2_158_0.png" />
 </div>
 </div>
 <p>Notice that by default, the scatter points have their transparency adjusted to give a sense of depth on the page. While the three-dimensional effect is sometimes difficult to see within a static image, an interactive view can lead to some nice intuition about the layout of the points. Use the <em>scatter3D</em> or the <em>plot3D</em> method to plot a random walk in 3-dimensions in your exercise.</p>
@@ -2198,14 +2708,11 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_Lecture-2_121_0.png" src="../../_images/notebooks_L2_Lecture-2_121_0.png" />
+<img alt="../../_images/notebooks_L2_Lecture-2_163_0.png" src="../../_images/notebooks_L2_Lecture-2_163_0.png" />
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="What’s-next">
-<h3>What’s next<a class="headerlink" href="#What’s-next" title="Permalink to this headline">¶</a></h3>
 <p>After you have carried out for yourself all the exercises before, you are fit in plotting in various ways.</p>
-</div>
 </div>
 </div>
 
