@@ -49,10 +49,10 @@ Feel free to ask questions to the contents of the modules.
    :caption: Lecture 1:
 
    lectures/L1/overview_1.rst
-   notebooks/L1/variables.ipynb
-   notebooks/L1/operators.ipynb
-   notebooks/L1/datatypes.ipynb
-   notebooks/L1/modules.ipynb
+   notebooks/L1/1_variables.ipynb
+   notebooks/L1/2_operators.ipynb
+   notebooks/L1/3_datatypes.ipynb
+   notebooks/L1/4_modules.ipynb
 
 
 
