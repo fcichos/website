@@ -199,12 +199,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_randomnumbers.html">Random numbers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Uniformly-distributed-random-numbers---rand()">Uniformly distributed random numbers - rand()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Normally-distributed-random-numbers---randn()">Normally distributed random numbers - randn()</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
 </ul>
 </li>
 </ul>
@@ -532,7 +530,7 @@ div.rendered_html tbody tr:hover {
 <h2>Simple Plotting<a class="headerlink" href="#Simple-Plotting" title="Permalink to this headline">¶</a></h2>
 <p>Let us for the moment import the required libraries for plotting and numpy.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -547,7 +545,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>function, which takes a dictionary with the specific parameters as key.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -574,7 +572,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command. You may, however, modify in the parameters the appearance of the plot to a scatter plot. But by default, it creates a line plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -595,11 +593,11 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>We should be always keen to make the diagrams as readable as possible. So we will add some axis labels.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="c1"># using x-axis</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1"># using x-axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span> <span class="c1"># set the x-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sin(t)&#39;</span><span class="p">)</span> <span class="c1"># set the y-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -610,7 +608,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_10_0.png"><img alt="../../_images/notebooks_L2_2_plotting_10_0.png" src="../../_images/notebooks_L2_2_plotting_10_0.png" style="width: 422px; height: 281px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_10_0.png" src="../../_images/notebooks_L2_2_plotting_10_0.png" />
 </div>
 </div>
 </div>
@@ -622,12 +620,11 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command of pylab. Note that the scatter command requires a <em>x</em> and <em>y</em> values and you can set the marker symbol (see an overview of the <a class="reference external" href="https://matplotlib.org/api/markers_api.html">marker symbols</a>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span> <span class="c1"># set the x-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># set the y-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -638,7 +635,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_13_0.png"><img alt="../../_images/notebooks_L2_2_plotting_13_0.png" src="../../_images/notebooks_L2_2_plotting_13_0.png" style="width: 422px; height: 281px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_13_0.png" src="../../_images/notebooks_L2_2_plotting_13_0.png" />
 </div>
 </div>
 </div>
@@ -646,8 +643,8 @@ div.rendered_html tbody tr:hover {
 <h3>Histograms<a class="headerlink" href="#Histograms" title="Permalink to this headline">¶</a></h3>
 <p>A very useful plotting command is also the <em>hist</em> command. It generates a histogram of the data provided. If only the data is given, bins are calculated automatically. If you supply an array of intervalls with <em>hist(data,bins=b)</em>, where <em>b</em> is and array, the hist command calculates the histogram for the supplied bins. <em>density=1</em> normalizes the area below the histogram to 1. The hist command not only returns the graph, but also the occurrences and bins.</p>
 <div class="admonition note">
-<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
-<p><strong>Physics Interlude</strong> - Probability density for finding an oscillating particle</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong> Physics Interlude</p>
+<p>Probability density for finding an oscillating particle</p>
 </div>
 <p>We want to use this occasion to have at least some physics related plotting.</p>
 <p>Imagine you have a mass on a spring which is at rest at a position <span class="math notranslate nohighlight">\(x_{0}\)</span> and at <span class="math notranslate nohighlight">\(t=0\)</span> elongated by a distance <span class="math notranslate nohighlight">\(\Delta x\)</span>. The spring will then start to oscillate according to</p>
@@ -1241,7 +1238,7 @@ Text(0.5, 0, &#39;z&#39;)
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 02, 2020.
+        Last updated on Apr 03, 2020.
       </span>
 
     </p>
