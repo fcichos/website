@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Input and Output" href="4_input_output.html" />
     <link rel="prev" title="Plotting data" href="2_plotting.html" /> 
 </head>
 
@@ -202,6 +203,24 @@
 <li class="toctree-l2"><a class="reference internal" href="#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_input_output.html">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#Reading-data-with-NumPy">Reading data with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#Reading-data-with-Pandas">Reading data with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -531,7 +550,7 @@ methods for numerically evaluating multi-dimensional integrals using random numb
 <h2>Uniformly distributed random numbers<a class="headerlink" href="#Uniformly-distributed-random-numbers" title="Permalink to this headline">¶</a></h2>
 <p>The rand(num) function creates an array of num floats uniformly distributed on the interval from 0 to 1.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -555,26 +574,26 @@ methods for numerically evaluating multi-dimensional integrals using random numb
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span></span><span class="n">rand</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([0.15255545, 0.38596651, 0.76524734, 0.71163591, 0.33772102])
+0.1631200339077593
 </pre></div></div>
 </div>
-<p>If you supply the argument <em>num</em> to the rand() function you obtain an array of equally distributed numbers with <em>num</em> elements.</p>
+<p>If you supply the argument <em>num</em> to the <code class="docutils literal notranslate"><span class="pre">rand(num)</span></code> function you obtain an array of equally distributed numbers with <em>num</em> elements.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -583,17 +602,17 @@ array([0.15255545, 0.38596651, 0.76524734, 0.71163591, 0.33772102])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([0.88928873, 0.47534462, 0.33280123, 0.52164589, 0.8792887 ])
+array([0.27534506, 0.10751246, 0.17839753, 0.28157403, 0.2462493 ])
 </pre></div></div>
 </div>
 <p>You may also obtain a multi-dimensional array if you give two or more numbers to the the rand function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -602,25 +621,26 @@ array([0.88928873, 0.47534462, 0.33280123, 0.52164589, 0.8792887 ])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.43263592, 0.68687969],
-       [0.36808421, 0.23863659],
-       [0.97928245, 0.05831818],
-       [0.62737376, 0.57860637],
-       [0.33466214, 0.52953269]])
+array([[0.42661185, 0.24483138],
+       [0.15921275, 0.73919095],
+       [0.01649883, 0.65556621],
+       [0.01856247, 0.56310417],
+       [0.44683906, 0.418436  ]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -685,9 +705,17 @@ array([10.58990313, 11.82197476, 10.56964462, 11.26624104,  9.88306752,
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
 <p><strong>Physics Interlude</strong> - Brownian Motion, Random Walk</p>
 </div>
-<p>The following lines create random numbers, which are distributed by a normal distribution. You can use such normally distributed random numbers to generate a random walk. Such a random walk is a simple representation of Brownian motion of colloids suspended in a liquid. You will use study a random walk in the current exercise and connect it to the diffusion coefficient.</p>
+<p>The following lines create random numbers, which are distributed by a normal distribution. You can use such normally distributed random numbers to generate a random walk. Such a random walk is a simple representation of Brownian motion of colloids suspended in a liquid.</p>
+<p>Suppose a colloidal particle in solution is kicked by its surrounding solvent molecules such that it does a small step in a random direction. The length of the step will be normally distributed. If this motion is in 2 dimensions, then the position in x and y direction after N steps is</p>
+<p><span class="math">\begin{equation}
+x(N)=\sum_{i=1}^{N}x_{i}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+y(N)=\sum_{i=1}^{N}y_{i}
+\end{equation}</span></p>
+<p>where, <span class="math notranslate nohighlight">\(x_{i}\)</span>,<span class="math notranslate nohighlight">\(y_{i}\)</span> are the individual normally distributed steps. The position is therefore just the cummulative sum of a sequence of normally distributed random numbers, which is easy to realize in Python.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -695,8 +723,13 @@ array([10.58990313, 11.82197476, 10.56964462, 11.26624104,  9.88306752,
 </pre></div>
 </div>
 </div>
+<p>Note that the above example uses the <code class="docutils literal notranslate"><span class="pre">cumsum()</span></code> function. The cumsum function of an array of number <span class="math notranslate nohighlight">\([x_0,x_1,x_2,..,x_n]\)</span> delivers an array with a progressive sum of elements <span class="math notranslate nohighlight">\([x_0,x_0+x_1,x_0+x_1+x_2,...,x_0+...+x_n]\)</span>. The line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span>
+</pre></div>
+</div>
+<p>is therefore all you need to generate a random walk in two dimensions.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -712,14 +745,9 @@ array([10.58990313, 11.82197476, 10.56964462, 11.26624104,  9.88306752,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_3_randomnumbers_17_0.png" src="../../_images/notebooks_L2_3_randomnumbers_17_0.png" />
+<img alt="../../_images/notebooks_L2_3_randomnumbers_18_0.png" src="../../_images/notebooks_L2_3_randomnumbers_18_0.png" />
 </div>
 </div>
-<p>Note that the above example uses the <em>cumsum()</em> function. The cumsum function of an array of number <span class="math notranslate nohighlight">\([x_0,x_1,x_2,..,x_n]\)</span> delivers an array with a progressive sum of elements <span class="math notranslate nohighlight">\([x_0,x_0+x_1,x_0+x_1+x_2,...,x_0+...+x_n]\)</span>. The line</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span>
-</pre></div>
-</div>
-<p>is therefore all you need to generate a random walk in two dimensions.</p>
 </div>
 <div class="section" id="Exponentially-distributed-numbers">
 <h2>Exponentially distributed numbers<a class="headerlink" href="#Exponentially-distributed-numbers" title="Permalink to this headline">¶</a></h2>
@@ -840,7 +868,6 @@ array([19,  5,  8, 12, 19,  6,  6,  5, 15,  5])
 </pre></div></div>
 </div>
 <p>There are a number of other methods available in the random module of numpy. Please refere to the <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.random.html">documentation</a>.</p>
-<p>After you have carried out for yourself all the exercises before, you are fit in plotting in various ways.</p>
 </div>
 </div>
 
@@ -851,6 +878,8 @@ array([19,  5,  8, 12, 19,  6,  6,  5, 15,  5])
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="4_input_output.html" class="btn btn-neutral float-right" title="Input and Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="2_plotting.html" class="btn btn-neutral float-left" title="Plotting data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -64,6 +64,7 @@ Feel free to ask questions to the contents of the modules.
    notebooks/L2/1_numpy.ipynb   
    notebooks/L2/2_plotting.ipynb
    notebooks/L2/3_randomnumbers.ipynb
+   notebooks/L2/4_input_output.ipynb
    
 
 
