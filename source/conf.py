@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Computational Software'
+project = 'Introduction to Computer-based Physical Modeling'
 copyright = '2020, Frank Cichos'
 author = 'Frank Cichos'
 
