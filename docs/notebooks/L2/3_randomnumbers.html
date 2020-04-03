@@ -199,11 +199,9 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Random numbers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Uniformly-distributed-random-numbers---rand()">Uniformly distributed random numbers - rand()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Normally-distributed-random-numbers---randn()">Normally distributed random numbers - randn()</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Random-distribution-of-integers">Random distribution of integers</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#Normally-distributed-random-numbers---randn()">Normally distributed random numbers - randn()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Random-distribution-of-integers">Random distribution of integers</a></li>
 </ul>
 </li>
 </ul>
@@ -523,23 +521,41 @@ div.rendered_html tbody tr:hover {
 <p>Random numbers are widely used in science and engineering computations. They can be used to simulate noisy data, or to model physical phenomena like the distribution of velocities of molecules in a gas, or to act like the roll of dice in a game. Monte Carlo simulation techniques, which will be part of a later theory lecture rely heavily and random number. Processes like single photon emission or Brownian motion are stochastic processes, with an intrisic randomness as well. But there are even
 methods for numerically evaluating multi-dimensional integrals using random numbers.</p>
 <p>The basic idea of a random number generator is that it should be able to produce a sequence of numbers that are distributed according to some predetermined distribution function. NumPy provides a number of such random number generators in its library numpy.random. Here we focus on three:</p>
-<p>- rand/uniform - randn - exponential - randint</p>
+<ul class="simple">
+<li><p>rand</p></li>
+<li><p>randn</p></li>
+<li><p>exponential</p></li>
+<li><p>randint</p></li>
+</ul>
 <div class="section" id="Uniformly-distributed-random-numbers---rand()">
 <h2>Uniformly distributed random numbers - rand()<a class="headerlink" href="#Uniformly-distributed-random-numbers---rand()" title="Permalink to this headline">¶</a></h2>
 <p>The rand(num) function creates an array of num floats uniformly distributed on the interval from 0 to 1.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -548,18 +564,17 @@ methods for numerically evaluating multi-dimensional integrals using random numb
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([6.52339072e-04, 7.72173754e-01, 7.08974162e-03, 1.40555668e-01,
-       2.53531464e-01])
+array([0.15255545, 0.38596651, 0.76524734, 0.71163591, 0.33772102])
 </pre></div></div>
 </div>
 <p>If you supply the argument <em>num</em> to the rand() function you obtain an array of equally distributed numbers with <em>num</em> elements.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -568,17 +583,17 @@ array([6.52339072e-04, 7.72173754e-01, 7.08974162e-03, 1.40555668e-01,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([0.85928736, 0.06764212, 0.63640009, 0.20201934, 0.60132876])
+array([0.88928873, 0.47534462, 0.33280123, 0.52164589, 0.8792887 ])
 </pre></div></div>
 </div>
 <p>You may also obtain a multi-dimensional array if you give two or more numbers to the the rand function.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -587,20 +602,20 @@ array([0.85928736, 0.06764212, 0.63640009, 0.20201934, 0.60132876])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[0.50173506, 0.70696784],
-       [0.17503145, 0.9985426 ],
-       [0.78025602, 0.57732548],
-       [0.67089109, 0.61214713],
-       [0.74558178, 0.9274463 ]])
+array([[0.43263592, 0.68687969],
+       [0.36808421, 0.23863659],
+       [0.97928245, 0.05831818],
+       [0.62737376, 0.57860637],
+       [0.33466214, 0.52953269]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -619,13 +634,13 @@ array([[0.50173506, 0.70696784],
 </div>
 <div class="section" id="Normally-distributed-random-numbers---randn()">
 <h2>Normally distributed random numbers - randn()<a class="headerlink" href="#Normally-distributed-random-numbers---randn()" title="Permalink to this headline">¶</a></h2>
-<p>The function randn(num) produces a normal or Gaussian distribution of num random numbers with a mean of 0 and a standard deviation of 1. They are distributed according to</p>
+<p>The function randn(num) produces a normal or Gaussian distribution of num random numbers with a mean of <span class="math notranslate nohighlight">\(\mu=0\)</span> and a standard deviation of <span class="math notranslate nohighlight">\(\sigma=1\)</span>. They are distributed according to</p>
 <p><span class="math">\begin{equation}
-p(x)dx=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx
+p(x)dx=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
 \end{equation}</span></p>
 <p>Similarly as all the other random number function, you may supply one or multiple arguments to the <em>rand()</em> function. The result is again a multi-dimensional array of random numbers.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -634,13 +649,36 @@ p(x)dx=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([-0.69953454,  0.09629639,  1.86883573,  0.64928387, -0.42188534,
-        0.65224811,  1.05982681,  0.70179101,  0.6510417 ,  0.90259544])
+array([ 1.74836571, -0.11033269,  0.10350835,  0.95066411, -0.80380095,
+        1.29581027, -1.65970284,  0.37356692,  1.43176263,  0.16364205])
+</pre></div></div>
+</div>
+<p>If you want to create a normal distribution with different standard deviation and mean value, you have to multiply by the new standard deviation and add the mean.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sigma</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">mu</span><span class="o">=</span><span class="mi">10</span>
+
+<span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([10.58990313, 11.82197476, 10.56964462, 11.26624104,  9.88306752,
+        9.89996088,  9.15547685, 10.52321803, 10.19585175,  8.5771435 ])
 </pre></div></div>
 </div>
 <div class="admonition note">
@@ -649,7 +687,7 @@ array([-0.69953454,  0.09629639,  1.86883573,  0.64928387, -0.42188534,
 </div>
 <p>The following lines create random numbers, which are distributed by a normal distribution. You can use such normally distributed random numbers to generate a random walk. Such a random walk is a simple representation of Brownian motion of colloids suspended in a liquid. You will use study a random walk in the current exercise and connect it to the diffusion coefficient.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -658,7 +696,7 @@ array([-0.69953454,  0.09629639,  1.86883573,  0.64928387, -0.42188534,
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -674,7 +712,7 @@ array([-0.69953454,  0.09629639,  1.86883573,  0.64928387, -0.42188534,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_3_randomnumbers_15_0.png" src="../../_images/notebooks_L2_3_randomnumbers_15_0.png" />
+<img alt="../../_images/notebooks_L2_3_randomnumbers_17_0.png" src="../../_images/notebooks_L2_3_randomnumbers_17_0.png" />
 </div>
 </div>
 <p>Note that the above example uses the <em>cumsum()</em> function. The cumsum function of an array of number <span class="math notranslate nohighlight">\([x_0,x_1,x_2,..,x_n]\)</span> delivers an array with a progressive sum of elements <span class="math notranslate nohighlight">\([x_0,x_0+x_1,x_0+x_1+x_2,...,x_0+...+x_n]\)</span>. The line</p>
@@ -682,8 +720,9 @@ array([-0.69953454,  0.09629639,  1.86883573,  0.64928387, -0.42188534,
 </pre></div>
 </div>
 <p>is therefore all you need to generate a random walk in two dimensions.</p>
+</div>
 <div class="section" id="Exponentially-distributed-numbers">
-<h3>Exponentially distributed numbers<a class="headerlink" href="#Exponentially-distributed-numbers" title="Permalink to this headline">¶</a></h3>
+<h2>Exponentially distributed numbers<a class="headerlink" href="#Exponentially-distributed-numbers" title="Permalink to this headline">¶</a></h2>
 <p>A number of processes in physics reveal an exponential statistics. For example the probability to find a molecule under gravity at a certain height <span class="math notranslate nohighlight">\(h\)</span> is distributed by a Boltzmann law for a non-zero temperature.</p>
 <dl class="simple">
 <dt>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}</dt><dd><p>p(h)dh=p_{0}e^{-frac{mcdot gcdot h}{k_{rm B}T}}dh</p>
@@ -704,7 +743,7 @@ p(t)dt=p_{0}e^{-\frac{t}{\tau}}
 \frac{1}{b}e^{-\frac{x}{b}}
 \end{equation}</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -713,16 +752,16 @@ p(t)dt=p_{0}e^{-\frac{t}{\tau}}
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2.358751006132689
+0.7926431399835854
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -731,18 +770,18 @@ p(t)dt=p_{0}e^{-\frac{t}{\tau}}
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([2.78297283, 0.11925768, 0.52658784, ..., 0.02672397, 1.96509915,
-       0.95032145])
+array([1.25575195, 0.30250416, 2.36914119, ..., 1.04457944, 1.37505873,
+       0.79869751])
 </pre></div></div>
 </div>
 <p>You may want to test the changes in the exponential distribution with the parameter <strong>b</strong>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -755,15 +794,15 @@ array([2.78297283, 0.11925768, 0.52658784, ..., 0.02672397, 1.96509915,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_3_randomnumbers_21_0.png" src="../../_images/notebooks_L2_3_randomnumbers_21_0.png" />
+<img alt="../../_images/notebooks_L2_3_randomnumbers_23_0.png" src="../../_images/notebooks_L2_3_randomnumbers_23_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="Random-distribution-of-integers">
-<h3>Random distribution of integers<a class="headerlink" href="#Random-distribution-of-integers" title="Permalink to this headline">¶</a></h3>
+<h2>Random distribution of integers<a class="headerlink" href="#Random-distribution-of-integers" title="Permalink to this headline">¶</a></h2>
 <p>The function randint(low, high, num) produces a uniform random distribution of num integers between low (inclusive) and high (exclusive).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -772,16 +811,16 @@ array([2.78297283, 0.11925768, 0.52658784, ..., 0.02672397, 1.96509915,
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([ 5, 14, 12,  4, 16, 12, 12, 11,  9,  5])
+array([19,  5,  8, 12, 19,  6,  6,  5, 15,  5])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,12 +836,11 @@ array([ 5, 14, 12,  4, 16, 12, 12, 11,  9,  5])
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[10, 3, 4, 5, 7, 2, 8, 6, 9, 1]
+[9, 1, 5, 10, 7, 2, 8, 4, 3, 6]
 </pre></div></div>
 </div>
 <p>There are a number of other methods available in the random module of numpy. Please refere to the <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.13.0/reference/routines.random.html">documentation</a>.</p>
 <p>After you have carried out for yourself all the exercises before, you are fit in plotting in various ways.</p>
-</div>
 </div>
 </div>
 
@@ -826,7 +864,7 @@ array([ 5, 14, 12,  4, 16, 12, 12, 11,  9,  5])
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 02, 2020.
+        Last updated on Apr 03, 2020.
       </span>
 
     </p>
