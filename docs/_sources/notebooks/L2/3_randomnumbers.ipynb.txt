@@ -24,7 +24,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Uniformly distributed random numbers - rand()\n",
+    "## Uniformly distributed random numbers\n",
     "\n",
     "The rand(num) function creates an array of num floats uniformly distributed on the interval from 0 to 1."
    ]
@@ -183,7 +183,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Normally distributed random numbers - randn()"
+    "## Normally distributed random numbers"
    ]
   },
   {
