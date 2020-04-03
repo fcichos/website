@@ -71,7 +71,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 119,
+   "execution_count": 1,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -84,7 +84,7 @@
        "1.0"
       ]
      },
-     "execution_count": 119,
+     "execution_count": 1,
      "metadata": {},
      "output_type": "execute_result"
     }

@@ -4,8 +4,8 @@
    contain the root `toctree` directive.
 .. figure:: img/CompSoft_banner.png
 
-Welcome to the Computational Software Course!
-=============================================
+Welcome to the Introduction to Computer-based Physical Modelling!
+=================================================================
 
 The Python programming language is useful for all kinds of scientific and engineering tasks. You can use it to analyze and plot data. You can also use it to numerically solve scientific problems that are difficult or even impossible to solve analytically. Python is freely available and has been, due to its modular structure, extended with a nearly infinite number of different purpose modules.  
 
