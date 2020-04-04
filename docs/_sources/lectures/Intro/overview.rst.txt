@@ -8,3 +8,10 @@ This is to give you some introduction into the Jupyter environment in case you h
 2. Notebook Editor
 3. Entering Code
 4. Entering Markdown Text
+
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/embed/QlLx32juGzI" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>

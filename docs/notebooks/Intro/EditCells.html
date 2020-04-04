@@ -86,7 +86,7 @@
             
               <p class="caption"><span class="caption-text">Course Information:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">Website Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exam</a></li>
@@ -709,7 +709,31 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 </pre></div>
 </div>
 <p>in the Markdown cell.</p>
-<video src="./mov/movie.mp4" width="320" height="200" controls preload></video></div>
+<video src="mov/movie.mp4" width="320" height="200" controls></video><p>You can embed YouTube Videos as well by using the <code class="docutils literal notranslate"><span class="pre">IPython</span></code> module.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;QlLx32juGzI&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<iframe
+    width="600"
+    height="300"
+    src="https://www.youtube.com/embed/QlLx32juGzI"
+    frameborder="0"
+    allowfullscreen
+></iframe></div>
+</div>
+</div>
 </div>
 
 
