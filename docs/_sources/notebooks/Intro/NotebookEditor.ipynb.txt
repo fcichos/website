@@ -13,6 +13,13 @@
   },
   {
    "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![alt_text](img/notebook.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -27,13 +34,6 @@
     "* **command mode** the mode where you execute the cells content.\n",
     "\n",
     "In the more advanced version of JupyterLab, which we are using on myBinder, this will look like that"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "![alt_text](img/notebook.png)"
    ]
   },
   {
