@@ -308,9 +308,16 @@
    "metadata": {},
    "source": [
     "<video width=\"320\" height=\"240\" controls>\n",
-    "      <source src=\"/Users/fci/Documents/GitHub/photonics2.github.io/source/course-info/mov/movie.mp4\" type=\"video/mp4\">\n",
+    "      <source src=\"Documents/GitHub/photonics2.github.io/source/notebooks/Intro/mov/movie.mp4\" type=\"video/mp4\">\n",
     "</video>"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
