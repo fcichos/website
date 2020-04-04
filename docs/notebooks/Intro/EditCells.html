@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">Website Information</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exam</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
 <ul class="current">
@@ -114,6 +115,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#Headings">Headings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Embedded-code">Embedded code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Videos">Videos</a></li>
 </ul>
 </li>
 </ul>
@@ -164,6 +167,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Slicing">Slicing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/2_plotting.html">Plotting data</a><ul>
@@ -203,6 +210,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/4_input_output.html">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/4_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/4_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -520,27 +545,67 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Entering-code">
 <h1>Entering code<a class="headerlink" href="#Entering-code" title="Permalink to this headline">¶</a></h1>
 <p>Entering code is pretty easy. You just have to click into a cell and type the commands you want to type. If you have multiple lines of code, just press <strong>enter</strong> at the end of the line and start a new one.</p>
-<p>Python identifies blocks of codes belonging together by its identation. This will become important if you write longer code in a cell later. To indent the block, you may use either <em>whitespaces</em> or <em>tabs</em>.</p>
+<ul class="simple">
+<li><p><strong>code blocks</strong> Python identifies blocks of codes belonging together by its identation. This will become important if you write longer code in a cell later. To indent the block, you may use either <em>whitespaces</em> or <em>tabs</em>.</p></li>
+<li><p><strong>comments</strong> Comments can be added to annotate the code, such that you or someone else can understand the code.</p>
+<ul>
+<li><p>Comments in a single line are started with the <code class="docutils literal notranslate"><span class="pre">#</span></code> character at in front of the comment.</p></li>
+<li><p>Comments over multiple lines can be started with <code class="docutils literal notranslate"><span class="pre">'''</span></code>and end with the same <code class="docutils literal notranslate"><span class="pre">'''</span></code>. They are used as <code class="docutils literal notranslate"><span class="pre">docstrings</span></code> to provide a help text.</p></li>
+</ul>
+</li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># typical function</span>
 
 <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="c1"># don&#39;t forget the identation of the block</span>
-    <span class="n">y</span><span class="o">=</span><span class="mi">2</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="sd">&#39;&#39;&#39; function to calculate a function</span>
+<span class="sd">    arguments:</span>
+<span class="sd">        x ... float or integer value</span>
+<span class="sd">    returns:</span>
+<span class="sd">        y ... two times the integer value</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="c1"># don&#39;t forget the identation of the block</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">help</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on function function in module __main__:
+
+function(x)
+    function to calculate a function
+    arguments:
+        x ... float or integer value
+    returns:
+        y ... two times the integer value
+
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="Entering-Markdown">
 <h1>Entering Markdown<a class="headerlink" href="#Entering-Markdown" title="Permalink to this headline">¶</a></h1>
 <p>Text can be added to Jupyter Notebooks using Markdown cells. This is extremely useful providing a complete documentation of your calculations or simulations. In this way, everything really becomes an notebook. You can change the cell type to Markdown by using the “Cell Actions” menu, or with a hardware keyboard shortcut <code class="docutils literal notranslate"><span class="pre">m</span></code>. Markdown is a popular markup language that is a superset of HTML. Its specification can be found here:</p>
 <p><a class="reference external" href="https://daringfireball.net/projects/markdown/">https://daringfireball.net/projects/markdown/</a></p>
-<p>Markdown cells can either be <strong>rendered</strong> or <strong>unrendered</strong>. When they are rendered, you will see a nice formatted representation of the cell’s contents. When they are unrendered, you will see the raw text source of the cell. To render the selected cell, click the <code class="docutils literal notranslate"><span class="pre">▶︎</span></code> button. To unrender, select the markdown cell, and then tap again on the rendered text.</p>
+<p>Markdown cells can either be <strong>rendered</strong> or <strong>unrendered</strong>.</p>
+<p>When they are rendered, you will see a nice formatted representation of the cell’s contents.</p>
+<p>When they are unrendered, you will see the raw text source of the cell. To render the selected cell, click the <code class="docutils literal notranslate"><span class="pre">▶︎</span></code> button or <code class="docutils literal notranslate"><span class="pre">shift</span></code>+ <code class="docutils literal notranslate"><span class="pre">enter</span></code>. To unrender, select the markdown cell, and press <code class="docutils literal notranslate"><span class="pre">enter</span></code> or just double click.</p>
 <div class="section" id="Markdown-basics">
 <h2>Markdown basics<a class="headerlink" href="#Markdown-basics" title="Permalink to this headline">¶</a></h2>
 <p>Below are some basic markdown examples, in its rendered form. If you which to access how to create specific appearances, double click the individual cells to put the into an unrendered edit mode.</p>
@@ -627,6 +692,26 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
 </pre></div>
 </div>
 </div>
+<div class="section" id="Images">
+<h2>Images<a class="headerlink" href="#Images" title="Permalink to this headline">¶</a></h2>
+<p>Images may be also directly integrated into a Markdown block.</p>
+<p>To include images use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>![alternative text](url)
+</pre></div>
+</div>
+<p>for example</p>
+<p><img alt="alternative text" src="../../_images/particle.png" /></p>
+</div>
+<div class="section" id="Videos">
+<h2>Videos<a class="headerlink" href="#Videos" title="Permalink to this headline">¶</a></h2>
+<p>To include videos, we use HTML code like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">video</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;320&quot;</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;240&quot;</span> <span class="n">controls</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">source</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;path_to_movie/movie.mp4&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;video/mp4&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">video</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>in the Markdown cell.</p>
+<video width="320" height="240" controls><source src="/Users/fci/Documents/GitHub/photonics2.github.io/source/course-info/mov/movie.mp4" type="video/mp4"></video></div>
 </div>
 
 
@@ -651,7 +736,7 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 03, 2020.
+        Last updated on Apr 04, 2020.
       </span>
 
     </p>

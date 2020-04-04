@@ -20,6 +20,13 @@ This website will contain all of the informations that are required for the Comp
   :alt: Alternative text
   
 
+
+.. raw:: html
+
+    <video width="320" height="240" controls>
+      <source src="/Users/fci/Documents/GitHub/photonics2.github.io/source/course-info/movie.mp4" type="video/mp4">
+    </video>
+    
 When you are exploring the following website you will notice the following icon on several places. 
 
 |Substitution Name|

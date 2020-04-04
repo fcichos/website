@@ -164,6 +164,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Slicing">Slicing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="2_plotting.html">Plotting data</a><ul>
@@ -203,6 +207,24 @@
 <li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_input_output.html">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -522,7 +544,7 @@ div.rendered_html tbody tr:hover {
 <p>The NumPy array is the real workhorse of data structures for scientific and engineering applications. The NumPy array, formally called ndarray in NumPy documentation, is similar to a list but where all the elements of the list are of the same type. The elements of a NumPy array, or simply an array, are usually numbers, but can also be boolians, strings, or other objects. When the elements are numbers, they must all be of the same type. For example, they might be all integers or all floating
 point numbers. For numpy array’s we need to import the NumPy module.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -536,7 +558,7 @@ point numbers. For numpy array’s we need to import the NumPy module.</p>
 <ul class="simple">
 <li><p>a Python list or tuples</p></li>
 <li><p>using functions that are dedicated to generating numpy arrays, such as <code class="docutils literal notranslate"><span class="pre">arange</span></code>, <code class="docutils literal notranslate"><span class="pre">linspace</span></code>, etc.</p></li>
-<li><p>reading data from files</p></li>
+<li><p>reading data from files which will be covered in the files section</p></li>
 </ul>
 <div class="section" id="From-lists">
 <h3>From lists<a class="headerlink" href="#From-lists" title="Permalink to this headline">¶</a></h3>
@@ -575,9 +597,8 @@ numpy.ndarray
 <div class="section" id="Using-array-generating-functions">
 <h3>Using array-generating functions<a class="headerlink" href="#Using-array-generating-functions" title="Permalink to this headline">¶</a></h3>
 <p>For larger arrays it is inpractical to initialize the data manually, using explicit python lists. Instead we can use one of the many functions in <code class="docutils literal notranslate"><span class="pre">numpy</span></code> that generate arrays of different forms. Some of the more common are:</p>
-<p>The <em>linspace</em> function creates an array of N evenly spaced points between a starting point and an ending point. The form of the function is linspace(start, stop, N).If the third argument N is omitted,then N=50. <em>logspace</em> is doing equivelent things with logaritmic spacing. Other types of array creation techniques are listed below. Try around with these commands to get a feeling what they do.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -590,7 +611,7 @@ numpy.ndarray
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -599,7 +620,7 @@ array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -610,7 +631,7 @@ array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -624,6 +645,7 @@ array([-1.00000000e+00, -9.00000000e-01, -8.00000000e-01, -7.00000000e-01,
 </div>
 <div class="section" id="linspace-and-logspace">
 <h4>linspace and logspace<a class="headerlink" href="#linspace-and-logspace" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">linspace</span></code> function creates an array of N evenly spaced points between a starting point and an ending point. The form of the function is linspace(start, stop, N).If the third argument N is omitted,then N=50.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -647,6 +669,7 @@ array([ 0.        ,  0.41666667,  0.83333333,  1.25      ,  1.66666667,
         8.33333333,  8.75      ,  9.16666667,  9.58333333, 10.        ])
 </pre></div></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">logspace</span></code> is doing equivelent things with logaritmic spacing. Other types of array creation techniques are listed below. Try around with these commands to get a feeling what they do.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -990,6 +1013,13 @@ array([2312.,  -60.,  100.])
 array([ 9.98743918e-29, -8.08553640e-02,  1.03057681e-08])
 </pre></div></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="Manipulating-NumPy-arrays">
+<h2>Manipulating NumPy arrays<a class="headerlink" href="#Manipulating-NumPy-arrays" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Slicing">
+<h3>Slicing<a class="headerlink" href="#Slicing" title="Permalink to this headline">¶</a></h3>
 <p><strong>Slicing</strong> of arrays works the same way as for lists and can be very useful to vectorize calculations as shown in the example below. Here the position <span class="math notranslate nohighlight">\(y\)</span> of an object has been measured at times <span class="math notranslate nohighlight">\(t\)</span> and stored in an array each. We wish to calculate the average velocity at the times <span class="math notranslate nohighlight">\(t_{i}\)</span> from the arrays by</p>
 <p><span class="math">\begin{equation}
 v_{i}=\frac{y_i-y_{i-1}}{t_{i}-t_{i-1}}
@@ -1106,7 +1136,6 @@ array([[0., 0., 0.],
 </div>
 </div>
 </div>
-</div>
 
 
            </div>
@@ -1130,7 +1159,7 @@ array([[0., 0., 0.],
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 03, 2020.
+        Last updated on Apr 04, 2020.
       </span>
 
     </p>

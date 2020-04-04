@@ -330,7 +330,7 @@
    "source": [
     "## Lists\n",
     "\n",
-    "**Lists** are another data structure, similar to NumPy arrays, but unlike NumPy arrays, lists are a part of core Python. Lists have a variety of uses. They are useful, for example, in various bookkeeping tasks that arise in computer programming. Like arrays, they are sometimes used to store data. However, lists do not have the specialized properties and tools that make arrays so powerful for scientific computing. So in general, we prefer arrays to lists for working with scientific data. For other tasks, lists work just fine and can even be preferable to arrays.\n"
+    "**Lists** have a variety of uses. They are useful, for example, in various bookkeeping tasks that arise in computer programming. Like arrays, they are sometimes used to store data. However, lists do not have the specialized properties and tools that make arrays so powerful for scientific computing. So in general, we prefer arrays to lists for working with scientific data. For other tasks, lists work just fine and can even be preferable to arrays.\n"
    ]
   },
   {
@@ -352,7 +352,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 91,
+   "execution_count": 23,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2018-04-16T15:00:49.850960Z",
@@ -375,99 +375,27 @@
     }
    },
    "source": [
-    "The length of a list can be obtained by the *len()* command if you need the number of elements in the list for your calculations."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 92,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2018-04-16T15:07:44.966883Z",
-     "start_time": "2018-04-16T15:07:44.961951Z"
-    },
-    "slideshow": {
-     "slide_type": "fragment"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "5"
-      ]
-     },
-     "execution_count": 92,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "len(b)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "slideshow": {
-     "slide_type": "subslide"
-    }
-   },
-   "source": [
-    "There are powerful ways to iterate through a list and also through arrays in form of *iterator*. We will talk about them later in more detail. Here is an example, which shows the powerful options you have in Python. The example will go through the list **b** and return all elements of the type str. "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 93,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2018-04-16T15:10:25.820782Z",
-     "start_time": "2018-04-16T15:10:25.815249Z"
-    },
-    "slideshow": {
-     "slide_type": "fragment"
-    }
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "['girl', 'horse']"
-      ]
-     },
-     "execution_count": 93,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "[element for element in b if type(element)==str]"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {
-    "slideshow": {
-     "slide_type": "subslide"
-    }
-   },
-   "source": [
     "Individual elements in a list can be accessed by the variable name and the number (index) of the list element put in square brackets. Note that the index for the elements start at *0* for the first element (left). "
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Note** Indices in Python\n",
+    "\n",
+    "\n",
+    "The first element of a list or array is accessed by the index 0. If the array has N elements, the last entries index is N-1.\n",
+    "\n",
+    "</div>"
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 94,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2018-04-16T15:11:58.786370Z",
-     "start_time": "2018-04-16T15:11:58.781564Z"
-    },
-    "slideshow": {
-     "slide_type": "fragment"
-    }
-   },
+   "execution_count": 24,
+   "metadata": {},
    "outputs": [
     {
      "data": {
@@ -475,7 +403,7 @@
        "'girl'"
       ]
      },
-     "execution_count": 94,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -549,6 +477,84 @@
    ],
    "source": [
     "b[-2]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "The length of a list can be obtained by the `len` command if you need the number of elements in the list for your calculations."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 92,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2018-04-16T15:07:44.966883Z",
+     "start_time": "2018-04-16T15:07:44.961951Z"
+    },
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "5"
+      ]
+     },
+     "execution_count": 92,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "There are powerful ways to iterate through a list and also through arrays in form of *iterator*. We will talk about them later in more detail. Here is an example, which shows the powerful options you have in Python. The example will go through the list **b** and return all elements of the type str. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2018-04-16T15:10:25.820782Z",
+     "start_time": "2018-04-16T15:10:25.815249Z"
+    },
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['girl', 'horse']"
+      ]
+     },
+     "execution_count": 93,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[element for element in b if type(element)==str]"
    ]
   },
   {

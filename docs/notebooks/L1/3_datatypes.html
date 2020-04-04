@@ -164,6 +164,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Slicing">Slicing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/2_plotting.html">Plotting data</a><ul>
@@ -209,12 +213,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#Keyboard-input">Keyboard input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#Screen-output">Screen output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#File-input/output">File input/output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L2/4_input_output.html#Reading-data-with-NumPy">Reading data with NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/4_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/4_input_output.html#Reading-data-with-Pandas">Reading data with Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/4_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
 </ul>
@@ -706,8 +710,7 @@ True
 </div>
 <div class="section" id="Lists">
 <h2>Lists<a class="headerlink" href="#Lists" title="Permalink to this headline">¶</a></h2>
-<p><strong>Lists</strong> are another data structure, similar to NumPy arrays, but unlike NumPy arrays, lists are a part of core Python. Lists have a variety of uses. They are useful, for example, in various bookkeeping tasks that arise in computer programming. Like arrays, they are sometimes used to store data. However, lists do not have the specialized properties and tools that make arrays so powerful for scientific computing. So in general, we prefer arrays to lists for working with scientific data. For
-other tasks, lists work just fine and can even be preferable to arrays.</p>
+<p><strong>Lists</strong> have a variety of uses. They are useful, for example, in various bookkeeping tasks that arise in computer programming. Like arrays, they are sometimes used to store data. However, lists do not have the specialized properties and tools that make arrays so powerful for scientific computing. So in general, we prefer arrays to lists for working with scientific data. For other tasks, lists work just fine and can even be preferable to arrays.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -718,7 +721,7 @@ other tasks, lists work just fine and can even be preferable to arrays.</p>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -726,47 +729,13 @@ other tasks, lists work just fine and can even be preferable to arrays.</p>
 </pre></div>
 </div>
 </div>
-<p>The length of a list can be obtained by the <em>len()</em> command if you need the number of elements in the list for your calculations.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-5
-</pre></div></div>
-</div>
-<p>There are powerful ways to iterate through a list and also through arrays in form of <em>iterator</em>. We will talk about them later in more detail. Here is an example, which shows the powerful options you have in Python. The example will go through the list <strong>b</strong> and return all elements of the type str.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">[</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;girl&#39;, &#39;horse&#39;]
-</pre></div></div>
-</div>
 <p>Individual elements in a list can be accessed by the variable name and the number (index) of the list element put in square brackets. Note that the index for the elements start at <em>0</em> for the first element (left).</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong> Indices in Python</p>
+<p>The first element of a list or array is accessed by the index 0. If the array has N elements, the last entries index is N-1.</p>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -775,7 +744,7 @@ other tasks, lists work just fine and can even be preferable to arrays.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -818,6 +787,44 @@ other tasks, lists work just fine and can even be preferable to arrays.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &#39;horse&#39;
+</pre></div></div>
+</div>
+<p>The length of a list can be obtained by the <code class="docutils literal notranslate"><span class="pre">len</span></code> command if you need the number of elements in the list for your calculations.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5
+</pre></div></div>
+</div>
+<p>There are powerful ways to iterate through a list and also through arrays in form of <em>iterator</em>. We will talk about them later in more detail. Here is an example, which shows the powerful options you have in Python. The example will go through the list <strong>b</strong> and return all elements of the type str.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">element</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">b</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;girl&#39;, &#39;horse&#39;]
 </pre></div></div>
 </div>
 <p>Individual elements in a list can be replaced by assigning a new value to them</p>
@@ -1184,7 +1191,7 @@ dict_values([422, 322, 550])
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 03, 2020.
+        Last updated on Apr 04, 2020.
       </span>
 
     </p>

@@ -30,7 +30,7 @@
     }
    },
    "source": [
-    "A Jupyter Notebook is a web browser based **interactive computing environment** that enables users to create documents that include code to be executed, results from the executed code such as plots and images,and finally also an additional documentation in form of markdown text including equations in LaTeX."
+    "A Jupyter Notebook is a web browser based **interactive computing environment** that enables users to create documents that include code to be executed, results from the executed code such as plots and images,and finally also an additional documentation in form of markdown text including equations in LaTeX. This document, is coming originally from a Jupyter Notebook."
    ]
   },
   {
@@ -41,7 +41,7 @@
     }
    },
    "source": [
-    "These documents provide a **complete and self-contained record of a computation** that can be converted to various formats and shared with others using email, [Dropbox](https://www.dropbox.com/), version control systems (like git/[GitHub](https://github.com)) or [nbviewer.jupyter.org](http://nbviewer.jupyter.org)."
+    "These documents provide a **complete and self-contained record of a computation** that can be converted to various formats and shared with others using email,  version control systems (like git/[GitHub](https://github.com)) or [nbviewer.jupyter.org](http://nbviewer.jupyter.org)."
    ]
   },
   {
@@ -53,8 +53,11 @@
    },
    "source": [
     "The Jupyter Notebook combines three components:\n",
-    "* **Notebook editor**: an interactive application for writing and running code interactively and editing notebook documents. If you run Jupyter on desktop, you will be using Jupyter's web application, whereas right now you are using Juno as your notebook editor.\n",
+    "\n",
+    "* **Notebook editor**: an interactive application for writing and running code interactively and editing notebook documents. If you run Jupyter on desktop, you will be using Jupyter's web application.\n",
+    "\n",
     "* **Kernels**: Separate processes started by Jupyter on your server, that runs users' code in a given language and returns output back to the notebook web application. The kernel also handles things like computations for interactive widgets, tab completion and introspection.\n",
+    "\n",
     "* **Notebook documents**: Self-contained documents that contain a representation of all content visible in the notebook editor, including inputs and outputs of the computations, markdown text, equations, images, and rich media representations of objects. Each notebook document has its own kernel."
    ]
   },
@@ -173,7 +176,7 @@
     }
    },
    "source": [
-    "Internally, notebook documents are **[JSON](https://en.wikipedia.org/wiki/JSON) text files** with **binary data encoded in [base64](http://en.wikipedia.org/wiki/Base64)**. This allows them to be **read and manipulated programmatically** by any programming language. Because JSON is a text format, notebook documents are version control friendly."
+    "Internally, notebook documents are **[JSON](https://en.wikipedia.org/wiki/JSON) text files** with **binary data encoded in  [base64](http://en.wikipedia.org/wiki/Base64)**. This allows them to be **read and manipulated programmatically** by any programming language."
    ]
   },
   {

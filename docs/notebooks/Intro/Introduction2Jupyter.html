@@ -164,6 +164,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Slicing">Slicing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/2_plotting.html">Plotting data</a><ul>
@@ -203,6 +207,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/4_input_output.html">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/4_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/4_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/4_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -303,10 +325,14 @@
 <h1>Introduction to Jupyter<a class="headerlink" href="#Introduction-to-Jupyter" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="What-is-Jupyter-Notebook?">
 <h2>What is Jupyter Notebook?<a class="headerlink" href="#What-is-Jupyter-Notebook?" title="Permalink to this headline">¶</a></h2>
-<p>A Jupyter Notebook is a web browser based <strong>interactive computing environment</strong> that enables users to create documents that include code to be executed, results from the executed code such as plots and images,and finally also an additional documentation in form of markdown text including equations in LaTeX.</p>
-<p>These documents provide a <strong>complete and self-contained record of a computation</strong> that can be converted to various formats and shared with others using email, <a class="reference external" href="https://www.dropbox.com/">Dropbox</a>, version control systems (like git/<a class="reference external" href="https://github.com">GitHub</a>) or <a class="reference external" href="http://nbviewer.jupyter.org">nbviewer.jupyter.org</a>.</p>
-<p>The Jupyter Notebook combines three components: * <strong>Notebook editor</strong>: an interactive application for writing and running code interactively and editing notebook documents. If you run Jupyter on desktop, you will be using Jupyter’s web application, whereas right now you are using Juno as your notebook editor. * <strong>Kernels</strong>: Separate processes started by Jupyter on your server, that runs users’ code in a given language and returns output back to the notebook web application. The kernel also
-handles things like computations for interactive widgets, tab completion and introspection. * <strong>Notebook documents</strong>: Self-contained documents that contain a representation of all content visible in the notebook editor, including inputs and outputs of the computations, markdown text, equations, images, and rich media representations of objects. Each notebook document has its own kernel.</p>
+<p>A Jupyter Notebook is a web browser based <strong>interactive computing environment</strong> that enables users to create documents that include code to be executed, results from the executed code such as plots and images,and finally also an additional documentation in form of markdown text including equations in LaTeX. This document, is coming originally from a Jupyter Notebook.</p>
+<p>These documents provide a <strong>complete and self-contained record of a computation</strong> that can be converted to various formats and shared with others using email, version control systems (like git/<a class="reference external" href="https://github.com">GitHub</a>) or <a class="reference external" href="http://nbviewer.jupyter.org">nbviewer.jupyter.org</a>.</p>
+<p>The Jupyter Notebook combines three components:</p>
+<ul class="simple">
+<li><p><strong>Notebook editor</strong>: an interactive application for writing and running code interactively and editing notebook documents. If you run Jupyter on desktop, you will be using Jupyter’s web application.</p></li>
+<li><p><strong>Kernels</strong>: Separate processes started by Jupyter on your server, that runs users’ code in a given language and returns output back to the notebook web application. The kernel also handles things like computations for interactive widgets, tab completion and introspection.</p></li>
+<li><p><strong>Notebook documents</strong>: Self-contained documents that contain a representation of all content visible in the notebook editor, including inputs and outputs of the computations, markdown text, equations, images, and rich media representations of objects. Each notebook document has its own kernel.</p></li>
+</ul>
 </div>
 <div class="section" id="Notebook-editor">
 <h2>Notebook editor<a class="headerlink" href="#Notebook-editor" title="Permalink to this headline">¶</a></h2>
@@ -329,7 +355,7 @@ handles things like computations for interactive widgets, tab completion and int
 <p>Notebook documents, or notebooks, contain the <strong>inputs and outputs</strong> of an interactive session as well as <strong>dacumentation text</strong> that accompanies the code but is not meant for execution.</p>
 <p>A notebook is just a <strong>file on your server’s filesystem with a ``.ipynb`` extension</strong>. This allows you to share your notebook easily.</p>
 <p>Notebooks consist of a <strong>linear sequence of cells</strong>. There are three basic cell types: * <strong>Code cells:</strong> Input and output of live code that is run in the kernel. * <strong>Markdown cells:</strong> Narrative text with embedded LaTeX equations. * <strong>Raw cells:</strong> Unformatted text that is included, without modification, when notebooks are converted to different formats using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code>.</p>
-<p>Internally, notebook documents are <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a><strong>text files</strong> with <strong>binary data encoded in</strong><a class="reference external" href="http://en.wikipedia.org/wiki/Base64">base64</a>. This allows them to be <strong>read and manipulated programmatically</strong> by any programming language. Because JSON is a text format, notebook documents are version control friendly.</p>
+<p>Internally, notebook documents are <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a><strong>text files</strong> with <strong>binary data encoded in</strong><a class="reference external" href="http://en.wikipedia.org/wiki/Base64">base64</a>. This allows them to be <strong>read and manipulated programmatically</strong> by any programming language.</p>
 <p><strong>Notebooks can be exported</strong> to different static formats including HTML, reStructeredText, LaTeX, PDF, and slide shows (<a class="reference external" href="http://lab.hakim.se/reveal-js/">reveal.js</a>) using Jupyter’s <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> utility.</p>
 <p>Furthermore, any notebook document available from a <strong>public URL on or GitHub can be shared</strong> via <a class="reference external" href="http://nbviewer.jupyter.org">nbviewer</a>. This service loads the notebook document from the URL and renders it as a static web page. The resulting web page may thus be shared with others <strong>without their needing to install the Jupyter Notebook</strong>.</p>
 </div>
@@ -357,7 +383,7 @@ handles things like computations for interactive widgets, tab completion and int
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 03, 2020.
+        Last updated on Apr 04, 2020.
       </span>
 
     </p>

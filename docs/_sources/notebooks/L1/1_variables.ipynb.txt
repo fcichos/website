@@ -34,13 +34,20 @@
     }
    },
    "source": [
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Note** Used keywords in Python\n",
+    "\n",
     "In addition, there are a number of Python keywords that cannot be used as variable names. These keywords are:\n",
     "\n",
     "    and, as, assert, break, class, continue, def, del, elif, else, except, \n",
     "    exec, finally, for, from, global, if, import, in, is, lambda, not, or,\n",
     "    pass, print, raise, return, try, while, with, yield\n",
     "\n",
-    "Note: Be aware of the keyword `lambda`, which could easily be a natural variable name in a scientific program. But being a keyword, it cannot be used as a variable name."
+    "Note: Be aware of the keyword `lambda`, which could easily be a natural variable name in a scientific program. But being a keyword, it cannot be used as a variable name.\n",
+    "\n",
+    "</div>\n",
+    "\n"
    ]
   },
   {

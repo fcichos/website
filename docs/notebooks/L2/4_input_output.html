@@ -163,6 +163,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Slicing">Slicing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="2_plotting.html">Plotting data</a><ul>
@@ -208,12 +212,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#Keyboard-input">Keyboard input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Screen-output">Screen output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#File-input/output">File input/output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Reading-data-with-NumPy">Reading data with NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Reading-data-from-a-text-file">Reading data from a text file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Writing-data-to-a-text-file">Writing data to a text file</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Reading-data-with-Pandas">Reading data with Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Short-intro-to-Pandas">Short intro to Pandas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
 </ul>
@@ -662,8 +666,17 @@ How are you my friend?
 </div>
 <div class="section" id="File-input/output">
 <h2>File input/output<a class="headerlink" href="#File-input/output" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Reading-data-with-NumPy">
-<h3>Reading data with NumPy<a class="headerlink" href="#Reading-data-with-NumPy" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="File-I/O-with-NumPy">
+<h3>File I/O with NumPy<a class="headerlink" href="#File-I/O-with-NumPy" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># don&#39;t forget to import numpy</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="Reading-data-from-a-text-file">
 <h4>Reading data from a text file<a class="headerlink" href="#Reading-data-from-a-text-file" title="Permalink to this headline">¶</a></h4>
 <p>Often you would like to analyze data that you have stored in a text file. Consider, for example, the data file below for an experiment measuring the free fall of a mass.</p>
@@ -680,7 +693,7 @@ How are you my friend?
 <span class="mi">6</span>       <span class="mf">3.0</span>     <span class="mi">136</span>     <span class="mf">2.5</span>
 </pre></div>
 </div>
-<p>We would like to read these data into a Python program, associating the data in each column with an appropriately named array. While there are a multitude of ways to do this in Python, the simplest by far is to use the NumPy <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.loadtxt.html">loadtxt</a> function, whose use we illustrate here. Suppose that the name of the text file is <strong>MyData.txt</strong>. Then we can read the data into four different arrays with the following statement</p>
+<p>We would like to read these data into a Python program, associating the data in each column with an appropriately named array. While there are a multitude of ways to do this in Python, the simplest by far is to use the NumPy <code class="docutils literal notranslate"><span class="pre">loadtxt</span></code> function, whose use we illustrate here. Suppose that the name of the text file is <strong>MyData.txt</strong>. Then we can read the data into four different arrays with the following statement</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
@@ -751,8 +764,8 @@ How are you my friend?
 </div>
 </div>
 </div>
-<div class="section" id="Reading-data-with-Pandas">
-<h3>Reading data with Pandas<a class="headerlink" href="#Reading-data-with-Pandas" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="File-I/O-with-Pandas">
+<h3>File I/O with Pandas<a class="headerlink" href="#File-I/O-with-Pandas" title="Permalink to this headline">¶</a></h3>
 <p>Pandas is a software library written for the Python programming language. It is used for data manipulation and analysis. It provides special data structures and operations for the manipulation of numerical tables and time series and builds on top of numpy.</p>
 <ul class="simple">
 <li><p>Easy handling of missing data</p></li>
@@ -762,13 +775,11 @@ How are you my friend?
 <div class="section" id="Short-intro-to-Pandas">
 <h4>Short intro to Pandas<a class="headerlink" href="#Short-intro-to-Pandas" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># import the pandas module</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -1114,7 +1125,7 @@ array([[4, 9, 2, 2, 8],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_4_input_output_37_1.png"><img alt="../../_images/notebooks_L2_4_input_output_37_1.png" src="../../_images/notebooks_L2_4_input_output_37_1.png" style="width: 373px; height: 250px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_4_input_output_38_1.png"><img alt="../../_images/notebooks_L2_4_input_output_38_1.png" src="../../_images/notebooks_L2_4_input_output_38_1.png" style="width: 373px; height: 250px;" /></a>
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -1139,7 +1150,7 @@ array([[4, 9, 2, 2, 8],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_4_input_output_38_1.png"><img alt="../../_images/notebooks_L2_4_input_output_38_1.png" src="../../_images/notebooks_L2_4_input_output_38_1.png" style="width: 378px; height: 255px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_4_input_output_39_1.png"><img alt="../../_images/notebooks_L2_4_input_output_39_1.png" src="../../_images/notebooks_L2_4_input_output_39_1.png" style="width: 378px; height: 255px;" /></a>
 </div>
 </div>
 </div>
@@ -1167,7 +1178,7 @@ array([[4, 9, 2, 2, 8],
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 03, 2020.
+        Last updated on Apr 04, 2020.
       </span>
 
     </p>

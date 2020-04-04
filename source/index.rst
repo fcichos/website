@@ -32,7 +32,7 @@ Feel free to ask questions to the contents of the modules.
    course-info/website.rst
    course-info/schedule.rst
    course-info/assignments.rst
-   
+   course-info/exam.rst   
    
 .. toctree::
    :maxdepth: 2
