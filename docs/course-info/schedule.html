@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Assignments" href="assignments.html" />
-    <link rel="prev" title="Website Information" href="website.html" /> 
+    <link rel="prev" title="This Website" href="website.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,9 +86,10 @@
             
               <p class="caption"><span class="caption-text">Course Information:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="website.html">Website Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="website.html">This Website</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Course Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exam.html">Exam</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
 <ul>
@@ -114,6 +115,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/Intro/EditCells.html#Headings">Headings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/Intro/EditCells.html#Embedded-code">Embedded code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/Intro/EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Intro/EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/Intro/EditCells.html#Videos">Videos</a></li>
 </ul>
 </li>
 </ul>
@@ -164,6 +167,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L2/1_numpy.html#Slicing">Slicing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/L2/2_plotting.html">Plotting data</a><ul>
@@ -203,6 +210,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/L2/3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/L2/3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/L2/4_input_output.html">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L2/4_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L2/4_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L2/4_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L2/4_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../notebooks/L2/4_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../notebooks/L2/4_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L2/4_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../notebooks/L2/4_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../notebooks/L2/4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -297,7 +322,9 @@
 </style>
 <div class="section" id="course-schedule">
 <h1>Course Schedule<a class="headerlink" href="#course-schedule" title="Permalink to this headline">¶</a></h1>
-<p>The course will be updated weekly with the schedule of the lectures. Thus, expect every <strong>Tuesday starting April, 7th at about 1:30 pm</strong> a new lecture and assignment. As it is an online course and the material is available online, you can come back to study whenever it is suitable for you.</p>
+<p>The course will be updated weekly with the schedule of the lectures. Thus, expect every</p>
+<p><strong>Tuesday starting April, 7th at 1:30 pm</strong></p>
+<p>a new lecture and assignment. As it is an online course and the material is available online, you can come back to study whenever it is suitable for you.</p>
 <p>We will add also new videos explaining the details of the notebooks every week. Please explore the new materials, especially the notebooks on the mybinder server. They will help you to finish the weekly assignments.</p>
 </div>
 
@@ -312,7 +339,7 @@
         <a href="assignments.html" class="btn btn-neutral float-right" title="Assignments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="website.html" class="btn btn-neutral float-left" title="Website Information" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="website.html" class="btn btn-neutral float-left" title="This Website" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -323,7 +350,7 @@
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 03, 2020.
+        Last updated on Apr 04, 2020.
       </span>
 
     </p>
