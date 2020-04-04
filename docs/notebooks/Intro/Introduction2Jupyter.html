@@ -86,9 +86,10 @@
             
               <p class="caption"><span class="caption-text">Course Information:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">Website Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exam</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
 <ul class="current">
@@ -114,6 +115,8 @@
 <li class="toctree-l2"><a class="reference internal" href="EditCells.html#Headings">Headings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EditCells.html#Embedded-code">Embedded code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EditCells.html#Videos">Videos</a></li>
 </ul>
 </li>
 </ul>
@@ -352,9 +355,14 @@
 </div>
 <div class="section" id="Notebook-documents">
 <h2>Notebook documents<a class="headerlink" href="#Notebook-documents" title="Permalink to this headline">¶</a></h2>
-<p>Notebook documents, or notebooks, contain the <strong>inputs and outputs</strong> of an interactive session as well as <strong>dacumentation text</strong> that accompanies the code but is not meant for execution.</p>
+<p>Notebook documents, or notebooks, contain the <strong>inputs and outputs</strong> of an interactive session as well as <strong>documentation text</strong> that accompanies the code but is not meant for execution.</p>
 <p>A notebook is just a <strong>file on your server’s filesystem with a ``.ipynb`` extension</strong>. This allows you to share your notebook easily.</p>
-<p>Notebooks consist of a <strong>linear sequence of cells</strong>. There are three basic cell types: * <strong>Code cells:</strong> Input and output of live code that is run in the kernel. * <strong>Markdown cells:</strong> Narrative text with embedded LaTeX equations. * <strong>Raw cells:</strong> Unformatted text that is included, without modification, when notebooks are converted to different formats using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code>.</p>
+<p>Notebooks consist of a <strong>linear sequence of cells</strong>. There are three basic cell types:</p>
+<ul class="simple">
+<li><p><strong>Code cells:</strong> Input and output of live code that is run in the kernel.</p></li>
+<li><p><strong>Markdown cells:</strong> Narrative text with embedded LaTeX equations.</p></li>
+<li><p><strong>Raw cells:</strong> Unformatted text that is included, without modification, when notebooks are converted to different formats using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code>.</p></li>
+</ul>
 <p>Internally, notebook documents are <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a><strong>text files</strong> with <strong>binary data encoded in</strong><a class="reference external" href="http://en.wikipedia.org/wiki/Base64">base64</a>. This allows them to be <strong>read and manipulated programmatically</strong> by any programming language.</p>
 <p><strong>Notebooks can be exported</strong> to different static formats including HTML, reStructeredText, LaTeX, PDF, and slide shows (<a class="reference external" href="http://lab.hakim.se/reveal-js/">reveal.js</a>) using Jupyter’s <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> utility.</p>
 <p>Furthermore, any notebook document available from a <strong>public URL on or GitHub can be shared</strong> via <a class="reference external" href="http://nbviewer.jupyter.org">nbviewer</a>. This service loads the notebook document from the URL and renders it as a static web page. The resulting web page may thus be shared with others <strong>without their needing to install the Jupyter Notebook</strong>.</p>

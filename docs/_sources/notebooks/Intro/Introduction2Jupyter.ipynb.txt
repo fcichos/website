@@ -140,7 +140,7 @@
     }
    },
    "source": [
-    "Notebook documents, or notebooks, contain the **inputs and outputs** of an interactive session as well as **dacumentation text** that accompanies the code but is not meant for execution. "
+    "Notebook documents, or notebooks, contain the **inputs and outputs** of an interactive session as well as **documentation text** that accompanies the code but is not meant for execution. "
    ]
   },
   {
@@ -163,9 +163,10 @@
    },
    "source": [
     "Notebooks consist of a **linear sequence of cells**. There are three basic cell types:\n",
+    "\n",
     "* **Code cells:** Input and output of live code that is run in the kernel.\n",
     "* **Markdown cells:** Narrative text with embedded LaTeX equations.\n",
-    "* **Raw cells:** Unformatted text that is included, without modification, when notebooks are converted to different formats using `nbconvert`."
+    "* **Raw cells:** Unformatted text that is included, without modification, when notebooks are converted to different formats using `nbconvert`.\n"
    ]
   },
   {
