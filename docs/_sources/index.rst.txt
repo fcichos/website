@@ -24,9 +24,6 @@ We will not present a comprehensive list of numerical simulation schemes, but us
 
 
 
-
-Contents of the Lecturess
-
 .. toctree::
    :maxdepth: 2
    :caption: Course Information:
