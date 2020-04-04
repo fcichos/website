@@ -117,6 +117,7 @@
    },
    "source": [
     "In edit mode, most of the keyboard is dedicated to typing into the cell's editor. Thus, in edit mode there are relatively few shortcuts.  In command mode, the entire keyboard is available for shortcuts, so there are many more. Most important ones are:\n",
+    "\n",
     "1. Switch command and edit mods: `Enter` for edit mode, and `Esc` or `Control` for command mode.\n",
     "2. Basic navigation: `↑`/`k`, `↓`/`j`\n",
     "3. Run or render currently selected cell: `Shift`+`Enter` or `Control`+`Enter`\n",
@@ -124,7 +125,7 @@
     "5. Change Cell types: `y` to make it a **code** cell, `m` for **markdown** and `r` for **raw**\n",
     "6. Inserting new cells: `a` to **insert above**, `b` to **insert below**\n",
     "7. Manipulating cells using pasteboard: `x` for **cut**, `c` for **copy**, `v` for **paste**, `d` for **delete** and `z` for **undo delete**\n",
-    "8. Kernel operations: `i` to **interrupt** and `0` to **restart**"
+    "8. Kernel operations: `i` to **interrupt** and `0` to **restart**\n"
    ]
   },
   {
