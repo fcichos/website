@@ -26,7 +26,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 3,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -39,7 +39,7 @@
        "(3, -1, 2, 0.5)"
       ]
      },
-     "execution_count": 28,
+     "execution_count": 3,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -50,7 +50,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 4,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -63,7 +63,7 @@
        "(3.0, -1.0, 2.0, 0.5)"
       ]
      },
-     "execution_count": 29,
+     "execution_count": 4,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -74,7 +74,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 5,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -87,7 +87,7 @@
        "1.0"
       ]
      },
-     "execution_count": 30,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -99,7 +99,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 7,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -109,30 +109,37 @@
     {
      "data": {
       "text/plain": [
-       "4"
+       "8"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "# Note! The power operators in python isn't ^, but **\n",
-    "2 ** 2"
+    "2 ** 3"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {
     "slideshow": {
-     "slide_type": "fragment"
+     "slide_type": "subslide"
     }
    },
    "source": [
-    "Note: The `/` operator always performs a floating point division in Python 3.x.\n",
-    "This is not true in Python 2.x, where the result of `/` is always an integer if the operands are integers.\n",
-    "to be more specific, `1/2 = 0.5` (`float`) in Python 3.x, and `1/2 = 0` (`int`) in Python 2.x (but `1.0/2 = 0.5` in Python 2.x)."
+    "<div class=\"alert alert-warning\">\n",
+    "\n",
+    "**Note:** Division\n",
+    "    \n",
+    "The `/` operator always performs a floating point division in Python 3.x. \n",
+    "This is not true in Python 2.x, where the result of `/` is always an integer \n",
+    "if the operands are integers. To be more specific, `1/2 = 0.5` (`float`) in \n",
+    "Python 3.x, and `1/2 = 0` (`int`) in Python 2.x (but `1.0/2 = 0.5` in Python 2.x).\n",
+    "\n",
+    "</div>"
    ]
   },
   {
@@ -143,7 +150,7 @@
     }
    },
    "source": [
-    "* The boolean operators are spelled out as the words `and`, `not`, `or`. "
+    "The boolean operators are spelled out as the words `and`, `not`, `or`. "
    ]
   },
   {
@@ -226,7 +233,7 @@
     }
    },
    "source": [
-    "* Comparison operators `>`, `<`, `>=` (greater or equal), `<=` (less or equal), `==` equality, `is` identical."
+    "Comparison operators `>`, `<`, `>=` (greater or equal), `<=` (less or equal), `==` equality, `is` identical."
    ]
   },
   {

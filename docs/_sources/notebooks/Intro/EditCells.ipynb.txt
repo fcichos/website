@@ -298,7 +298,7 @@
     "<video src=\"mov/movie.mp4\" width=\"320\" height=\"200\" controls preload></video>\n",
     "~~~\n",
     "\n",
-    "in the Markdown cell."
+    "in the Markdown cell. This works with videos stored locally."
    ]
   },
   {
@@ -318,11 +318,7 @@
   {
    "cell_type": "code",
    "execution_count": 9,
-   "metadata": {
-    "slideshow": {
-     "slide_type": "skip"
-    }
-   },
+   "metadata": {},
    "outputs": [
     {
      "data": {

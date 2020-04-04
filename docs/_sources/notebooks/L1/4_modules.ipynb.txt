@@ -3,6 +3,9 @@
   {
    "cell_type": "markdown",
    "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    },
     "toc-hr-collapsed": false
    },
    "source": [
@@ -13,7 +16,7 @@
    "cell_type": "markdown",
    "metadata": {
     "slideshow": {
-     "slide_type": "slide"
+     "slide_type": "subslide"
     },
     "toc-hr-collapsed": true
    },
