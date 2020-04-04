@@ -3,33 +3,46 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Website Information
-===================
-
-This website will contain all of the informations that are required for the Computational Software course. We will make use of several public services such that you do not really have to download and install all
-
-
-1. myBinder service to host Jupyter Notebooks (https://mybinder.org). The Binder project offers an easy place to share computing environments to everyone
-2. GitHub and GitHub Pages for hosting notebooks and website (https://github.com). GitHub is a great place to host you collaborative coding projects including version control.
-3. Anaconda Jupyter package for creating the notebooks (https://www.anaconda.com/distribution/). The anaconda package privides you with the Jupyter Notebook environment including Python. If you want to use Jupyter at home without 
-
-
 .. |Substitution Name| image:: https://img.shields.io/badge/launch-full%20binder-red.svg
-  :target: https://mybinder.org
+  :target: https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/Intro/Empty.ipynb
   :width: 100
   :alt: Alternative text
   
 
+This Website
+============
 
-.. raw:: html
+This website will contain all of the informations that are required for our Computer-based Physical Modelling Course course. You will be guided from here to several resources that you can use to learn programming in Python. Thereby we will make use of some great tools in the web, like
 
-    <video width="320" height="240" controls>
-      <source src="/Users/fci/Documents/GitHub/photonics2.github.io/source/course-info/movie.mp4" type="video/mp4">
-    </video>
+
+1. **myBinder** service to host Jupyter Notebooks (https://mybinder.org). The Binder project offers an easy place to share computing environments to everyone
+
+    .. image:: img/binder.png
+       :width: 600px
+       :alt: binder screen
+       :align: center
+
+    When you are exploring the following website you will notice the following icon on several places. 
+
+    |Substitution Name|
+
+    This icon indicates that this webpage is based on a Jupyter Notebook. Rather than just looking at the website, you may click on the icon and the myBinder service will be opened to allow you to interactively use the notebook. *Please be patient and wait until binder has started.*  All notebooks on myBinder will be hosted temporarily. If you show inactivity for to long, the server will close the connection. If you are finsihed working on a notebook, you may download it to keep a copy. Go ahead and click on the icon to get an empty notebook.
+
+2. **GitHub and GitHub Pages** for hosting notebooks and website (https://github.com). GitHub is a great place to host you collaborative coding projects including version control. In the upper right corner, you will also find a link to the GitHub repository hosting the notebooks. 
+
+.. image:: img/github.png
+   :width: 600px
+   :alt: github screen
+   :align: center
+   
+   
+3. **Anaconda Jupyter package** for creating the notebooks (https://www.anaconda.com/distribution/). The anaconda package privides you with the Jupyter Notebook environment including Python. If you want to use Jupyter at home without 
+
+.. image:: img/anaconda.png
+   :width: 800px
+   :alt: anaconda screen
+   :align: center
+
+
     
-When you are exploring the following website you will notice the following icon on several places. 
-
-|Substitution Name|
-
-This icon indicates that this webpage is based on a Jupyter Notebook. Rather than just looking at the website, you may click on the icon and the myBtinder service will be opened to allow you to interactively use the notebook. Please be patient and wait until binder has started. 
-In the upper right corner, you will also find a link to the GitHub repository hosting the notebooks. 
+The website will be updated each week and you will find a new lecture and a new assignment every week. The lecture notebooks will be accompanied with videos explaining the lecture contents but you may get along with just reading as well.     
