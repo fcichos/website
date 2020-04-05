@@ -52,6 +52,7 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L1/2_operators.ipynb
    notebooks/L1/3_datatypes.ipynb
    notebooks/L1/4_modules.ipynb
+   lectures/L1/assignment_1.rst
 
 
 
