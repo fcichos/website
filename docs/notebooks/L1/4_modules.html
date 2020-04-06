@@ -86,10 +86,21 @@
             
               <p class="caption"><span class="caption-text">Course Information:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/website.html#instructors">Instructors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course-info/website.html#lecturers">Lecturers &amp;</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-documentation">Python Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorial">Python Tutorial</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
 <ul>
@@ -147,7 +158,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#Modules">Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Namespaces">Namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Contents-of-a-module">Contents of a module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Exceptions">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
@@ -553,7 +563,7 @@ div.rendered_html tbody tr:hover {
 <h1>Modules and namespaces<a class="headerlink" href="#Modules-and-namespaces" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Modules">
 <h2>Modules<a class="headerlink" href="#Modules" title="Permalink to this headline">¶</a></h2>
-<p>Most of the functionality in Python is provided by <em>modules</em>. The Python Standard Library is a large collection of modules that provides <em>cross-platform</em> implementations of common facilities such as access to the operating system, file I/O, string management, network communication, and much more.</p>
+<p>Most of the functionality in Python is provided by <em>modules</em>. The Python Standard Library is a large collection of modules that provides <em>cross-platform</em> implementations of common facilities such as access to the operating system, file I/O, string management, network communication, math, web-scraping, text manipulation, machine learning and much more.</p>
 <p>To use a module in a Python program it first has to be imported. A module can be imported using the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement. For example, to import the module <code class="docutils literal notranslate"><span class="pre">math</span></code>, which contains many standard mathematical functions, we can do:</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -736,71 +746,6 @@ log(...)
 </div>
 <p>Some very useful modules form the Python standard library are <code class="docutils literal notranslate"><span class="pre">os</span></code>, <code class="docutils literal notranslate"><span class="pre">sys</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">shutil</span></code>, <code class="docutils literal notranslate"><span class="pre">re</span></code>, <code class="docutils literal notranslate"><span class="pre">subprocess</span></code>, <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code>, <code class="docutils literal notranslate"><span class="pre">threading</span></code>.</p>
 <p>A complete lists of standard modules for Python 3 is available at <a class="reference external" href="http://docs.python.org/3/library/">http://docs.python.org/3/library/</a> .</p>
-</div>
-<div class="section" id="Exceptions">
-<h2>Exceptions<a class="headerlink" href="#Exceptions" title="Permalink to this headline">¶</a></h2>
-<p>In Python errors are managed with a special language construct called “Exceptions”. When errors occur exceptions can be raised, which interrupts the normal program flow and fallback to somewhere else in the code where the closest try-except statement is defined.</p>
-<p>To generate an exception we can use the <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement, which takes an argument that must be an instance of the class <code class="docutils literal notranslate"><span class="pre">BaseException</span></code> or a class derived from it.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;description of the error&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>A typical use of exceptions is to abort functions when some error condition occurs, for example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">arguments</span><span class="p">):</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">verify</span><span class="p">(</span><span class="n">arguments</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid arguments&quot;</span><span class="p">)</span>
-
-    <span class="c1"># rest of the code goes here</span>
-</pre></div>
-</div>
-<p>To gracefully catch errors that are generated by functions and class methods, or by the Python interpreter itself, use the <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> statements:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="c1"># normal code goes here</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="c1"># code for error handling goes here</span>
-    <span class="c1"># this code is not executed unless the code</span>
-    <span class="c1"># above generated an error</span>
-</pre></div>
-</div>
-<p>For example:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
-    <span class="c1"># generate an error: the variable test is not defined</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught an exception&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>To get information about the error, we can access the <code class="docutils literal notranslate"><span class="pre">Exception</span></code> class instance that describes the exception by using for example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</pre></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
-    <span class="c1"># generate an error: the variable test is not defined</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught an exception:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 
