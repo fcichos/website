@@ -12,7 +12,7 @@
 This Website
 ============
 
-This website will contain all the information that are required for our **Computer-based Physical Modeling** Course course. You will be guided from here to several resources that you can use to learn programming in Python. Thereby we will make use of some great tools in the web, like
+This website will contain all the information that are required for our **Computer-based Physical Modeling** Course course. It is not yet complete, but it will grow with every week by a new lecture and new assignments. You will be guided from here to several resources that you can use to learn programming in Python. Thereby we will make use of some great tools in the web, like
 
 
 1. **myBinder** service to host Jupyter Notebooks (https://mybinder.org). The Binder project offers an easy place to share computing environments to everyone
