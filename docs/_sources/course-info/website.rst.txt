@@ -12,7 +12,7 @@
 This Website
 ============
 
-This website will contain all the information that are required for our **Computer-based Physical Modeling** Course course. It is not yet complete, but it will be updated each week and you will find a new lecture and a new assignment every week. The lecture notebooks will be accompanied with videos explaining the lecture contents but you may get along with just reading as well.  And just to give you the chance of interacting and discussing we have also created a discussion `forum at the MONA website <https://home.uni-leipzig.de/~physik/sites/mona/teaching/periodic-lectures/einfuhrung-in-computer-basiertes-physikalisches-modellieren-ss-2020/internal-einfuhrung-in-computer-basiertes-physikalisches-modellieren-ss-2020/community/>`, which you can reach with your login and password for that course.
+This website will contain all the information that are required for our **Computer-based Physical Modeling** Course course. It is not yet complete, but it will be updated each week and you will find a new lecture and a new assignment every week. The lecture notebooks will be accompanied with videos explaining the lecture contents but you may get along with just reading as well.  And just to give you the chance of interacting and discussing we have also created a discussion `**forum at the MONA website** <https://home.uni-leipzig.de/~physik/sites/mona/teaching/periodic-lectures/einfuhrung-in-computer-basiertes-physikalisches-modellieren-ss-2020/internal-einfuhrung-in-computer-basiertes-physikalisches-modellieren-ss-2020/community/>`_ , which you can reach with your login and password for that course.
 
     .. image:: img/forum.png
        :width: 600px
