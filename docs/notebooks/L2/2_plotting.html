@@ -89,7 +89,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-documentation">Python Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorial">Python Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/instructor.html">Instructor</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
 <ul>
@@ -147,7 +153,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Modules">Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Namespaces">Namespaces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Contents-of-a-module">Contents of a module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Exceptions">Exceptions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
@@ -210,6 +215,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Surface-Plotting">Surface Plotting</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Advances-Plotting">Advances Plotting</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_randomnumbers.html">Random numbers</a><ul>
@@ -551,16 +557,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Plotting-data">
 <h1>Plotting data<a class="headerlink" href="#Plotting-data" title="Permalink to this headline">¶</a></h1>
-<p>The graphical representation of data plotting is one of the most important tools for evaluating and understanding scientific data and theoretical predictions. However, plotting is not a part of core Python but is provided through one of several possible library modules. The most highly developed and widely used plotting package for Python is MatPlotLib (<a class="reference external" href="http://MatPlotLib.sourceforge.net/">http://MatPlotLib.sourceforge.net/</a>). It is a powerful and flexible program that has become the de facto standard for 2-d plotting with Python.</p>
+<p>The graphical representation of data plotting is one of the most important tools for evaluating and understanding scientific data and theoretical predictions. However, plotting is not a part of core Python but is provided through one of several possible library modules. The de factor standard for plotting in Python is MatPlotLib. There are nevertheless several other very good modules like PlotLy, Seaborn, Bokeh and other available.</p>
 <p>Because MatPlotLib is an external library (in fact it’s a collection of libraries) it must be imported into any routine that uses it. MatPlotLib makes extensive use of NumPy so the two should be imported together. Therefore, for any program for which you would like to produce 2-d plots, you should include the lines</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-<p>At the beginning of this lecture we used the <em>pylab</em> magic for plotting.</p>
-<div class="section" id="Simple-Plotting">
-<h2>Simple Plotting<a class="headerlink" href="#Simple-Plotting" title="Permalink to this headline">¶</a></h2>
-<p>Let us for the moment import the required libraries for plotting and numpy.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
@@ -573,12 +575,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>We can set some of the parameters for the appearance of graphs globally. In case you still want to modify a part of it, you can set individual parameters later during plotting. The command used here is the</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">updat</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>function, which takes a dictionary with the specific parameters as key.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[116]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -597,6 +599,9 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="section" id="Simple-Plotting">
+<h2>Simple Plotting<a class="headerlink" href="#Simple-Plotting" title="Permalink to this headline">¶</a></h2>
+<p>There are several levels of of access to plotting available in MatPlotLib. We will use most of the time the commands that use some defaults. This is simple as the layout of the graphs is automatically adjusted by MatPlotLib. At the end of this section, we willl also shortly address more advanced access</p>
 <div class="section" id="Line-Plot">
 <h3>Line Plot<a class="headerlink" href="#Line-Plot" title="Permalink to this headline">¶</a></h3>
 <p>A line plot ist created with the</p>
@@ -605,34 +610,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command. You may, however, modify in the parameters the appearance of the plot to a scatter plot. But by default, it creates a line plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.axes._axes.Axes at 0x7f96d5925510&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_8_1.png"><img alt="../../_images/notebooks_L2_2_plotting_8_1.png" src="../../_images/notebooks_L2_2_plotting_8_1.png" style="width: 344px; height: 327px;" /></a>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[115]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -648,7 +626,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_9_0.png"><img alt="../../_images/notebooks_L2_2_plotting_9_0.png" src="../../_images/notebooks_L2_2_plotting_9_0.png" style="width: 392px; height: 250px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_8_0.png"><img alt="../../_images/notebooks_L2_2_plotting_8_0.png" src="../../_images/notebooks_L2_2_plotting_8_0.png" style="width: 392px; height: 250px;" /></a>
 </div>
 </div>
 <div class="section" id="Axis-Labels">
@@ -670,7 +648,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_12_0.png"><img alt="../../_images/notebooks_L2_2_plotting_12_0.png" src="../../_images/notebooks_L2_2_plotting_12_0.png" style="width: 423px; height: 281px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_11_0.png"><img alt="../../_images/notebooks_L2_2_plotting_11_0.png" src="../../_images/notebooks_L2_2_plotting_11_0.png" style="width: 423px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -694,7 +672,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_14_0.png"><img alt="../../_images/notebooks_L2_2_plotting_14_0.png" src="../../_images/notebooks_L2_2_plotting_14_0.png" style="width: 423px; height: 281px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_13_0.png"><img alt="../../_images/notebooks_L2_2_plotting_13_0.png" src="../../_images/notebooks_L2_2_plotting_13_0.png" style="width: 423px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -722,7 +700,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_17_0.png"><img alt="../../_images/notebooks_L2_2_plotting_17_0.png" src="../../_images/notebooks_L2_2_plotting_17_0.png" style="width: 423px; height: 281px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_16_0.png"><img alt="../../_images/notebooks_L2_2_plotting_16_0.png" src="../../_images/notebooks_L2_2_plotting_16_0.png" style="width: 423px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -779,7 +757,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_27_0.png"><img alt="../../_images/notebooks_L2_2_plotting_27_0.png" src="../../_images/notebooks_L2_2_plotting_27_0.png" style="width: 409px; height: 281px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_26_0.png"><img alt="../../_images/notebooks_L2_2_plotting_26_0.png" src="../../_images/notebooks_L2_2_plotting_26_0.png" style="width: 409px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -788,7 +766,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <h3>Combined plots<a class="headerlink" href="#Combined-plots" title="Permalink to this headline">¶</a></h3>
 <p>You can combine multiple data with the same axes by stacking multiple plots.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[120]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,17 +775,21 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mf">4.47</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># create plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;theory&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;transverse displacement&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># save plot to file</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;WavyPulse.pdf&#39;</span><span class="p">)</span> <span class="c1"># display plot on screen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -815,48 +797,38 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_31_0.png"><img alt="../../_images/notebooks_L2_2_plotting_31_0.png" src="../../_images/notebooks_L2_2_plotting_31_0.png" style="width: 563px; height: 419px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_30_0.png"><img alt="../../_images/notebooks_L2_2_plotting_30_0.png" src="../../_images/notebooks_L2_2_plotting_30_0.png" style="width: 563px; height: 419px;" /></a>
 </div>
 </div>
-<p>The functions that do the plotting begin on line 12. Let’s go through them one by one and see what they do. You will notice in several cases that keyword arguments (kwargs) are used in several cases. Keyword arguments are optional arguments that have the form kwarg= data, where data might be a number, a string, a tuple, or some other form of data.</p>
-<ul class="simple">
-<li><p><strong>figure()</strong> creates a blank figure window. If it has no arguments, it creates a window that is 8 inches wide and 6 inches high by default, although the size that appears on your computer depends on your screen’s resolution. For most computers, it will be much smaller. You can create a window whose size differs from the default using the optional keyword argument figsize, as we have done here. If you use figsize, set it equal to a 2-element tuple where the elements are the width and height,
-respectively, of the plot. Multiple calls to figure() opens multiple windows: figure(1) opens up one window for plotting, figure(2) another, and figure(3) yet another.</p></li>
-<li><p><strong>plot(x, y, optional arguments )</strong> graphs the x-y data in the arrays x and y. The third argument is a format string that specifies the color and the type of line or symbol that is used to plot the data. The string ’ro’ specifies a red (r) circle (o). The string ’b-’ specifies a blue (b) solid line (-). The keyword argument label is set equal to a string that labels the data if the legend function is called subsequently.</p></li>
-<li><p><strong>xlabel( string )</strong> takes a string argument that specifies the label for the graph’s x-axis.</p></li>
-<li><p><strong>ylabel( string )</strong> takes a string argument that specifies the label for the graph’s y-axis.</p></li>
-<li><p><strong>legend()</strong> makes a legend for the data plotted. Each x-y data set is labeled using the string that was supplied by the label keyword in the plot function that graphed the data set. The loc keyword argument specifies the location of the legend.</p></li>
-<li><p><strong>axhline()</strong> draws a horizontal line across the width of the plot at y=0. The optional keyword argument color is a string that specifies the color of the line. The default color is black. The optional keyword argument zorder is an integer that specifies which plotting elements are in front of or behind others. By default, new plotting elements appear on top of previously plotted elements and have a value of zorder=0. By specifying zorder=-1, the horizontal line is plotted behind all ex-
-isting plot elements that have not be assigned an explicit zorder less than -1.</p></li>
-<li><p><strong>axvline()</strong> draws a vertical line from the top to the bottom of the plot at x=0. See axhline() for explanation of the arguments.</p></li>
-<li><p><strong>savefig( string )</strong> saves the figure to data data file with a name specified by the string argument. The string argument can also contain path information if you want to save the file so some place other than the default directory.</p></li>
-<li><p><strong>show()</strong> displays the plot on the computer screen. No screen output is produced before this function is called.</p></li>
-</ul>
 </div>
 </div>
 <div class="section" id="Plots-with-error-bars">
 <h2>Plots with error bars<a class="headerlink" href="#Plots-with-error-bars" title="Permalink to this headline">¶</a></h2>
 <p>When plotting experimental data it is customary to include error bars that indicate graphically the degree of uncertainty that exists in the measurement of each data point. The MatPlotLib function errorbar plots data with error bars attached. It can be used in a way that either replaces or augments the plot function. Both vertical and horizontal error bars can be displayed. The figure below illustrates the use of error bars.</p>
-<p>The code and plot below illustrates how to make error bars and was used to make the above plot. Lines 14 and 15 contain the call to the errorbar function. The x error bars are all set to a constant value of 0.75, meaning that the error bars extend 0.75 to the left and 0.75 to the right of each data point. The y error bars are set equal to an array, which was read in from the data file containing the data to be plotted, so each data point has a different y error bar. By the way, leaving out the
-xerr keyword argument in the errorbar function call below would mean that only the y error bars would be plotted.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[135]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># read data from file</span>
-<span class="n">dataPt</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">yerror</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span> <span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="c1"># create plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">xdata</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ydata</span><span class="o">=</span><span class="mi">210</span><span class="o">-</span><span class="mi">40</span><span class="o">/</span><span class="n">xdata</span>
+
+<span class="n">yerror</span><span class="o">=</span><span class="mf">2e3</span><span class="o">/</span><span class="n">ydata</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
              <span class="n">xerr</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerror</span><span class="p">,</span> <span class="n">ecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;transverse displacement&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
+
 <span class="c1"># save plot to file</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;ExpDecay.pdf&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Experimental.pdf&quot;</span><span class="p">)</span>
 <span class="c1"># display plot on screen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -866,7 +838,7 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_34_0.png"><img alt="../../_images/notebooks_L2_2_plotting_34_0.png" src="../../_images/notebooks_L2_2_plotting_34_0.png" style="width: 525px; height: 390px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_33_0.png"><img alt="../../_images/notebooks_L2_2_plotting_33_0.png" src="../../_images/notebooks_L2_2_plotting_33_0.png" style="width: 525px; height: 390px;" /></a>
 </div>
 </div>
 <div class="section" id="Setting-plotting-limits-and-excluding-data">
@@ -892,7 +864,7 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_37_0.png"><img alt="../../_images/notebooks_L2_2_plotting_37_0.png" src="../../_images/notebooks_L2_2_plotting_37_0.png" style="width: 487px; height: 365px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_36_0.png"><img alt="../../_images/notebooks_L2_2_plotting_36_0.png" src="../../_images/notebooks_L2_2_plotting_36_0.png" style="width: 487px; height: 365px;" /></a>
 </div>
 </div>
 <div class="section" id="Masked-arrays">
@@ -922,7 +894,7 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_39_0.png"><img alt="../../_images/notebooks_L2_2_plotting_39_0.png" src="../../_images/notebooks_L2_2_plotting_39_0.png" style="width: 487px; height: 365px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_38_0.png"><img alt="../../_images/notebooks_L2_2_plotting_38_0.png" src="../../_images/notebooks_L2_2_plotting_38_0.png" style="width: 487px; height: 365px;" /></a>
 </div>
 </div>
 </div>
@@ -978,7 +950,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_41_0.png"><img alt="../../_images/notebooks_L2_2_plotting_41_0.png" src="../../_images/notebooks_L2_2_plotting_41_0.png" style="width: 562px; height: 563px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_40_0.png"><img alt="../../_images/notebooks_L2_2_plotting_40_0.png" src="../../_images/notebooks_L2_2_plotting_40_0.png" style="width: 562px; height: 563px;" /></a>
 </div>
 </div>
 </div>
@@ -990,7 +962,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <p>For data sets that vary exponentially in the independent variable, it is often useful to use one or more logarithmic axes. Radioactive decay of unstable nuclei, for example, exhibits an exponential decrease in the number of particles emitted from the nuclei as a function of time.</p>
 <p>MatPlotLib provides two functions for making semi-logarithmic plots, semilogx and semilogy, for creating plots with logarithmic x and y axes, with linear y and x axes, respectively. We illustrate their use in the program below, which made the above plots.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[117]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1027,7 +999,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_44_0.png"><img alt="../../_images/notebooks_L2_2_plotting_44_0.png" src="../../_images/notebooks_L2_2_plotting_44_0.png" style="width: 707px; height: 275px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_43_0.png"><img alt="../../_images/notebooks_L2_2_plotting_43_0.png" src="../../_images/notebooks_L2_2_plotting_43_0.png" style="width: 707px; height: 275px;" /></a>
 </div>
 </div>
 </div>
@@ -1062,7 +1034,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_46_0.png"><img alt="../../_images/notebooks_L2_2_plotting_46_0.png" src="../../_images/notebooks_L2_2_plotting_46_0.png" style="width: 634px; height: 284px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_45_0.png"><img alt="../../_images/notebooks_L2_2_plotting_45_0.png" src="../../_images/notebooks_L2_2_plotting_45_0.png" style="width: 634px; height: 284px;" /></a>
 </div>
 </div>
 </div>
@@ -1142,7 +1114,7 @@ I(r)=|U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_53_0.png"><img alt="../../_images/notebooks_L2_2_plotting_53_0.png" src="../../_images/notebooks_L2_2_plotting_53_0.png" style="width: 389px; height: 359px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_52_0.png"><img alt="../../_images/notebooks_L2_2_plotting_52_0.png" src="../../_images/notebooks_L2_2_plotting_52_0.png" style="width: 389px; height: 359px;" /></a>
 </div>
 </div>
 </div>
@@ -1164,7 +1136,7 @@ I(r)=|U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_55_0.png"><img alt="../../_images/notebooks_L2_2_plotting_55_0.png" src="../../_images/notebooks_L2_2_plotting_55_0.png" style="width: 415px; height: 365px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_54_0.png"><img alt="../../_images/notebooks_L2_2_plotting_54_0.png" src="../../_images/notebooks_L2_2_plotting_54_0.png" style="width: 415px; height: 365px;" /></a>
 </div>
 </div>
 </div>
@@ -1187,7 +1159,7 @@ I(r)=|U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_57_0.png"><img alt="../../_images/notebooks_L2_2_plotting_57_0.png" src="../../_images/notebooks_L2_2_plotting_57_0.png" style="width: 415px; height: 352px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_56_0.png"><img alt="../../_images/notebooks_L2_2_plotting_56_0.png" src="../../_images/notebooks_L2_2_plotting_56_0.png" style="width: 415px; height: 352px;" /></a>
 </div>
 </div>
 </div>
@@ -1233,7 +1205,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_62_1.png"><img alt="../../_images/notebooks_L2_2_plotting_62_1.png" src="../../_images/notebooks_L2_2_plotting_62_1.png" style="width: 572px; height: 340px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_61_1.png"><img alt="../../_images/notebooks_L2_2_plotting_61_1.png" src="../../_images/notebooks_L2_2_plotting_61_1.png" style="width: 572px; height: 340px;" /></a>
 </div>
 </div>
 <p>With this three-dimensional axes enabled, we can now plot a variety of three-dimensional plot types. Three-dimensional plotting is one of the functionalities that benefits immensely from viewing figures interactively rather than statically in the notebook; recall that to use interactive figures, you can use %matplotlib notebook rather than %matplotlib inline when running this code.</p>
@@ -1267,7 +1239,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_65_0.png"><img alt="../../_images/notebooks_L2_2_plotting_65_0.png" src="../../_images/notebooks_L2_2_plotting_65_0.png" style="width: 572px; height: 340px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_64_0.png"><img alt="../../_images/notebooks_L2_2_plotting_64_0.png" src="../../_images/notebooks_L2_2_plotting_64_0.png" style="width: 572px; height: 340px;" /></a>
 </div>
 </div>
 <p>Notice that by default, the scatter points have their transparency adjusted to give a sense of depth on the page. While the three-dimensional effect is sometimes difficult to see within a static image, an interactive view can lead to some nice intuition about the layout of the points. Use the <em>scatter3D</em> or the <em>plot3D</em> method to plot a random walk in 3-dimensions in your exercise.</p>
@@ -1324,10 +1296,13 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_70_0.png"><img alt="../../_images/notebooks_L2_2_plotting_70_0.png" src="../../_images/notebooks_L2_2_plotting_70_0.png" style="width: 572px; height: 340px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_69_0.png"><img alt="../../_images/notebooks_L2_2_plotting_69_0.png" src="../../_images/notebooks_L2_2_plotting_69_0.png" style="width: 572px; height: 340px;" /></a>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="Advances-Plotting">
+<h2>Advances Plotting<a class="headerlink" href="#Advances-Plotting" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

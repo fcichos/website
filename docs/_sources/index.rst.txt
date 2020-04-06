@@ -33,6 +33,7 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    course-info/assignments.rst
    course-info/exam.rst
    course-info/resources.rst   
+   course-info/instructor.rst
    
 .. toctree::
    :maxdepth: 2

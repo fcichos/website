@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Exam
-====
+Exams
+=====
 
 We will close this course with an exam in form of a final project.
 This final project shall be on a topic of your choice or on one of the topics we provide as example topics.
