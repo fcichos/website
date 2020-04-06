@@ -1,0 +1,867 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick references &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exam</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/Intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/Introduction2Jupyter.html">Introduction to Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#What-is-Jupyter-Notebook?">What is Jupyter Notebook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-editor">Notebook editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Kernels">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-documents">Notebook documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/NotebookEditor.html">Notebook editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Edit-mode">Edit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Command-mode">Command mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Keyboard-navigation">Keyboard navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Running-code">Running code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Managing-the-kernel">Managing the kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/EditCells.html">Entering code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/EditCells.html#Entering-Markdown">Entering Markdown</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Markdown-basics">Markdown basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Headings">Headings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Embedded-code">Embedded code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Videos">Videos</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/overview_1.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/1_variables.html">Variables and types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Symbol-names">Symbol names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Variable-Assignment">Variable Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Number-types">Number types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Integers">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Floating-Point">Floating Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Type-casting">Type casting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/2_operators.html">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/3_datatypes.html">Data Types in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/4_modules.html">Modules and namespaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Contents-of-a-module">Contents of a module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Exceptions">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_numpy.html">Numpy arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_numpy.html#Creating-Numpy-Arrays">Creating Numpy Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#From-lists">From lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Using-array-generating-functions">Using array-generating functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#linspace-and-logspace">linspace and logspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#mgrid">mgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#diag">diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#zeros-and-ones">zeros and ones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Slicing">Slicing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_plotting.html">Plotting data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Simple-Plotting">Simple Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Line-Plot">Line Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_plotting.html#Axis-Labels">Axis Labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_plotting.html#Legends">Legends</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Combined-plots">Combined plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Plots-with-error-bars">Plots with error bars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_plotting.html#Masked-arrays">Masked arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Subplots">Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Log-log-plots">Log-log plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Simple-contour-plot">Simple contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Color-contour-plot">Color contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Image-plot">Image plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#3D-Plotting">3D Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Projection-Scence">Projection Scence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Surface-Plotting">Surface Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_randomnumbers.html">Random numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_input_output.html">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Computer-based Physical Modeling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Quick references</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L2/graphref.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="quick-references">
+<h1>Quick references<a class="headerlink" href="#quick-references" title="Permalink to this headline">¶</a></h1>
+<p>Here is a set of tables that show main properties and styles.</p>
+<div class="section" id="line-properties">
+<h2>Line properties<a class="headerlink" href="#line-properties" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Appearance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>alpha (or a)</p></td>
+<td><p>alpha transparency on 0-1 scale</p></td>
+<td><img alt="notebooks/L2/figures/alpha.png" src="notebooks/L2/figures/alpha.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>antialiased</p></td>
+<td><p>True or False - use antialised rendering</p></td>
+<td><img alt="notebooks/L2/figures/aliased.png" src="notebooks/L2/figures/aliased.png" />
+<img alt="notebooks/L2/figures/antialiased.png" src="notebooks/L2/figures/antialiased.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>color (or c)</p></td>
+<td><p>matplotlib color arg</p></td>
+<td><img alt="notebooks/L2/figures/color.png" src="notebooks/L2/figures/color.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>linestyle (or ls)</p></td>
+<td><p>see <a class="reference internal" href="#line-properties">Line properties</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>linewidth (or lw)</p></td>
+<td><p>float, the line width in points</p></td>
+<td><img alt="notebooks/L2/figures/linewidth.png" src="notebooks/L2/figures/linewidth.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>solid_capstyle</p></td>
+<td><p>Cap style for solid lines</p></td>
+<td><img alt="notebooks/L2/figures/solid_capstyle.png" src="notebooks/L2/figures/solid_capstyle.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>solid_joinstyle</p></td>
+<td><p>Join style for solid lines</p></td>
+<td><img alt="notebooks/L2/figures/solid_joinstyle.png" src="notebooks/L2/figures/solid_joinstyle.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>dash_capstyle</p></td>
+<td><p>Cap style for dashes</p></td>
+<td><img alt="notebooks/L2/figures/dash_capstyle.png" src="notebooks/L2/figures/dash_capstyle.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>dash_joinstyle</p></td>
+<td><p>Join style for dashes</p></td>
+<td><img alt="notebooks/L2/figures/dash_joinstyle.png" src="notebooks/L2/figures/dash_joinstyle.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>marker</p></td>
+<td><p>see <a class="reference internal" href="#markers">Markers</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>markeredgewidth (mew)</p></td>
+<td><p>line width around the marker symbol</p></td>
+<td><img alt="notebooks/L2/figures/mew.png" src="notebooks/L2/figures/mew.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>markeredgecolor (mec)</p></td>
+<td><p>edge color if a marker is used</p></td>
+<td><img alt="notebooks/L2/figures/mec.png" src="notebooks/L2/figures/mec.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>markerfacecolor (mfc)</p></td>
+<td><p>face color if a marker is used</p></td>
+<td><img alt="notebooks/L2/figures/mfc.png" src="notebooks/L2/figures/mfc.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>markersize (ms)</p></td>
+<td><p>size of the marker in points</p></td>
+<td><img alt="notebooks/L2/figures/ms.png" src="notebooks/L2/figures/ms.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="line-styles">
+<h2>Line styles<a class="headerlink" href="#line-styles" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 32%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Appearance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>solid line</p></td>
+<td><img alt="notebooks/L2/figures/linestyle--.png" src="notebooks/L2/figures/linestyle--.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--</span></code></p></td>
+<td><p>dashed line</p></td>
+<td><img alt="notebooks/L2/figures/linestyle---.png" src="notebooks/L2/figures/linestyle---.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-.</span></code></p></td>
+<td><p>dash-dot line</p></td>
+<td><img alt="notebooks/L2/figures/linestyle--dot.png" src="notebooks/L2/figures/linestyle--dot.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">:</span></code></p></td>
+<td><p>dotted line</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-:.png" src="notebooks/L2/figures/linestyle-:.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td><p>points</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-dot.png" src="notebooks/L2/figures/linestyle-dot.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">,</span></code></p></td>
+<td><p>pixels</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-,.png" src="notebooks/L2/figures/linestyle-,.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">o</span></code></p></td>
+<td><p>circle</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-o.png" src="notebooks/L2/figures/linestyle-o.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>triangle up</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-^.png" src="notebooks/L2/figures/linestyle-^.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></td>
+<td><p>triangle down</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-v.png" src="notebooks/L2/figures/linestyle-v.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>triangle left</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-&lt;.png" src="notebooks/L2/figures/linestyle-&lt;.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>triangle right</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-&gt;.png" src="notebooks/L2/figures/linestyle-&gt;.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td><p>square</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-s.png" src="notebooks/L2/figures/linestyle-s.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>plus</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-+.png" src="notebooks/L2/figures/linestyle-+.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td><p>cross</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-x.png" src="notebooks/L2/figures/linestyle-x.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">D</span></code></p></td>
+<td><p>diamond</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-dd.png" src="notebooks/L2/figures/linestyle-dd.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d</span></code></p></td>
+<td><p>thin diamond</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-d.png" src="notebooks/L2/figures/linestyle-d.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>tripod down</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-1.png" src="notebooks/L2/figures/linestyle-1.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>tripod up</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-2.png" src="notebooks/L2/figures/linestyle-2.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+<td><p>tripod left</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-3.png" src="notebooks/L2/figures/linestyle-3.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
+<td><p>tripod right</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-4.png" src="notebooks/L2/figures/linestyle-4.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">h</span></code></p></td>
+<td><p>hexagon</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-h.png" src="notebooks/L2/figures/linestyle-h.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">H</span></code></p></td>
+<td><p>rotated hexagon</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-hh.png" src="notebooks/L2/figures/linestyle-hh.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td><p>pentagon</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-p.png" src="notebooks/L2/figures/linestyle-p.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td><p>vertical line</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-|.png" src="notebooks/L2/figures/linestyle-|.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_</span></code></p></td>
+<td><p>horizontal line</p></td>
+<td><img alt="notebooks/L2/figures/linestyle-_.png" src="notebooks/L2/figures/linestyle-_.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="markers">
+<h2>Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 32%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Appearance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>tick left</p></td>
+<td><img alt="notebooks/L2/figures/marker-i0.png" src="notebooks/L2/figures/marker-i0.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>tick right</p></td>
+<td><img alt="notebooks/L2/figures/marker-i1.png" src="notebooks/L2/figures/marker-i1.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>tick up</p></td>
+<td><img alt="notebooks/L2/figures/marker-i2.png" src="notebooks/L2/figures/marker-i2.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>tick down</p></td>
+<td><img alt="notebooks/L2/figures/marker-i3.png" src="notebooks/L2/figures/marker-i3.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>caret left</p></td>
+<td><img alt="notebooks/L2/figures/marker-i4.png" src="notebooks/L2/figures/marker-i4.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>caret right</p></td>
+<td><img alt="notebooks/L2/figures/marker-i5.png" src="notebooks/L2/figures/marker-i5.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>caret up</p></td>
+<td><img alt="notebooks/L2/figures/marker-i6.png" src="notebooks/L2/figures/marker-i6.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>caret down</p></td>
+<td><img alt="notebooks/L2/figures/marker-i7.png" src="notebooks/L2/figures/marker-i7.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">o</span></code></p></td>
+<td><p>circle</p></td>
+<td><img alt="notebooks/L2/figures/marker-o.png" src="notebooks/L2/figures/marker-o.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">D</span></code></p></td>
+<td><p>diamond</p></td>
+<td><img alt="notebooks/L2/figures/marker-dd.png" src="notebooks/L2/figures/marker-dd.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">h</span></code></p></td>
+<td><p>hexagon 1</p></td>
+<td><img alt="notebooks/L2/figures/marker-h.png" src="notebooks/L2/figures/marker-h.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">H</span></code></p></td>
+<td><p>hexagon 2</p></td>
+<td><img alt="notebooks/L2/figures/marker-hh.png" src="notebooks/L2/figures/marker-hh.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_</span></code></p></td>
+<td><p>horizontal line</p></td>
+<td><img alt="notebooks/L2/figures/marker-_.png" src="notebooks/L2/figures/marker-_.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>tripod down</p></td>
+<td><img alt="notebooks/L2/figures/marker-1.png" src="notebooks/L2/figures/marker-1.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>tripod up</p></td>
+<td><img alt="notebooks/L2/figures/marker-2.png" src="notebooks/L2/figures/marker-2.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+<td><p>tripod left</p></td>
+<td><img alt="notebooks/L2/figures/marker-3.png" src="notebooks/L2/figures/marker-3.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
+<td><p>tripod right</p></td>
+<td><img alt="notebooks/L2/figures/marker-4.png" src="notebooks/L2/figures/marker-4.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p></td>
+<td><p>octagon</p></td>
+<td><img alt="notebooks/L2/figures/marker-8.png" src="notebooks/L2/figures/marker-8.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td><p>pentagon</p></td>
+<td><img alt="notebooks/L2/figures/marker-p.png" src="notebooks/L2/figures/marker-p.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p>triangle up</p></td>
+<td><img alt="notebooks/L2/figures/marker-^.png" src="notebooks/L2/figures/marker-^.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">v</span></code></p></td>
+<td><p>triangle down</p></td>
+<td><img alt="notebooks/L2/figures/marker-v.png" src="notebooks/L2/figures/marker-v.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>triangle left</p></td>
+<td><img alt="notebooks/L2/figures/marker-&lt;.png" src="notebooks/L2/figures/marker-&lt;.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>triangle right</p></td>
+<td><img alt="notebooks/L2/figures/marker-&gt;.png" src="notebooks/L2/figures/marker-&gt;.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d</span></code></p></td>
+<td><p>thin diamond</p></td>
+<td><img alt="notebooks/L2/figures/marker-d.png" src="notebooks/L2/figures/marker-d.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">,</span></code></p></td>
+<td><p>pixel</p></td>
+<td><img alt="notebooks/L2/figures/marker-,.png" src="notebooks/L2/figures/marker-,.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>plus</p></td>
+<td><img alt="notebooks/L2/figures/marker-+.png" src="notebooks/L2/figures/marker-+.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td><p>point</p></td>
+<td><img alt="notebooks/L2/figures/marker-dot.png" src="notebooks/L2/figures/marker-dot.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td><p>square</p></td>
+<td><img alt="notebooks/L2/figures/marker-s.png" src="notebooks/L2/figures/marker-s.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>star</p></td>
+<td><img alt="notebooks/L2/figures/marker-*.png" src="notebooks/L2/figures/marker-*.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td><p>vertical line</p></td>
+<td><img alt="notebooks/L2/figures/marker-|.png" src="notebooks/L2/figures/marker-|.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td><p>cross</p></td>
+<td><img alt="notebooks/L2/figures/marker-x.png" src="notebooks/L2/figures/marker-x.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">r'$\sqrt{2}$'</span></code></p></td>
+<td><p>any latex expression</p></td>
+<td><img alt="notebooks/L2/figures/marker-latex.png" src="notebooks/L2/figures/marker-latex.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="colormaps">
+<h2>Colormaps<a class="headerlink" href="#colormaps" title="Permalink to this headline">¶</a></h2>
+<p>All colormaps can be reversed by appending <code class="docutils literal notranslate"><span class="pre">_r</span></code>. For instance, <code class="docutils literal notranslate"><span class="pre">gray_r</span></code> is
+the reverse of <code class="docutils literal notranslate"><span class="pre">gray</span></code>.</p>
+<p>If you want to know more about colormaps, see <a class="reference external" href="https://gist.github.com/2719900">Documenting the matplotlib
+colormaps</a>.</p>
+<div class="section" id="base">
+<h3>Base<a class="headerlink" href="#base" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Appearance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>autumn</p></td>
+<td><img alt="notebooks/L2/figures/cmap-autumn.png" src="notebooks/L2/figures/cmap-autumn.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>bone</p></td>
+<td><img alt="notebooks/L2/figures/cmap-bone.png" src="notebooks/L2/figures/cmap-bone.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>cool</p></td>
+<td><img alt="notebooks/L2/figures/cmap-cool.png" src="notebooks/L2/figures/cmap-cool.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>copper</p></td>
+<td><img alt="notebooks/L2/figures/cmap-copper.png" src="notebooks/L2/figures/cmap-copper.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>flag</p></td>
+<td><img alt="notebooks/L2/figures/cmap-flag.png" src="notebooks/L2/figures/cmap-flag.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>gray</p></td>
+<td><img alt="notebooks/L2/figures/cmap-gray.png" src="notebooks/L2/figures/cmap-gray.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>hot</p></td>
+<td><img alt="notebooks/L2/figures/cmap-hot.png" src="notebooks/L2/figures/cmap-hot.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>hsv</p></td>
+<td><img alt="notebooks/L2/figures/cmap-hsv.png" src="notebooks/L2/figures/cmap-hsv.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>jet</p></td>
+<td><img alt="notebooks/L2/figures/cmap-jet.png" src="notebooks/L2/figures/cmap-jet.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>pink</p></td>
+<td><img alt="notebooks/L2/figures/cmap-pink.png" src="notebooks/L2/figures/cmap-pink.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>prism</p></td>
+<td><img alt="notebooks/L2/figures/cmap-prism.png" src="notebooks/L2/figures/cmap-prism.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>spectral</p></td>
+<td><img alt="notebooks/L2/figures/cmap-spectral.png" src="notebooks/L2/figures/cmap-spectral.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>spring</p></td>
+<td><img alt="notebooks/L2/figures/cmap-spring.png" src="notebooks/L2/figures/cmap-spring.png" />
+</td>
+</tr>
+<tr class="row-odd"><td><p>summer</p></td>
+<td><img alt="notebooks/L2/figures/cmap-summer.png" src="notebooks/L2/figures/cmap-summer.png" />
+</td>
+</tr>
+<tr class="row-even"><td><p>winter</p></td>
+<td><img alt="notebooks/L2/figures/cmap-winter.png" src="notebooks/L2/figures/cmap-winter.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Frank Cichos
+      <span class="lastupdated">
+        Last updated on Apr 06, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -86,9 +86,10 @@
             
               <p class="caption"><span class="caption-text">Course Information:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">Website Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exam</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
 <ul>
@@ -114,6 +115,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Headings">Headings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Embedded-code">Embedded code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Videos">Videos</a></li>
 </ul>
 </li>
 </ul>
@@ -140,14 +143,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Dictionaries">Dictionaries</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../L1/4_modules.html">Modules and Exceptions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Modules">Modules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L1/4_modules.html#Contents-and-documentation-of-a-module">Contents and documentation of a module</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/4_modules.html">Modules and namespaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Contents-of-a-module">Contents of a module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Exceptions">Exceptions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 2:</span></p>
 <ul class="current">
@@ -164,18 +167,29 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Slicing">Slicing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Plotting data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Simple-Plotting">Simple Plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Line-Plot">Line Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Line-Plot">Line Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Axis-Labels">Axis Labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Legends">Legends</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Scatter-plot">Scatter plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Histograms">Histograms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Combined-plots">Combined plots</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Plots-with-error-bars">Plots with error bars</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Masked-arrays">Masked arrays</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Subplots">Subplots</a></li>
@@ -209,12 +223,12 @@
 <li class="toctree-l2"><a class="reference internal" href="4_input_output.html#Keyboard-input">Keyboard input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_input_output.html#Screen-output">Screen output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_input_output.html#File-input/output">File input/output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#Reading-data-with-NumPy">Reading data with NumPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#Reading-data-with-Pandas">Reading data with Pandas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
 </ul>
@@ -548,12 +562,13 @@ div.rendered_html tbody tr:hover {
 <h2>Simple Plotting<a class="headerlink" href="#Simple-Plotting" title="Permalink to this headline">¶</a></h2>
 <p>Let us for the moment import the required libraries for plotting and numpy.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 </pre></div>
 </div>
 </div>
@@ -563,7 +578,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>function, which takes a dictionary with the specific parameters as key.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -590,11 +605,38 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command. You may, however, modify in the parameters the appearance of the plot to a scatter plot. But by default, it creates a line plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
+<span></span><span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._axes.Axes at 0x7f96d5925510&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_8_1.png"><img alt="../../_images/notebooks_L2_2_plotting_8_1.png" src="../../_images/notebooks_L2_2_plotting_8_1.png" style="width: 344px; height: 327px;" /></a>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">4.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -606,12 +648,14 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_8_0.png" src="../../_images/notebooks_L2_2_plotting_8_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_9_0.png"><img alt="../../_images/notebooks_L2_2_plotting_9_0.png" src="../../_images/notebooks_L2_2_plotting_9_0.png" style="width: 392px; height: 250px;" /></a>
 </div>
 </div>
+<div class="section" id="Axis-Labels">
+<h4>Axis Labels<a class="headerlink" href="#Axis-Labels" title="Permalink to this headline">¶</a></h4>
 <p>We should be always keen to make the diagrams as readable as possible. So we will add some axis labels.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -626,7 +670,32 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_10_0.png" src="../../_images/notebooks_L2_2_plotting_10_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_12_0.png"><img alt="../../_images/notebooks_L2_2_plotting_12_0.png" src="../../_images/notebooks_L2_2_plotting_12_0.png" style="width: 423px; height: 281px;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="Legends">
+<h4>Legends<a class="headerlink" href="#Legends" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\sin(x)$&#39;</span><span class="p">)</span> <span class="c1">#define an additional label</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;sin(t)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">)</span> <span class="c1">#add the legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_14_0.png"><img alt="../../_images/notebooks_L2_2_plotting_14_0.png" src="../../_images/notebooks_L2_2_plotting_14_0.png" style="width: 423px; height: 281px;" /></a>
+</div>
 </div>
 </div>
 </div>
@@ -638,7 +707,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command of pylab. Note that the scatter command requires a <em>x</em> and <em>y</em> values and you can set the marker symbol (see an overview of the <a class="reference external" href="https://matplotlib.org/api/markers_api.html">marker symbols</a>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -653,7 +722,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_13_0.png" src="../../_images/notebooks_L2_2_plotting_13_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_17_0.png"><img alt="../../_images/notebooks_L2_2_plotting_17_0.png" src="../../_images/notebooks_L2_2_plotting_17_0.png" style="width: 423px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -664,7 +733,10 @@ div.rendered_html tbody tr:hover {
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong> Physics Interlude</p>
 <p>Probability density for finding an oscillating particle</p>
 </div>
-<p>We want to use this occasion to have at least some physics related plotting.</p>
+<p>We want to use this occasion to have at least some physics related plotting. Lets have a look at the simple harmonic oscillators in one dimension, which as yoou remember follows the following equation of motion.</p>
+<p><span class="math">\begin{equation}
+\ddot{x}(t)=-\omega^{2}x(t)
+\end{equation}</span></p>
 <p>Imagine you have a mass on a spring which is at rest at a position <span class="math notranslate nohighlight">\(x_{0}\)</span> and at <span class="math notranslate nohighlight">\(t=0\)</span> elongated by a distance <span class="math notranslate nohighlight">\(\Delta x\)</span>. The spring will then start to oscillate according to</p>
 <p><span class="math">\begin{equation}
 x(t)=\Delta x \cos(\omega t)
@@ -683,13 +755,20 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 \end{equation}</span></p>
 <p>This is the probability density of finding an oscillating spring at a certain elongation <span class="math notranslate nohighlight">\(x(t)\)</span>. If you look at the example more closely, it tells you, that you find and elongation more likely when the speed of the mass is slow. This is even a more general issue in non-equilibrium physics. If cells or cars are moving with variable speed, they are more likely to be found at places where they are slow.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># plot the histogram</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+
+<span class="c1">#plot the analytical solution</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)),</span><span class="s1">&#39;k--&#39;</span><span class="p">);</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># set the x-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;occurrence&#39;</span><span class="p">)</span> <span class="c1"># set the y-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -700,7 +779,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_22_0.png" src="../../_images/notebooks_L2_2_plotting_22_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_27_0.png"><img alt="../../_images/notebooks_L2_2_plotting_27_0.png" src="../../_images/notebooks_L2_2_plotting_27_0.png" style="width: 409px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -709,7 +788,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <h3>Combined plots<a class="headerlink" href="#Combined-plots" title="Permalink to this headline">¶</a></h3>
 <p>You can combine multiple data with the same axes by stacking multiple plots.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -736,7 +815,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_26_0.png" src="../../_images/notebooks_L2_2_plotting_26_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_31_0.png"><img alt="../../_images/notebooks_L2_2_plotting_31_0.png" src="../../_images/notebooks_L2_2_plotting_31_0.png" style="width: 563px; height: 419px;" /></a>
 </div>
 </div>
 <p>The functions that do the plotting begin on line 12. Let’s go through them one by one and see what they do. You will notice in several cases that keyword arguments (kwargs) are used in several cases. Keyword arguments are optional arguments that have the form kwarg= data, where data might be a number, a string, a tuple, or some other form of data.</p>
@@ -761,7 +840,7 @@ isting plot elements that have not be assigned an explicit zorder less than -1.<
 <p>The code and plot below illustrates how to make error bars and was used to make the above plot. Lines 14 and 15 contain the call to the errorbar function. The x error bars are all set to a constant value of 0.75, meaning that the error bars extend 0.75 to the left and 0.75 to the right of each data point. The y error bars are set equal to an array, which was read in from the data file containing the data to be plotted, so each data point has a different y error bar. By the way, leaving out the
 xerr keyword argument in the errorbar function call below would mean that only the y error bars would be plotted.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -787,13 +866,14 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_29_0.png" src="../../_images/notebooks_L2_2_plotting_29_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_34_0.png"><img alt="../../_images/notebooks_L2_2_plotting_34_0.png" src="../../_images/notebooks_L2_2_plotting_34_0.png" style="width: 525px; height: 390px;" /></a>
 </div>
 </div>
 <div class="section" id="Setting-plotting-limits-and-excluding-data">
 <h3>Setting plotting limits and excluding data<a class="headerlink" href="#Setting-plotting-limits-and-excluding-data" title="Permalink to this headline">¶</a></h3>
+<p>If you want to zoom in to s specific region of a plot you can set the limits of the individual axes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -812,12 +892,13 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_31_0.png" src="../../_images/notebooks_L2_2_plotting_31_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_37_0.png"><img alt="../../_images/notebooks_L2_2_plotting_37_0.png" src="../../_images/notebooks_L2_2_plotting_37_0.png" style="width: 487px; height: 365px;" /></a>
 </div>
 </div>
-<p>** Masked arrays**</p>
+<div class="section" id="Masked-arrays">
+<h4>Masked arrays<a class="headerlink" href="#Masked-arrays" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -825,7 +906,10 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
 <span class="n">ytan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+<span class="c1">#exclude specific data from plotting</span>
 <span class="n">ytanM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ytan</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">20.</span><span class="p">,</span> <span class="n">ytan</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">ytanM</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
@@ -838,7 +922,8 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_33_0.png" src="../../_images/notebooks_L2_2_plotting_33_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_39_0.png"><img alt="../../_images/notebooks_L2_2_plotting_39_0.png" src="../../_images/notebooks_L2_2_plotting_39_0.png" style="width: 487px; height: 365px;" /></a>
+</div>
 </div>
 </div>
 </div>
@@ -849,7 +934,7 @@ xerr keyword argument in the errorbar function call below would mean that only t
 <p>The function subplot, called on lines 13 and 24, creates the two subplots in the above figure. subplot has three arguments. The first specifies the number of rows that the figure space is to be divided into; on line 13, it’s two. The second specifies the number of columns that the figure space is to be divided into; on line 13, it’s one. The third argument specifies which rectangle the will contain the plot specified by the following function calls. Line 13 specifies that the plotting commands
 that follow will be act on the first box. Line 24 specifies that the plotting commands that follow will be act on the second box.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -893,7 +978,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_35_0.png" src="../../_images/notebooks_L2_2_plotting_35_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_41_0.png"><img alt="../../_images/notebooks_L2_2_plotting_41_0.png" src="../../_images/notebooks_L2_2_plotting_41_0.png" style="width: 562px; height: 563px;" /></a>
 </div>
 </div>
 </div>
@@ -905,7 +990,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <p>For data sets that vary exponentially in the independent variable, it is often useful to use one or more logarithmic axes. Radioactive decay of unstable nuclei, for example, exhibits an exponential decrease in the number of particles emitted from the nuclei as a function of time.</p>
 <p>MatPlotLib provides two functions for making semi-logarithmic plots, semilogx and semilogy, for creating plots with logarithmic x and y axes, with linear y and x axes, respectively. We illustrate their use in the program below, which made the above plots.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -942,7 +1027,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_38_0.png" src="../../_images/notebooks_L2_2_plotting_38_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_44_0.png"><img alt="../../_images/notebooks_L2_2_plotting_44_0.png" src="../../_images/notebooks_L2_2_plotting_44_0.png" style="width: 707px; height: 275px;" /></a>
 </div>
 </div>
 </div>
@@ -950,7 +1035,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <h3>Log-log plots<a class="headerlink" href="#Log-log-plots" title="Permalink to this headline">¶</a></h3>
 <p>MatPlotLib can also make log-log or double-logarithmic plots using the function loglog. It is useful when both the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data span many orders of magnitude. Data that are described by a power law <span class="math notranslate nohighlight">\(y=Ax^b\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constants, appear as straight lines when plotted on a log-log plot. Again, the loglog function works just like the plot function but with logarithmic axes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -977,7 +1062,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_40_0.png" src="../../_images/notebooks_L2_2_plotting_40_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_46_0.png"><img alt="../../_images/notebooks_L2_2_plotting_46_0.png" src="../../_images/notebooks_L2_2_plotting_46_0.png" style="width: 634px; height: 284px;" /></a>
 </div>
 </div>
 </div>
@@ -1006,7 +1091,7 @@ I(r)=|U(r)|^2
 \end{equation}</span></p>
 <p>To keep it simple we will skip the <span class="math notranslate nohighlight">\(1/r\)</span> amplitude decay.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1023,7 +1108,7 @@ I(r)=|U(r)|^2
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1032,7 +1117,7 @@ I(r)=|U(r)|^2
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1041,11 +1126,13 @@ I(r)=|U(r)|^2
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">#contour plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1055,18 +1142,18 @@ I(r)=|U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_47_0.png" src="../../_images/notebooks_L2_2_plotting_47_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_53_0.png"><img alt="../../_images/notebooks_L2_2_plotting_53_0.png" src="../../_images/notebooks_L2_2_plotting_53_0.png" style="width: 389px; height: 359px;" /></a>
 </div>
 </div>
 </div>
 <div class="section" id="Color-contour-plot">
 <h3>Color contour plot<a class="headerlink" href="#Color-contour-plot" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1077,18 +1164,18 @@ I(r)=|U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_49_0.png" src="../../_images/notebooks_L2_2_plotting_49_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_55_0.png"><img alt="../../_images/notebooks_L2_2_plotting_55_0.png" src="../../_images/notebooks_L2_2_plotting_55_0.png" style="width: 415px; height: 365px;" /></a>
 </div>
 </div>
 </div>
 <div class="section" id="Image-plot">
 <h3>Image plot<a class="headerlink" href="#Image-plot" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[108]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
@@ -1100,7 +1187,7 @@ I(r)=|U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_51_0.png" src="../../_images/notebooks_L2_2_plotting_51_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_57_0.png"><img alt="../../_images/notebooks_L2_2_plotting_57_0.png" src="../../_images/notebooks_L2_2_plotting_57_0.png" style="width: 415px; height: 352px;" /></a>
 </div>
 </div>
 </div>
@@ -1109,7 +1196,7 @@ I(r)=|U(r)|^2
 <h2>3D Plotting<a class="headerlink" href="#3D-Plotting" title="Permalink to this headline">¶</a></h2>
 <p>Matplotlib was initially designed with only two-dimensional plotting in mind. Around the time of the 1.0 release, some three-dimensional plotting utilities were built on top of Matplotlib’s two-dimensional display, and the result is a convenient (if somewhat limited) set of tools for three-dimensional data visualization. Three-dimensional plots are enabled by importing the mplot3d toolkit, included with the main Matplotlib installation:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[109]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1121,7 +1208,7 @@ I(r)=|U(r)|^2
 <div class="section" id="Projection-Scence">
 <h3>Projection Scence<a class="headerlink" href="#Projection-Scence" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[110]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1134,7 +1221,7 @@ I(r)=|U(r)|^2
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[110]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1146,7 +1233,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_56_1.png" src="../../_images/notebooks_L2_2_plotting_56_1.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_62_1.png"><img alt="../../_images/notebooks_L2_2_plotting_62_1.png" src="../../_images/notebooks_L2_2_plotting_62_1.png" style="width: 572px; height: 340px;" /></a>
 </div>
 </div>
 <p>With this three-dimensional axes enabled, we can now plot a variety of three-dimensional plot types. Three-dimensional plotting is one of the functionalities that benefits immensely from viewing figures interactively rather than statically in the notebook; recall that to use interactive figures, you can use %matplotlib notebook rather than %matplotlib inline when running this code.</p>
@@ -1155,7 +1242,7 @@ Text(0.5, 0, &#39;z&#39;)
 <h3>Line Plotting in 3D<a class="headerlink" href="#Line-Plotting-in-3D" title="Permalink to this headline">¶</a></h3>
 <p>from sets of (x, y, z) triples. In analogy with the more common two-dimensional plots discussed earlier, these can be created using the ax.plot3D and ax.scatter3D functions. The call signature for these is nearly identical to that of their two-dimensional counterparts, so you can refer to Simple Line Plots and Simple Scatter Plots for more information on controlling the output. Here we’ll plot a trigonometric spiral, along with some points drawn randomly near the line:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[111]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1180,7 +1267,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_59_0.png" src="../../_images/notebooks_L2_2_plotting_59_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_65_0.png"><img alt="../../_images/notebooks_L2_2_plotting_65_0.png" src="../../_images/notebooks_L2_2_plotting_65_0.png" style="width: 572px; height: 340px;" /></a>
 </div>
 </div>
 <p>Notice that by default, the scatter points have their transparency adjusted to give a sense of depth on the page. While the three-dimensional effect is sometimes difficult to see within a static image, an interactive view can lead to some nice intuition about the layout of the points. Use the <em>scatter3D</em> or the <em>plot3D</em> method to plot a random walk in 3-dimensions in your exercise.</p>
@@ -1189,7 +1276,7 @@ Text(0.5, 0, &#39;z&#39;)
 <h3>Surface Plotting<a class="headerlink" href="#Surface-Plotting" title="Permalink to this headline">¶</a></h3>
 <p>A surface plot is like a wireframe plot, but each face of the wireframe is a filled polygon. Adding a colormap to the filled polygons can aid perception of the topology of the surface being visualized:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1202,7 +1289,7 @@ Text(0.5, 0, &#39;z&#39;)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[113]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1211,7 +1298,7 @@ Text(0.5, 0, &#39;z&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[113]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1220,7 +1307,7 @@ Text(0.5, 0, &#39;z&#39;)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[114]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1237,7 +1324,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_64_0.png" src="../../_images/notebooks_L2_2_plotting_64_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_70_0.png"><img alt="../../_images/notebooks_L2_2_plotting_70_0.png" src="../../_images/notebooks_L2_2_plotting_70_0.png" style="width: 572px; height: 340px;" /></a>
 </div>
 </div>
 </div>
@@ -1266,7 +1353,7 @@ Text(0.5, 0, &#39;z&#39;)
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 03, 2020.
+        Last updated on Apr 06, 2020.
       </span>
 
     </p>
