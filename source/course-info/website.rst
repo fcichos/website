@@ -46,11 +46,8 @@ This website will contain all the information that are required for our **Comput
 The website will be updated each week and you will find a new lecture and a new assignment every week. The lecture notebooks will be accompanied with videos explaining the lecture contents but you may get along with just reading as well.     
 
 
-Instructors
------------
-
-Lecturers & 
-~~~~~~~~~
+Lecturer
+--------
 
 Email: *lastname@physik.uni-leipzig.de*
 
