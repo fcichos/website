@@ -23,8 +23,8 @@ Python Documentation
  * `Pandas <https://pandas.pydata.org/docs/getting_started/10min.html>`_ 
 
 
-Python Tutorial
-~~~~~~~~~~~~~~~
+Python Tutorials
+~~~~~~~~~~~~~~~~
 
  * `Introduction to Python for Science <https://physics.nyu.edu/pine/pymanual/html/pymanMaster.html>`_
  * `Nice MatPlotLib tutorial <https://github.com/rougier/matplotlib-tutorial>`_
