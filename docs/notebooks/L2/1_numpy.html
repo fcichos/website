@@ -93,7 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#molecular-nanophotonics-group">Molecular Nanophotonics Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-documentation">Python Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorial">Python Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python Tutorials</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/instructor.html">Instructor</a></li>
@@ -175,6 +175,12 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Slicing">Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Reshaping">Reshaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Stacking-and-repeating-arrays">Stacking and repeating arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Concatenate">Concatenate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Hstack-and-vstack">Hstack and vstack</a></li>
 </ul>
 </li>
 </ul>
@@ -191,6 +197,7 @@
 <li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Combined-plots">Combined plots</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Saving-figures">Saving figures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Plots-with-error-bars">Plots with error bars</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="2_plotting.html#Masked-arrays">Masked arrays</a></li>
@@ -198,12 +205,12 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Subplots">Subplots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Logarithmic-plots">Logarithmic plots</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Semi-log-plots">Semi-log plots</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Log-log-plots">Log-log plots</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Arranging-multiple-plots">Arranging multiple plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Simple-contour-plot">Simple contour plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Color-contour-plot">Color contour plot</a></li>
@@ -216,7 +223,8 @@
 <li class="toctree-l3"><a class="reference internal" href="2_plotting.html#Surface-Plotting">Surface Plotting</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Advances-Plotting">Advances Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Advanced-Plotting">Advanced Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_plotting.html#Text-annotation">Text annotation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_randomnumbers.html">Random numbers</a><ul>
@@ -240,6 +248,55 @@
 <li class="toctree-l4"><a class="reference internal" href="4_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 3:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/1_flowcontrol.html">Flow Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/1_flowcontrol.html#Conditionals:-if,-elif,-and-else-statements">Conditionals: if, elif, and else statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_flowcontrol.html#If-example">If example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_flowcontrol.html#If-else-example">If else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_flowcontrol.html#If,-elif,-else-example">If, elif, else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_flowcontrol.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/1_flowcontrol.html#Loops">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_flowcontrol.html#For-loops">For loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_flowcontrol.html#While-loops">While loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_flowcontrol.html#Loops-and-array-operations">Loops and array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_flowcontrol.html#List-comprehensions">List comprehensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/2_functions.html">Introduction to Computational Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/2_functions.html#Table-of-Contents">Table of Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/2_functions.html#Lecture-3">Lecture 3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_functions.html#Conditionals">Conditionals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#if,-elif,-and-else-statements">if, elif, and else statements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_functions.html#Logical-Operators">Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_functions.html#Loops">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#for-loops">for loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#while-loops">while loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#Loops-and-array-operations">Loops and array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#List-Comprehensions">List Comprehensions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_functions.html#Functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#User-defined-functions">User-defined functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#Faster-Array-Processing">Faster Array Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#Variable-number-of-arguments">Variable number of arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_functions.html#Numerical-differentiation">Numerical differentiation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_functions.html#More-differentiation">More differentiation</a></li>
 </ul>
 </li>
 </ul>
@@ -1121,6 +1178,9 @@ array([[1., 0., 0.],
        [0., 0., 1.]])
 </pre></div></div>
 </div>
+</div>
+<div class="section" id="Reshaping">
+<h3>Reshaping<a class="headerlink" href="#Reshaping" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
@@ -1151,6 +1211,244 @@ array([[0., 0., 0.],
 </pre></div></div>
 </div>
 </div>
+<div class="section" id="Adding-a-new-dimension:-newaxis">
+<h3>Adding a new dimension: newaxis<a class="headerlink" href="#Adding-a-new-dimension:-newaxis" title="Permalink to this headline">¶</a></h3>
+<p>With <code class="docutils literal notranslate"><span class="pre">newaxis</span></code>, we can insert new dimensions in an array, for example converting a vector to a column or row matrix:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">v</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">shape</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(3,)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># make a column matrix of the vector v</span>
+<span class="n">v</span><span class="p">[:,</span> <span class="n">newaxis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1],
+       [2],
+       [3]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># column matrix</span>
+<span class="n">v</span><span class="p">[:,</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(3, 1)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># row matrix</span>
+<span class="n">v</span><span class="p">[</span><span class="n">newaxis</span><span class="p">,:]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1, 3)
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Stacking-and-repeating-arrays">
+<h3>Stacking and repeating arrays<a class="headerlink" href="#Stacking-and-repeating-arrays" title="Permalink to this headline">¶</a></h3>
+<p>Using function <code class="docutils literal notranslate"><span class="pre">repeat</span></code>, <code class="docutils literal notranslate"><span class="pre">tile</span></code>, <code class="docutils literal notranslate"><span class="pre">vstack</span></code>, <code class="docutils literal notranslate"><span class="pre">hstack</span></code>, and <code class="docutils literal notranslate"><span class="pre">concatenate</span></code> we can create larger vectors and matrices from smaller ones:</p>
+</div>
+<div class="section" id="Tile-and-repeat">
+<h3>Tile and repeat<a class="headerlink" href="#Tile-and-repeat" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># repeat each element 3 times</span>
+<span class="n">repeat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># tile the matrix 3 times</span>
+<span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1, 2, 1, 2, 1, 2],
+       [3, 4, 3, 4, 3, 4]])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Concatenate">
+<h3>Concatenate<a class="headerlink" href="#Concatenate" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">b</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1, 2],
+       [3, 4],
+       [5, 6]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1, 2, 5],
+       [3, 4, 6]])
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Hstack-and-vstack">
+<h3>Hstack and vstack<a class="headerlink" href="#Hstack-and-vstack" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">vstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1, 2],
+       [3, 4],
+       [5, 6]])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">hstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([[1, 2, 5],
+       [3, 4, 6]])
+</pre></div></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -1176,7 +1474,7 @@ array([[0., 0., 0.],
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 06, 2020.
+        Last updated on Apr 10, 2020.
       </span>
 
     </p>
