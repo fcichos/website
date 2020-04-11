@@ -919,11 +919,9 @@ array([[1., 1., 1.],
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong> Differences</p>
 <p><strong>Slicing</strong> can be effectively used to calculate differences for example for the calculation of derivatives. Here the position <span class="math notranslate nohighlight">\(y_i\)</span> of an object has been measured at times <span class="math notranslate nohighlight">\(t_i\)</span> and stored in an array each. We wish to calculate the average velocity at the times <span class="math notranslate nohighlight">\(t_{i}\)</span> from the arrays by</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    \<span class="n">begin</span><span class="p">{</span><span class="n">equation</span><span class="p">}</span>
-<span class="n">v_</span><span class="p">{</span><span class="n">i</span><span class="p">}</span><span class="o">=</span>\<span class="n">frac</span><span class="p">{</span><span class="n">y_i</span><span class="o">-</span><span class="n">y_</span><span class="p">{</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">}}{</span><span class="n">t_</span><span class="p">{</span><span class="n">i</span><span class="p">}</span><span class="o">-</span><span class="n">t_</span><span class="p">{</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">}}</span>
-\<span class="n">end</span><span class="p">{</span><span class="n">equation</span><span class="p">}</span>
-</pre></div>
-</div>
+<p><span class="math">\begin{equation}
+v_{i}=\frac{y_i-y_{i-1}}{t_{i}-t_{i-1}}
+\end{equation}</span></p>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
