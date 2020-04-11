@@ -178,10 +178,12 @@
 <li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Slicing">Slicing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Reshaping">Reshaping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Stacking-and-repeating-arrays">Stacking and repeating arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Tile-and-repeat">Tile and repeat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Concatenate">Concatenate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Hstack-and-vstack">Hstack and vstack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Stacking-and-repeating-arrays">Stacking and repeating arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#Concatenate">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#Hstack-and-vstack">Hstack and vstack</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="1_numpy.html#Applying-mathematical-functions">Applying mathematical functions</a><ul>
@@ -621,7 +623,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -637,7 +639,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>function, which takes a dictionary with the specific parameters as key.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -667,7 +669,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command. You may, however, modify in the parameters the appearance of the plot to a scatter plot. But by default, it creates a line plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -683,7 +685,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_9_0.png" src="../../_images/notebooks_L2_2_plotting_9_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_9_0.png"><img alt="../../_images/notebooks_L2_2_plotting_9_0.png" src="../../_images/notebooks_L2_2_plotting_9_0.png" style="width: 392px; height: 250px;" /></a>
 </div>
 </div>
 <div class="section" id="Axis-Labels">
@@ -694,7 +696,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -709,7 +711,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_12_0.png" src="../../_images/notebooks_L2_2_plotting_12_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_12_0.png"><img alt="../../_images/notebooks_L2_2_plotting_12_0.png" src="../../_images/notebooks_L2_2_plotting_12_0.png" style="width: 423px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -720,7 +722,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -737,7 +739,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_14_0.png" src="../../_images/notebooks_L2_2_plotting_14_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_14_0.png"><img alt="../../_images/notebooks_L2_2_plotting_14_0.png" src="../../_images/notebooks_L2_2_plotting_14_0.png" style="width: 423px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -750,7 +752,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command of pylab. Note that the scatter command requires a <em>x</em> and <em>y</em> values and you can set the marker symbol (see an overview of the <a class="reference external" href="https://matplotlib.org/api/markers_api.html">marker symbols</a>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -765,7 +767,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_17_0.png" src="../../_images/notebooks_L2_2_plotting_17_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_17_0.png"><img alt="../../_images/notebooks_L2_2_plotting_17_0.png" src="../../_images/notebooks_L2_2_plotting_17_0.png" style="width: 423px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -798,7 +800,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 \end{equation}</span></p>
 <p>This is the probability density of finding an oscillating spring at a certain elongation <span class="math notranslate nohighlight">\(x(t)\)</span>. If you look at the example more closely, it tells you, that you find and elongation more likely when the speed of the mass is slow. This is even a more general issue in non-equilibrium physics. If cells or cars are moving with variable speed, they are more likely to be found at places where they are slow.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -806,14 +808,15 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c1"># plot the histogram</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;histogram&#39;</span><span class="p">)</span>
 
 <span class="c1">#plot the analytical solution</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)),</span><span class="s1">&#39;k--&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)),</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;analytic&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="c1"># set the x-axis label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;occurrence&#39;</span><span class="p">)</span> <span class="c1"># set the y-axis label</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -822,7 +825,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_27_0.png" src="../../_images/notebooks_L2_2_plotting_27_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_27_0.png"><img alt="../../_images/notebooks_L2_2_plotting_27_0.png" src="../../_images/notebooks_L2_2_plotting_27_0.png" style="width: 409px; height: 281px;" /></a>
 </div>
 </div>
 </div>
@@ -830,7 +833,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <h3>Combined plots<a class="headerlink" href="#Combined-plots" title="Permalink to this headline">¶</a></h3>
 <p>You can combine multiple data with the same axes by stacking multiple plots.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -845,7 +848,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
@@ -861,7 +864,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_30_0.png" src="../../_images/notebooks_L2_2_plotting_30_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_30_0.png"><img alt="../../_images/notebooks_L2_2_plotting_30_0.png" src="../../_images/notebooks_L2_2_plotting_30_0.png" style="width: 563px; height: 419px;" /></a>
 </div>
 </div>
 </div>
@@ -870,7 +873,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <h2>Saving figures<a class="headerlink" href="#Saving-figures" title="Permalink to this headline">¶</a></h2>
 <p>To save a figure to a file we can use the <code class="docutils literal notranslate"><span class="pre">savefig</span></code> method in the <code class="docutils literal notranslate"><span class="pre">Figure</span></code> class. Matplotlib can generate high-quality output in a number formats, including PNG, JPG, EPS, SVG, PGF and PDF. For scientific papers, I recommend using PDF whenever possible. (LaTeX documents compiled with <code class="docutils literal notranslate"><span class="pre">pdflatex</span></code> can include PDFs using the <code class="docutils literal notranslate"><span class="pre">includegraphics</span></code> command). In some cases, PGF can also be good alternative.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -889,7 +892,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_33_0.png" src="../../_images/notebooks_L2_2_plotting_33_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_33_0.png"><img alt="../../_images/notebooks_L2_2_plotting_33_0.png" src="../../_images/notebooks_L2_2_plotting_33_0.png" style="width: 534px; height: 390px;" /></a>
 </div>
 </div>
 </div>
@@ -897,7 +900,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <h2>Plots with error bars<a class="headerlink" href="#Plots-with-error-bars" title="Permalink to this headline">¶</a></h2>
 <p>When plotting experimental data it is customary to include error bars that indicate graphically the degree of uncertainty that exists in the measurement of each data point. The MatPlotLib function errorbar plots data with error bars attached. It can be used in a way that either replaces or augments the plot function. Both vertical and horizontal error bars can be displayed. The figure below illustrates the use of error bars.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -926,14 +929,14 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_36_0.png" src="../../_images/notebooks_L2_2_plotting_36_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_36_0.png"><img alt="../../_images/notebooks_L2_2_plotting_36_0.png" src="../../_images/notebooks_L2_2_plotting_36_0.png" style="width: 525px; height: 390px;" /></a>
 </div>
 </div>
 <div class="section" id="Setting-plotting-limits-and-excluding-data">
 <h3>Setting plotting limits and excluding data<a class="headerlink" href="#Setting-plotting-limits-and-excluding-data" title="Permalink to this headline">¶</a></h3>
 <p>If you want to zoom in to s specific region of a plot you can set the limits of the individual axes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -952,7 +955,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_39_0.png" src="../../_images/notebooks_L2_2_plotting_39_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_39_0.png"><img alt="../../_images/notebooks_L2_2_plotting_39_0.png" src="../../_images/notebooks_L2_2_plotting_39_0.png" style="width: 487px; height: 365px;" /></a>
 </div>
 </div>
 <div class="section" id="Masked-arrays">
@@ -963,7 +966,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 </div>
 <p>function of NumPy, which takes a condition as the first argument and what should be returned if that condition is fulfilled.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -987,7 +990,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_41_0.png" src="../../_images/notebooks_L2_2_plotting_41_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_41_0.png"><img alt="../../_images/notebooks_L2_2_plotting_41_0.png" src="../../_images/notebooks_L2_2_plotting_41_0.png" style="width: 487px; height: 365px;" /></a>
 </div>
 </div>
 </div>
@@ -1001,7 +1004,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <p>For data sets that vary exponentially in the independent variable, it is often useful to use one or more logarithmic axes. Radioactive decay of unstable nuclei, for example, exhibits an exponential decrease in the number of particles emitted from the nuclei as a function of time.</p>
 <p>MatPlotLib provides two functions for making semi-logarithmic plots, semilogx and semilogy, for creating plots with logarithmic x and y axes, with linear y and x axes, respectively. We illustrate their use in the program below, which made the above plots.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1029,7 +1032,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_44_0.png" src="../../_images/notebooks_L2_2_plotting_44_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_44_0.png"><img alt="../../_images/notebooks_L2_2_plotting_44_0.png" src="../../_images/notebooks_L2_2_plotting_44_0.png" style="width: 418px; height: 346px;" /></a>
 </div>
 </div>
 </div>
@@ -1037,7 +1040,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <h3>Log-log plots<a class="headerlink" href="#Log-log-plots" title="Permalink to this headline">¶</a></h3>
 <p>MatPlotLib can also make log-log or double-logarithmic plots using the function loglog. It is useful when both the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> data span many orders of magnitude. Data that are described by a power law <span class="math notranslate nohighlight">\(y=Ax^b\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constants, appear as straight lines when plotted on a log-log plot. Again, the loglog function works just like the plot function but with logarithmic axes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1063,7 +1066,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_46_0.png" src="../../_images/notebooks_L2_2_plotting_46_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_46_0.png"><img alt="../../_images/notebooks_L2_2_plotting_46_0.png" src="../../_images/notebooks_L2_2_plotting_46_0.png" style="width: 634px; height: 284px;" /></a>
 </div>
 </div>
 </div>
@@ -1074,7 +1077,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <p>The function subplot, called on lines 13 and 24, creates the two subplots in the above figure. subplot has three arguments. The first specifies the number of rows that the figure space is to be divided into; on line 13, it’s two. The second specifies the number of columns that the figure space is to be divided into; on line 13, it’s one. The third argument specifies which rectangle the will contain the plot specified by the following function calls. Line 13 specifies that the plotting commands
 that follow will be act on the first box. Line 24 specifies that the plotting commands that follow will be act on the second box.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1118,7 +1121,7 @@ that follow will be act on the first box. Line 24 specifies that the plotting co
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L2_2_plotting_48_0.png" src="../../_images/notebooks_L2_2_plotting_48_0.png" />
+<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_48_0.png"><img alt="../../_images/notebooks_L2_2_plotting_48_0.png" src="../../_images/notebooks_L2_2_plotting_48_0.png" style="width: 562px; height: 563px;" /></a>
 </div>
 </div>
 </div>

@@ -178,10 +178,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#Slicing">Slicing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Reshaping">Reshaping</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Stacking-and-repeating-arrays">Stacking and repeating arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Tile-and-repeat">Tile and repeat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Concatenate">Concatenate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Hstack-and-vstack">Hstack and vstack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Stacking-and-repeating-arrays">Stacking and repeating arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Concatenate">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Hstack-and-vstack">Hstack and vstack</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Applying-mathematical-functions">Applying mathematical functions</a><ul>
@@ -1121,9 +1123,8 @@ array([[1],
 <div class="section" id="Stacking-and-repeating-arrays">
 <h3>Stacking and repeating arrays<a class="headerlink" href="#Stacking-and-repeating-arrays" title="Permalink to this headline">¶</a></h3>
 <p>Using function <code class="docutils literal notranslate"><span class="pre">repeat</span></code>, <code class="docutils literal notranslate"><span class="pre">tile</span></code>, <code class="docutils literal notranslate"><span class="pre">vstack</span></code>, <code class="docutils literal notranslate"><span class="pre">hstack</span></code>, and <code class="docutils literal notranslate"><span class="pre">concatenate</span></code> we can create larger vectors and matrices from smaller ones. Please try the individual functions yourself in your notebook. We wont discuss them in detail.</p>
-</div>
 <div class="section" id="Tile-and-repeat">
-<h3>Tile and repeat<a class="headerlink" href="#Tile-and-repeat" title="Permalink to this headline">¶</a></h3>
+<h4>Tile and repeat<a class="headerlink" href="#Tile-and-repeat" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
@@ -1174,7 +1175,7 @@ array([[1, 2, 1, 2, 1, 2],
 </div>
 </div>
 <div class="section" id="Concatenate">
-<h3>Concatenate<a class="headerlink" href="#Concatenate" title="Permalink to this headline">¶</a></h3>
+<h4>Concatenate<a class="headerlink" href="#Concatenate" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
@@ -1225,7 +1226,7 @@ array([[1, 2, 5],
 </div>
 </div>
 <div class="section" id="Hstack-and-vstack">
-<h3>Hstack and vstack<a class="headerlink" href="#Hstack-and-vstack" title="Permalink to this headline">¶</a></h3>
+<h4>Hstack and vstack<a class="headerlink" href="#Hstack-and-vstack" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
@@ -1264,6 +1265,7 @@ array([[1, 2],
 array([[1, 2, 5],
        [3, 4, 6]])
 </pre></div></div>
+</div>
 </div>
 </div>
 </div>
