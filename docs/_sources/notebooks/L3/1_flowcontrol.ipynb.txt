@@ -9,7 +9,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 2,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2019-04-23T12:57:22.018368Z",
@@ -23,7 +23,7 @@
     "import numpy as np\n",
     "import matplotlib.pyplot as plt\n",
     "\n",
-    "%config InlineBackend.figure_format = 'retina' \n",
+    "#%config InlineBackend.figure_format = 'retina' \n",
     "\n",
     "plt.rcParams.update({'font.size': 12,\n",
     "                     'axes.titlesize': 18,\n",
@@ -108,7 +108,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 4,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2019-04-23T12:58:29.972678Z",
@@ -117,11 +117,10 @@
    },
    "outputs": [
     {
-     "name": "stdout",
+     "name": "stdin",
      "output_type": "stream",
      "text": [
-      "Please input a number: -1\n",
-      "The absolute value is 1\n"
+      "Please input a number:  5\n"
      ]
     }
    ],
@@ -432,7 +431,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 1,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2019-04-23T13:03:47.668989Z",
@@ -947,6 +946,13 @@
     "_Feature"
    ],
    "window_display": false
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
   }
  },
  "nbformat": 4,
