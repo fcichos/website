@@ -231,7 +231,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Surface-Plotting">Surface Plotting</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Advanced-Plotting">Advanced Plotting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Additional-Plotting">Additional Plotting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Insets">Insets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Spine-axis">Spine axis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Polar-plot">Polar plot</a></li>
@@ -632,12 +632,14 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 </pre></div>
 </div>
@@ -648,7 +650,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>function, which takes a dictionary with the specific parameters as key.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -678,7 +680,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command. You may, however, modify in the parameters the appearance of the plot to a scatter plot. But by default, it creates a line plot.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -705,7 +707,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -731,7 +733,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -761,7 +763,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>command of pylab. Note that the scatter command requires a <em>x</em> and <em>y</em> values and you can set the marker symbol (see an overview of the <a class="reference external" href="https://matplotlib.org/api/markers_api.html">marker symbols</a>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1287,13 +1289,15 @@ Text(0.5, 0, &#39;z&#39;)
 </div>
 <div class="section" id="Line-Plotting-in-3D">
 <h3>Line Plotting in 3D<a class="headerlink" href="#Line-Plotting-in-3D" title="Permalink to this headline">¶</a></h3>
-<p>from sets of (x, y, z) triples. In analogy with the more common two-dimensional plots discussed earlier, these can be created using the <code class="docutils literal notranslate"><span class="pre">ax.plot3D</span></code> and `ax.scatter3D`` functions. The call signature for these is nearly identical to that of their two-dimensional counterparts, so you can refer to Simple Line Plots and Simple Scatter Plots for more information on controlling the output. Here we’ll plot a trigonometric spiral, along with some points drawn randomly near the line:</p>
+<p>from sets of (x, y, z) triples. In analogy with the more common two-dimensional plots discussed earlier, these can be created using the <code class="docutils literal notranslate"><span class="pre">ax.plot3D</span></code> and <code class="docutils literal notranslate"><span class="pre">ax.scatter3D</span></code> functions. The call signature for these is nearly identical to that of their two-dimensional counterparts, so you can refer to Simple Line Plots and Simple Scatter Plots for more information on controlling the output. Here we’ll plot a trigonometric spiral, along with some points drawn randomly near the line:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1">#create the axes</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 
 <span class="c1"># Data for a three-dimensional line</span>
@@ -1323,7 +1327,7 @@ Text(0.5, 0, &#39;z&#39;)
 <h3>Surface Plotting<a class="headerlink" href="#Surface-Plotting" title="Permalink to this headline">¶</a></h3>
 <p>A surface plot is like a wireframe plot, but each face of the wireframe is a filled polygon. Adding a colormap to the filled polygons can aid perception of the topology of the surface being visualized:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1336,7 +1340,7 @@ Text(0.5, 0, &#39;z&#39;)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1345,7 +1349,7 @@ Text(0.5, 0, &#39;z&#39;)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1354,7 +1358,7 @@ Text(0.5, 0, &#39;z&#39;)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1376,11 +1380,11 @@ Text(0.5, 0, &#39;z&#39;)
 </div>
 </div>
 </div>
-<div class="section" id="Advanced-Plotting">
-<h2>Advanced Plotting<a class="headerlink" href="#Advanced-Plotting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Additional-Plotting">
+<h2>Additional Plotting<a class="headerlink" href="#Additional-Plotting" title="Permalink to this headline">¶</a></h2>
 <p>While we have so far largely relied on the default setting and the automatic arrangement of plots, there is also a way to precisely design your plot. Python provides the tools of object oriented programming and thus modules provide classes which can be instanced into objects. This is also the case</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1392,7 +1396,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="section" id="Insets">
 <h3>Insets<a class="headerlink" href="#Insets" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1427,7 +1431,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="section" id="Spine-axis">
 <h3>Spine axis<a class="headerlink" href="#Spine-axis" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1458,7 +1462,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="section" id="Polar-plot">
 <h3>Polar plot<a class="headerlink" href="#Polar-plot" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1483,7 +1487,7 @@ Text(0.5, 0, &#39;z&#39;)
 <h2>Text annotation<a class="headerlink" href="#Text-annotation" title="Permalink to this headline">¶</a></h2>
 <p>Annotating text in matplotlib figures can be done using the <code class="docutils literal notranslate"><span class="pre">text</span></code> function. It supports LaTeX formatting just like axis label texts and titles:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1502,48 +1506,6 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="output_area docutils container">
 <a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_86_0.png"><img alt="../../_images/notebooks_L2_2_plotting_86_0.png" src="../../_images/notebooks_L2_2_plotting_86_0.png" style="width: 378px; height: 250px;" /></a>
 </div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">10</span><span class="n">j</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-array([1. +1.j  , 2. +3.25j, 3. +5.5j , 4. +7.75j, 5.+10.j  ])
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">notebook.services.config</span> <span class="kn">import</span> <span class="n">ConfigManager</span>
-<span class="n">cm</span> <span class="o">=</span> <span class="n">ConfigManager</span><span class="p">()</span>
-<span class="n">cm</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s1">&#39;livereveal&#39;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
-        <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mi">768</span><span class="p">,</span>
-        <span class="s1">&#39;scroll&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-<span class="p">})</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-{&#39;width&#39;: 1024, &#39;height&#39;: 768, &#39;scroll&#39;: True}
-</pre></div></div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
