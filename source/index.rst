@@ -70,18 +70,18 @@ We will not present a comprehensive list of numerical simulation schemes, but us
 .. toctree::
    :maxdepth: 2
    :caption: Lecture 2:
-
    lectures/L2/overview_2.rst
    notebooks/L2/1_numpy.ipynb   
    notebooks/L2/2_plotting.ipynb
    notebooks/L2/3_randomnumbers.ipynb
-   notebooks/L2/4_input_output.ipynb
+   
    
 .. toctree::
    :maxdepth: 2
    :caption: Lecture 3:
 
    lectures/L3/overview_3.rst
+   notebooks/L2/4_input_output.ipynb
    notebooks/L3/1_flowcontrol.ipynb   
    notebooks/L3/2_functions.ipynb  
    notebooks/L3/3_classes.ipynb  

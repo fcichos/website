@@ -8,7 +8,7 @@
     }
    },
    "source": [
-    "# Numpy arrays"
+    "# NumPy arrays"
    ]
   },
   {
@@ -24,7 +24,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 3,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -86,7 +86,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 4,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2018-04-16T15:14:45.761751Z",
@@ -104,7 +104,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2018-04-16T15:14:47.745869Z",
@@ -121,7 +121,7 @@
        "numpy.ndarray"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -157,7 +157,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 6,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -170,7 +170,7 @@
        "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -184,7 +184,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 7,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -201,7 +201,7 @@
        "        6.00000000e-01,  7.00000000e-01,  8.00000000e-01,  9.00000000e-01])"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 7,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -235,7 +235,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 8,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -252,14 +252,14 @@
        "        8.33333333,  8.75      ,  9.16666667,  9.58333333, 10.        ])"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 8,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "# using linspace, both end points ARE included\n",
-    "np.linspace(0, 10, 25)"
+    "np.linspace(0, 10,25)"
    ]
   },
   {
@@ -275,7 +275,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 9,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -290,7 +290,7 @@
        "       7.25095809e+03, 2.20264658e+04])"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 9,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -323,7 +323,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 14,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -331,12 +331,12 @@
    },
    "outputs": [],
    "source": [
-    "x, y = np.mgrid[0:5, 0:5] # similar to meshgrid in MATLAB"
+    "x, y = np.mgrid[0:1:0.1, 0:5] # similar to meshgrid in MATLAB"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 15,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -346,14 +346,19 @@
     {
      "data": {
       "text/plain": [
-       "array([[0, 0, 0, 0, 0],\n",
-       "       [1, 1, 1, 1, 1],\n",
-       "       [2, 2, 2, 2, 2],\n",
-       "       [3, 3, 3, 3, 3],\n",
-       "       [4, 4, 4, 4, 4]])"
+       "array([[0. , 0. , 0. , 0. , 0. ],\n",
+       "       [0.1, 0.1, 0.1, 0.1, 0.1],\n",
+       "       [0.2, 0.2, 0.2, 0.2, 0.2],\n",
+       "       [0.3, 0.3, 0.3, 0.3, 0.3],\n",
+       "       [0.4, 0.4, 0.4, 0.4, 0.4],\n",
+       "       [0.5, 0.5, 0.5, 0.5, 0.5],\n",
+       "       [0.6, 0.6, 0.6, 0.6, 0.6],\n",
+       "       [0.7, 0.7, 0.7, 0.7, 0.7],\n",
+       "       [0.8, 0.8, 0.8, 0.8, 0.8],\n",
+       "       [0.9, 0.9, 0.9, 0.9, 0.9]])"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -366,6 +371,7 @@
    "cell_type": "code",
    "execution_count": 13,
    "metadata": {
+    "scrolled": true,
     "slideshow": {
      "slide_type": "fragment"
     }
@@ -414,8 +420,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 16,
    "metadata": {
+    "scrolled": true,
     "slideshow": {
      "slide_type": "fragment"
     }
@@ -429,7 +436,7 @@
        "       [0, 0, 3]])"
       ]
      },
-     "execution_count": 14,
+     "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -441,7 +448,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 53,
+   "execution_count": 18,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -451,20 +458,20 @@
     {
      "data": {
       "text/plain": [
-       "array([[0, 1, 0, 0],\n",
-       "       [0, 0, 2, 0],\n",
-       "       [0, 0, 0, 3],\n",
-       "       [0, 0, 0, 0]])"
+       "array([[0, 0, 0, 0],\n",
+       "       [1, 0, 0, 0],\n",
+       "       [0, 2, 0, 0],\n",
+       "       [0, 0, 3, 0]])"
       ]
      },
-     "execution_count": 53,
+     "execution_count": 18,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
     "# diagonal with offset from the main diagonal\n",
-    "np.diag([1,2,3], k=1) "
+    "np.diag([1,2,3], k=-1) "
    ]
   },
   {
@@ -491,7 +498,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 54,
+   "execution_count": 19,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -506,7 +513,7 @@
        "       [0., 0., 0.]])"
       ]
      },
-     "execution_count": 54,
+     "execution_count": 19,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -517,7 +524,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 20,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -532,7 +539,7 @@
        "       [1., 1., 1.]])"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 20,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -577,7 +584,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 55,
+   "execution_count": 21,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -590,7 +597,7 @@
        "array([1, 2, 3, 4, 5])"
       ]
      },
-     "execution_count": 55,
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -602,7 +609,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 23,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -612,16 +619,16 @@
     {
      "data": {
       "text/plain": [
-       "array([2, 3])"
+       "array([2, 3, 4])"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 23,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "A[1:3]"
+    "A[1:4]"
    ]
   },
   {
@@ -637,7 +644,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 24,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -647,10 +654,10 @@
     {
      "data": {
       "text/plain": [
-       "array([ 1, -2, -3,  4,  5])"
+       "array([1, 2, 3, 4, 5])"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 24,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -661,7 +668,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 25,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -671,10 +678,10 @@
     {
      "data": {
       "text/plain": [
-       "array([ 1, -3,  5])"
+       "array([1, 3, 5])"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -696,7 +703,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 56,
+   "execution_count": 26,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -709,7 +716,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 57,
+   "execution_count": 27,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -722,7 +729,7 @@
        "5"
       ]
      },
-     "execution_count": 57,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -733,7 +740,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 58,
+   "execution_count": 29,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -743,16 +750,16 @@
     {
      "data": {
       "text/plain": [
-       "array([3, 4, 5])"
+       "array([5, 4, 3, 2, 1])"
       ]
      },
-     "execution_count": 58,
+     "execution_count": 29,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "A[-3:] # the last three elements"
+    "A[::-1] # the last three elements"
    ]
   },
   {
@@ -768,7 +775,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 60,
+   "execution_count": 30,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -785,7 +792,7 @@
        "       [40, 41, 42, 43, 44]])"
       ]
      },
-     "execution_count": 60,
+     "execution_count": 30,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -797,7 +804,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 61,
+   "execution_count": 31,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -812,7 +819,7 @@
        "       [31, 32, 33]])"
       ]
      },
-     "execution_count": 61,
+     "execution_count": 31,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -845,7 +852,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 42,
+   "execution_count": 32,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2019-04-09T12:06:06.054113Z",
@@ -863,7 +870,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 49,
+   "execution_count": 33,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2019-04-09T12:09:32.984535Z",
@@ -881,7 +888,7 @@
        "       17.38461538])"
       ]
      },
-     "execution_count": 49,
+     "execution_count": 33,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -915,7 +922,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 47,
+   "execution_count": 34,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2019-04-09T12:09:57.933692Z",
@@ -932,7 +939,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 48,
+   "execution_count": 35,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2019-04-09T12:09:59.284858Z",
@@ -951,7 +958,7 @@
        "       [0., 0., 0.]])"
       ]
      },
-     "execution_count": 48,
+     "execution_count": 35,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -984,7 +991,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 41,
+   "execution_count": 36,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -997,7 +1004,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 37,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -1010,7 +1017,7 @@
        "(3,)"
       ]
      },
-     "execution_count": 28,
+     "execution_count": 37,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1021,7 +1028,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 38,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -1036,7 +1043,7 @@
        "       [3]])"
       ]
      },
-     "execution_count": 29,
+     "execution_count": 38,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1048,7 +1055,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 39,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -1061,7 +1068,7 @@
        "(3, 1)"
       ]
      },
-     "execution_count": 30,
+     "execution_count": 39,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1073,7 +1080,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 40,
    "metadata": {
     "slideshow": {
      "slide_type": "fragment"
@@ -1086,7 +1093,7 @@
        "(1, 3)"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 40,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1132,7 +1139,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": null,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
@@ -1145,24 +1152,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
+   "execution_count": null,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4])"
-      ]
-     },
-     "execution_count": 33,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "# repeat each element 3 times\n",
     "np.repeat(a, 3)"
@@ -1170,25 +1166,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": null,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([[1, 2, 1, 2, 1, 2],\n",
-       "       [3, 4, 3, 4, 3, 4]])"
-      ]
-     },
-     "execution_count": 35,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "# tile the matrix 3 times \n",
     "np.tile(a, 3)"
@@ -1207,7 +1191,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": null,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
@@ -1220,51 +1204,26 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 37,
+   "execution_count": null,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([[1, 2],\n",
-       "       [3, 4],\n",
-       "       [5, 6]])"
-      ]
-     },
-     "execution_count": 37,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "np.concatenate((a, b), axis=0)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 38,
+   "execution_count": null,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([[1, 2, 5],\n",
-       "       [3, 4, 6]])"
-      ]
-     },
-     "execution_count": 38,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "np.concatenate((a, b.T), axis=1)"
    ]
@@ -1282,51 +1241,26 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 39,
+   "execution_count": null,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([[1, 2],\n",
-       "       [3, 4],\n",
-       "       [5, 6]])"
-      ]
-     },
-     "execution_count": 39,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "np.vstack((a,b))"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 40,
+   "execution_count": null,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "array([[1, 2, 5],\n",
-       "       [3, 4, 6]])"
-      ]
-     },
-     "execution_count": 40,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "np.hstack((a,b.T))"
    ]
@@ -1367,7 +1301,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 41,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:13:18.113059+02:00",
@@ -1384,7 +1318,7 @@
        "array([0. , 1.5, 3. , 4.5, 6. , 7.5, 9. ])"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1396,7 +1330,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 42,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:15:13.371733+02:00",
@@ -1413,7 +1347,7 @@
        "array([0.  , 0.75, 1.5 , 2.25, 3.  , 3.75, 4.5 ])"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 42,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1424,7 +1358,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 43,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:15:18.638466+02:00",
@@ -1441,7 +1375,7 @@
        "array([ 0.  ,  2.25,  9.  , 20.25, 36.  , 56.25, 81.  ])"
       ]
      },
-     "execution_count": 8,
+     "execution_count": 43,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1452,7 +1386,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 45,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:15:24.343295+02:00",
@@ -1470,18 +1404,18 @@
        "        0.93799998,  0.41211849])"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 45,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "np.sin(a)"
+    " np.sin(a)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 46,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:15:47.725237+02:00",
@@ -1499,7 +1433,7 @@
        "       2.47875218e-03, 5.53084370e-04, 1.23409804e-04])"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 46,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1510,7 +1444,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 47,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:15:56.773011+02:00",
@@ -1528,7 +1462,7 @@
        "       3.16666667, 3.66666667])"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 47,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1561,7 +1495,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 48,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:16:34.978152+02:00",
@@ -1574,12 +1508,12 @@
    "outputs": [],
    "source": [
     "a = np.array([34., -12, 5.])\n",
-    "b = np.array([68., 5.0, 20.])"
+    "b = np.array([68., 5.0, 20.]),"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 49,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:16:41.810170+02:00",
@@ -1596,7 +1530,7 @@
        "array([102.,  -7.,  25.])"
       ]
      },
-     "execution_count": 14,
+     "execution_count": 49,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1607,12 +1541,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 50,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:16:48.002366+02:00",
      "start_time": "2017-04-20T21:16:47.996136"
     },
+    "scrolled": true,
     "slideshow": {
      "slide_type": "fragment"
     }
@@ -1624,7 +1559,7 @@
        "array([2312.,  -60.,  100.])"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 50,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1635,7 +1570,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 51,
    "metadata": {
     "ExecuteTime": {
      "end_time": "2017-04-20T21:20:19.373091+02:00",
@@ -1652,7 +1587,7 @@
        "array([ 9.98743918e-29, -8.08553640e-02,  1.03057681e-08])"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 51,
      "metadata": {},
      "output_type": "execute_result"
     }
