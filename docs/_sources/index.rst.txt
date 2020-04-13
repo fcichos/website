@@ -70,6 +70,7 @@ We will not present a comprehensive list of numerical simulation schemes, but us
 .. toctree::
    :maxdepth: 2
    :caption: Lecture 2:
+
    lectures/L2/overview_2.rst
    notebooks/L2/1_numpy.ipynb   
    notebooks/L2/2_plotting.ipynb
