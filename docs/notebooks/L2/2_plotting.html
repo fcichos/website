@@ -1139,11 +1139,16 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <p><span class="math">\begin{equation}
 U(r)=U_{0}\frac{e^{-i\,k r}}{r}
 \end{equation}</span></p>
-<p>where <span class="math notranslate nohighlight">\(U_{0}\)</span> is the amplitude, <span class="math notranslate nohighlight">\(k\)</span> the magnitude of the k-vector, i.e. <span class="math notranslate nohighlight">\(k=2\pi/\lambda\)</span> and <span class="math notranslate nohighlight">\(r=\sqrt{x^2+y^2}\)</span> the distance, here in 2 dimensions.</p>
-<p>To show interference, we just use two of those waves as a superposition.</p>
-<p><img alt="interference" src="notebooks/L2/interference.png%20=400x" /></p>
+<p>where <span class="math notranslate nohighlight">\(U_{0}\)</span> is the amplitude, <span class="math notranslate nohighlight">\(k\)</span> the magnitude of the k-vector, i.e. <span class="math notranslate nohighlight">\(k=2\pi/\lambda\)</span> and <span class="math notranslate nohighlight">\(r=\sqrt{x^2+y^2}\)</span> the distance, here in 2 dimensions. Note that the total wavefunction also contains a temporal part such that</p>
 <p><span class="math">\begin{equation}
-U(r)=U_{01}\frac{e^{-i\,k |\vec{r}-\vec{r}_1}}{|\vec{r}-\vec{r}_1|}+U_{02}\frac{e^{-i\,k |\vec{r}-\vec{r}_2|}}{|\vec{r}-\vec{r}_2|}
+U(r,t)=U_{0}\frac{e^{-i\,k r}}{r}*e^{i\omega t}
+\end{equation}</span></p>
+<p>We will however ignore the temporal factor, as we are interested in the spatial interference pattern with a time-averaged intensity.</p>
+<p>To show interference, we just use two of those monochromatic waves located at <span class="math notranslate nohighlight">\(\vec{r}_{1}\)</span> and <span class="math notranslate nohighlight">\(\vec{r}_{2}\)</span>.</p>
+<p><img alt="interference" src="../../_images/interference.png" /></p>
+<p>To obtain the total amplitude we have to sum up the wavefunctions of the two sources.</p>
+<p><span class="math">\begin{equation}
+U(\vec{r})=U_{01}\frac{e^{-i\,k |\vec{r}-\vec{r}_1|}}{|\vec{r}-\vec{r}_1|}+U_{02}\frac{e^{-i\,k |\vec{r}-\vec{r}_2|}}{|\vec{r}-\vec{r}_2|}
 \end{equation}</span></p>
 <p>The intensity of the wave at a position is then related to the magnitude square of the wavefunction</p>
 <p><span class="math">\begin{equation}
