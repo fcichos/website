@@ -7,7 +7,7 @@ In this second lecture we will have a look at some
 2. 2D plotting
 3. 3D plotting
 4. Random number generation
-5. Screen input and output
+
 
 
 .. raw:: html
