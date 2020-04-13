@@ -39,7 +39,9 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Random numbers" href="3_randomnumbers.html" />
+    <link rel="prev" title="NumPy arrays" href="1_numpy.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -156,6 +158,95 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 2:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_numpy.html">NumPy arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_numpy.html#Creating-Numpy-Arrays">Creating Numpy Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#From-lists">From lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Using-array-generating-functions">Using array-generating functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#linspace-and-logspace">linspace and logspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#mgrid">mgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#diag">diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#zeros-and-ones">zeros and ones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Slicing">Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Reshaping">Reshaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Stacking-and-repeating-arrays">Stacking and repeating arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#Concatenate">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_numpy.html#Hstack-and-vstack">Hstack and vstack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1_numpy.html#Applying-mathematical-functions">Applying mathematical functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Operation-involving-one-array">Operation involving one array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_numpy.html#Operations-involving-multiple-arrays">Operations involving multiple arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plotting data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Simple-Plotting">Simple Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Line-Plot">Line Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Axis-Labels">Axis Labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Legends">Legends</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Combined-plots">Combined plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Saving-figures">Saving figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Plots-with-error-bars">Plots with error bars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Masked-arrays">Masked arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Log-log-plots">Log-log plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Arranging-multiple-plots">Arranging multiple plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Simple-contour-plot">Simple contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Color-contour-plot">Color contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Image-plot">Image plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#3D-Plotting">3D Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Projection-Scence">Projection Scence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Surface-Plotting">Surface Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Advanced-Plotting">Advanced Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Insets">Insets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Spine-axis">Spine axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Polar-plot">Polar plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Text-annotation">Text annotation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_randomnumbers.html">Random numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 3:</span></p>
 <ul>
@@ -1458,6 +1549,15 @@ array([1. +1.j  , 2. +3.25j, 3. +5.5j , 4. +7.75j, 5.+10.j  ])
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="3_randomnumbers.html" class="btn btn-neutral float-right" title="Random numbers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1_numpy.html" class="btn btn-neutral float-left" title="NumPy arrays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
