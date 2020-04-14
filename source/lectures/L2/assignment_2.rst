@@ -1,4 +1,4 @@
-Exercise 1
+Exercise 2
 ==========
 
 Now that you are already pretty experienced with using the Jupyter notebook server we can contine with the second problemset. It is online and covers the topics
