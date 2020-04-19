@@ -39,9 +39,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Exceptions" href="5_exceptions.html" />
-    <link rel="prev" title="Functions" href="3_functions.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -250,7 +248,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/assignment_2.html">Exercise 2</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 3:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_input_output.html">Input and output</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_input_output.html#Keyboard-input">Keyboard input</a></li>
@@ -299,14 +297,14 @@
 <li class="toctree-l2"><a class="reference internal" href="3_functions.html#Functions-as-arguments-of-functions">Functions as arguments of functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Classes and Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Definition-of-Classes">Definition of Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Class-Methods">Class Methods</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#The-__init__-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#The-__str__-method">The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_classes.html">Classes and Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Definition-of-Classes">Definition of Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-Methods">Class Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-__init__-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-__str__-method">The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Class-and-object-variables">Class and object variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-and-object-variables">Class and object variables</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="5_exceptions.html">Exceptions</a></li>
@@ -362,7 +360,7 @@
         
             
             
-              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L3/4_classes.ipynb" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L3/4_classes_solutions.ipynb" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -619,8 +617,8 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/4_classes.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L3/4_classes.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/4_classes_solutions.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L3/4_classes_solutions.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <div class="section" id="Classes-and-Objects">
 <h1>Classes and Objects<a class="headerlink" href="#Classes-and-Objects" title="Permalink to this headline">¶</a></h1>
@@ -947,25 +945,53 @@ I am a plastic colloid of radius 5.0
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Would be great if the solution would be already here, but then you would have no exercise.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+
+<span></span><span class="c1"># Class definition</span>
+<span class="k">class</span> <span class="nc">Colloid</span><span class="p">:</span>
+
+    <span class="c1"># A class variable, counting the number of Colloids</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mf">2.2e-19</span> <span class="c1"># this is k_B T/(6 pi eta) in m^3/s</span>
+
+    <span class="c1"># constructor</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">R</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="c1"># add initialisation code here</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="o">=</span><span class="n">R</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="n">x0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="n">y0</span>
+        <span class="n">Colloid</span><span class="o">.</span><span class="n">number</span><span class="o">=</span><span class="n">Colloid</span><span class="o">.</span><span class="n">number</span><span class="o">+</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="n">Colloid</span><span class="o">.</span><span class="n">number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">=</span><span class="n">Colloid</span><span class="o">.</span><span class="n">f</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span>
+
+
+    <span class="c1"># method to return the name</span>
+    <span class="k">def</span> <span class="nf">get_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">get_D</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">dt</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">dt</span><span class="p">))</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># class method accessing a class variable</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">how_many</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">Colloid</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+
+    <span class="c1"># insert something that prints the particle position in a formatted way when printing</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="s2">&quot;The particle with radius R=</span><span class="si">{}</span><span class="s2"> is at x=</span><span class="si">{}</span><span class="s2">,y=</span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;\nWould be great if the solution would be already here, but then you would have no exercise.\n&#39;
-</pre></div></div>
 </div>
 <p>With the help of this Colloid class, we would like to carry out simulations of Brownian motion of multiple particles. The simulations shall</p>
 <ul class="simple">
@@ -1026,7 +1052,16 @@ I am a plastic colloid of radius 5.0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L3_4_classes_33_0.png"><img alt="../../_images/notebooks_L3_4_classes_33_0.png" src="../../_images/notebooks_L3_4_classes_33_0.png" style="width: 441px; height: 395px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L3_4_classes_solutions_33_0.png"><img alt="../../_images/notebooks_L3_4_classes_solutions_33_0.png" src="../../_images/notebooks_L3_4_classes_solutions_33_0.png" style="width: 441px; height: 395px;" /></a>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
@@ -1039,15 +1074,6 @@ I am a plastic colloid of radius 5.0
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="5_exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="3_functions.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

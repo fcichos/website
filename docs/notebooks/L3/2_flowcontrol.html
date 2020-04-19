@@ -302,8 +302,8 @@
 <li class="toctree-l1"><a class="reference internal" href="4_classes.html">Classes and Objects</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="4_classes.html#Definition-of-Classes">Definition of Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-Methods">Class Methods</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-init-method">The <strong>init</strong> method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-str-method">The <strong>str</strong> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-__init__-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-__str__-method">The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-and-object-variables">Class and object variables</a></li>
@@ -670,7 +670,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="If-example">
 <h3>If example<a class="headerlink" href="#If-example" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -688,14 +688,15 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Please input a number:  5
+Please input a number: -5
+The absolute value is 5
 </pre></div></div>
 </div>
 </div>
 <div class="section" id="If-else-example">
 <h3>If else example<a class="headerlink" href="#If-else-example" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -712,8 +713,8 @@ Please input a number:  5
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Please input an integer: 212
-212 is an even number.
+Please input an integer: 9
+9 is an odd number.
 </pre></div></div>
 </div>
 </div>
@@ -726,7 +727,7 @@ ax^2+bx+c=0
 <p>are real, imaginary, or complex for a given set of coefficients a, b, and c. Of course, the answer to that question depends on the value of the discriminant <span class="math notranslate nohighlight">\(d = b^2 − 4ac\)</span>. The solutions are real if <span class="math notranslate nohighlight">\(d \ge 0\)</span>, imaginary if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>,and complex if <span class="math notranslate nohighlight">\(b\ne 0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>. The program below implements the above logic in a Python program. Each part of these statements has a code block to be executed. The code block to be executed is discriminated from the
 others by an indentation. Usually this is done with a <em>tab</em>, which indents 4 characters. You can either insert 4 spaces or press <em>tab</em>. Play around with the <em>tab</em> to get a feeling how the Jupyter notebook responds to that.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -751,9 +752,9 @@ others by an indentation. Usually this is done with a <em>tab</em>, which indent
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-What is the coefficients a? 1
-What is the coefficients b? 2
-What is the coefficients c? 7
+What is the coefficients a? 4
+What is the coefficients b? 1
+What is the coefficients c? 1
 Solutions are complex
 Finished!
 </pre></div></div>
@@ -763,11 +764,11 @@ Finished!
 <h3>Combining conditions<a class="headerlink" href="#Combining-conditions" title="Permalink to this headline">¶</a></h3>
 <p>Multiple conditions may be combined with the logical operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+<span></span><span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Both parts are true&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;At least one part is not true&#39;</span><span class="p">)</span>
@@ -779,11 +780,11 @@ Finished!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-At least one part is not true
+Both parts are true
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -792,9 +793,17 @@ At least one part is not true
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+At least one test is true
+</pre></div></div>
+</div>
 <p><strong>Let’s return to our example about making decisions on a rainy day ☔.</strong> Imagine that we consider not only the rain, but also whether or not it is windy. If it is windy or raining, we’ll just stay at home. If it’s not windy or raining, we can go out and enjoy the weather! Let’s try to solve this problem using Python:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -830,7 +839,7 @@ Just stay at home
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;intervar&gt;</span></code> is a variable <code class="docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code> is a sequence such as list or string or array, and <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> is a series of Python commands to be executed repeatedly for each element in the <code class="docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code>. The <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> is indented from the rest of the text, which difines the extent of the loop. Let’s look at a few examples.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -861,7 +870,7 @@ All done.
 </div>
 <p>When iterating through lists like in the example before, it is sometimes useful to have the index of the list element also available. Therefore the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function is very useful.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -891,7 +900,7 @@ All done.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -911,16 +920,16 @@ All done.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -940,7 +949,7 @@ All done.
 <p>Consider the following example. Suppose you want to calculate all the Fibonacci numbers smaller than 1000. The Fibonacci numbers are determined by starting with the integers 0 and 1. The next number in the sequence is the sum of the previous two. So, starting with 0 and 1, the next Fibonacci number is 0 + 1 = 1, giving the sequence 0, 1, 1. Continuing this process, we obtain 0, 1, 1, 2, 3, 5, 8, … where each element in the list is the sum of the previous two. Using a for loop to calculate the
 Fibonacci numbers is impractical because we do not know ahead of time how many Fibonacci numbers there are smaller than 1000. By contrast a while loop is perfect for calculating all the Fibonacci numbers because it keeps calculating Fibonacci numbers until it reaches the desired goal, in this case 1000. Here is the code using a while loop.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -980,7 +989,7 @@ Fibonacci numbers is impractical because we do not know ahead of time how many F
 <h3>Loops and array operations<a class="headerlink" href="#Loops-and-array-operations" title="Permalink to this headline">¶</a></h3>
 <p>Loops are often used to sequentially modify the elements of an array. For example, suppose we want to square each element of the array <em>a = np.linspace(0, 32, 1e7)</em>. This is a hefty array with 10 million elements. Nevertheless, the following loop does the trick.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1005,7 +1014,7 @@ Fibonacci numbers is impractical because we do not know ahead of time how many F
 </div>
 <p>Running this on my computer returns the result in about 6 seconds—not bad for having performed 10 million multiplications. Of course we could have performed the same calculation using the array multiplication we learned in Lecture 1 (Strings, Lists, Arrays, and Dictionaries). Here is the code.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1035,7 +1044,7 @@ array operations over loops.</p>
 <h3>List comprehensions<a class="headerlink" href="#List-comprehensions" title="Permalink to this headline">¶</a></h3>
 <p>List comprehensions are a special feature of core Python for processing and constructing lists. We introduce them here because they use a looping process. They are used quite commonly in Python coding and they often provide elegant compact solutions to some common computing tasks.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1045,7 +1054,7 @@ array operations over loops.</p>
 </div>
 <p>Suppose we want to construct a vector from the diagonal elements of this matrix. We could do so with a for loop with an accumulator as follows</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1056,7 +1065,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1065,7 +1074,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1075,7 +1084,7 @@ array operations over loops.</p>
 </div>
 <p>List comprehensions provide a simpler, cleaner, and faster way of doing the same thing</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1084,7 +1093,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1093,7 +1102,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1103,7 +1112,7 @@ array operations over loops.</p>
 </div>
 <p>They can be used for fast computations as well. Here <em>y</em> serves as a dummy to access the elements in <em>diagLC</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1112,7 +1121,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1122,7 +1131,7 @@ array operations over loops.</p>
 </div>
 <p>Obtaining a column is not as simple, but a list comprehension makes it quite straightforward:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1131,7 +1140,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1140,7 +1149,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
 <div class="output_area docutils container">

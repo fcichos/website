@@ -302,8 +302,8 @@
 <li class="toctree-l1"><a class="reference internal" href="4_classes.html">Classes and Objects</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="4_classes.html#Definition-of-Classes">Definition of Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-Methods">Class Methods</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-init-method">The <strong>init</strong> method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-str-method">The <strong>str</strong> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-__init__-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-__str__-method">The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-and-object-variables">Class and object variables</a></li>
@@ -627,8 +627,8 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Keyboard-input">
 <h2>Keyboard input<a class="headerlink" href="#Keyboard-input" title="Permalink to this headline">¶</a></h2>
 <p>Python has a function called <em>input</em> for getting input from the user and assigning it a variable name.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -637,9 +637,26 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p>The value contains the keyboard input as expected, but it is a string. Because we want to use a number and not a string, we need to convert it from a string to a number. We can do that with the eval function by writing:</p>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Tell me a number: 45.4
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+str
+</pre></div></div>
+</div>
+<p>The value contains the keyboard input as expected, but it is a string. We want to use a number and not a string, so we need to convert it from a string to a number.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -649,12 +666,12 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-int
+float
 </pre></div></div>
 </div>
 </div>
@@ -663,7 +680,7 @@ int
 <p>Screen output is possible by using the <code class="docutils literal notranslate"><span class="pre">print</span></code> command. The argument of the print function can be of different type.</p>
 <p>You can format your output by modifying the string given to the <code class="docutils literal notranslate"><span class="pre">print</span></code> function by <code class="docutils literal notranslate"><span class="pre">str.format()</span></code>, The <code class="docutils literal notranslate"><span class="pre">str</span></code> contains text that is written to be the screen, as well as certain format specifiers contained in curly braces {}. The format function contains the list of variables that are to be printed.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -687,7 +704,7 @@ int
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 7. </span><span class="si">{0:8d}</span><span class="s1"> </span><span class="si">{1:10d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 8. </span><span class="si">{0:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 9. </span><span class="si">{0:6.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 9. {0:6. f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;10. </span><span class="si">{0:8.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="s1">&#39; 11. </span><span class="si">{0:8.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
@@ -738,7 +755,7 @@ How are you my friend?
 <h3>File I/O with NumPy<a class="headerlink" href="#File-I/O-with-NumPy" title="Permalink to this headline">¶</a></h3>
 <p>Most of the time we want import numbers from text files. So direct connection to NumPy seems useful and we will study that first.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -764,7 +781,7 @@ How are you my friend?
 </div>
 <p>Suppose that the name of the text file is <strong>MyData.txt</strong>. Then we can read the data into four different arrays with the following NumPy statement:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -774,7 +791,7 @@ How are you my friend?
 </div>
 <p>If you don’t want to read in all the columns of data, you can specify which columns to read in using the usecols key word. For example, the call</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -792,7 +809,7 @@ How are you my friend?
 </div>
 <p>We illustrate savetext below with a script that first creates four arrays by reading in the data file MyData.txt, as discussed in the previous section, and then writes that same data set to another file MyDataOut.txt.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -801,7 +818,7 @@ How are you my friend?
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -810,7 +827,7 @@ How are you my friend?
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -844,7 +861,7 @@ How are you my friend?
 <div class="section" id="Short-intro-to-Pandas">
 <h4>Short intro to Pandas<a class="headerlink" href="#Short-intro-to-Pandas" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -859,7 +876,7 @@ How are you my friend?
 </ul>
 <p>A <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html">Series</a> is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.). The axis labels are collectively referred to as the index.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -869,22 +886,41 @@ How are you my friend?
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-a   -0.504811
-b   -0.072690
-c    0.388601
-d    1.186645
-e    0.569963
+a    0.171867
+b   -0.444006
+c    0.109956
+d    0.098177
+e   -1.057499
 dtype: float64
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_simple_series</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 0.17186705, -0.44400599,  0.10995601,  0.09817737, -1.0574991 ,
+        0.52526463, -1.52307521])
 </pre></div></div>
 </div>
 <p>There is a whole lot of functionality built into pandas data types. You may of course also obtain the same functionality using numpy commands, but you may find the pandas abbrevations very useful.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -893,22 +929,22 @@ dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-min    -0.504811
-max     1.330418
-sum     3.786005
-mean    0.540858
+min    -1.523075
+max     0.525265
+sum    -2.119315
+mean   -0.302759
 dtype: float64
 </pre></div></div>
 </div>
 <p>A <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/api.html#dataframe">DataFrame</a> is a two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). The example below shows how such a DataFrame can be generated from the scratch. In addition to the data supplied to the DataFrame method, an index column is generated when creating a DataFrame. As in the case of <em>Series</em> there is a whole lot of functionality integrated into the DataFrame data
 type which you may explore on the website.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -918,7 +954,7 @@ type which you may explore on the website.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -950,42 +986,42 @@ type which you may explore on the website.</p>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2</td>
-      <td>8</td>
-      <td>0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>6</td>
+      <td>4</td>
       <td>9</td>
-      <td>3</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>8</td>
-      <td>4</td>
-      <td>5</td>
+      <td>2</td>
       <td>0</td>
+      <td>8</td>
+      <td>3</td>
       <td>2</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>3</td>
+      <td>7</td>
+      <td>2</td>
       <td>9</td>
-      <td>5</td>
-      <td>1</td>
-      <td>8</td>
       <td>9</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
-      <td>5</td>
-      <td>8</td>
+      <td>9</td>
       <td>6</td>
-      <td>3</td>
+      <td>0</td>
+      <td>8</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>3</td>
-      <td>5</td>
-      <td>1</td>
+      <td>9</td>
+      <td>4</td>
       <td>7</td>
+      <td>8</td>
       <td>7</td>
     </tr>
   </tbody>
@@ -994,31 +1030,31 @@ type which you may explore on the website.</p>
 </div>
 <p>Due to the labelling of the columns, each column may be accessed by its column label. Labeling by names improves readability considerably.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column 1&#39;</span><span class="p">]</span>
+<span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;column 4&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-0    2
-1    8
+0    4
+1    3
 2    9
-3    3
-4    3
-Name: column 1, dtype: int64
+3    8
+4    8
+Name: column 4, dtype: int64
 </pre></div></div>
 </div>
 <p>If you don’t like this format, you can always return to a simple numpy array with the <em>as_matrix()</em> method.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1027,16 +1063,16 @@ Name: column 1, dtype: int64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[2, 8, 0, 9, 3],
-       [8, 4, 5, 0, 2],
-       [9, 5, 1, 8, 9],
-       [3, 5, 8, 6, 3],
-       [3, 5, 1, 7, 7]])
+array([[1, 5, 6, 4, 9],
+       [2, 0, 8, 3, 2],
+       [3, 7, 2, 9, 9],
+       [9, 6, 0, 8, 5],
+       [9, 4, 7, 8, 7]])
 </pre></div></div>
 </div>
 </div>
@@ -1044,7 +1080,7 @@ array([[2, 8, 0, 9, 3],
 <h4>Reading CSV data with Pandas<a class="headerlink" href="#Reading-CSV-data-with-Pandas" title="Permalink to this headline">¶</a></h4>
 <p>DataFrames may also be populated by text files such as comma separated value files (short <em>.csv</em>). These files contain data in text format but also a column label, which can be read by the pandas method <em>read_csv()</em>. You can find an example below, which reads the data from the dust sensor on my balcony from April, 11th. You see the different columns, where <strong>P1</strong> and <strong>P2</strong> correspond to the <strong>PM10</strong> and <strong>PM2.5</strong> dust values in <span class="math notranslate nohighlight">\(\mu g/m^3\)</span>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1055,7 +1091,7 @@ array([[2, 8, 0, 9, 3],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1172,33 +1208,32 @@ array([[2, 8, 0, 9, 3],
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;P1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x11e7a0650&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x11b6eb550&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L3_1_input_output_41_1.png" src="../../_images/notebooks_L3_1_input_output_41_1.png" />
+<img alt="../../_images/notebooks_L3_1_input_output_42_1.png" src="../../_images/notebooks_L3_1_input_output_42_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1207,19 +1242,19 @@ array([[2, 8, 0, 9, 3],
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x11ecbb790&gt;
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x11c087f90&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/notebooks_L3_1_input_output_42_1.png" src="../../_images/notebooks_L3_1_input_output_42_1.png" />
+<img alt="../../_images/notebooks_L3_1_input_output_43_1.png" src="../../_images/notebooks_L3_1_input_output_43_1.png" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
