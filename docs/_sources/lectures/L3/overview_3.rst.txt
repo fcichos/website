@@ -8,3 +8,7 @@ In this second lecture we will have a look at some
 3. Functions
 4. Classes
 5. Exceptions
+
+
+The Lecture 3 video will be online on April, 21st, 2020.
+
