@@ -35,13 +35,25 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 3,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "ename": "Exception",
+     "evalue": "description of the error",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mException\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-3-c32f93e4dfa0>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mraise\u001b[0m \u001b[0mException\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"description of the error\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mException\u001b[0m: description of the error"
+     ]
+    }
+   ],
    "source": [
     "raise Exception(\"description of the error\")"
    ]
@@ -86,13 +98,22 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 4,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "test\n",
+      "Caught an exception\n"
+     ]
+    }
+   ],
    "source": [
     "try:\n",
     "    print(\"test\")\n",
@@ -117,13 +138,22 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 5,
    "metadata": {
     "slideshow": {
      "slide_type": "skip"
     }
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "test\n",
+      "Caught an exception:name 'test' is not defined\n"
+     ]
+    }
+   ],
    "source": [
     "try:\n",
     "    print(\"test\")\n",
@@ -151,6 +181,13 @@
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
    "version": "3.7.6"
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
   }
  },
  "nbformat": 4,

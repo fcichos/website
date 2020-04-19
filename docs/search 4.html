@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Search &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script src="_static/searchtools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="#" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="course-info/website.html">This Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/exam.html">Exams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course-info/resources.html#molecular-nanophotonics-group">Molecular Nanophotonics Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course-info/resources.html#python-documentation">Python Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course-info/resources.html#python-tutorials">Python Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/instructor.html">Instructor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/Intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html">Introduction to Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html#What-is-Jupyter-Notebook?">What is Jupyter Notebook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html#Notebook-editor">Notebook editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html#Kernels">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html#Notebook-documents">Notebook documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html">Notebook editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Edit-mode">Edit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Command-mode">Command mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Keyboard-navigation">Keyboard navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Running-code">Running code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Managing-the-kernel">Managing the kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Intro/EditCells.html">Entering code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Intro/EditCells.html#Entering-Markdown">Entering Markdown</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Markdown-basics">Markdown basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Headings">Headings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Embedded-code">Embedded code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Videos">Videos</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L1/overview_1.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L1/1_variables.html">Variables and types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/1_variables.html#Symbol-names">Symbol names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/1_variables.html#Variable-Assignment">Variable Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/1_variables.html#Number-types">Number types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L1/1_variables.html#Integers">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L1/1_variables.html#Floating-Point">Floating Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L1/1_variables.html#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L1/1_variables.html#Type-casting">Type casting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L1/2_operators.html">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L1/3_datatypes.html">Data Types in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/3_datatypes.html#Strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/3_datatypes.html#Lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/3_datatypes.html#Tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/3_datatypes.html#Dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L1/4_modules.html">Modules and namespaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/4_modules.html#Modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/4_modules.html#Namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/4_modules.html#Contents-of-a-module">Contents of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L1/assignment_1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L2/overview_2.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L2/1_numpy.html">NumPy arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/1_numpy.html#Creating-Numpy-Arrays">Creating Numpy Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#From-lists">From lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Using-array-generating-functions">Using array-generating functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#linspace-and-logspace">linspace and logspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#mgrid">mgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#diag">diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#zeros-and-ones">zeros and ones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Slicing">Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Reshaping">Reshaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Stacking-and-repeating-arrays">Stacking and repeating arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#Concatenate">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#Hstack-and-vstack">Hstack and vstack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/1_numpy.html#Applying-mathematical-functions">Applying mathematical functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Operation-involving-one-array">Operation involving one array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Operations-involving-multiple-arrays">Operations involving multiple arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L2/2_plotting.html">Plotting data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Simple-Plotting">Simple Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Line-Plot">Line Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/2_plotting.html#Axis-Labels">Axis Labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/2_plotting.html#Legends">Legends</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Combined-plots">Combined plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Saving-figures">Saving figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Plots-with-error-bars">Plots with error bars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/2_plotting.html#Masked-arrays">Masked arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Log-log-plots">Log-log plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Arranging-multiple-plots">Arranging multiple plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Simple-contour-plot">Simple contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Color-contour-plot">Color contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Image-plot">Image plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#3D-Plotting">3D Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Projection-Scence">Projection Scence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Surface-Plotting">Surface Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Additional-Plotting">Additional Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Insets">Insets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Spine-axis">Spine axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Polar-plot">Polar plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Text-annotation">Text annotation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html">Random numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L2/assignment_2.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 3:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L3/overview_3.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L3/1_input_output.html">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/1_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/1_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/1_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/1_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L3/1_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L3/1_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/1_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L3/1_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L3/1_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html">Flow Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#Conditionals:-if,-elif,-and-else-statements">Conditionals: if, elif, and else statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#If-example">If example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#If-else-example">If else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#If,-elif,-else-example">If, elif, else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#Loops">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#For-loops">For loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#While-loops">While loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#Loops-and-array-operations">Loops and array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#List-comprehensions">List comprehensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L3/3_functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/3_functions.html#User-defined-functions">User-defined functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/3_functions.html#Faster-Array-Processing">Faster Array Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/3_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/3_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/3_functions.html#Variable-number-of-arguments">Variable number of arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/3_functions.html#Numerical-differentiation">Numerical differentiation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/3_functions.html#More-differentiation">More differentiation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L3/4_classes.html">Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/4_classes.html#Objects-and-classes-in-Python">Objects and classes in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/4_classes.html#Methods">Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/4_classes.html#The-init-method">The <strong>init</strong> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/4_classes.html#The-str-method">The <strong>str</strong> method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/4_classes.html#Class-and-object-variables">Class and object variables</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Introduction to Computer-based Physical Modeling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Search</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/fcichos/website/blob/master//source/search" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search
+      functionality.
+    </p>
+  </div>
+  </noscript>
+
+  
+  <div id="search-results">
+  
+  </div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Frank Cichos
+      <span class="lastupdated">
+        Last updated on Apr 14, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+  <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script type="text/javascript" id="searchindexloader"></script>
+   
+
+
+</body>
+</html>

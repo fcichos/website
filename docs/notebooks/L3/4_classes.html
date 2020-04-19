@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Classes &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  <title>Classes and Objects &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
   
 
   
@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exceptions" href="5_exceptions.html" />
     <link rel="prev" title="Functions" href="3_functions.html" /> 
 </head>
 
@@ -251,7 +252,7 @@
 <p class="caption"><span class="caption-text">Lecture 3:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_input_output.html">Input and Output</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="1_input_output.html">Input and output</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_input_output.html#Keyboard-input">Keyboard input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_input_output.html#Screen-output">Screen output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_input_output.html#File-input/output">File input/output</a><ul>
@@ -287,24 +288,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="3_functions.html#User-defined-functions">User-defined functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Faster-Array-Processing">Faster Array Processing</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Function-definition">Function definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Variables-in-functions">Variables in functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="3_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Variable-number-of-arguments">Variable number of arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Functions-with-variable-number-of-arguments">Functions with variable number of arguments</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Numerical-differentiation">Numerical differentiation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_functions.html#More-differentiation">More differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Unnamed-functions-(lambda-function)">Unnamed functions (lambda function)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Functions-as-arguments-of-functions">Functions as arguments of functions</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Classes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Objects-and-classes-in-Python">Objects and classes in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Methods">Methods</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Classes and Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Definition-of-Classes">Definition of Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Class-Methods">Class Methods</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#The-init-method">The <strong>init</strong> method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#The-str-method">The <strong>str</strong> method</a></li>
 </ul>
@@ -312,6 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Class-and-object-variables">Class and object variables</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="5_exceptions.html">Exceptions</a></li>
 </ul>
 
             
@@ -357,7 +355,7 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Classes</li>
+      <li>Classes and Objects</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -624,10 +622,10 @@ div.rendered_html tbody tr:hover {
 <p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/4_classes.ipynb`_</span></a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L3/4_classes.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
-<div class="section" id="Classes">
-<h1>Classes<a class="headerlink" href="#Classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Classes-and-Objects">
+<h1>Classes and Objects<a class="headerlink" href="#Classes-and-Objects" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -653,8 +651,6 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="section" id="Objects-and-classes-in-Python">
-<h2>Objects and classes in Python<a class="headerlink" href="#Objects-and-classes-in-Python" title="Permalink to this headline">¶</a></h2>
 <p>A very useful programming concept of modern programming is object oriented programming.</p>
 <p>In all the programs we wrote till now, we have designed our program around functions i.e. blocks of statements which manipulate data. This is called the procedure-oriented way of programming.</p>
 <p>There is another way of organizing your program which is to combine data and functionality and wrap it inside something called an object. This is called the object oriented programming paradigm, which will be useful especially for larger programs.</p>
@@ -664,9 +660,16 @@ div.rendered_html tbody tr:hover {
 <li><p>Objects can store data using ordinary variables that belong to the object. Variables that belong to an object or class are referred to as properties. Objects can also have functionality coming from functions that belong to a class and are called methods.</p></li>
 <li><p>Properties are of two types - they can belong to each instance/object of the class or they can belong to the class itself. They are called instance variables and class variables respectively.</p></li>
 </ul>
-<p>We create a new class using the <code class="docutils literal notranslate"><span class="pre">class</span></code> statement and the name of the class and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. This is followed by an indented block of statements which form the body of the class. In this case, we have an empty block which is indicated using the pass statement.</p>
+<div class="section" id="Definition-of-Classes">
+<h2>Definition of Classes<a class="headerlink" href="#Definition-of-Classes" title="Permalink to this headline">¶</a></h2>
+<p>We create a new class using the <code class="docutils literal notranslate"><span class="pre">class</span></code> statement and the name of the class and a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>. This is followed by an indented block of statements which form the body of the class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Class_name</span><span class="p">:</span>
+    <span class="n">statements</span> <span class="c1">###</span>
+</pre></div>
+</div>
+<p>In the following example, we have an empty block which is indicated using the pass statement.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -695,8 +698,8 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Methods">
-<h2>Methods<a class="headerlink" href="#Methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Class-Methods">
+<h2>Class Methods<a class="headerlink" href="#Class-Methods" title="Permalink to this headline">¶</a></h2>
 <p>Methods are functions that belong to a class.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong> The self class</p>
@@ -735,7 +738,6 @@ I am a plastic colloid
 </div>
 <div class="section" id="The-init-method">
 <h3>The <strong>init</strong> method<a class="headerlink" href="#The-init-method" title="Permalink to this headline">¶</a></h3>
-<p>There are many method names which have special significance in Python classes. We will see the significance of the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method now.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is run as soon as an object of a class is instantiated (i.e. created). The method is useful to do any initialization (i.e. passing initial values to your object) you want to do with your object. Notice the double underscores both at the beginning and at the end of the name.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
@@ -779,6 +781,7 @@ I am a plastic colloid
 Colloid radius is 2 µm
 </pre></div></div>
 </div>
+<p>Besides the <code class="docutils literal notranslate"><span class="pre">__init__</span></code>method, which is commonly called <code class="docutils literal notranslate"><span class="pre">constructor</span></code>, there is also the <code class="docutils literal notranslate"><span class="pre">__del__</span></code> method, which is called b´when an object is deleted. We will use that further down.</p>
 </div>
 <div class="section" id="The-str-method">
 <h3>The <strong>str</strong> method<a class="headerlink" href="#The-str-method" title="Permalink to this headline">¶</a></h3>
@@ -832,11 +835,105 @@ I am a plastic colloid of radius 5.0
 <div class="section" id="Class-and-object-variables">
 <h2>Class and object variables<a class="headerlink" href="#Class-and-object-variables" title="Permalink to this headline">¶</a></h2>
 <p>The data part, i.e. properties, are ordinary variables that are bound to the namespaces of the classes and objects. This means that these names are valid within the context of these classes and objects only.</p>
-<p>There are two types of fields - class variables and object variables which are classified depending on whether the class or the object owns the variables respectively.</p>
+<p>There are two types of fields - <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">variables</span></code> and <code class="docutils literal notranslate"><span class="pre">object</span> <span class="pre">variables</span></code> which are classified depending on whether the class or the object owns the variables respectively.</p>
 <ul class="simple">
 <li><p><strong>Class variables</strong> are shared - they can be accessed by all instances of that class. There is only one copy of the class variable and when any one object makes a change to a class variable, that change will be seen by all the other instances.</p></li>
-<li><p><strong>Object variables</strong> are owned by each individual object/instance of the class. In this case, each object has its own copy of the field i.e. they are not shared and are not related in any way to the field by the same name in a different instance. Here is an example.</p></li>
+<li><p><strong>Object variables</strong> are owned by each individual object/instance of the class. In this case, each object has its own copy of the field i.e. they are not shared and are not related in any way to the field by the same name in a different instance.</p></li>
 </ul>
+<p>Here is an example:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">class</span> <span class="nc">Colloid</span><span class="p">:</span>
+
+    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># definition of a class variable</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
+        <span class="n">Colloid</span><span class="o">.</span><span class="n">number</span><span class="o">=</span><span class="n">Colloid</span><span class="o">.</span><span class="n">number</span><span class="o">+</span><span class="mi">1</span>
+
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Colloid</span><span class="o">.</span><span class="n">number</span><span class="o">=</span><span class="n">Colloid</span><span class="o">.</span><span class="n">number</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># create a particle with radius 4</span>
+<span class="n">p1</span><span class="o">=</span><span class="n">Colloid</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># create a second particle with radius 10</span>
+<span class="n">p2</span><span class="o">=</span><span class="n">Colloid</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># print the radius of both particles</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">R</span><span class="p">,</span><span class="n">p2</span><span class="o">.</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+4 10
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># print the particle number</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">number</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2 2
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># delete one particle object and print the</span>
+<span class="k">del</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Physics interlude</strong> code blocks in if and loop statements</p>
+<p>Python uses colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>) to indicate that that a code block belonging to the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement follows. The code block starting on the next line is idented with whitespace (often four spaces) to structure conditional statements. If the condition is True, the indented code block after the colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) is executed. The code block may contain several lines of code with identical identation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="k">if</span> <span class="n">number</span> <span class="o">==</span>  <span class="mi">42</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is the answer to  life,&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the universe&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;and everything.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Wrong identation will yield an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> or a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.</p>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[114]:
 </pre></div>
@@ -935,10 +1032,9 @@ I am a plastic colloid of radius 5.0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L3_4_classes_23_0.png"><img alt="../../_images/notebooks_L3_4_classes_23_0.png" src="../../_images/notebooks_L3_4_classes_23_0.png" style="width: 441px; height: 395px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L3_4_classes_31_0.png"><img alt="../../_images/notebooks_L3_4_classes_31_0.png" src="../../_images/notebooks_L3_4_classes_31_0.png" style="width: 441px; height: 395px;" /></a>
 </div>
 </div>
-<p><strong>Exercise:</strong> Create a script which generates a variable number of Brownian particles and plots the trajectories.</p>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
@@ -952,6 +1048,8 @@ I am a plastic colloid of radius 5.0
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="5_exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
       
         <a href="3_functions.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
@@ -964,7 +1062,7 @@ I am a plastic colloid of radius 5.0
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 14, 2020.
+        Last updated on Apr 19, 2020.
       </span>
 
     </p>

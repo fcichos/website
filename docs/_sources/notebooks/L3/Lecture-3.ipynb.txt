@@ -1639,6 +1639,15 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a=[*range(1,101,1)]\n"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "metadata": {},
    "source": [

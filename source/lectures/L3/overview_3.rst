@@ -7,3 +7,4 @@ In this second lecture we will have a look at some
 2. Flow control
 3. Functions
 4. Classes
+5. Exceptions

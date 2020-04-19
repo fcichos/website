@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Functions" href="3_functions.html" />
-    <link rel="prev" title="Input and Output" href="1_input_output.html" /> 
+    <link rel="prev" title="Input and output" href="1_input_output.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -252,7 +252,7 @@
 <p class="caption"><span class="caption-text">Lecture 3:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_input_output.html">Input and Output</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="1_input_output.html">Input and output</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_input_output.html#Keyboard-input">Keyboard input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_input_output.html#Screen-output">Screen output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_input_output.html#File-input/output">File input/output</a><ul>
@@ -288,24 +288,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="3_functions.html#User-defined-functions">User-defined functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Faster-Array-Processing">Faster Array Processing</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Function-definition">Function definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Variables-in-functions">Variables in functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="3_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Variable-number-of-arguments">Variable number of arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Functions-with-variable-number-of-arguments">Functions with variable number of arguments</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Numerical-differentiation">Numerical differentiation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_functions.html#More-differentiation">More differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Unnamed-functions-(lambda-function)">Unnamed functions (lambda function)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Functions-as-arguments-of-functions">Functions as arguments of functions</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="4_classes.html">Classes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Objects-and-classes-in-Python">Objects and classes in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Methods">Methods</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="4_classes.html">Classes and Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Definition-of-Classes">Definition of Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-Methods">Class Methods</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-init-method">The <strong>init</strong> method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-str-method">The <strong>str</strong> method</a></li>
 </ul>
@@ -313,6 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-and-object-variables">Class and object variables</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="5_exceptions.html">Exceptions</a></li>
 </ul>
 
             
@@ -628,7 +625,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Flow-Control">
 <h1>Flow Control<a class="headerlink" href="#Flow-Control" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -657,12 +654,6 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Conditionals:-if,-elif,-and-else-statements">
 <h2>Conditionals: if, elif, and else statements<a class="headerlink" href="#Conditionals:-if,-elif,-and-else-statements" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements are used to define conditionals in Python. The <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword is followed by a condition, i.e. a logical comparison, which can either be <strong>true</strong> or <strong>false</strong>. We illustrate their use with a few examples.</p>
-<p>Suppose we want to know if the solutions to the quadratic equation</p>
-<p><span class="math">\begin{equation}
-ax^2+bx+c=0
-\end{equation}</span></p>
-<p>are real, imaginary, or complex for a given set of coefficients a, b, and c. Of course, the answer to that question depends on the value of the discriminant <span class="math notranslate nohighlight">\(d = b^2 − 4ac\)</span>. The solutions are real if <span class="math notranslate nohighlight">\(d \ge 0\)</span>, imaginary if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>,and complex if <span class="math notranslate nohighlight">\(b\ne 0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>. The program below implements the above logic in a Python program. Each part of these statements has a code block to be executed. The code block to be executed is discriminated from the
-others by an indentation. Usually this is done with a <em>tab</em>, which indents 4 characters. You can either insert 4 spaces or press <em>tab</em>. Play around with the <em>tab</em> to get a feeling how the Jupyter notebook responds to that.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong> code blocks in if and loop statements</p>
 <p>Python uses colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>) to indicate that that a code block belonging to the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement follows. The code block starting on the next line is idented with whitespace (often four spaces) to structure conditional statements. If the condition is True, the indented code block after the colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) is executed. The code block may contain several lines of code with identical identation:</p>
@@ -728,6 +719,12 @@ Please input an integer: 212
 </div>
 <div class="section" id="If,-elif,-else-example">
 <h3>If, elif, else example<a class="headerlink" href="#If,-elif,-else-example" title="Permalink to this headline">¶</a></h3>
+<p>Suppose we want to know if the solutions to the quadratic equation</p>
+<p><span class="math">\begin{equation}
+ax^2+bx+c=0
+\end{equation}</span></p>
+<p>are real, imaginary, or complex for a given set of coefficients a, b, and c. Of course, the answer to that question depends on the value of the discriminant <span class="math notranslate nohighlight">\(d = b^2 − 4ac\)</span>. The solutions are real if <span class="math notranslate nohighlight">\(d \ge 0\)</span>, imaginary if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>,and complex if <span class="math notranslate nohighlight">\(b\ne 0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>. The program below implements the above logic in a Python program. Each part of these statements has a code block to be executed. The code block to be executed is discriminated from the
+others by an indentation. Usually this is done with a <em>tab</em>, which indents 4 characters. You can either insert 4 spaces or press <em>tab</em>. Play around with the <em>tab</em> to get a feeling how the Jupyter notebook responds to that.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -761,7 +758,6 @@ Solutions are complex
 Finished!
 </pre></div></div>
 </div>
-<p>Equivalently, you may also find a general form for higher order finite difference which can be found <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference">here</a>.</p>
 </div>
 <div class="section" id="Combining-conditions">
 <h3>Combining conditions<a class="headerlink" href="#Combining-conditions" title="Permalink to this headline">¶</a></h3>
@@ -824,7 +820,7 @@ Just stay at home
 </div>
 <div class="section" id="Loops">
 <h2>Loops<a class="headerlink" href="#Loops" title="Permalink to this headline">¶</a></h2>
-<p>In computer programming a loop is statement or block of statements that is executed repeatedly. Python has two kinds of loops, a for loop and a while loop. We first introduce the for loop and illustrate its use for a variety of tasks. We then introduce the while loop and, after a few illustrative examples, compare the two kinds of loops and discuss when to use one or the other.</p>
+<p>In computer programming a loop is statement or block of statements that is executed repeatedly. Python has two kinds of loops, a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</p>
 <div class="section" id="For-loops">
 <h3>For loops<a class="headerlink" href="#For-loops" title="Permalink to this headline">¶</a></h3>
 <p>The general form of a for loop in Python is</p>
@@ -832,9 +828,9 @@ Just stay at home
     <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>where &lt; intervar &gt; is a variable &lt; sequence &gt; is a sequence such as list or string or array, and &lt; body &gt; is a series of Python commands to be executed repeatedly for each element in the &lt; sequence &gt;. The &lt; body &gt; is indented from the rest of the text, which difines the extent of the loop. Let’s look at a few examples.</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;intervar&gt;</span></code> is a variable <code class="docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code> is a sequence such as list or string or array, and <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> is a series of Python commands to be executed repeatedly for each element in the <code class="docutils literal notranslate"><span class="pre">&lt;sequence&gt;</span></code>. The <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> is indented from the rest of the text, which difines the extent of the loop. Let’s look at a few examples.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -863,14 +859,44 @@ Lucy
 All done.
 </pre></div></div>
 </div>
-<p>The for loop works as follows: the iteration variable or loop index dogname is set equal to the first element in the list, “Max”, and then the two lines in the indented body are executed. Then dogname is set equal to second element in the list, “Molly”, and the two lines in the indented body are executed. The loop cycles through all the elements of the list,and then moves on to the code that follows the for loop and prints “All done”.</p>
+<p>When iterating through lists like in the example before, it is sometimes useful to have the index of the list element also available. Therefore the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function is very useful.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">dogname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Molly&quot;</span><span class="p">,</span> <span class="s2">&quot;Buster&quot;</span><span class="p">,</span> <span class="s2">&quot;Maggie&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucy&quot;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">dogname</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Arf, arf!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All done.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0 . Max
+ Arf, arf!
+1 . Molly
+ Arf, arf!
+2 . Buster
+ Arf, arf!
+3 . Maggie
+ Arf, arf!
+4 . Lucy
+ Arf, arf!
+All done.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">s</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="n">i</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
@@ -885,17 +911,16 @@ All done.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -915,7 +940,7 @@ All done.
 <p>Consider the following example. Suppose you want to calculate all the Fibonacci numbers smaller than 1000. The Fibonacci numbers are determined by starting with the integers 0 and 1. The next number in the sequence is the sum of the previous two. So, starting with 0 and 1, the next Fibonacci number is 0 + 1 = 1, giving the sequence 0, 1, 1. Continuing this process, we obtain 0, 1, 1, 2, 3, 5, 8, … where each element in the list is the sum of the previous two. Using a for loop to calculate the
 Fibonacci numbers is impractical because we do not know ahead of time how many Fibonacci numbers there are smaller than 1000. By contrast a while loop is perfect for calculating all the Fibonacci numbers because it keeps calculating Fibonacci numbers until it reaches the desired goal, in this case 1000. Here is the code using a while loop.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -951,32 +976,21 @@ Fibonacci numbers is impractical because we do not know ahead of time how many F
 </pre></div></div>
 </div>
 </div>
-<hr class="docutils" />
 <div class="section" id="Loops-and-array-operations">
 <h3>Loops and array operations<a class="headerlink" href="#Loops-and-array-operations" title="Permalink to this headline">¶</a></h3>
 <p>Loops are often used to sequentially modify the elements of an array. For example, suppose we want to square each element of the array <em>a = np.linspace(0, 32, 1e7)</em>. This is a hefty array with 10 million elements. Nevertheless, the following loop does the trick.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">1e7</span><span class="p">)</span>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e7</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
     <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/Users/fci/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:2: DeprecationWarning: object of type &lt;class &#39;float&#39;&gt; cannot be safely interpreted as an integer.
-
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -991,12 +1005,12 @@ Fibonacci numbers is impractical because we do not know ahead of time how many F
 </div>
 <p>Running this on my computer returns the result in about 6 seconds—not bad for having performed 10 million multiplications. Of course we could have performed the same calculation using the array multiplication we learned in Lecture 1 (Strings, Lists, Arrays, and Dictionaries). Here is the code.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">1e7</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e7</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -1008,10 +1022,10 @@ Fibonacci numbers is impractical because we do not know ahead of time how many F
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[  0.00000000e+00   3.20000032e-06   6.40000064e-06 ...,   3.19999936e+01
-   3.19999968e+01   3.20000000e+01]
-[  0.00000000e+00   1.02400020e-11   4.09600082e-11 ...,   1.02399959e+03
-   1.02399980e+03   1.02400000e+03]
+[0.00000000e+00 3.20000032e-06 6.40000064e-06 ... 3.19999936e+01
+ 3.19999968e+01 3.20000000e+01]
+[0.00000000e+00 1.02400020e-11 4.09600082e-11 ... 1.02399959e+03
+ 1.02399980e+03 1.02400000e+03]
 </pre></div></div>
 </div>
 <p>Running this on my computer returns the results in 190 millisecond. This illustrates an important point: <strong>for loops are slow</strong>. Array operations run much faster and are therefore to be preferred in any case where you have a choice. Sometimes finding an array operation that is equivalent to a loop can be difficult, especially for a novice. Nevertheless, doing so pays rich rewards in execution time. Moreover, the array notation is usually simpler and clearer, providing further reasons to prefer
@@ -1021,7 +1035,7 @@ array operations over loops.</p>
 <h3>List comprehensions<a class="headerlink" href="#List-comprehensions" title="Permalink to this headline">¶</a></h3>
 <p>List comprehensions are a special feature of core Python for processing and constructing lists. We introduce them here because they use a looping process. They are used quite commonly in Python coding and they often provide elegant compact solutions to some common computing tasks.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1031,7 +1045,7 @@ array operations over loops.</p>
 </div>
 <p>Suppose we want to construct a vector from the diagonal elements of this matrix. We could do so with a for loop with an accumulator as follows</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1042,7 +1056,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1051,7 +1065,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1061,7 +1075,7 @@ array operations over loops.</p>
 </div>
 <p>List comprehensions provide a simpler, cleaner, and faster way of doing the same thing</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1070,7 +1084,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1079,7 +1093,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1089,7 +1103,7 @@ array operations over loops.</p>
 </div>
 <p>They can be used for fast computations as well. Here <em>y</em> serves as a dummy to access the elements in <em>diagLC</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1098,7 +1112,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1108,7 +1122,7 @@ array operations over loops.</p>
 </div>
 <p>Obtaining a column is not as simple, but a list comprehension makes it quite straightforward:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1117,7 +1131,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1126,7 +1140,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1135,7 +1149,7 @@ array operations over loops.</p>
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1144,7 +1158,7 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1154,7 +1168,7 @@ array operations over loops.</p>
 </div>
 <p>Suppose you have a list of numbers and you want to extract all the elements of the list that are divisible by three. A slightly fancier list comprehension accomplishes the task quite simply and demonstrates a new feature:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1164,29 +1178,13 @@ array operations over loops.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 [-3, 27, -9]
 </pre></div></div>
-</div>
-<p><strong>Exercise</strong></p>
-<p>Write a program to calculate the factorial of a positive integer input by the user. Recall that the factorial function is given by x! = x(x − 1)(x − 2)…(2)(1) so that 1! = 1, 2! = 2, 3! = 6, 4! = 24, …</p>
-<ul class="simple">
-<li><p>Write the factorial function using a Python while loop.</p></li>
-<li><p>Write the factorial function using a Python for loop.</p></li>
-</ul>
-<p>Check your programs to make sure they work for 1, 2, 3, 5, and beyond, but especially for the first 5 integers.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># code goes here</span>
-</pre></div>
-</div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
@@ -1205,7 +1203,7 @@ array operations over loops.</p>
         <a href="3_functions.html" class="btn btn-neutral float-right" title="Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="1_input_output.html" class="btn btn-neutral float-left" title="Input and Output" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="1_input_output.html" class="btn btn-neutral float-left" title="Input and output" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1216,7 +1214,7 @@ array operations over loops.</p>
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 14, 2020.
+        Last updated on Apr 19, 2020.
       </span>
 
     </p>

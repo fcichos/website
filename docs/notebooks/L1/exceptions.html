@@ -250,7 +250,7 @@
 <p class="caption"><span class="caption-text">Lecture 3:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../L3/1_input_output.html">Input and Output</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/1_input_output.html">Input and output</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#Keyboard-input">Keyboard input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#Screen-output">Screen output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#File-input/output">File input/output</a><ul>
@@ -286,24 +286,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L3/3_functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#User-defined-functions">User-defined functions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#Faster-Array-Processing">Faster Array Processing</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Function-definition">Function definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Variables-in-functions">Variables in functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#Variable-number-of-arguments">Variable number of arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#Functions-with-variable-number-of-arguments">Functions with variable number of arguments</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Numerical-differentiation">Numerical differentiation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#More-differentiation">More differentiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Unnamed-functions-(lambda-function)">Unnamed functions (lambda function)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Functions-as-arguments-of-functions">Functions as arguments of functions</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../L3/4_classes.html">Classes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L3/4_classes.html#Objects-and-classes-in-Python">Objects and classes in Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L3/4_classes.html#Methods">Methods</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../L3/4_classes.html">Classes and Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/4_classes.html#Definition-of-Classes">Definition of Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/4_classes.html#Class-Methods">Class Methods</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L3/4_classes.html#The-init-method">The <strong>init</strong> method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../L3/4_classes.html#The-str-method">The <strong>str</strong> method</a></li>
 </ul>
@@ -311,6 +307,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../L3/4_classes.html#Class-and-object-variables">Class and object variables</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/5_exceptions.html">Exceptions</a></li>
 </ul>
 
             
@@ -628,7 +625,7 @@ div.rendered_html tbody tr:hover {
 <p>In Python errors are managed with a special language construct called “Exceptions”. When errors occur exceptions can be raised, which interrupts the normal program flow and fallback to somewhere else in the code where the closest try-except statement is defined.</p>
 <p>To generate an exception we can use the <code class="docutils literal notranslate"><span class="pre">raise</span></code> statement, which takes an argument that must be an instance of the class <code class="docutils literal notranslate"><span class="pre">BaseException</span></code> or a class derived from it.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -643,7 +640,7 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">Exception</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-1-c32f93e4dfa0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-3-c32f93e4dfa0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span> Exception<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;description of the error&#34;</span><span class="ansi-blue-fg">)</span>
 
 <span class="ansi-red-fg">Exception</span>: description of the error
@@ -669,7 +666,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>For example:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -696,7 +693,7 @@ Caught an exception
 </pre></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -718,7 +715,9 @@ test
 Caught an exception:name &#39;test&#39; is not defined
 </pre></div></div>
 </div>
-</div>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_major": 2, "version_minor": 0}
+</script></div>
 
 
            </div>
@@ -733,7 +732,7 @@ Caught an exception:name &#39;test&#39; is not defined
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 14, 2020.
+        Last updated on Apr 19, 2020.
       </span>
 
     </p>

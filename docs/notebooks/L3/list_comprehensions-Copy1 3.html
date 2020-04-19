@@ -1,0 +1,1696 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to Computational Software &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#molecular-nanophotonics-group">Molecular Nanophotonics Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-documentation">Python Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/instructor.html">Instructor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/Intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/Introduction2Jupyter.html">Introduction to Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#What-is-Jupyter-Notebook?">What is Jupyter Notebook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-editor">Notebook editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Kernels">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-documents">Notebook documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/NotebookEditor.html">Notebook editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Edit-mode">Edit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Command-mode">Command mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Keyboard-navigation">Keyboard navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Running-code">Running code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Managing-the-kernel">Managing the kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/EditCells.html">Entering code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/EditCells.html#Entering-Markdown">Entering Markdown</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Markdown-basics">Markdown basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Headings">Headings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Embedded-code">Embedded code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Videos">Videos</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/overview_1.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/1_variables.html">Variables and types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Symbol-names">Symbol names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Variable-Assignment">Variable Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Number-types">Number types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Integers">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Floating-Point">Floating Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Type-casting">Type casting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/2_operators.html">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/3_datatypes.html">Data Types in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/4_modules.html">Modules and namespaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Contents-of-a-module">Contents of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/1_numpy.html">NumPy arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Creating-Numpy-Arrays">Creating Numpy Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#From-lists">From lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Using-array-generating-functions">Using array-generating functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#linspace-and-logspace">linspace and logspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#mgrid">mgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#diag">diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#zeros-and-ones">zeros and ones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Slicing">Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Reshaping">Reshaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Stacking-and-repeating-arrays">Stacking and repeating arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Concatenate">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Hstack-and-vstack">Hstack and vstack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Applying-mathematical-functions">Applying mathematical functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Operation-involving-one-array">Operation involving one array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Operations-involving-multiple-arrays">Operations involving multiple arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/2_plotting.html">Plotting data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Simple-Plotting">Simple Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Line-Plot">Line Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Axis-Labels">Axis Labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Legends">Legends</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Combined-plots">Combined plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Saving-figures">Saving figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Plots-with-error-bars">Plots with error bars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Masked-arrays">Masked arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Log-log-plots">Log-log plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Arranging-multiple-plots">Arranging multiple plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Simple-contour-plot">Simple contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Color-contour-plot">Color contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Image-plot">Image plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#3D-Plotting">3D Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Projection-Scence">Projection Scence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Surface-Plotting">Surface Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Additional-Plotting">Additional Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Insets">Insets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Spine-axis">Spine axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Polar-plot">Polar plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Text-annotation">Text annotation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/3_randomnumbers.html">Random numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 3:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_input_output.html">Input and Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_flowcontrol.html">Flow Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_flowcontrol.html#Conditionals:-if,-elif,-and-else-statements">Conditionals: if, elif, and else statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_flowcontrol.html#If-example">If example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_flowcontrol.html#If-else-example">If else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_flowcontrol.html#If,-elif,-else-example">If, elif, else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_flowcontrol.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_flowcontrol.html#Loops">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_flowcontrol.html#For-loops">For loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_flowcontrol.html#While-loops">While loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_flowcontrol.html#Loops-and-array-operations">Loops and array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_flowcontrol.html#List-comprehensions">List comprehensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#User-defined-functions">User-defined functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Faster-Array-Processing">Faster Array Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_functions.html#Variable-number-of-arguments">Variable number of arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_functions.html#Numerical-differentiation">Numerical differentiation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_functions.html#More-differentiation">More differentiation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_classes.html">Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Objects-and-classes-in-Python">Objects and classes in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Methods">Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-init-method">The <strong>init</strong> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_classes.html#The-str-method">The <strong>str</strong> method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_classes.html#Class-and-object-variables">Class and object variables</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Computer-based Physical Modeling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction to Computational Software</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L3/list_comprehensions-Copy1.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/list_comprehensions-Copy1.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L3/list_comprehensions-Copy1.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
+<div class="section" id="Introduction-to-Computational-Software">
+<h1>Introduction to Computational Software<a class="headerlink" href="#Introduction-to-Computational-Software" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="mailto:cichos&#37;&#52;&#48;physik&#46;uni-leipzig&#46;de">Frank Cichos</a> (2018)</p>
+</div>
+<div class="section" id="Table-of-Contents">
+<h1>Table of Contents<a class="headerlink" href="#Table-of-Contents" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#Lecture-3">Lecture 3</a></p>
+<ul>
+<li><p><a class="reference external" href="#Conditionals">Conditionals</a></p>
+<ul>
+<li><p><a class="reference external" href="#if,-elif,-and-else-statements">if, elif, and else statements</a></p></li>
+<li><p><a class="reference external" href="#Logical-Operators">Logical Operators</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#Loops">Loops</a></p>
+<ul>
+<li><p><a class="reference external" href="#for-loops">for Loops</a></p></li>
+<li><p><a class="reference external" href="#while-loops">while loops</a></p></li>
+<li><p><a class="reference external" href="#Loops-and-array-operations">Loops and array operations</a></p></li>
+<li><p><a class="reference external" href="#List%20Comprehensions">List Comprehensions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#Functions">Functions</a></p>
+<ul>
+<li><p><a class="reference external" href="#User-defined-functions">User defined functions</a></p></li>
+<li><p><a class="reference external" href="#Faster-Array-Processing">Faster Array Processing</a></p></li>
+<li><p><a class="reference external" href="#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a></p></li>
+<li><p><a class="reference external" href="#Positional-and-keyword-arguments">Positional and keyword arguments</a></p></li>
+<li><p><a class="reference external" href="#Variable-number-of-arguments">Variable number of arguments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#Numerical-differentiation">Numerical differentiation</a></p>
+<ul>
+<li><p><a class="reference external" href="#More-differentiation">More differentiation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#Numerical-Integration">Numerical Integration</a></p>
+<ul>
+<li><p><a class="reference external" href="#Euler-Method">Euler Method</a></p></li>
+<li><p><a class="reference external" href="#Euler-Cromer-Method">Euler Cromer Method</a></p></li>
+<li><p><a class="reference external" href="#Midpoint-Method">Midpoint Method</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="Lecture-3">
+<h1>Lecture 3<a class="headerlink" href="#Lecture-3" title="Permalink to this headline">¶</a></h1>
+<p>In this lecture, we will explore conditionals, loops and other structuring elements of common programming. They are occurring in all programming languages in similar ways.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">pylab</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Populating the interactive namespace from numpy and matplotlib
+</pre></div></div>
+</div>
+<div class="section" id="Conditionals">
+<h2>Conditionals<a class="headerlink" href="#Conditionals" title="Permalink to this headline">¶</a></h2>
+<p>Jump to top</p>
+<div class="section" id="if,-elif,-and-else-statements">
+<h3>if, elif, and else statements<a class="headerlink" href="#if,-elif,-and-else-statements" title="Permalink to this headline">¶</a></h3>
+<p>The <em>if, elif</em>, and <em>else</em> statements are used to define conditionals in Python. The <em>if</em> keyword is followed by a condition, i.e. a logical comparison, which can either be <strong>true</strong> or <strong>false</strong>. We illustrate their use with a few examples.</p>
+<p>Suppose we want to know if the solutions to the quadratic equation</p>
+<p><span class="math">\begin{equation}
+ax^2+bx+c=0
+\end{equation}</span></p>
+<p>are real, imaginary, or complex for a given set of coefficients a, b, and c. Of course, the answer to that question depends on the value of the discriminant <span class="math notranslate nohighlight">\(d = b^2 − 4ac\)</span>. The solutions are real if <span class="math notranslate nohighlight">\(d \ge 0\)</span>, imaginary if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>,and complex if <span class="math notranslate nohighlight">\(b\ne 0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>. The program below implements the above logic in a Python program. Each part of these statements has a code block to be executed. The code block to be executed is discriminated from the
+others by an indentation. Usually this is done with a <em>tab</em>, which indents 4 characters. You can either insert 4 spaces or press <em>tab</em>. Play around with the <em>tab</em> to get a feeling how the Jupyter notebook responds to that.</p>
+<p>** if example**</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input a number: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The absolute value is </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Please input a number: -1
+The absolute value is 1
+</pre></div></div>
+</div>
+<p>** if else example**</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input an integer: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="k">2</span> == 0:
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:0d}</span><span class="s2"> is an even number.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:0d}</span><span class="s2"> is an odd number.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Please input an integer: 212
+212 is an even number.
+</pre></div></div>
+</div>
+<p>** if, elif, else example **</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the coefficients a? &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the coefficients b? &quot;</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the coefficients c? &quot;</span><span class="p">))</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+<span class="k">if</span> <span class="n">d</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are real&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">b</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are imaginary&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are complex&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished!&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+What is the coefficients a? 1
+What is the coefficients b? 2
+What is the coefficients c? 7
+Solutions are complex
+Finished!
+</pre></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="Logical-Operators">
+<h2>Logical Operators<a class="headerlink" href="#Logical-Operators" title="Permalink to this headline">¶</a></h2>
+<p>It is important to understand that “==” in Python is not the same as “=”. The operator “=” is the assignment operator: d = 5 assigns the value of 5 to the variable d. On the other hand “==” is the logical equals operator and d == 5 is a logical truth statement. It tells Python to check to see if d is equal to 5 or not, and assigns a value of True or False to the statement d == 5 depending on whether or not d is equal to 5. The table below summarizes the various logical operators available in
+Python.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="Loops">
+<h2>Loops<a class="headerlink" href="#Loops" title="Permalink to this headline">¶</a></h2>
+<p>Jump to top</p>
+<p>In computer programming a loop is statement or block of statements that is executed repeatedly. Python has two kinds of loops, a for loop and a while loop. We first introduce the for loop and illustrate its use for a variety of tasks. We then introduce the while loop and, after a few illustrative examples, compare the two kinds of loops and discuss when to use one or the other.</p>
+<hr class="docutils" />
+<div class="section" id="for-loops">
+<h3>for loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
+<p>The general form of a for loop in Python is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">&lt;</span><span class="n">itervar</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">sequence</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where &lt; intervar &gt; is a variable &lt; sequence &gt; is a sequence such as list or string or array, and &lt; body &gt; is a series of Python commands to be executed repeatedly for each element in the &lt; sequence &gt;. The &lt; body &gt; is indented from the rest of the text, which difines the extent of the loop. Let’s look at a few examples.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">dogname</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Molly&quot;</span><span class="p">,</span> <span class="s2">&quot;Buster&quot;</span><span class="p">,</span> <span class="s2">&quot;Maggie&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucy&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dogname</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Arf, arf!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All done.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Max
+ Arf, arf!
+Molly
+ Arf, arf!
+Buster
+ Arf, arf!
+Maggie
+ Arf, arf!
+Lucy
+ Arf, arf!
+All done.
+</pre></div></div>
+</div>
+<p>The for loop works as follows: the iteration variable or loop index dogname is set equal to the first element in the list, “Max”, and then the two lines in the indented body are executed. Then dogname is set equal to second element in the list, “Molly”, and the two lines in the indented body are executed. The loop cycles through all the elements of the list,and then moves on to the code that follows the for loop and prints “All done”.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">s</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2500
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2500
+</pre></div></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="while-loops">
+<h3>while loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+<p>The general form of a while loop in Python is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">&lt;</span><span class="n">condition</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where &lt; condition &gt; is a statement that can be either <em>True</em> or <em>False</em> and &lt; body &gt; is a series of Python commands that is executed repeatedly until &lt; condition &gt; becomes <em>false</em>. This means that somewhere in &lt; body &gt;, the truth value of &lt; condition &gt; must be changed so that it becomes <em>false</em> after a finite number of iterations. This is one of the great dangers of a while loop, that accidentially the condition might never become <em>false</em> and your loop runs forever.</p>
+<p>Consider the following example. Suppose you want to calculate all the Fibonacci numbers smaller than 1000. The Fibonacci numbers are determined by starting with the integers 0 and 1. The next number in the sequence is the sum of the previous two. So, starting with 0 and 1, the next Fibonacci number is 0 + 1 = 1, giving the sequence 0, 1, 1. Continuing this process, we obtain 0, 1, 1, 2, 3, 5, 8, … where each element in the list is the sum of the previous two. Using a for loop to calculate the
+Fibonacci numbers is impractical because we do not know ahead of time how many Fibonacci numbers there are smaller than 1000. By contrast a while loop is perfect for calculating all the Fibonacci numbers because it keeps calculating Fibonacci numbers until it reaches the desired goal, in this case 1000. Here is the code using a while loop.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+</pre></div></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Loops-and-array-operations">
+<h3>Loops and array operations<a class="headerlink" href="#Loops-and-array-operations" title="Permalink to this headline">¶</a></h3>
+<p>Loops are often used to sequentially modify the elements of an array. For example, suppose we want to square each element of the array <em>a = np.linspace(0, 32, 1e7)</em>. This is a hefty array with 10 million elements. Nevertheless, the following loop does the trick.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">1e7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/fci/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:2: DeprecationWarning: object of type &lt;class &#39;float&#39;&gt; cannot be safely interpreted as an integer.
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0.00000000e+00 3.20000032e-06 6.40000064e-06 ... 3.19999936e+01
+ 3.19999968e+01 3.20000000e+01]
+[0.00000000e+00 1.02400020e-11 4.09600082e-11 ... 1.02399959e+03
+ 1.02399980e+03 1.02400000e+03]
+</pre></div></div>
+</div>
+<p>Running this on my computer returns the result in about 6 seconds—not bad for having performed 10 million multiplications. Of course we could have performed the same calculation using the array multiplication we learned in Lecture 1 (Strings, Lists, Arrays, and Dictionaries). Here is the code.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">1e7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[  0.00000000e+00   3.20000032e-06   6.40000064e-06 ...,   3.19999936e+01
+   3.19999968e+01   3.20000000e+01]
+[  0.00000000e+00   1.02400020e-11   4.09600082e-11 ...,   1.02399959e+03
+   1.02399980e+03   1.02400000e+03]
+</pre></div></div>
+</div>
+<p>Running this on my computer returns the results in 190 millisecond. This illustrates an important point: <strong>for loops are slow</strong>. Array operations run much faster and are therefore to be preferred in any case where you have a choice. Sometimes finding an array operation that is equivalent to a loop can be difficult, especially for a novice. Nevertheless, doing so pays rich rewards in execution time. Moreover, the array notation is usually simpler and clearer, providing further reasons to prefer
+array operations over loops.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="List-Comprehensions">
+<h3>List Comprehensions<a class="headerlink" href="#List-Comprehensions" title="Permalink to this headline">¶</a></h3>
+<p>List comprehensions are a special feature of core Python for processing and constructing lists. We introduce them here because they use a looping process. They are used quite commonly in Python coding and they often provide elegant compact solutions to some common computing tasks.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<p>Suppose we want to construct a vector from the diagonal elements of this matrix. We could do so with a for loop with an accumulator as follows</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">diag</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+    <span class="n">diag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">diag</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 5, 9]
+</pre></div></div>
+</div>
+<p>List comprehensions provide a simpler, cleaner, and faster way of doing the same thing</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">diagLC</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">diagLC</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 5, 9]
+</pre></div></div>
+</div>
+<p>They can be used for fast computations as well. Here <em>y</em> serves as a dummy to access the elements in <em>diagLC</em>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">y</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">diagLC</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 25, 81]
+</pre></div></div>
+</div>
+<p>Obtaining a column is not as simple, but a list comprehension makes it quite straightforward:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">c1</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">c1</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2, 5, 8]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[2, 5, 8]
+</pre></div></div>
+</div>
+<p>Suppose you have a list of numbers and you want to extract all the elements of the list that are divisible by three. A slightly fancier list comprehension accomplishes the task quite simply and demonstrates a new feature:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">41</span><span class="p">]</span>
+<span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">y</span> <span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="k">3</span>==0]
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[-3, 27, -9]
+</pre></div></div>
+</div>
+<p><strong>Exercise</strong></p>
+<p>Write a program to calculate the factorial of a positive integer input by the user. Recall that the factorial function is given by x! = x(x − 1)(x − 2)…(2)(1) so that 1! = 1, 2! = 2, 3! = 6, 4! = 24, …</p>
+<ul class="simple">
+<li><p>Write the factorial function using a Python while loop.</p></li>
+<li><p>Write the factorial function using a Python for loop.</p></li>
+</ul>
+<p>Check your programs to make sure they work for 1, 2, 3, 5, and beyond, but especially for the first 5 integers.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Functions">
+<h2>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h2>
+<p>Jump to top</p>
+<div class="section" id="User-defined-functions">
+<h3>User-defined functions<a class="headerlink" href="#User-defined-functions" title="Permalink to this headline">¶</a></h3>
+<p>Every function definition begins with the word def followed by the name you want to give to the function, sinc in this case, then a list of arguments enclosed in parentheses, and finally terminated with a colon. In this case there is only one argument, x, but in general there can be as many arguments as you want, including no arguments at all. For the moment, we will consider just the case of a single argument. The indented block of code following the first line defines what the function does.
+In this case, the first line calculates <span class="math notranslate nohighlight">\(sinc(x) = \sin(x)/x\)</span> and sets it equal to y. The return statement of the last line tells Python to return the value of y to the user.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Exercise</strong></p>
+<p>The above defined function delivers a false value at a certain point. Find the error and correct the function appropriately.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># code goes here</span>
+</pre></div>
+</div>
+</div>
+<p>The code for <em>sinc(x)</em> works just fine when the argument is a single number or a variable that represents a single number. However, if the argument is a NumPy array, we run into a problem, as illustrated below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The if statement in Python is set up to evaluate the truth value of a single variable, not of multielement arrays. When Python is asked to evaluate the truth value for a multi-element array, it doesn’t know what to do and therefore returns an error. An obvious way to handle this problem is to write the code so that it processes the array one element at a time, which you could do using a for loop, as illustrated below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">xx</span><span class="o">==</span><span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">y</span><span class="o">+=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># adds result of sin(xx)/xx to y list if</span>
+            <span class="n">y</span><span class="o">+=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span><span class="o">/</span><span class="n">xx</span><span class="p">]</span> <span class="c1"># xx is not zero</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># converts y to array and returns array</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Faster-Array-Processing">
+<h3>Faster Array Processing<a class="headerlink" href="#Faster-Array-Processing" title="Permalink to this headline">¶</a></h3>
+<p>While using loops to process arrays works just fine, it is usually not the best way to accomplish the task in Python. The reason is that loops in Python are executed rather slowly. To deal with this problem, the developers of NumPy introduced a number of functions designed to process arrays quickly and efficiently. For the present case, what we need is a conditional statement or function that can process arrays directly. The function we want is called where and it is a part of the NumPy library.
+There where function has the form</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">where</span><span class="p">(</span><span class="n">condition</span><span class="p">,</span> <span class="n">output</span> <span class="k">if</span> <span class="kc">True</span><span class="p">,</span> <span class="n">output</span> <span class="k">if</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>e first argument of the where function is a conditional statement involving an array. The where function applies the condition to the array element by element, and returns the second argument for those array elements for which the condition is True, and returns the third argument for those array elements that are False. We can apply it to the sinc(x) function as follows</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The where function creates the array y and sets the elements of y equal to 1.0 where the corresponding elements of x are zero, and otherwise sets the corresponding elements to sin(x)/x. This code executes much faster, 25 to 100 times, depending on the size of the array, than the code using a for loop. Moreover, the new code is much simpler to write and read.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="Functions-with-more-than-one-input-or-output">
+<h3>Functions with more than one input or output<a class="headerlink" href="#Functions-with-more-than-one-input-or-output" title="Permalink to this headline">¶</a></h3>
+<p>Python functions can have any number of input arguments and can return any number of variables. For example, suppose you want a function that outputs n (x, y) coordinates around a circle of radius r centered at the point (x0 , y0 ). The inputs to the function would be r, x0, y0, and n. The outputs would be the n (x, y) coordinates. The following code implements this function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x0</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<p>This function has four inputs and two outputs. In this case, the four inputs are simple numeric variables and the two outputs are NumPy arrays. In general, the inputs and outputs can be any combination of data types: arrays, lists, strings, etc. Of course, the body of the function must be written to be consistent with the prescribed data types. Functions can also return nothing to the calling program but just perform some task. For example, here is a program that clears the terminal screen</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="Positional-and-keyword-arguments">
+<h3>Positional and keyword arguments<a class="headerlink" href="#Positional-and-keyword-arguments" title="Permalink to this headline">¶</a></h3>
+<p>It is often useful to have function arguments that have some default setting. This happens when you want an input to a function to have some standard value or setting most of the time, but you would like to reserve the possibility of giving it some value other than the default value.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x0</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<p>The default values of the arguments x0, y0, and n are specified in the argument of the function definition in the def line. Arguments whose default values are specified in this manner are called keyword arguments, and they can be omitted from the function call if the user is content using those values.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">circle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([ 3.00000000e+00,  2.59807621e+00,  1.50000000e+00,  1.83697020e-16,
+        -1.50000000e+00, -2.59807621e+00, -3.00000000e+00, -2.59807621e+00,
+        -1.50000000e+00, -5.51091060e-16,  1.50000000e+00,  2.59807621e+00]),
+ array([ 0.00000000e+00,  1.50000000e+00,  2.59807621e+00,  3.00000000e+00,
+         2.59807621e+00,  1.50000000e+00,  3.67394040e-16, -1.50000000e+00,
+        -2.59807621e+00, -3.00000000e+00, -2.59807621e+00, -1.50000000e+00]))
+</pre></div></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Variable-number-of-arguments">
+<h3>Variable number of arguments<a class="headerlink" href="#Variable-number-of-arguments" title="Permalink to this headline">¶</a></h3>
+<p>While it may seem odd, it is sometimes useful to leave the number of arguments unspecified. A simple example is a function that computes the product of an arbitrary number of numbers:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[214]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;args = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">*=</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<p>The print(“args…) statement in the function definition is not necessary, of course, but is put in to show that the argument args is a tuple inside the function. Here it used because one does not know ahead of time how many numbers are to be multiplied together.</p>
+<p>The *args argument is also quite useful in another context: when passing the name of a function as an argument in another function. In many cases, the function name that is passed may have a number of parameters that must also be passed but aren’t known ahead of time. If this all sounds a bit confusing—functions calling other functions—a concrete example will help you understand.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">test</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+125
+</pre></div></div>
+</div>
+<p>The order of the parameters is important. The function <em>test</em> uses x, the first argument of f1, as its principal argument, and then uses <em>a</em> and <em>p</em>, in the same order that they are defined in the function f1, to fill in the additional arguments—the parameters—of the function f1.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="Numerical-differentiation">
+<h2>Numerical differentiation<a class="headerlink" href="#Numerical-differentiation" title="Permalink to this headline">¶</a></h2>
+<p>We want to use our current knowledge of python and in particular also functions to start with some very useful thing for our physical modeling: * Numerical Differentiation *. What we want to calculate, is the derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> where the function values are given at certain positions <span class="math notranslate nohighlight">\(x_{i}\)</span>. Since we do not want to calculate the symbolic derivative, we have to get along with an numerical approximation. This can be obtained by looking at the definition of the
+derivative, i.e. the first derivative</p>
+<p><span class="math">\begin{equation}
+f^{\prime}(x)=\lim_{\delta x->0}\frac{f(x+\delta x)-f(x)}{\delta x}
+\end{equation}</span></p>
+<p>If the function values are given at the positions <span class="math notranslate nohighlight">\(x_{i}\)</span> with <span class="math notranslate nohighlight">\(\delta x_{i}=x_{i+1}-x_{i}\)</span>, the an approximate value of the first derivative can be found from</p>
+<p><span class="math">\begin{equation}
+f^{\prime}(x_{i})\approx\frac{f(x+\delta x)-f(x)}{\delta x}=\frac{f(x_{i+1})-f(x_{i})}{x_{i+1}-x_{i}}
+\end{equation}</span></p>
+<p>This already delivers a good approximation of the first derivative of a function as we see in the next examples. At frist we want to use our knowledge of multiple arguments and functions as an argument.</p>
+<p>Suppose we have the following function that numerically computes the value of the derivative of an arbitrary function <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[224]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.e-9</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>where our function shall be given by:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[225]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">f0</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">4.</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[226]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">deriv</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[226]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+24.000001985768904
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[227]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[228]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y</span><span class="o">=</span><span class="n">f0</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">yp</span><span class="o">=</span><span class="n">deriv</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[229]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;original&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;derivative&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$y$, $y^{\prime}$&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[229]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x152b290860&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L3_list_comprehensions-Copy1_76_1.png"><img alt="../../_images/notebooks_L3_list_comprehensions-Copy1_76_1.png" src="../../_images/notebooks_L3_list_comprehensions-Copy1_76_1.png" style="width: 415px; height: 280px;" /></a>
+</div>
+</div>
+<div class="section" id="More-differentiation">
+<h3>More differentiation<a class="headerlink" href="#More-differentiation" title="Permalink to this headline">¶</a></h3>
+<p>While the above method is good for calculating the derivative of a function if this function is given at certain values, we will later often encounter the situation, that we want to solve a differential equation. As we will see later, this may involve the solution of the Schrödinger equation for an harmonic oscillator or a band structure.</p>
+<p><span class="math">\begin{equation}
+H\Psi=(T+U)\Psi
+\end{equation}</span></p>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> and <span class="math notranslate nohighlight">\(U\)</span> are the kinetic and potential energies and <span class="math notranslate nohighlight">\(H\)</span> is the Hamilton operator. For solving these systems of equations numerically at certain positions (or times) in space (time), it is sometimes usefult to represent a discretized version of the derivatives in form of a matrix. Such a matrix can be efficiently generated with various python modules. Here we will use the <em>scipy.sparse</em> module, which is a module which generated sparse matrices.</p>
+<p>If we consider the above finite difference formulas for a set of positions <span class="math notranslate nohighlight">\(x_{i}\)</span>, we can represent the derivative at these positions by matrix operation as well:</p>
+<p><span class="math notranslate nohighlight">\(f^{\prime}=\frac{1}{\delta x} \begin{bmatrix} -1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; -1 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; -1 &amp; 1 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; -1 &amp; 1 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; 1\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -1\\ \end{bmatrix} \begin{bmatrix} x_{1}\\ x_{2}\\ x_{3}\\ x_{4}\\ x_{5}\\ x_{6} \end{bmatrix} = \begin{bmatrix} (x_{2}-x_{1})/\delta x\\ (x_{3}-x_{2})/\delta x\\ (x_{4}-x_{3})/\delta x\\ (x_{5}-x_{4})/\delta x\\ (x_{6}-x_{5})/\delta x\\ (0-x_{6})/\delta x\\ \end{bmatrix}\)</span></p>
+<p>Each row of the matrix multiplied by the vector containing the positions is then containing the derivative of the function <span class="math notranslate nohighlight">\(f\)</span> at the position <span class="math notranslate nohighlight">\(x_{i}\)</span> and the resulting vector represents the deravitave in a certain position region.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[191]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">eigsh</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[196]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<p>We can construct such a matrix for the first derivative with the help of the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.diags.html">diags function</a> of the <em>scipy.sparse</em> module. The <em>diags</em> function uses a set of numbers, that shoud be distributed along the diagonal of the matrix. If you supply a list like in the example below, the numbers are distributed using the offsets as defined in the second list. The <em>shape</em> keyword defines the shape of the matrix. Try the
+example in the over next cell with the <em>.todense()</em> suffix. This converts the otherwise unreadable sparse output to a readable matrix form.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[206]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">m</span><span class="o">=</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[207]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[207]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
+        [ 0., -1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
+        [ 0.,  0., -1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.],
+        [ 0.,  0.,  0., -1.,  1.,  0.,  0.,  0.,  0.,  0.],
+        [ 0.,  0.,  0.,  0., -1.,  1.,  0.,  0.,  0.,  0.],
+        [ 0.,  0.,  0.,  0.,  0., -1.,  1.,  0.,  0.,  0.],
+        [ 0.,  0.,  0.,  0.,  0.,  0., -1.,  1.,  0.,  0.],
+        [ 0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  1.,  0.],
+        [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  1.],
+        [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.]])
+</pre></div></div>
+</div>
+<p>If this matrix is now multiplied from the right with a vector of function values <span class="math notranslate nohighlight">\(f(x_{i})\)</span>, you obtain the corresponding derivatives.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[208]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">diff</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[211]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">diff</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f^{\prime}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(x)=x^</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$f$, $f^{\prime}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Function and Numerical Derivative&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;derivative.pdf&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L3_list_comprehensions-Copy1_85_0.png"><img alt="../../_images/notebooks_L3_list_comprehensions-Copy1_85_0.png" src="../../_images/notebooks_L3_list_comprehensions-Copy1_85_0.png" style="width: 417px; height: 299px;" /></a>
+</div>
+</div>
+<p>Similar to what we did above with the first derivative, we can also obtain a version for the second derivative according to the finite differences for the second derivative:</p>
+<p><span class="math">\begin{equation}
+f^{''}\approx\frac{f(x+\delta x)-2f(x)+f(x-\delta x)}{\delta x^{2}}
+\end{equation}</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[213]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[213]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+matrix([[-2.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
+        [ 1., -2.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
+        [ 0.,  1., -2.,  1.,  0.,  0.,  0.,  0.,  0.,  0.],
+        [ 0.,  0.,  1., -2.,  1.,  0.,  0.,  0.,  0.,  0.],
+        [ 0.,  0.,  0.,  1., -2.,  1.,  0.,  0.,  0.,  0.],
+        [ 0.,  0.,  0.,  0.,  1., -2.,  1.,  0.,  0.,  0.],
+        [ 0.,  0.,  0.,  0.,  0.,  1., -2.,  1.,  0.,  0.],
+        [ 0.,  0.,  0.,  0.,  0.,  0.,  1., -2.,  1.,  0.],
+        [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  1., -2.,  1.],
+        [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1., -2.]])
+</pre></div></div>
+</div>
+<p>Equivalently, you may also find a general form for higher order finite difference which can be found <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference">here</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Frank Cichos
+      <span class="lastupdated">
+        Last updated on Apr 13, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
