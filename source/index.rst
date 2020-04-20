@@ -86,8 +86,7 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L3/1_input_output.ipynb
    notebooks/L3/2_flowcontrol.ipynb   
    notebooks/L3/3_functions.ipynb  
-   notebooks/L3/4_classes.ipynb  
-   notebooks/L3/5_exceptions.ipynb
+   notebooks/L3/4_exceptions.ipynb
 
 Indices and tables
 ==================

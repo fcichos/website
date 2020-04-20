@@ -39,9 +39,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Exceptions" href="5_exceptions.html" />
-    <link rel="prev" title="Functions" href="3_functions.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -250,7 +248,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/assignment_2.html">Exercise 2</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 3:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_input_output.html">Input and output</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_input_output.html#Keyboard-input">Keyboard input</a></li>
@@ -299,17 +297,7 @@
 <li class="toctree-l2"><a class="reference internal" href="3_functions.html#Functions-as-arguments-of-functions">Functions as arguments of functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Classes and Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Definition-of-Classes">Definition of Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Class-Methods">Class Methods</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#The-__init__-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#The-__str__-method">The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Class-and-object-variables">Class and object variables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="5_exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_exceptions.html">Exceptions</a></li>
 </ul>
 
             
@@ -362,7 +350,7 @@
         
             
             
-              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L3/4_classes.ipynb" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L3/classes.ipynb" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -619,8 +607,8 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/4_classes.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L3/4_classes.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/classes.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=lab/tree/source/notebooks/L3/classes.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <div class="section" id="Classes-and-Objects">
 <h1>Classes and Objects<a class="headerlink" href="#Classes-and-Objects" title="Permalink to this headline">¶</a></h1>
@@ -654,9 +642,8 @@ div.rendered_html tbody tr:hover {
 <p>A very useful programming concept of modern programming is object oriented programming.</p>
 <p>In all the programs we wrote till now, we have designed our program around functions i.e. blocks of statements which manipulate data. This is called the procedure-oriented way of programming.</p>
 <p>There is another way of organizing your program which is to combine data and functionality and wrap it inside something called an object. This is called the object oriented programming paradigm, which will be useful especially for larger programs.</p>
-<p>Classes and objects are the two main aspects of object oriented programming.</p>
+<p>Classes and objects are the two main aspects of object oriented programming. * A class creates a new type where objects are instances of the class.</p>
 <ul class="simple">
-<li><p>A class creates a new type where objects are instances of the class.</p></li>
 <li><p>Objects can store data using ordinary variables that belong to the object. Variables that belong to an object or class are referred to as properties. Objects can also have functionality coming from functions that belong to a class and are called methods.</p></li>
 <li><p>Properties are of two types - they can belong to each instance/object of the class or they can belong to the class itself. They are called instance variables and class variables respectively.</p></li>
 </ul>
@@ -669,7 +656,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>In the following example, we have an empty block which is indicated using the pass statement.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -680,7 +667,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>You can then create a new object of the class Colloid by The print command will just inform you about the memory address at which the object is stored.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -694,7 +681,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;__main__.Colloid object at 0x7ff3068541d0&gt;
+&lt;__main__.Colloid object at 0x10b988f50&gt;
 </pre></div></div>
 </div>
 </div>
@@ -711,7 +698,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -740,7 +727,7 @@ I am a plastic colloid
 <h3>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method<a class="headerlink" href="#The-__init__-method" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is run as soon as an object of a class is instantiated (i.e. created). The method is useful to do any initialization (i.e. passing initial values to your object) you want to do with your object. Notice the double underscores both at the beginning and at the end of the name.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -755,7 +742,7 @@ I am a plastic colloid
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -765,7 +752,7 @@ I am a plastic colloid
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -787,7 +774,7 @@ Colloid radius is 2 µm
 <h3>The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method<a class="headerlink" href="#The-__str__-method" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method that is invoked when a simple string representation of the class is needed, as for example when printed.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -805,16 +792,16 @@ Colloid radius is 2 µm
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">p</span><span class="o">=</span><span class="n">Colloid</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span></span><span class="n">p</span><span class="o">=</span><span class="n">Colloid</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -827,7 +814,7 @@ Colloid radius is 2 µm
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-I am a plastic colloid of radius 5.0
+I am a plastic colloid of radius 2.0
 </pre></div></div>
 </div>
 </div>
@@ -842,7 +829,7 @@ I am a plastic colloid of radius 5.0
 </ul>
 <p>Here is an example:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -861,7 +848,7 @@ I am a plastic colloid of radius 5.0
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -875,7 +862,7 @@ I am a plastic colloid of radius 5.0
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -893,7 +880,7 @@ I am a plastic colloid of radius 5.0
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -911,7 +898,7 @@ I am a plastic colloid of radius 5.0
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -931,10 +918,13 @@ I am a plastic colloid of radius 5.0
 <p>The class shall provide the class specific methods</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">how_many</span><span class="p">()</span> <span class="n">which</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">total</span> <span class="n">number</span> <span class="n">of</span> <span class="n">colloids</span>
 <span class="o">*</span> <span class="fm">__str__</span> <span class="n">which</span> <span class="n">returns</span> <span class="n">a</span> <span class="n">string</span> <span class="k">with</span> <span class="n">radius</span> <span class="ow">and</span> <span class="n">position</span> <span class="n">of</span> <span class="n">the</span> <span class="n">particle</span>
-
-<span class="n">Each</span> <span class="nb">object</span> <span class="n">shall</span> <span class="n">then</span> <span class="n">contain</span> <span class="n">the</span> <span class="n">following</span> <span class="n">properties</span>
-
-<span class="o">*</span> <span class="n">the</span> <span class="n">particle</span> <span class="n">radius</span><span class="p">,</span> <span class="n">R</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Physics interlude</strong> Colloidal particle class</p>
+<p>Each object shall then contain the following properties</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">the</span> <span class="n">particle</span> <span class="n">radius</span><span class="p">,</span> <span class="n">R</span>
 <span class="o">*</span> <span class="n">the</span> <span class="n">x</span> <span class="n">position</span><span class="p">,</span> <span class="n">x</span>
 <span class="o">*</span> <span class="n">the</span> <span class="n">y</span> <span class="n">position</span><span class="p">,</span> <span class="n">y</span>
 <span class="o">*</span> <span class="n">the</span> <span class="n">index</span> <span class="n">of</span> <span class="n">the</span> <span class="n">colloid</span><span class="p">,</span> <span class="n">index</span>
@@ -948,25 +938,44 @@ I am a plastic colloid of radius 5.0
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Would be great if the solution would be already here, but then you would have no exercise.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="c1"># Class definition</span>
+<span class="k">class</span> <span class="nc">Colloid</span><span class="p">:</span>
+
+    <span class="c1"># Class variables go here</span>
+
+
+    <span class="c1"># constructor</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">...</span><span class="p">):</span>
+        <span class="c1">### constructor code goes here</span>
+
+
+    <span class="c1"># method to return the name</span>
+    <span class="k">def</span> <span class="nf">get_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="c1">### return value goes here)</span>
+
+
+    <span class="k">def</span> <span class="nf">get_D</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="c1">### return value goes here)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="c1">### code for updating positions goes here</span>
+        <span class="k">return</span><span class="p">(</span><span class="c1">### return values go here)</span>
+
+    <span class="c1"># class method accessing a class variable</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">how_many</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="c1">### return value goes here)</span>
+
+    <span class="c1"># insert something that prints the particle position in a formatted way when printing</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="c1">### return string goes here)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;\nWould be great if the solution would be already here, but then you would have no exercise.\n&#39;
-</pre></div></div>
 </div>
 <p>With the help of this Colloid class, we would like to carry out simulations of Brownian motion of multiple particles. The simulations shall</p>
 <ul class="simple">
@@ -974,7 +983,7 @@ I am a plastic colloid of radius 5.0
 <li><p>have N=100 trajectory points each</p></li>
 <li><p>start all at 0,0</p></li>
 <li><p>store all x and y positions in a 2D array [n,N]</p></li>
-<li><p>each particle object should be stored in a list p</p></li>
+<li><p>each particle object should be stored in a list p_list</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
@@ -1016,7 +1025,7 @@ I am a plastic colloid of radius 5.0
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span><span class="s1">&#39;k.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x [µm]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y [µm]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1027,7 +1036,7 @@ I am a plastic colloid of radius 5.0
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L3_4_classes_33_0.png"><img alt="../../_images/notebooks_L3_4_classes_33_0.png" src="../../_images/notebooks_L3_4_classes_33_0.png" style="width: 441px; height: 395px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L3_classes_34_0.png"><img alt="../../_images/notebooks_L3_classes_34_0.png" src="../../_images/notebooks_L3_classes_34_0.png" style="width: 441px; height: 395px;" /></a>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
@@ -1040,15 +1049,6 @@ I am a plastic colloid of radius 5.0
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="5_exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="3_functions.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
