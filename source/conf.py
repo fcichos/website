@@ -111,7 +111,7 @@ nbsphinx_prolog = """
 
     .. nbinfo::
         This page was generated from `{{ docname }}`_.
-        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=stree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
+        :raw-html:`<br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/{{ docname }}"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a>`
 
 .. only:: latex
 
