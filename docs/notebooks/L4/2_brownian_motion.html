@@ -316,6 +316,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Brownian Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Physics">Physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Class-Planning">Class Planning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulating">Simulating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Plotting-the-trajectories">Plotting the trajectories</a></li>
@@ -647,7 +648,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Brownian-Motion">
 <h1>Brownian Motion<a class="headerlink" href="#Brownian-Motion" title="Permalink to this headline">¶</a></h1>
-<p>We are going to use our knowledge about classes now to create a colloidal particle class, which we will use for simulations in our first real physics project.</p>
+<p>We will use our newly gained knowledge about classes for the simulation of Brownian motion. This actually perfectly fits to the object oriented programming topic, as each Brownian particle (or colloid) can be seen as an object instanciated from the same class, but perhaps with different properties. Some particles might be larger and some smaller for example.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -675,6 +676,10 @@ div.rendered_html tbody tr:hover {
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="Physics">
+<h2>Physics<a class="headerlink" href="#Physics" title="Permalink to this headline">¶</a></h2>
+<p>The Brownian motion of a colloidal particle (called solute) results from the collisions collisions with the surrounding solvent molecules. Due to those collisions, the particle has in equilibrium a mean kinetic energy defined by the temperature. With this kinetic energy it would travel a mean distance, which we call <span class="math notranslate nohighlight">\(l\)</span> before it takes another random direction with a new step length <span class="math notranslate nohighlight">\(l\)</span></p>
 </div>
 <div class="section" id="Class-Planning">
 <h2>Class Planning<a class="headerlink" href="#Class-Planning" title="Permalink to this headline">¶</a></h2>
@@ -710,7 +715,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[153]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[226]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -733,6 +738,7 @@ div.rendered_html tbody tr:hover {
         <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="n">Colloid</span><span class="o">.</span><span class="n">number</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">=</span><span class="n">Colloid</span><span class="o">.</span><span class="n">f</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span>
 
+
     <span class="c1"># method to return the name</span>
     <span class="k">def</span> <span class="nf">get_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">)</span>
@@ -741,9 +747,14 @@ div.rendered_html tbody tr:hover {
     <span class="k">def</span> <span class="nf">get_D</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">sim_traj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+        <span class="n">sigma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">=</span><span class="p">[(</span><span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),(</span><span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span>
+
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">dt</span><span class="p">)))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">dt</span><span class="p">)))</span>
+
 
 
     <span class="k">def</span> <span class="nf">get_trajectory</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -758,7 +769,7 @@ div.rendered_html tbody tr:hover {
 
     <span class="c1"># insert something that prints the particle position in a formatted way when printing</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span><span class="p">(</span><span class="s2">&quot;The particle with radius R=</span><span class="si">{}</span><span class="s2"> is at x=</span><span class="si">{}</span><span class="s2">,y=</span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+        <span class="k">return</span><span class="p">(</span><span class="s2">&quot;The particle with radius R=</span><span class="si">{}</span><span class="s2"> is at x=</span><span class="si">{}</span><span class="s2">,y=</span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -773,7 +784,7 @@ div.rendered_html tbody tr:hover {
 <li><p>particle objects should be stored in a list p_list</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[181]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[227]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -788,14 +799,29 @@ div.rendered_html tbody tr:hover {
     <span class="n">p_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Colloid</span><span class="p">(</span><span class="mf">1e-6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 
 
-<span class="c1"># simulate all trajectory timesteps for all particles</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p_list</span><span class="p">):</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p_list</span><span class="p">):</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">sim_traj</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mf">0.18</span><span class="p">)</span>
 
 
 </pre></div>
 </div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[228]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The particle with radius R=1e-06 is at x=6.591430862525909e-06,y=2.8214674112139576e-06.
+</pre></div></div>
 </div>
 <p>As a result you shall be able to plot, for example, all data points of the trajectories as shown below.</p>
 </div>
@@ -803,7 +829,7 @@ div.rendered_html tbody tr:hover {
 <h2>Plotting the trajectories<a class="headerlink" href="#Plotting-the-trajectories" title="Permalink to this headline">¶</a></h2>
 <p>The next step is to plot all the trajectories.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[169]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[223]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -825,7 +851,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_13_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_13_0.png" src="../../_images/notebooks_L4_2_brownian_motion_13_0.png" style="width: 441px; height: 395px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_16_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_16_0.png" src="../../_images/notebooks_L4_2_brownian_motion_16_0.png" style="width: 441px; height: 395px;" /></a>
 </div>
 </div>
 </div>
@@ -841,7 +867,7 @@ div.rendered_html tbody tr:hover {
 <p>end{equation}`</p>
 <p>The angular brackets on the top take care of the fact that we can measure the distance traveled within a certain time <span class="math notranslate nohighlight">\(n\, dt\)</span> several times along a trajectory. These values can be used to calculate a mean speed.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[194]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[217]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -863,25 +889,25 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_17_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_17_0.png" src="../../_images/notebooks_L4_2_brownian_motion_17_0.png" style="width: 407px; height: 295px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_20_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_20_0.png" src="../../_images/notebooks_L4_2_brownian_motion_20_0.png" style="width: 407px; height: 295px;" /></a>
 </div>
 </div>
 </div>
 <div class="section" id="Calculate-the-particle-mean-squared-displacement">
 <h3>Calculate the particle mean squared displacement<a class="headerlink" href="#Calculate-the-particle-mean-squared-displacement" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[186]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[218]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span><span class="o">*</span><span class="n">dt</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
     <span class="n">t</span><span class="o">=</span><span class="n">p_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_trajectory</span><span class="p">()</span>
     <span class="n">msd</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)]</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">msd</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 
-
-<span class="n">plt</span><span class="o">.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;msd&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -890,32 +916,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_19_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_19_0.png" src="../../_images/notebooks_L4_2_brownian_motion_19_0.png" style="width: 378px; height: 265px;" /></a>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[191]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">msd</span><span class="o">/</span><span class="n">time</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[191]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x110e5f210&gt;]
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_20_1.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_20_1.png" src="../../_images/notebooks_L4_2_brownian_motion_20_1.png" style="width: 378px; height: 265px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_22_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_22_0.png" src="../../_images/notebooks_L4_2_brownian_motion_22_0.png" style="width: 407px; height: 295px;" /></a>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
