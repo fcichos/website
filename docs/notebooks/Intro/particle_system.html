@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Notebook editor &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  <title>Random color particles &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
   
 
   
@@ -39,9 +39,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Entering code" href="EditCells.html" />
-    <link rel="prev" title="Introduction to Jupyter" href="Introduction2Jupyter.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../course-info/instructor.html">Instructor</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/Intro/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Introduction2Jupyter.html">Introduction to Jupyter</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Introduction2Jupyter.html#What-is-Jupyter-Notebook?">What is Jupyter Notebook?</a></li>
@@ -109,12 +107,12 @@
 <li class="toctree-l2"><a class="reference internal" href="Introduction2Jupyter.html#Notebook-documents">Notebook documents</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Notebook editor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Edit-mode">Edit mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Command-mode">Command mode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Keyboard-navigation">Keyboard navigation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Running-code">Running code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Managing-the-kernel">Managing the kernel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NotebookEditor.html">Notebook editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Edit-mode">Edit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Command-mode">Command mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Keyboard-navigation">Keyboard navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Running-code">Running code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NotebookEditor.html#Managing-the-kernel">Managing the kernel</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="EditCells.html">Entering code</a></li>
@@ -346,14 +344,14 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Notebook editor</li>
+      <li>Random color particles</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/Intro/NotebookEditor.ipynb" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/Intro/particle_system.ipynb" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -610,62 +608,43 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/Intro/NotebookEditor.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=stree/source/notebooks/Intro/NotebookEditor.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/Intro/particle_system.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=stree/source/notebooks/Intro/particle_system.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
-<div class="section" id="Notebook-editor">
-<h1>Notebook editor<a class="headerlink" href="#Notebook-editor" title="Permalink to this headline">¶</a></h1>
-<p><img alt="alt_text" src="../../_images/notebook.png" /></p>
-<p>A Jupyter Notebook provides an interface with essentially two modes</p>
-<ul class="simple">
-<li><p><strong>edit mode</strong> the mode where you edit a cells content.</p></li>
-<li><p><strong>command mode</strong> the mode where you execute the cells content.</p></li>
-</ul>
-<p>In the more advanced version of JupyterLab, which we are using on myBinder, this will look like that</p>
-<div class="section" id="Edit-mode">
-<h2>Edit mode<a class="headerlink" href="#Edit-mode" title="Permalink to this headline">¶</a></h2>
-<p>Edit mode is indicated by a blue cell border and a prompt showing in the editor area:</p>
-<p><img alt="edit_mode" src="../../_images/edit_mode.png" /></p>
-<p>When a cell is in edit mode, you can type into the cell, like a normal text editor.</p>
-</div>
-<div class="section" id="Command-mode">
-<h2>Command mode<a class="headerlink" href="#Command-mode" title="Permalink to this headline">¶</a></h2>
-<p>Command mode is indicated by a grey cell border:</p>
-<p><img alt="command_mode" src="../../_images/command_mode.png" /></p>
-</div>
-<div class="section" id="Keyboard-navigation">
-<h2>Keyboard navigation<a class="headerlink" href="#Keyboard-navigation" title="Permalink to this headline">¶</a></h2>
-<p>If you have a hardware keyboard connected to your iOS device, you can use Jupyter keyboard shortcuts. The modal user interface of the Jupyter Notebook has been optimized for efficient keyboard usage. This is made possible by having two different sets of keyboard shortcuts: one set that is active in edit mode and another in command mode.</p>
-<p>In edit mode, most of the keyboard is dedicated to typing into the cell’s editor. Thus, in edit mode there are relatively few shortcuts. In command mode, the entire keyboard is available for shortcuts, so there are many more. Most important ones are:</p>
-<ol class="arabic simple">
-<li><p>Switch command and edit mods: <code class="docutils literal notranslate"><span class="pre">Enter</span></code> for edit mode, and <code class="docutils literal notranslate"><span class="pre">Esc</span></code> or <code class="docutils literal notranslate"><span class="pre">Control</span></code> for command mode.</p></li>
-<li><p>Basic navigation: <code class="docutils literal notranslate"><span class="pre">↑</span></code>/<code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">↓</span></code>/<code class="docutils literal notranslate"><span class="pre">j</span></code></p></li>
-<li><p>Run or render currently selected cell: <code class="docutils literal notranslate"><span class="pre">Shift</span></code>+<code class="docutils literal notranslate"><span class="pre">Enter</span></code> or <code class="docutils literal notranslate"><span class="pre">Control</span></code>+<code class="docutils literal notranslate"><span class="pre">Enter</span></code></p></li>
-<li><p>Saving the notebook: <code class="docutils literal notranslate"><span class="pre">s</span></code></p></li>
-<li><p>Change Cell types: <code class="docutils literal notranslate"><span class="pre">y</span></code> to make it a <strong>code</strong> cell, <code class="docutils literal notranslate"><span class="pre">m</span></code> for <strong>markdown</strong> and <code class="docutils literal notranslate"><span class="pre">r</span></code> for <strong>raw</strong></p></li>
-<li><p>Inserting new cells: <code class="docutils literal notranslate"><span class="pre">a</span></code> to <strong>insert above</strong>, <code class="docutils literal notranslate"><span class="pre">b</span></code> to <strong>insert below</strong></p></li>
-<li><p>Manipulating cells using pasteboard: <code class="docutils literal notranslate"><span class="pre">x</span></code> for <strong>cut</strong>, <code class="docutils literal notranslate"><span class="pre">c</span></code> for <strong>copy</strong>, <code class="docutils literal notranslate"><span class="pre">v</span></code> for <strong>paste</strong>, <code class="docutils literal notranslate"><span class="pre">d</span></code> for <strong>delete</strong> and <code class="docutils literal notranslate"><span class="pre">z</span></code> for <strong>undo delete</strong></p></li>
-<li><p>Kernel operations: <code class="docutils literal notranslate"><span class="pre">i</span></code> to <strong>interrupt</strong> and <code class="docutils literal notranslate"><span class="pre">0</span></code> to <strong>restart</strong></p></li>
-</ol>
-</div>
-<div class="section" id="Running-code">
-<h2>Running code<a class="headerlink" href="#Running-code" title="Permalink to this headline">¶</a></h2>
-<p>Code cells allow you to enter and run code. Run a code cell by pressing the <code class="docutils literal notranslate"><span class="pre">▶︎</span></code> button in the bottom-right panel, or <code class="docutils literal notranslate"><span class="pre">Control</span></code>+<code class="docutils literal notranslate"><span class="pre">Enter</span></code> on your hardware keyboard.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">v</span> <span class="o">=</span> <span class="mi">10</span>
+<span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">time</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span><span class="p">,</span> <span class="n">weibullvariate</span><span class="p">,</span> <span class="n">choice</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">ipycanvas</span> <span class="kn">import</span> <span class="n">Canvas</span><span class="p">,</span> <span class="n">hold_canvas</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">n_particles</span> <span class="o">=</span> <span class="mi">100_000</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">canvas</span>
 </pre></div>
 </div>
 </div>
@@ -673,38 +652,175 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-100
-</pre></div></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b89697a23db0465d9de2d14783c4d1fa"}</script></div>
 </div>
-<p>There are a couple of keyboard shortcuts for running code:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Control</span></code>+<code class="docutils literal notranslate"><span class="pre">Enter</span></code> run the current cell and enters command mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Shift</span></code>+<code class="docutils literal notranslate"><span class="pre">Enter</span></code> runs the current cell and moves selection to the one below.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Option</span></code>+<code class="docutils literal notranslate"><span class="pre">Enter</span></code> runs the current cell and inserts a new one below.</p></li>
-</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
-<div class="section" id="Managing-the-kernel">
-<h2>Managing the kernel<a class="headerlink" href="#Managing-the-kernel" title="Permalink to this headline">¶</a></h2>
-<p>Code is run in a separate process called the <strong>kernel</strong>, which can be interrupted or restarted. You can see kernel indicator in the top-right corner reporting current kernel state: <code class="docutils literal notranslate"><span class="pre">⚪︎</span></code> means kernel is <strong>ready</strong> to execute code, and <code class="docutils literal notranslate"><span class="pre">⚫︎</span></code> means kernel is currently <strong>busy</strong>. Tapping kernel indicator will open <strong>kernel menu</strong>, where you can reconnect, interrupt or restart kernel.</p>
-<p>Try running the following cell — kernel indicator will switch from <code class="docutils literal notranslate"><span class="pre">⚪︎</span></code> to <code class="docutils literal notranslate"><span class="pre">⚫︎</span></code>, i.e. reporting kernel as “busy”. This means that you won’t be able to run any new cells until current execution finishes, or until kernel is interrupted. You can then go to kernel menu by tapping the kernel indicator and select “Interrupt”.</p>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">canvas</span><span class="o">.</span><span class="n">fill_rects</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
+<div class="section" id="Random-color-particles">
+<h1>Random color particles<a class="headerlink" href="#Random-color-particles" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">canvas</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "1c45442bb4d44d6bb567b25875443555"}</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_rects</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">30_000</span><span class="p">],</span> <span class="n">y</span><span class="p">[:</span><span class="mi">30_000</span><span class="p">],</span> <span class="n">size</span><span class="p">)</span>
+
+    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;orange&#39;</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_rects</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">30_001</span><span class="p">:</span><span class="mi">60_000</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">30_001</span><span class="p">:</span><span class="mi">60_000</span><span class="p">],</span> <span class="n">size</span><span class="p">)</span>
+
+    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">fill_rects</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">60_001</span><span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="mi">60_001</span><span class="p">:],</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Stroked-particles">
+<h1>Stroked particles<a class="headerlink" href="#Stroked-particles" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">n_particles</span> <span class="o">=</span> <span class="mi">5_000</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">)</span>
+
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;#c0dced&#39;</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">stroke_style</span> <span class="o">=</span> <span class="s1">&#39;#3279a8&#39;</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">line_width</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+<span class="n">canvas</span><span class="o">.</span><span class="n">fill_rects</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">stroke_rects</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+<span class="n">canvas</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d661fac3d9584b13aae450c38f39406a"}</script></div>
+</div>
+</div>
+<div class="section" id="Moving-particles">
+<h1>Moving particles<a class="headerlink" href="#Moving-particles" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">2_000</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">move_particles</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">speed_x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">speed_y</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">current_time</span>
+
+    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">current_time</span>
+
+    <span class="n">x</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">speed_x</span> <span class="o">*</span> <span class="n">elapsed_time</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">speed_y</span> <span class="o">*</span> <span class="n">elapsed_time</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+    <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rayleigh</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">)</span>
+<span class="n">speed_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">)</span>
+<span class="n">speed_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+
+<span class="n">canvas</span><span class="o">.</span><span class="n">fill_style</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">75</span><span class="p">):</span>
+    <span class="n">move_particles</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">speed_x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">speed_y</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">fill_rects</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.08</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "63615f252353499eb06a59a2f363eea1"}</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"9b0ba951b7fc4620ba36b0948ef5a792": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b89697a23db0465d9de2d14783c4d1fa": {"model_name": "CanvasModel", "model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"_dom_classes": [], "_model_module": "ipycanvas", "_model_module_version": "^0.4.3", "_model_name": "CanvasModel", "_view_count": null, "_view_module": "ipycanvas", "_view_module_version": "^0.4.3", "_view_name": "CanvasView", "height": 500, "image_data": null, "layout": "IPY_MODEL_9b0ba951b7fc4620ba36b0948ef5a792", "sync_image_data": false, "width": 800}}, "c309ab63eb5c4385afafa039bfc7e158": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1c45442bb4d44d6bb567b25875443555": {"model_name": "CanvasModel", "model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"_dom_classes": [], "_model_module": "ipycanvas", "_model_module_version": "^0.4.3", "_model_name": "CanvasModel", "_view_count": null, "_view_module": "ipycanvas", "_view_module_version": "^0.4.3", "_view_name": "CanvasView", "height": 500, "image_data": null, "layout": "IPY_MODEL_c309ab63eb5c4385afafa039bfc7e158", "sync_image_data": false, "width": 800}}, "f974418d68a54a388ee0c0c4da5e8827": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d661fac3d9584b13aae450c38f39406a": {"model_name": "CanvasModel", "model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"_dom_classes": [], "_model_module": "ipycanvas", "_model_module_version": "^0.4.3", "_model_name": "CanvasModel", "_view_count": null, "_view_module": "ipycanvas", "_view_module_version": "^0.4.3", "_view_name": "CanvasView", "height": 500, "image_data": null, "layout": "IPY_MODEL_f974418d68a54a388ee0c0c4da5e8827", "sync_image_data": false, "width": 800}}, "ff2e66b81a5c450f9dfd44e844aac7e2": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "63615f252353499eb06a59a2f363eea1": {"model_name": "CanvasModel", "model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"_dom_classes": [], "_model_module": "ipycanvas", "_model_module_version": "^0.4.3", "_model_name": "CanvasModel", "_view_count": null, "_view_module": "ipycanvas", "_view_module_version": "^0.4.3", "_view_name": "CanvasView", "height": 500, "image_data": null, "layout": "IPY_MODEL_ff2e66b81a5c450f9dfd44e844aac7e2", "sync_image_data": false, "width": 800}}}, "version_major": 2, "version_minor": 0}
+</script></div>
 
 
            </div>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="EditCells.html" class="btn btn-neutral float-right" title="Entering code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="Introduction2Jupyter.html" class="btn btn-neutral float-left" title="Introduction to Jupyter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
