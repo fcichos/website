@@ -8,48 +8,67 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 124,
+   "cell_type": "markdown",
    "metadata": {},
-   "outputs": [],
    "source": [
-    "from time import sleep,time\n",
-    "from threading import Thread\n",
-    "import numpy as np\n",
-    "from ipycanvas import MultiCanvas, hold_canvas,Canvas"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 107,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "# number of particles\n",
-    "N=100\n"
+    "Animations are sometimes a nice feature, if you want to have a look at how your calculations evolve over time. Especially in the case of our particle based simulations it seems useful to diplay the position of the particles over time.\n",
+    "\n",
+    "There are multiple ways to animate plots and images in python. Not all of them are always transferable between computers. Matplotlib for example provides a `animate` function, which can also use the `ffmpeg` video compressor. But that requires installation of all of them on the specific system you are working on. \n",
+    "\n",
+    "We want to use the `ipycanvas` module, because it delivers easy drawing of shapes like circles or rectangle in a canvas directly in our Jupyter Notebooks.([see the docs](https://readthedocs.org/projects/ipycanvas/downloads/pdf/latest/))"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Draw function for the particles"
+    "## Import Modules"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Before we start, lets have a look at the modules we import this time. Except the NumPy modules we never used them before. We import `time`, `threading`, and `ipycanvas`.\n",
+    "\n",
+    "~~~\n",
+    "from time import sleep,time\n",
+    "from threading import Thread\n",
+    "\n",
+    "from ipycanvas import MultiCanvas, hold_canvas,Canvas\n",
+    "~~~"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "The `time` module is python standard module, which contains timing-related functions like the `sleep` and `time` function for example. \n",
+    "\n",
+    "* The function suspends execution of the current thread for a given number of seconds.\n",
+    "* The `time()` function returns the number of seconds passed since epoch. For Unix system, `January 1, 1970, 00:00:00` at UTC is epoch (the point where time begins).\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The `threading` module is a module which allows you to specify how the processes in your notebook are executed. A computer program is a collection of instructions. A process is the execution of those instructions. A thread is a subset of the process. A process can have one or more threads. The `Thread` function can start a process in background, such that your Jupyter notbook is not blocked for the specific time the process is executed. We will talk about how to use this module later in this section.\n",
+    "\n"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 108,
+   "execution_count": 271,
    "metadata": {},
    "outputs": [],
    "source": [
-    "def draw(pa,canvas, color='white'):\n",
-    "    with hold_canvas(canvas):\n",
-    "        canvas.clear()\n",
-    "        canvas.fill_style = color\n",
-    "        canvas.global_alpha = 0.2\n",
-    "        for i in range(N):\n",
-    "            canvas.fill_arc(pa[i].x+200, pa[i].y+200, 4, 0, 2*np.pi)\n",
-    "            "
+    "import numpy as np\n",
+    "from time import sleep,time\n",
+    "from threading import Thread\n",
+    "\n",
+    "from ipycanvas import MultiCanvas, hold_canvas,Canvas"
    ]
   },
   {
@@ -60,8 +79,15 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We start by using out colloidal particle class, which we developed in the last section."
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 109,
+   "execution_count": 295,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -79,7 +105,7 @@
     "        self.y=y0\n",
     "        Colloid.number=Colloid.number+1\n",
     "        self.index=Colloid.number \n",
-    "        self.D=2 #Colloid.f/self.R\n",
+    "        self.D=Colloid.f/self.R\n",
     "    \n",
     "    # method to return the name \n",
     "    def get_size(self):\n",
@@ -101,265 +127,229 @@
     "    \n",
     "    # insert something that prints the particle position in a formatted way when printing\n",
     "    def __str__(self):\n",
-    "        return(\"The particle with radius R={} is at x={},y={}.\".format(self.R, self.x, self.y))\n",
-    "\n"
+    "        return(\"The particle with radius R={} is at x={},y={}.\".format(self.R, self.x, self.y))"
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 110,
+   "cell_type": "markdown",
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "a6b1243fa9f64bee98235b75bb1c917b",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "MultiCanvas(height=400, width=400)"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
    "source": [
-    "# create a 2-layer canvas of 400 x 400 pixels\n",
-    "# \n",
-    "multi = MultiCanvas(2, width=400,height=400)\n",
-    "multi[0].fill_style = '#FFFFB3'\n",
-    "multi[0].fill_rect(0, 0, multi.size[0], multi.size[1])\n",
-    "\n",
-    "multi"
+    "## Create a set of particles "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We want to animate the Brownian motion of many particles. The best is therefore to create a `list` which contains all the individual `Colloid` objects. We start by creating 200 colloids at the position `(0,0)` to see how the spread from the origin. They are stored in the list `p`."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 113,
+   "execution_count": 330,
    "metadata": {},
    "outputs": [],
    "source": [
+    "# number of particles\n",
+    "N=200\n",
+    "\n",
     "p=[]\n",
     "for _ in range(N):\n",
-    "    p.append(Colloid(10,np.random.randint(0,1),np.random.randint(0,1)))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 114,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "draw(p,multi[1], 'black')"
+    "    p.append(Colloid(np.random.randint(2,10)*1e-6,0,0))"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Animation thread"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 58,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "class RandomWalk(Thread):\n",
-    "    def __init__(self,canvas):\n",
-    "        self.canvas = canvas\n",
-    "        super(RandomWalk, self).__init__()\n",
-    "        self.dt=0.03\n",
-    "\n",
-    "    def run(self):\n",
-    "        for _ in range(1000):\n",
-    "            for i in range(N):\n",
-    "                p[i].update(0.03)\n",
-    "            draw(p,self.canvas, 'black')   \n",
-    "            sleep(0.03)"
+    "## Canvas and drawing function"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Start the thread\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 59,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "RandomWalk( multi[1]).start()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 115,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "for _ in range(100):\n",
-    "            for i in range(N):\n",
-    "                p[i].update(0.23)\n",
-    "            draw(p,multi[1], 'black')   \n",
-    "            sleep(0.03)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 119,
-   "metadata": {},
-   "outputs": [
-    {
-     "ename": "RuntimeError",
-     "evalue": "No image data to save, please be sure that ``sync_image_data`` is set to True",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mRuntimeError\u001b[0m                              Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-119-8ed1f2a2f52f>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mmulti\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mto_file\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'my_file.png'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
-      "\u001b[0;32m~/opt/anaconda3/lib/python3.7/site-packages/ipycanvas/canvas.py\u001b[0m in \u001b[0;36mto_file\u001b[0;34m(self, filename)\u001b[0m\n\u001b[1;32m     42\u001b[0m         \"\"\"\n\u001b[1;32m     43\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mimage_data\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 44\u001b[0;31m             \u001b[0;32mraise\u001b[0m \u001b[0mRuntimeError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'No image data to save, please be sure that ``sync_image_data`` is set to True'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     45\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mfilename\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mendswith\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'.png'\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mand\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mfilename\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mendswith\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'.PNG'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     46\u001b[0m             \u001b[0;32mraise\u001b[0m \u001b[0mRuntimeError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'Can only save to a PNG file'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;31mRuntimeError\u001b[0m: No image data to save, please be sure that ``sync_image_data`` is set to True"
-     ]
-    }
-   ],
-   "source": [
-    "multi.to_file('my_file.png')"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 152,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "n = 2_000\n",
-    "n_particles = 5_000"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 153,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "current_time = time()\n",
+    "Next, we need  a canvas, in which we draw our particles and we need the drawing function. \n",
     "\n",
-    "def move_particles(x, speed_x, y, speed_y):\n",
-    "    global current_time\n",
-    "\n",
-    "    elapsed_time = time() - current_time\n",
-    "\n",
-    "    x += np.array(speed_x * elapsed_time, dtype=np.int32)\n",
-    "    y += np.array(speed_y * elapsed_time, dtype=np.int32)\n",
-    "\n",
-    "    current_time = time()"
+    "The canvas is created by the `Canvas()` constructor if `ipycanvas`. The `display` command displays the canvas below the the cell."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 154,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "x = np.array(np.random.rayleigh(250, n_particles), dtype=np.int32)\n",
-    "y = np.array(np.random.rayleigh(250, n_particles), dtype=np.int32)\n",
-    "size = np.random.randint(1, 3, n_particles)\n",
-    "speed_x = np.random.randint(-40, 40, n_particles)\n",
-    "speed_y = np.random.randint(-40, 40, n_particles)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 159,
+   "execution_count": 331,
    "metadata": {},
    "outputs": [
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "d9626565cc9d48aca53fbc8c3f6972ee",
+       "model_id": "6ce31a0919a74bee88373d7a8d03fef2",
        "version_major": 2,
        "version_minor": 0
       },
       "text/plain": [
-       "Canvas(sync_image_data=True, width=800)"
+       "Canvas(height=300, width=300)"
       ]
      },
      "metadata": {},
      "output_type": "display_data"
-    },
-    {
-     "ename": "NameError",
-     "evalue": "name 'pi' is not defined",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-      "\u001b[0;32m<ipython-input-159-cc5cb5ad213c>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     11\u001b[0m         \u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mclear\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     12\u001b[0m         \u001b[0;31m#canvas.fill_rects(x, y, 2)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 13\u001b[0;31m         \u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0marc\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0my\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m30\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mpi\u001b[0m \u001b[0;34m*\u001b[0m \u001b[0;36m2\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;32mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     14\u001b[0m         \u001b[0;31m#canvas.fill_arc(x, y, 4, 1, 2*np.pi)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     15\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-      "\u001b[0;31mNameError\u001b[0m: name 'pi' is not defined"
-     ]
     }
    ],
    "source": [
-    "canvas = Canvas(width=800, height=500,sync_image_data=True)\n",
+    "canvas = Canvas(width=300, height=300)\n",
+    "display(canvas)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We realize the drawing in a `for` loop, which is first updating all particle positions and then drawing all the particles. \n",
     "\n",
-    "display(canvas)\n",
-    "\n",
-    "canvas.fill_style = 'green'\n",
-    "\n",
-    "for _ in range(75):\n",
-    "    move_particles(x, speed_x, y, speed_y)\n",
-    "\n",
-    "    with hold_canvas(canvas):\n",
-    "        canvas.clear()\n",
-    "        #canvas.fill_rects(x, y, 2)\n",
-    "        canvas.arc(x, y, 30, 0, pi * 2, True)\n",
-    "        #canvas.fill_arc(x, y, 4, 1, 2*np.pi)\n",
-    "\n",
-    "    sleep(0.08)"
+    "The loop contains one interesting statement, which is the `with hold_canvas(canvas):`. Its useful to know that this statement halts the execution of all subsequent drawing comments in the following code block to create a \"batch\" of drawing commands send at one to the `ipycanvas` module. This will allow fast drawing of the whole scene.  All the rest of the commands are shortly explained in the loop comments."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 157,
+   "execution_count": 321,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "scale=1e7 # this is to scale up all from µm to pixels\n",
+    "for _ in range(1000):\n",
+    "    for i in range(N):\n",
+    "        p[i].update(0.18)\n",
+    "        \n",
+    "    with hold_canvas(canvas):\n",
+    "        canvas.clear() # clear the canvas before drawing\n",
+    "        canvas.fill_style = 'red' # fill color for the particles\n",
+    "        canvas.global_alpha = 0.5 # make the slightly transparent\n",
+    "        for i in range(N): # loop over all particles\n",
+    "            canvas.fill_arc(p[i].x*scale+150, p[i].y*scale+150, p[i].R*1e6, 0, 2*np.pi) # draw a filled circle for each particle\n",
+    "        sleep(0.03) # wait 10 ms before drawing the next timestep"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Threading for animation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "It is useful to start a simulation as a background process, which is running while you keep calculating in your Jupyter notebook. This can be achieved by setting up a thread, which is nothing else then a background process. There is a lot more behind threading, but we want to keep that simple.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "To setup such a background process you first need to setup a function that should be executed as a thread. This is the updating and drawing of the colloidal particles. \n",
+    "The `Thread()` function of the `threading` module is setting up everything for you and assigning that to the variable `simulation`. The `target=draw` statement thereby points the thread to take the right function. Once you start the thread with `simulation.start()` the function draw is executed in background until its finished. \n",
+    "\n",
+    "~~~\n",
+    "def draw():\n",
+    "    # do your drawing code here\n",
+    "\n",
+    "simulation = Thread(target=draw)  \n",
+    "\n",
+    "simulation.start()\n",
+    "~~~\n",
+    "\n",
+    "That's all you need. So lets wrap all our drawing before into a draw function.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 354,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def draw():\n",
+    "    for _ in range(1000):\n",
+    "        for i in range(N):\n",
+    "            p[i].update(0.18)\n",
+    "\n",
+    "        with hold_canvas(canvas):\n",
+    "            canvas.clear() # clear the canvas before drawing\n",
+    "            canvas.fill_style = 'red' # fill color for the particles\n",
+    "            canvas.global_alpha = 0.5 # make the slightly transparent\n",
+    "            for i in range(N): # loop over all particles\n",
+    "                canvas.fill_arc(p[i].x*scale+150, p[i].y*scale+150, p[i].R*1e6, 0, 2*np.pi) # draw a filled circle for each particle\n",
+    "            sleep(0.03) # wait 10 ms before drawing the next timestep"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 355,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "simulation = Thread(target=draw)  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We create a new canvas here, even though we could use the one on the top. It's just nice to not have to scroll up."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 356,
    "metadata": {},
    "outputs": [
     {
      "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "1617c498645948aa8eb514e79ba774fb",
+       "version_major": 2,
+       "version_minor": 0
+      },
       "text/plain": [
-       "array([300, 410, 533, ...,  -9, 234, 678], dtype=int32)"
+       "Canvas(height=300, width=300)"
       ]
      },
-     "execution_count": 157,
      "metadata": {},
-     "output_type": "execute_result"
+     "output_type": "display_data"
     }
    ],
    "source": [
-    "x"
+    "canvas = Canvas(width=300, height=300)\n",
+    "display(canvas)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 143,
+   "execution_count": 357,
    "metadata": {},
    "outputs": [],
    "source": [
-    "canvas.to_file('my_file.png')"
+    "# start the simulation\n",
+    "simulation.start()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "One of the intruiging things of this type of threading is that all of the parameters of the Colloids may still be changed on the fly while the process is running. So lets just reset the particle positions to the origin and see what is happening in the canvas."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 359,
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "for i in range(N):\n",
+    "    p[i].x=0\n",
+    "    p[i].y=0"
+   ]
   }
  ],
  "metadata": {
@@ -383,6 +373,12 @@
   "widgets": {
    "application/vnd.jupyter.widget-state+json": {
     "state": {
+     "0496437825c341559f9a7deabb7f02b1": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "06bc8d7f8fc04874b9f8ff31102a0a5d": {
       "buffers": [
        {
@@ -416,6 +412,24 @@
        "width": 400
       }
      },
+     "074f38cb659f4dc383d1176adf1099ba": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "078a8346c0d840a8863ff072b95b6066": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_c10f44d4c1604a758b6d2afe732fe1b1",
+       "width": 300
+      }
+     },
      "089e9a1f161846f88850167ebe11a479": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -426,6 +440,18 @@
        "height": 400,
        "layout": "IPY_MODEL_b495fbef03764c098b99c23cd357fcf7",
        "width": 400
+      }
+     },
+     "09c9c23cad9848589e30327b8d76beee": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_074f38cb659f4dc383d1176adf1099ba",
+       "width": 300
       }
      },
      "0a23ab006fc94a328f8d52b3e502a712": {
@@ -445,6 +471,18 @@
        "width": 800
       }
      },
+     "0c566d945b2e4caabba3c7eda8a4f4ff": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_fec624e1011945f69535eb8fef880ea1",
+       "width": 300
+      }
+     },
      "0e0af0f5e839418ba4750b5fe0db53e7": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -457,11 +495,65 @@
        "width": 400
       }
      },
+     "0e75aed2937f4f218a2e8a3d3b729817": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_38546ab9b3f0400d81e57437789454fa",
+       "width": 300
+      }
+     },
+     "11d6d78778d740fb893a91daaee581b8": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "13b55937f85e4da8846501e76872b01c": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "14fa8109bccf47938a582517239e5a11": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
+     },
+     "157a3758a06342ad84da0d12c43b1fb3": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "1617c498645948aa8eb514e79ba774fb": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_13b55937f85e4da8846501e76872b01c",
+       "width": 300
+      }
+     },
+     "1696acd688664dc592c6a8f9ba4f094c": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_4b760707ed2a42e0b153e72d6386b2f7",
+       "width": 300
+      }
      },
      "174acd4be656484398426a14b33a099a": {
       "model_module": "@jupyter-widgets/base",
@@ -475,6 +567,12 @@
       "model_name": "LayoutModel",
       "state": {}
      },
+     "1a19d4ebe4204f66a0f3e4ac93ffcc09": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "1addcf0eda044bfe91aa480a78533553": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -482,6 +580,55 @@
       "state": {}
      },
      "1af1626dcba747fb89866e7db72d4c37": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "1bb6c8bc7d28421cb1d916a1836c11c7": {
+      "buffers": [
+       {
+        "data": "iVBORw0KGgoAAAANSUhEUgAAAyAAAAH0CAYAAADFQEl4AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAADIKADAAQAAAABAAAB9AAAAADxKbWtAAAbWklEQVR4Ae3QMQEAAADCoPVPbQwfiEBhwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwMBzYG1cAAE232xdAAAAAElFTkSuQmCC",
+        "encoding": "base64",
+        "path": [
+         "image_data"
+        ]
+       }
+      ],
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "layout": "IPY_MODEL_11d6d78778d740fb893a91daaee581b8",
+       "sync_image_data": true,
+       "width": 800
+      }
+     },
+     "1c4c2c1de3f447cba12e702fc46ed73e": {
+      "buffers": [
+       {
+        "data": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABLKADAAQAAAABAAABLAAAAADYYILnAAAGO0lEQVR4Ae3QMQEAAADCoPVPbQwfiEBhwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwICB/8AAf7cAAevvHRIAAAAASUVORK5CYII=",
+        "encoding": "base64",
+        "path": [
+         "image_data"
+        ]
+       }
+      ],
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_53c8e842b63245e6a7c7e926429c410e",
+       "sync_image_data": true,
+       "width": 300
+      }
+     },
+     "2016e4daca114fd08d28c22349f18965": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
@@ -510,6 +657,18 @@
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
+     },
+     "291bf1e96a4d41c2bb5a553ddd3289e4": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_763d18014706476eabd3ac8b2a85e50f",
+       "width": 300
+      }
      },
      "2ad67cafd9b4460092b0cd46e16dcac6": {
       "model_module": "ipycanvas",
@@ -596,6 +755,24 @@
        "width": 800
       }
      },
+     "374a506fc5b34d578b608fb7cdde6552": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_2016e4daca114fd08d28c22349f18965",
+       "width": 300
+      }
+     },
+     "38546ab9b3f0400d81e57437789454fa": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "3ad0dccfc83c41a8b437c4c2c98f30ae": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -614,11 +791,62 @@
       "model_name": "LayoutModel",
       "state": {}
      },
+     "3c525d937bcd495681e5a1862e8826e2": {
+      "buffers": [
+       {
+        "data": "iVBORw0KGgoAAAANSUhEUgAAAyAAAAH0CAYAAADFQEl4AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAADIKADAAQAAAABAAAB9AAAAADxKbWtAAAbWklEQVR4Ae3QMQEAAADCoPVPbQwfiEBhwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwMBzYG1cAAE232xdAAAAAElFTkSuQmCC",
+        "encoding": "base64",
+        "path": [
+         "image_data"
+        ]
+       }
+      ],
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "layout": "IPY_MODEL_0496437825c341559f9a7deabb7f02b1",
+       "sync_image_data": true,
+       "width": 800
+      }
+     },
      "3fcaa6fb11ed46f5a260483b652657c4": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
+     },
+     "4064eb5653bf49aa9df83252c3e8d477": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "406cb995470348678d941a01f1852502": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_c3ed76c760f0480db6f2565f5c982475",
+       "width": 300
+      }
+     },
+     "4431496edd1f46f89c9998cde37eb596": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_4fc5cc7a42bf4860a2928326e2015cfc",
+       "width": 300
+      }
      },
      "45c69b04aec141eda0abd9e096b11817": {
       "model_module": "ipycanvas",
@@ -648,6 +876,24 @@
        "width": 400
       }
      },
+     "45d32b4c74cb45e78e4af381cf8e6495": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_461b21d8924b44daa540e38e018d830c",
+       "width": 300
+      }
+     },
+     "461b21d8924b44daa540e38e018d830c": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "472f1869b6544fedabe48a34f7a38828": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -676,13 +922,71 @@
        "width": 400
       }
      },
+     "4b760707ed2a42e0b153e72d6386b2f7": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "4bbe941d7d79487c85e3d7a6e7ba0238": {
+      "buffers": [
+       {
+        "data": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABLKADAAQAAAABAAABLAAAAADYYILnAAAJoUlEQVR4Ae3di3LbKhAA0OZO/v+Xe6O608RtZBksELt7PJOME+vBnsUSICz/+OERSeDnR2G3Hw8CJQX+Kxm1oAkQIECAAAECvwWG9Aa0sNQvAgQIECBAYFdgSOtjd2/jXpgehxbWuGTaMgECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAIEoAtM/6PwdjA8/f6fifwQIECBAgAABAjUFlmii16QX9VUCuoRXydsvgVwCU06g77nMSkXzViraPMFub+ztIX83h6bfDlhNXBYmQGBHwAF4B8a/CRAgQIAAAQIECBAgQIBAcoEpV12SGwovmYBpDckSKhwCBAgQIEBgEQFdj0USoRgECDwW0CV87ONVAgQIECBAgAABAgQIECBAgAABAlEEXJiIkinlTC1g0D11egVHgAABAgQ+BbS+Py2GP9PCGk5sBwQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAmcLuIPpA1F3HH2A4yUCBAgQIECAAAECBAgQIECAAAECBAgQILCKgKsdq2RCOQgkEXCVMEkihUGAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQeF3gkvvdzb4f1iVBvp4bWyBAYAWB9xUKoQwECIQTeAtXYgUmQIAAAQIECBAgQIAAAQIECBAgQIAAgVMEXJ0+hfH6jcye1nB9xEpAgAABAgQIECBAgAABAgQIJBZYacxqpbKET7kxrPApFAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgSyCfR8jrBnnWxuu/H4LOEujRcIECBAgAABAgQIEAgpoAvYkDZdwgYsixIgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIvCjRN6zCt4UVtqxMgQIAAAQIECCQSaGpKJ4pbKIUFdAkLJ/8gdAfEA6AFXi6Xo/cF0BWhT+CtbzVrESBAgAABAgQIECBAgAABAgQIECBA4I9AuUHxP5EPeuIq4SBYmyVAIJ+AM1C+nIqIwDABLaxhtDZMgAABAgQIECBAILCAoYXAyWspui5hi5ZlCRAgQIAAAQIECBAgQIAAAQIECIwVMDA71tfWCQwXMOg+nNgOCHQLOMn+RVfpfljuH/VX8v1JgAABAgQIECBAgAABAgQIEHhO4PIxNYPuzyXKUnkELn/T5aGcH0mlQff5uvZIIJdAz4Wr7QSxPXrWva355bcD1hcMT0sInPLGKSElSAIECBBoErjrwhvDarKzMAECBAgQIECAAAECBAgQIECAAIFlBO4G+pYplYIQKC5g0L14BRA+AQIEvgporX3V8JzACwJaWC/gLb6qA+XiCVK8doGrZrpvb6btUWHWcYUYb9n0m8BggasOWIPDsvkPAQdK1YAAAQIECBAgQIAAAQJlBQy6l0193sBdJcybW5ERIECAAAECBAgQIECAAAECBAgQIEBgJYESF1kMuq9U5ZSFAAECBFIJlGhJpMrYicFoYZ2IaVMECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIxBcyojpk3pU4sYKZ74uQGCM1JIUCSViqib83Zz4Zvndm38QoBAgQIECBAgAABAgQIEPgQMA6lGkwTMOg+jdqOCBAgEE9AiyRezpR4EQEtrEUSoRgECBCYJaDVNEvafkoLaGGVTr/gCRAgQIAAAQIECBAgQOBTwFjUp4VnBJYTMIa1XEoUiECTQKmTrA8/39cNH3i+9/AXAQIEpgqUOgNPlbWz6QK6hNPJ7ZAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAgXMElpnLZx7WOQm1FQIECBAgQKCYwMPWXLUW1kOMYhVDuPME1LuTrH34+SRImyFA4BQBNyA4hTHeRpzV4+VMiQ8EqnUJDzi8TIAAAQIECBAgQIAAAQIECBAgQIDAh4DBcNWAQKeAQfdOOKsRIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAj0Cpjv1StnvWUFzMNaNjUKRoAAAQIECBAgQGCCgG7uBOSVd6FLuHJ2lI0AAQInCjjjn4hpUwSOBLK3sBxQjmrAmq/L25p5ubxUvoTitRS4Yf5rftYmQIAAAQIECBCIItDSpWxZNkr8acuZfQwrbeIERoAAAQIECBAgQIAAAQIECBAgcKqAQc1TOW2MQF0Bg+7X594B/focKEEQgRkTR02uDFIZFJNARAFn/IhZU2YCBQR0CQskWYgECBAgQIAAAQIECBAgQIAAAQIEBgi48DEA1SbjCxh0j59DERBoEQh9MpwxD6sF07I3AXPX1AQCBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBGoJhL70nixVPbnoWecptuzzsIbBPaVrIQL/CqiT/5o8/R/zsJ6msuBEAfPQJmIf7KonFz3rHBTDywQIECBAgAABAgQIECBQQ2B3nC/7oHuN9IqSAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBK4U2J2kN6hQs/c3KAybvULAxNEr1O2TAAECBAgQIEAgv4BuWv4cp4hQlzBFGgXxjYCD8Dco0f/VcwO/rSJsDzfpujlk+C2XGbJYIIaeA1YBFiEmEHAQTpBEIRAgQIAAAQIEmgWMszWSGXRvBLM4AQIECNQS0LKole/TotXCOo3ShggQIECAAAECBAgQIECAAAECBAgQIECAAAECBLIIpL/66iphlqoqDgIECBAgQOBQYFrLTgvrMBcWIECAAAECBAgQIECAAAECBAgQCCYwbXAtmIviEiAwQcCg+wRkuyBAgAABAgQIECBAgAABAgQ2AeOg6kG3gDGsbjorEiBAgAABAgQIECAQWkBX+iN9uoSh63C5wnvTlkv5fcC++fnew18EVhXwTdarZka5ugW0QLrprBhBQJcwQpaUkQABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgACBXwJm+BepCGa6F0m0MAlUEnAGq5RtsRJYVOB/ahCwLLRZLcYAAAAASUVORK5CYII=",
+        "encoding": "base64",
+        "path": [
+         "image_data"
+        ]
+       }
+      ],
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_1a19d4ebe4204f66a0f3e4ac93ffcc09",
+       "sync_image_data": true,
+       "width": 300
+      }
+     },
      "4ced0ac3443b4b1988ea7fd6403089b9": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
      },
+     "4fc5cc7a42bf4860a2928326e2015cfc": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "512922d0725040ad85b5c996a0807e14": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_a5bfd288361342b5b6bddc1a39a40873",
+       "width": 300
+      }
+     },
      "51c4dcdc15b845e487546fc7913456f3": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "5262783567cd47469ca15e7cdbc2fd0c": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "53c8e842b63245e6a7c7e926429c410e": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
@@ -708,6 +1012,12 @@
        "sync_image_data": true,
        "width": 800
       }
+     },
+     "5473341b9049472da108f41ff9afe578": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
      },
      "5561e83dcb97435e889f20e2df17441d": {
       "model_module": "ipycanvas",
@@ -749,6 +1059,12 @@
        "width": 400
       }
      },
+     "58c1bef2f369436ab352439838c36d3c": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "5cc1c3ed12454734a6b5f1725c070edc": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -785,6 +1101,12 @@
       "model_name": "LayoutModel",
       "state": {}
      },
+     "6677c64adbfd40df8d94d53b0626fd10": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "6876c9aed9e341318087f991a7d43623": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -795,6 +1117,66 @@
        "height": 400,
        "layout": "IPY_MODEL_0a23ab006fc94a328f8d52b3e502a712",
        "width": 400
+      }
+     },
+     "6acf0a23688a4578a615ad76a3ae671e": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "6ce31a0919a74bee88373d7a8d03fef2": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_c28b47c9044a43d38617ec1b45cb4aa9",
+       "width": 300
+      }
+     },
+     "6d0a9be111534e408dde6d66524eaeea": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "6d0b8ae7766248b8a03d7314db1c0eb9": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_e1cbe722940049b5b2ac06efc5f6f7c3",
+       "width": 300
+      }
+     },
+     "6d7b64d6184a438ba350400476199b05": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_a4968bf87e09480c8c465c0341cd7ccf",
+       "width": 300
+      }
+     },
+     "6dccca707b01492886cdecb7245a7b05": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_77dc94b1ab094352bd9078a3b62979c4",
+       "width": 300
       }
      },
      "6e20c655e04d495cb305d531a2a8280a": {
@@ -829,6 +1211,18 @@
        "width": 400
       }
      },
+     "713aa9b7529b4bcda19298c39af20000": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_5262783567cd47469ca15e7cdbc2fd0c",
+       "width": 300
+      }
+     },
      "7187a2c0848449c498adfe562c866994": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -840,6 +1234,18 @@
        "layout": "IPY_MODEL_bee18b0258364e4386eace1c6cf71383",
        "width": 400
       }
+     },
+     "7432208c44de41d7a36150c9f9bd6dc9": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "763d18014706476eabd3ac8b2a85e50f": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
      },
      "770f89c890744ccbbf95adeb58ce2fdc": {
       "model_module": "@jupyter-widgets/base",
@@ -867,6 +1273,12 @@
        "sync_image_data": true,
        "width": 800
       }
+     },
+     "77dc94b1ab094352bd9078a3b62979c4": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
      },
      "7b0c7fb996cf4c2fbe4076971f303148": {
       "model_module": "@jupyter-widgets/base",
@@ -901,6 +1313,36 @@
        "_view_module_version": "^0.4.3",
        "layout": "IPY_MODEL_8ececa35e12d4793ad677a9d14bf0b61",
        "width": 800
+      }
+     },
+     "81256750d94142bebb6a13ba26a1b483": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_af536c09ff794388a67774211bddf825",
+       "width": 300
+      }
+     },
+     "8376860d7805436eab9f18afcdb790de": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "87307fa1f96e494da1c6489440e07164": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_e0324536069340828a7a66edbfef2ef1",
+       "width": 300
       }
      },
      "8aa1e8870503451382ed8729a4e59b22": {
@@ -971,6 +1413,18 @@
        "height": 400,
        "layout": "IPY_MODEL_ac40b1e91182473fb3351954c786b75b",
        "width": 400
+      }
+     },
+     "94c499bf87bd482283c1fed9ffaaff8c": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_fac0a285deb64e509eec30394c050fca",
+       "width": 300
       }
      },
      "95850b5f61c64de5836f1702f578ad6b": {
@@ -1057,6 +1511,18 @@
        "width": 800
       }
      },
+     "a4968bf87e09480c8c465c0341cd7ccf": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "a5bfd288361342b5b6bddc1a39a40873": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "a6b1243fa9f64bee98235b75bb1c917b": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -1089,6 +1555,30 @@
        "width": 400
       }
      },
+     "a9ef177921f74bb38b0bd3cdea754f86": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_58c1bef2f369436ab352439838c36d3c",
+       "width": 300
+      }
+     },
+     "ab03264a3470416fafb028310dfe84e9": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_6d0a9be111534e408dde6d66524eaeea",
+       "width": 300
+      }
+     },
      "ac40b1e91182473fb3351954c786b75b": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -1096,6 +1586,36 @@
       "state": {}
      },
      "acb34813c338461697fafdd9505eaa0b": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "ad7ff0eda8b4491ab44fee4862949c67": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_7432208c44de41d7a36150c9f9bd6dc9",
+       "width": 300
+      }
+     },
+     "ade179f4d8c842c28762a5c4c05e8175": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_157a3758a06342ad84da0d12c43b1fb3",
+       "width": 300
+      }
+     },
+     "af536c09ff794388a67774211bddf825": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
@@ -1136,6 +1656,24 @@
       "model_name": "LayoutModel",
       "state": {}
      },
+     "b660d7d684b344c2b71e93bffefccb1d": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "b997ad93f6454155aa4633aa5d5f9cf0": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_8376860d7805436eab9f18afcdb790de",
+       "width": 300
+      }
+     },
      "bc47c8d0e2564e45b76c1020e77ebca4": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -1175,7 +1713,25 @@
        "width": 800
       }
      },
+     "c10f44d4c1604a758b6d2afe732fe1b1": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "c25d4d6eaae94eb9be25ad5bf29346ef": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "c28b47c9044a43d38617ec1b45cb4aa9": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "c3ed76c760f0480db6f2565f5c982475": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
@@ -1198,6 +1754,27 @@
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
+     },
+     "c7f7e71232874c4aa021cc94bc67002c": {
+      "buffers": [
+       {
+        "data": "iVBORw0KGgoAAAANSUhEUgAAAyAAAAH0CAYAAADFQEl4AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAADIKADAAQAAAABAAAB9AAAAADxKbWtAAAbWklEQVR4Ae3QMQEAAADCoPVPbQwfiEBhwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwIABAwYMGDBgwMBzYG1cAAE232xdAAAAAElFTkSuQmCC",
+        "encoding": "base64",
+        "path": [
+         "image_data"
+        ]
+       }
+      ],
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "layout": "IPY_MODEL_6acf0a23688a4578a615ad76a3ae671e",
+       "sync_image_data": true,
+       "width": 800
+      }
      },
      "c825c6dad5fa432cbcec6c557e747e27": {
       "model_module": "ipycanvas",
@@ -1230,6 +1807,30 @@
        "_view_module_version": "^0.4.3",
        "layout": "IPY_MODEL_218bf8e3b3474f1790ab06292f6ccfb6",
        "width": 800
+      }
+     },
+     "cb1bf55f47794ae18a37aece6461cbd9": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_4064eb5653bf49aa9df83252c3e8d477",
+       "width": 300
+      }
+     },
+     "ccb4b4689ead4e58ac874734c7acc389": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_6677c64adbfd40df8d94d53b0626fd10",
+       "width": 300
       }
      },
      "cd18fa22f6b748f89b63a4bbbcdb0a6b": {
@@ -1340,6 +1941,12 @@
        "width": 800
       }
      },
+     "e0324536069340828a7a66edbfef2ef1": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "e0a5f9f1b9a343a2a8d9d687751f884e": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -1355,6 +1962,24 @@
        "layout": "IPY_MODEL_8aa1e8870503451382ed8729a4e59b22",
        "width": 800
       }
+     },
+     "e1c4866150714bb897da8c2b3654a109": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_b660d7d684b344c2b71e93bffefccb1d",
+       "width": 300
+      }
+     },
+     "e1cbe722940049b5b2ac06efc5f6f7c3": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
      },
      "e251709ba7d64ad58b16bbfcca88e419": {
       "model_module": "ipycanvas",
@@ -1438,11 +2063,35 @@
        "width": 400
       }
      },
+     "fac0a285deb64e509eec30394c050fca": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "fe2a24fcdf8e4448834bc80d3841a457": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
+     },
+     "fec624e1011945f69535eb8fef880ea1": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "fee4d47609444ad6ab843f50804eaf7c": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_5473341b9049472da108f41ff9afe578",
+       "width": 300
+      }
      }
     },
     "version_major": 2,
