@@ -328,10 +328,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_animations.html">Animations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="3_animations.html#Draw-function-for-the-particles">Draw function for the particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_animations.html#Import-Modules">Import Modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_animations.html#Particle-class">Particle class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_animations.html#Animation-thread">Animation thread</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_animations.html#Start-the-thread">Start the thread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_animations.html#Create-a-set-of-particles">Create a set of particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_animations.html#Canvas-and-drawing-function">Canvas and drawing function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_animations.html#Threading-for-animation">Threading for animation</a></li>
 </ul>
 </li>
 </ul>
@@ -643,14 +644,14 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id5"><span class="problematic" id="id6">`source/notebooks/L4/2_brownian_motion.ipynb`_</span></a>.
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L4/2_brownian_motion.ipynb`_</span></a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L4/2_brownian_motion.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <div class="section" id="Brownian-Motion">
 <h1>Brownian Motion<a class="headerlink" href="#Brownian-Motion" title="Permalink to this headline">¶</a></h1>
 <p>We will use our newly gained knowledge about classes for the simulation of Brownian motion. This actually perfectly fits to the object oriented programming topic, as each Brownian particle (or colloid) can be seen as an object instanciated from the same class, but perhaps with different properties. Some particles might be larger and some smaller for example. We know already some part of that, as we have covered it in earlier lectures.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[311]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -681,12 +682,10 @@ div.rendered_html tbody tr:hover {
 <h2>Physics<a class="headerlink" href="#Physics" title="Permalink to this headline">¶</a></h2>
 <p>The Brownian motion of a colloidal particle (called solute) results from the collisions with the surrounding solvent molecules. Due to these collisions, the particle has in equilibrium a mean kinetic energy defined by the temperature. With this kinetic energy it would travel a mean distance <span class="math notranslate nohighlight">\(l\)</span> before it takes another random direction and go another step length <span class="math notranslate nohighlight">\(l\)</span>. This mean distance the particle travels is very short in liquids. It is on the other of picometers. It has been shown
 by <strong>Lindenberg and Lévy</strong> that a sequence of many such infinitesimal small random steps leads to a total effect, which can be approximated by a normal distribution. This important theorem is called the <strong>central limit theorem</strong>.</p>
-<p>For our Brownian motion the sequence of tiny steps leads after a time <span class="math notranslate nohighlight">\(t\)</span> to the following probability distribution to find the particle at a position <span class="math notranslate nohighlight">\(x\)</span> if it initially started at <span class="math notranslate nohighlight">\(x=0\)</span></p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}</dt><dd><p>p(x,Delta t)=frac{1}{sqrt{4pi D Delta t}}e^{-frac{x^2}{4D Delta t}}</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p>For our Brownian motion the sequence of tiny steps leads after a time <span class="math notranslate nohighlight">\(t\)</span> to the following probability distribution to find the particle at a position <span class="math notranslate nohighlight">\(x\)</span> if it initially started at <span class="math notranslate nohighlight">\(x=0\)</span>:</p>
+<p><span class="math">\begin{equation}
+p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
+\end{equation}</span></p>
 <p>where <span class="math notranslate nohighlight">\(D\)</span> is the diffusion coefficient. Thus each step of our Brownian motion simulation for a timestep of <span class="math notranslate nohighlight">\(\Delta t\)</span> is taken from a Gaussian distribution with a varaince of <span class="math notranslate nohighlight">\(\sigma^2=2D \Delta t\)</span>.</p>
 <p>For our simulation that means that we can draw numbers from a normal distribution with <code class="docutils literal notranslate"><span class="pre">np.random.normal</span></code> with the standard deviation <span class="math notranslate nohighlight">\(\sigma=\sqrt{2D \Delta t}\)</span> as a parameter. This has to be done for the x-coordinate and the y-coordinate.</p>
 <p>The code for our Brownian motion therefore is</p>
@@ -713,7 +712,7 @@ by <strong>Lindenberg and Lévy</strong> that a sequence of many such infinitesi
 </div>
 </div>
 <div class="admonition note">
-<p class="admonition-title fa fa-exclamation-circle"><strong>Physics interlude</strong> Colloidal particle class</p>
+<p class="admonition-title fa fa-exclamation-circle"><strong>Physics interlude:</strong> Colloidal particle class</p>
 <p>Each object shall then contain the following properties</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">the</span> <span class="n">particle</span> <span class="n">radius</span><span class="p">,</span> <span class="n">R</span>
 <span class="o">*</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">x</span> <span class="n">position</span><span class="p">,</span> <span class="n">x</span>
@@ -724,14 +723,14 @@ by <strong>Lindenberg and Lévy</strong> that a sequence of many such infinitesi
 </div>
 <p>The object shall provide the following methods</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">sim_trajectory</span><span class="p">()</span> <span class="n">simulate</span> <span class="n">a</span> <span class="n">whole</span> <span class="n">trajectory</span> <span class="n">at</span> <span class="n">once</span>
+<span class="o">*</span> <span class="n">update</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="n">do</span> <span class="n">one</span> <span class="n">step</span> <span class="n">of</span> <span class="n">Brownian</span> <span class="n">motion</span> <span class="k">with</span> <span class="n">a</span> <span class="n">time</span> <span class="n">step</span> <span class="n">dt</span> <span class="k">as</span> <span class="n">argument</span><span class="p">,</span> <span class="k">return</span> <span class="n">the</span> <span class="n">current</span> <span class="n">position</span>
 <span class="o">*</span> <span class="n">get_trajectory</span><span class="p">()</span> <span class="k">return</span> <span class="n">the</span> <span class="n">trajectory</span> <span class="k">as</span> <span class="n">a</span> <span class="n">pandas</span> <span class="n">DataFrame</span> <span class="k">with</span> <span class="n">the</span> <span class="n">columns</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span>
 <span class="o">*</span> <span class="n">get_D</span><span class="p">()</span> <span class="k">return</span> <span class="n">the</span> <span class="n">diffusion</span> <span class="n">coefficient</span>
-<span class="o">*</span> <span class="n">update</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="n">do</span> <span class="n">one</span> <span class="n">step</span> <span class="n">of</span> <span class="n">Brownian</span> <span class="n">motion</span> <span class="k">with</span> <span class="n">a</span> <span class="n">time</span> <span class="n">step</span> <span class="n">dt</span> <span class="k">as</span> <span class="n">argument</span><span class="p">,</span> <span class="k">return</span> <span class="n">the</span> <span class="n">current</span> <span class="n">position</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[259]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[320]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -774,9 +773,13 @@ by <strong>Lindenberg and Lévy</strong> that a sequence of many such infinitesi
 
     <span class="c1"># insert something that prints the particle position in a formatted way when printing</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span><span class="p">(</span><span class="s2">&quot;The particle with radius R=</span><span class="si">{}</span><span class="s2"> is at x=</span><span class="si">{}</span><span class="s2">,y=</span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">return</span><span class="p">(</span><span class="s2">&quot;I&#39;m a particle with radius R=</span><span class="si">{0:0.3e}</span><span class="s2"> at x=</span><span class="si">{1:0.3e}</span><span class="s2">,y=</span><span class="si">{2:0.3e}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </div>
+</div>
+<div class="admonition note">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong></p>
+<p>Note that the function <code class="docutils literal notranslate"><span class="pre">sim_trajectory</span></code> is actually calling the function <code class="docutils literal notranslate"><span class="pre">update</span></code> of the same object to generate the whole trajectory at once.</p>
 </div>
 </div>
 <div class="section" id="Simulating">
@@ -789,12 +792,12 @@ by <strong>Lindenberg and Lévy</strong> that a sequence of many such infinitesi
 <li><p>particle objects should be stored in a list p_list</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[260]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[312]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">N</span><span class="o">=</span><span class="mi">2000</span> <span class="c1"># the number of trajectory points</span>
-<span class="n">n</span><span class="o">=</span><span class="mi">200</span><span class="c1"># the number of particles</span>
+<span></span><span class="n">N</span><span class="o">=</span><span class="mi">200</span> <span class="c1"># the number of trajectory points</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">200</span> <span class="c1"># the number of particles</span>
 
 <span class="n">p_list</span><span class="o">=</span><span class="p">[]</span>
 <span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span>
@@ -806,13 +809,11 @@ by <strong>Lindenberg and Lévy</strong> that a sequence of many such infinitesi
 
 <span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p_list</span><span class="p">):</span>
     <span class="n">p</span><span class="o">.</span><span class="n">sim_trajectory</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dt</span><span class="p">)</span>
-
-
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[261]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[313]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -825,7 +826,7 @@ by <strong>Lindenberg and Lévy</strong> that a sequence of many such infinitesi
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The particle with radius R=1e-06 is at x=1.2452562177987526e-06,y=-1.9321186599295917e-06.
+I&#39;m a particle with radius R=1.000e-06 at x=-5.280e-06,y=-2.886e-06.
 </pre></div></div>
 </div>
 <p>As a result you shall be able to plot, for example, all data points of the trajectories as shown below.</p>
@@ -834,7 +835,7 @@ The particle with radius R=1e-06 is at x=1.2452562177987526e-06,y=-1.93211865992
 <h2>Plotting the trajectories<a class="headerlink" href="#Plotting-the-trajectories" title="Permalink to this headline">¶</a></h2>
 <p>The next step is to plot all the trajectories.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[262]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[295]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -856,7 +857,7 @@ The particle with radius R=1e-06 is at x=1.2452562177987526e-06,y=-1.93211865992
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_17_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_17_0.png" src="../../_images/notebooks_L4_2_brownian_motion_17_0.png" style="width: 441px; height: 395px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_18_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_18_0.png" src="../../_images/notebooks_L4_2_brownian_motion_18_0.png" style="width: 441px; height: 395px;" /></a>
 </div>
 </div>
 </div>
@@ -866,22 +867,22 @@ The particle with radius R=1e-06 is at x=1.2452562177987526e-06,y=-1.93211865992
 <div class="section" id="Calculate-the-particle-velocity">
 <h3>Calculate the particle velocity<a class="headerlink" href="#Calculate-the-particle-velocity" title="Permalink to this headline">¶</a></h3>
 <p>One way is to calculate its speed by measuring how far it traveled within a certain time <span class="math notranslate nohighlight">\(n\, dt\)</span>, where <span class="math notranslate nohighlight">\(dt\)</span> is the timestep of out simulation. We can do that as</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id3"><span class="problematic" id="id4">`</span></a>begin{equation}</dt><dd><p>v(n, dt)=frac{langlesqrt{(x_{i+n}-x_{i})^2+(y_{i+n}-y_{i})^2}rangle}{n,dt}</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>The angular brackets on the top take care of the fact that we can measure the distance traveled within a certain time <span class="math notranslate nohighlight">\(n\, dt\)</span> several times along a trajectory. These values can be used to calculate a mean speed.</p>
+<p><span class="math">\begin{equation}
+v(n dt) = \frac{<\sqrt{(x_{i+n}-x_{i})^2+(y_{i+n}-y_{i})^2}>}{n\,dt}
+\end{equation}</span></p>
+<p>The angular brackets on the top take care of the fact that we can measure the distance traveled within a certain time <span class="math notranslate nohighlight">\(n\, dt\)</span> several times along a trajectory.</p>
+<p><img alt="msd" src="../../_images/msd.png" /></p>
+<p>These values can be used to calculate a mean speed. Note that there is not an equal amount of data pairs for all separations available. For <span class="math notranslate nohighlight">\(n=1\)</span> there are 5 distances available. For <span class="math notranslate nohighlight">\(n=5\)</span>, however, only 1. This changes the statistical accuracy of the mean.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[271]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[315]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span><span class="o">*</span><span class="n">dt</span>
+<span></span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="o">*</span><span class="n">dt</span>
 
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">t</span><span class="o">=</span><span class="n">p_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_trajectory</span><span class="p">()</span>
-    <span class="n">md</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)]</span>
+    <span class="n">md</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)]</span>
     <span class="n">md</span><span class="o">=</span><span class="n">md</span><span class="o">/</span><span class="n">time</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">md</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 
@@ -895,7 +896,7 @@ The particle with radius R=1e-06 is at x=1.2452562177987526e-06,y=-1.93211865992
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_22_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_22_0.png" src="../../_images/notebooks_L4_2_brownian_motion_22_0.png" style="width: 396px; height: 295px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_23_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_23_0.png" src="../../_images/notebooks_L4_2_brownian_motion_23_0.png" style="width: 392px; height: 295px;" /></a>
 </div>
 </div>
 <p>The result of this analysis shows, that each particle has an apparent speed which seems to increase with decreasing time of observation or which decreases with increasing time. This would mean that there is some friction at work, which slows down the particle in time, but this is apparently not true. Also an infinite speed at zero time appears to be unphysical. The correct answer is just that the speed is no good measure to characterize the motion of a Brownian particle.</p>
@@ -908,19 +909,20 @@ The particle with radius R=1e-06 is at x=1.2452562177987526e-06,y=-1.93211865992
 \end{equation}</span></p>
 <p>where <span class="math notranslate nohighlight">\(d\)</span> is the dimension of the random walk, which is <span class="math notranslate nohighlight">\(d=2\)</span> in our case.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[270]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[317]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span><span class="o">*</span><span class="n">dt</span>
+<span></span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="o">*</span><span class="n">dt</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
     <span class="n">t</span><span class="o">=</span><span class="n">p_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_trajectory</span><span class="p">()</span>
-    <span class="n">msd</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)]</span>
+    <span class="n">msd</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)]</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">msd</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">p_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">p_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;theory&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;msd&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;msd $[\mu m^2/s]$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -929,8 +931,14 @@ The particle with radius R=1e-06 is at x=1.2452562177987526e-06,y=-1.93211865992
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_26_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_26_0.png" src="../../_images/notebooks_L4_2_brownian_motion_26_0.png" style="width: 411px; height: 295px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_27_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_27_0.png" src="../../_images/notebooks_L4_2_brownian_motion_27_0.png" style="width: 397px; height: 295px;" /></a>
 </div>
+</div>
+<p>The results show that the mean squared displacement of the individual particles follows <em>on average</em> the theoretical predictions of a linear growth in time. That means, we are able to read the diffusion coefficient from the slope of the MSD of the individual particles if recorded in a simulation or an experiment.</p>
+<p>Yet, each individual MSD is deviating strongly from the theoretical prediction especially at large times. This is due to the fact mentioned earlier that our simulation (or experimental) data only has a limited number of data points, while the theoretical prediction is made for the limit of infinite data points.</p>
+<div class="admonition warning">
+<p class="admonition-title fa fa-exclamation-circle"><strong>Warning:</strong> Analysis of MSD data</p>
+<p>Single particle tracking, either in the experiment or in numerical simulations can therefore only deliver an estimate of the diffusion coefficient and care should be taken when using the whole MSD to obtain the diffusion coefficient. One typically uses only a short fraction of the whole MSD data at short times.</p>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
@@ -960,7 +968,7 @@ The particle with radius R=1e-06 is at x=1.2452562177987526e-06,y=-1.93211865992
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Apr 25, 2020.
+        Last updated on Apr 26, 2020.
       </span>
 
     </p>

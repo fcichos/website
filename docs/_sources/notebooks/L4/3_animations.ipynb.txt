@@ -15,7 +15,7 @@
     "\n",
     "There are multiple ways to animate plots and images in python. Not all of them are always transferable between computers. Matplotlib for example provides a `animate` function, which can also use the `ffmpeg` video compressor. But that requires installation of all of them on the specific system you are working on. \n",
     "\n",
-    "We want to use the `ipycanvas` module, because it delivers easy drawing of shapes like circles or rectangle in a canvas directly in our Jupyter Notebooks.([see the docs](https://readthedocs.org/projects/ipycanvas/downloads/pdf/latest/))"
+    "We want to use the `ipycanvas` module, because it delivers easy drawing of shapes like circles or rectangle in a canvas directly in our Jupyter Notebooks. Have a look at the ([documentation](https://readthedocs.org/projects/ipycanvas/downloads/pdf/latest/)). The module provides even tools to interact with a mouse."
    ]
   },
   {
@@ -87,10 +87,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 295,
+   "execution_count": 374,
    "metadata": {},
    "outputs": [],
    "source": [
+    "# Class definition\n",
     "class Colloid:\n",
     "\n",
     "    # A class variable, counting the number of Colloids\n",
@@ -100,25 +101,27 @@
     "    # constructor\n",
     "    def __init__(self,R, x0=0, y0=0):        \n",
     "        # add initialisation code here\n",
-    "        self.R=R\n",
-    "        self.x=x0\n",
-    "        self.y=y0\n",
+    "        self.R=R        \n",
+    "        self.x=[x0]\n",
+    "        self.y=[y0]\n",
     "        Colloid.number=Colloid.number+1\n",
     "        self.index=Colloid.number \n",
-    "        self.D=Colloid.f/self.R\n",
-    "    \n",
-    "    # method to return the name \n",
-    "    def get_size(self):\n",
-    "        return(self.R)\n",
-    "    \n",
+    "        self.D=Colloid.f/self.R        \n",
     "        \n",
     "    def get_D(self):        \n",
     "        return(self.D)\n",
     "    \n",
-    "    def update(self,dt):\n",
-    "        self.x=self.x+np.random.normal(0.0, np.sqrt(2*self.D*dt))\n",
-    "        self.y=self.y+np.random.normal(0.0, np.sqrt(2*self.D*dt))\n",
-    "        return(self.x,self.y)\n",
+    "    def sim_trajectory(self,N,dt):        \n",
+    "        for i in range(N):\n",
+    "            self.update(dt)\n",
+    "    \n",
+    "    def update(self,dt):                   \n",
+    "        self.x.append(self.x[-1]+np.random.normal(0.0, np.sqrt(2*self.D*dt)))\n",
+    "        self.y.append(self.y[-1]+np.random.normal(0.0, np.sqrt(2*self.D*dt)))\n",
+    "        return(self.x[-1],self.y[-1])\n",
+    "        \n",
+    "    def get_trajectory(self):\n",
+    "        return(pd.DataFrame({'x':self.x,'y':self.y}))\n",
     "    \n",
     "    # class method accessing a class variable\n",
     "    @classmethod\n",
@@ -127,7 +130,7 @@
     "    \n",
     "    # insert something that prints the particle position in a formatted way when printing\n",
     "    def __str__(self):\n",
-    "        return(\"The particle with radius R={} is at x={},y={}.\".format(self.R, self.x, self.y))"
+    "        return(\"I'm a particle with radius R={0:0.3e} at x={1:0.3e},y={2:0.3e}.\".format(self.R, self.x[-1], self.y[-1]))"
    ]
   },
   {
@@ -146,7 +149,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 330,
+   "execution_count": 375,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -176,27 +179,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 331,
+   "execution_count": 390,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "6ce31a0919a74bee88373d7a8d03fef2",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "Canvas(height=300, width=300)"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "canvas = Canvas(width=300, height=300)\n",
     "display(canvas)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<img src=\"img/particles.png\" alt=\"particles\" style=\"width: 300px;\"/>\n"
    ]
   },
   {
@@ -210,7 +205,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 321,
+   "execution_count": 378,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -224,7 +219,7 @@
     "        canvas.fill_style = 'red' # fill color for the particles\n",
     "        canvas.global_alpha = 0.5 # make the slightly transparent\n",
     "        for i in range(N): # loop over all particles\n",
-    "            canvas.fill_arc(p[i].x*scale+150, p[i].y*scale+150, p[i].R*1e6, 0, 2*np.pi) # draw a filled circle for each particle\n",
+    "            canvas.fill_arc(p[i].x[-1]*scale+150, p[i].y[-1]*scale+150, p[i].R*1e6, 0, 2*np.pi) # draw a filled circle for each particle\n",
     "        sleep(0.03) # wait 10 ms before drawing the next timestep"
    ]
   },
@@ -264,7 +259,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 354,
+   "execution_count": 379,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -278,13 +273,13 @@
     "            canvas.fill_style = 'red' # fill color for the particles\n",
     "            canvas.global_alpha = 0.5 # make the slightly transparent\n",
     "            for i in range(N): # loop over all particles\n",
-    "                canvas.fill_arc(p[i].x*scale+150, p[i].y*scale+150, p[i].R*1e6, 0, 2*np.pi) # draw a filled circle for each particle\n",
+    "                canvas.fill_arc(p[i].x[-1]*scale+150, p[i].y[-1]*scale+150, p[i].R*1e6, 0, 2*np.pi) # draw a filled circle for each particle\n",
     "            sleep(0.03) # wait 10 ms before drawing the next timestep"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 355,
+   "execution_count": 386,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -300,32 +295,24 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 356,
+   "execution_count": 392,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "1617c498645948aa8eb514e79ba774fb",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "Canvas(height=300, width=300)"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "canvas = Canvas(width=300, height=300)\n",
     "display(canvas)"
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<img src=\"img/particles.png\" alt=\"particles\" style=\"width: 300px;\"/>\n"
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 357,
+   "execution_count": 388,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -342,13 +329,26 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 359,
+   "execution_count": 389,
    "metadata": {},
    "outputs": [],
    "source": [
     "for i in range(N):\n",
-    "    p[i].x=0\n",
-    "    p[i].y=0"
+    "    p[i].x=[0]\n",
+    "    p[i].y=[0]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now that we have a nice way of simulating particle motion you can extend that a bit. Here are three additions you may want to make:\n",
+    "\n",
+    "1) **Introduce boundary conditions:** This is a different way of keeping the particles inside the simulation box. They are just reflected by a boundary.\n",
+    "\n",
+    "2) **Introduce a drift velocity:** Particles may not only move diffusively but also with a constant drift velocity in a certain direction. We want to introduce that feature to tackle a COVID-19 spreading.\n",
+    "\n",
+    "3) **Introduce collisions:** To study the spreading of an infection, we have to introduce collisions between particles."
    ]
   }
  ],
@@ -379,6 +379,18 @@
       "model_name": "LayoutModel",
       "state": {}
      },
+     "0608c1c7094444978b62305a6b13ddba": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_3aace94567544c5f98af2c8022a6f7b6",
+       "width": 300
+      }
+     },
      "06bc8d7f8fc04874b9f8ff31102a0a5d": {
       "buffers": [
        {
@@ -398,6 +410,18 @@
        "layout": "IPY_MODEL_2f402cd7447f4ea79aaa8c2aaa553963",
        "sync_image_data": true,
        "width": 800
+      }
+     },
+     "071b5e09201c446198e65af50569de56": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_22e4bffab1c34598b93ca4ae70f05b46",
+       "width": 300
       }
      },
      "072878da7bf04bdf8df79cafcaf54a6f": {
@@ -506,6 +530,12 @@
        "layout": "IPY_MODEL_38546ab9b3f0400d81e57437789454fa",
        "width": 300
       }
+     },
+     "0e802ff5c3b04b8fa735d293a641147e": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
      },
      "11d6d78778d740fb893a91daaee581b8": {
       "model_module": "@jupyter-widgets/base",
@@ -652,6 +682,12 @@
        "width": 400
       }
      },
+     "22e4bffab1c34598b93ca4ae70f05b46": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "27a111d819ea48dab5ed7e794247c4b6": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -768,6 +804,12 @@
       }
      },
      "38546ab9b3f0400d81e57437789454fa": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "3aace94567544c5f98af2c8022a6f7b6": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
@@ -975,6 +1017,12 @@
       }
      },
      "51c4dcdc15b845e487546fc7913456f3": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "51fdbd912c364b4bb409eadfabc88aff": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
@@ -1280,6 +1328,18 @@
       "model_name": "LayoutModel",
       "state": {}
      },
+     "7a587a36e47d43eca8b4c8277c0ba568": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "7ab7bfd72f224bbc9acd08f6854e39e6": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "7b0c7fb996cf4c2fbe4076971f303148": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -1333,6 +1393,18 @@
       "model_name": "LayoutModel",
       "state": {}
      },
+     "86b2490effee4e8985b4d1fef6063e53": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_f610f37d722f4196a9f66f9eda0dfa35",
+       "width": 300
+      }
+     },
      "87307fa1f96e494da1c6489440e07164": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -1345,11 +1417,35 @@
        "width": 300
       }
      },
+     "88788e76e3b14f4b9a8e7b486be0bf77": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_9ca070acbee04d38b6dfb24a3b503d6d",
+       "width": 300
+      }
+     },
      "8aa1e8870503451382ed8729a4e59b22": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
+     },
+     "8ae45e7421114d45af57a9812fa2f9b9": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_7a587a36e47d43eca8b4c8277c0ba568",
+       "width": 300
+      }
      },
      "8c0b3bfe3fd7408cad111efc5b3927f8": {
       "model_module": "@jupyter-widgets/base",
@@ -1401,6 +1497,18 @@
        "height": 400,
        "layout": "IPY_MODEL_321ae34244eb46a0af375056b69cb8d6",
        "width": 400
+      }
+     },
+     "93ab8e8c9a7a451cbe2fd35c9c143703": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_7ab7bfd72f224bbc9acd08f6854e39e6",
+       "width": 300
       }
      },
      "946d1da0ce8f461297289d34e4e024a2": {
@@ -1457,6 +1565,12 @@
        "width": 400
       }
      },
+     "9ca070acbee04d38b6dfb24a3b503d6d": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "9cf25c8e7534433a9fe75f906d639ccb": {
       "buffers": [
        {
@@ -1476,6 +1590,18 @@
        "layout": "IPY_MODEL_5cc1c3ed12454734a6b5f1725c070edc",
        "sync_image_data": true,
        "width": 800
+      }
+     },
+     "9ec86d133629423a961bb3bfb90f52c4": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_51fdbd912c364b4bb409eadfabc88aff",
+       "width": 300
       }
      },
      "a0ea27179f6f43459b5fb62f601cdb9e": {
@@ -1566,6 +1692,12 @@
        "layout": "IPY_MODEL_58c1bef2f369436ab352439838c36d3c",
        "width": 300
       }
+     },
+     "aa0f160baff14504820a2074d74f85a5": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
      },
      "ab03264a3470416fafb028310dfe84e9": {
       "model_module": "ipycanvas",
@@ -1854,6 +1986,18 @@
        "width": 800
       }
      },
+     "cd8cf20fc2e44866bebb2d7882bb280d": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_aa0f160baff14504820a2074d74f85a5",
+       "width": 300
+      }
+     },
      "cd9d1b8931154865b62aa55c7d320e59": {
       "buffers": [
        {
@@ -1997,6 +2141,18 @@
        "width": 400
       }
      },
+     "e934e4d411c548bb998f5fe47a4ba05c": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_0e802ff5c3b04b8fa735d293a641147e",
+       "width": 300
+      }
+     },
      "ec232bd888474bc8bfec1a5be767f685": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -2022,6 +2178,12 @@
       "state": {}
      },
      "f61026a777e34518a85a430bfaab9d91": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "f610f37d722f4196a9f66f9eda0dfa35": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
