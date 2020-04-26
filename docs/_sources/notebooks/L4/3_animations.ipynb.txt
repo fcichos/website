@@ -307,13 +307,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "<video src=\"img/animation.mov\" width=\"320\" height=\"200\" controls></video>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "\n",
     "![particles](img/particles.png)"
    ]
