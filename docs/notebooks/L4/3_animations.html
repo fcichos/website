@@ -765,6 +765,7 @@ section.</p>
 </pre></div>
 </div>
 </div>
+<p><img alt="particles" src="../../_images/particles.png" /></p>
 <p>We realize the drawing in a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, which is first updating all particle positions and then drawing all the particles.</p>
 <p>The loop contains one interesting statement, which is the <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">hold_canvas(canvas):</span></code>. Its useful to know that this statement halts the execution of all subsequent drawing comments in the following code block to create a “batch” of drawing commands send at one to the <code class="docutils literal notranslate"><span class="pre">ipycanvas</span></code> module. This will allow fast drawing of the whole scene. All the rest of the commands are shortly explained in the loop comments.</p>
 <div class="nbinput nblast docutils container">
@@ -842,6 +843,7 @@ finished.</p>
 </pre></div>
 </div>
 </div>
+<p><img alt="particles" src="../../_images/particles.png" /></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[388]:
 </pre></div>
