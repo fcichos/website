@@ -193,53 +193,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../L2/2_plotting.html">Plotting data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Simple-Plotting">Simple Plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Line-Plot">Line Plot</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Axis-Labels">Axis Labels</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Legends">Legends</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Scatter-plot">Scatter plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Histograms">Histograms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Combined-plots">Combined plots</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Saving-figures">Saving figures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Plots-with-error-bars">Plots with error bars</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Masked-arrays">Masked arrays</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Logarithmic-plots">Logarithmic plots</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Semi-log-plots">Semi-log plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Log-log-plots">Log-log plots</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Arranging-multiple-plots">Arranging multiple plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Simple-contour-plot">Simple contour plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Color-contour-plot">Color contour plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Image-plot">Image plot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#3D-Plotting">3D Plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Projection-Scence">Projection Scence</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Surface-Plotting">Surface Plotting</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Additional-Plotting">Additional Plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Insets">Insets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Spine-axis">Spine axis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Polar-plot">Polar plot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Text-annotation">Text annotation</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/3_randomnumbers.html">Random numbers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
@@ -690,7 +643,9 @@ p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
 <p>For our simulation that means that we can draw numbers from a normal distribution with <code class="docutils literal notranslate"><span class="pre">np.random.normal</span></code> with the standard deviation <span class="math notranslate nohighlight">\(\sigma=\sqrt{2D \Delta t}\)</span> as a parameter. This has to be done for the x-coordinate and the y-coordinate.</p>
 <p>The code for our Brownian motion therefore is</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sigma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="p">[(</span><span class="n">sigma</span><span class="o">*</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(),(</span><span class="n">sigma</span><span class="o">*</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()]</span>
+<span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="o">=</span><span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">sigma</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)]</span>
+<span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">dx</span>
+<span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="o">+</span><span class="n">dy</span>
 </pre></div>
 </div>
 <p>which gives a whole 2d trajectory. With the help of this, we would like to write a colloidal particle class. So lets make a plan how this could work out.</p>
@@ -730,7 +685,7 @@ p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[320]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[321]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -792,7 +747,7 @@ p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
 <li><p>particle objects should be stored in a list p_list</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[312]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[322]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -813,11 +768,11 @@ p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[313]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[324]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="mi">50</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -826,16 +781,15 @@ p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-I&#39;m a particle with radius R=1.000e-06 at x=-5.280e-06,y=-2.886e-06.
+I&#39;m a particle with radius R=1.000e-06 at x=2.623e-06,y=-1.809e-06.
 </pre></div></div>
 </div>
-<p>As a result you shall be able to plot, for example, all data points of the trajectories as shown below.</p>
 </div>
 <div class="section" id="Plotting-the-trajectories">
 <h2>Plotting the trajectories<a class="headerlink" href="#Plotting-the-trajectories" title="Permalink to this headline">¶</a></h2>
 <p>The next step is to plot all the trajectories.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[295]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[325]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -843,8 +797,8 @@ I&#39;m a particle with radius R=1.000e-06 at x=-5.280e-06,y=-2.886e-06.
 <span class="n">scale</span><span class="o">=</span><span class="mf">1e6</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">[:])</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">[:])</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">p_list</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">[:])</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">[:])</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x [µm]&#39;</span><span class="p">)</span>
@@ -874,7 +828,7 @@ v(n dt) = \frac{<\sqrt{(x_{i+n}-x_{i})^2+(y_{i+n}-y_{i})^2}>}{n\,dt}
 <p><img alt="msd" src="../../_images/msd.png" /></p>
 <p>These values can be used to calculate a mean speed. Note that there is not an equal amount of data pairs for all separations available. For <span class="math notranslate nohighlight">\(n=1\)</span> there are 5 distances available. For <span class="math notranslate nohighlight">\(n=5\)</span>, however, only 1. This changes the statistical accuracy of the mean.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[315]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[326]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -909,7 +863,7 @@ v(n dt) = \frac{<\sqrt{(x_{i+n}-x_{i})^2+(y_{i+n}-y_{i})^2}>}{n\,dt}
 \end{equation}</span></p>
 <p>where <span class="math notranslate nohighlight">\(d\)</span> is the dimension of the random walk, which is <span class="math notranslate nohighlight">\(d=2\)</span> in our case.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[317]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[328]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -922,7 +876,7 @@ v(n dt) = \frac{<\sqrt{(x_{i+n}-x_{i})^2+(y_{i+n}-y_{i})^2}>}{n\,dt}
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">p_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">D</span><span class="o">*</span><span class="n">time</span><span class="p">,</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;theory&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;msd $[\mu m^2/s]$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;msd $[m^2/s]$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -931,7 +885,7 @@ v(n dt) = \frac{<\sqrt{(x_{i+n}-x_{i})^2+(y_{i+n}-y_{i})^2}>}{n\,dt}
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_27_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_27_0.png" src="../../_images/notebooks_L4_2_brownian_motion_27_0.png" style="width: 397px; height: 295px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L4_2_brownian_motion_27_0.png"><img alt="../../_images/notebooks_L4_2_brownian_motion_27_0.png" src="../../_images/notebooks_L4_2_brownian_motion_27_0.png" style="width: 396px; height: 295px;" /></a>
 </div>
 </div>
 <p>The results show that the mean squared displacement of the individual particles follows <em>on average</em> the theoretical predictions of a linear growth in time. That means, we are able to read the diffusion coefficient from the slope of the MSD of the individual particles if recorded in a simulation or an experiment.</p>

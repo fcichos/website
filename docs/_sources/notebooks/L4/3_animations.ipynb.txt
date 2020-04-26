@@ -2,14 +2,22 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
    "source": [
     "# Animations"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "Animations are sometimes a nice feature, if you want to have a look at how your calculations evolve over time. Especially in the case of our particle based simulations it seems useful to diplay the position of the particles over time.\n",
     "\n",
@@ -20,18 +28,27 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Import Modules"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "Before we start, lets have a look at the modules we import this time. Except the NumPy modules we never used them before. We import `time`, `threading`, and `ipycanvas`.\n",
     "\n",
     "~~~\n",
+    "import numpy as np\n",
     "from time import sleep,time\n",
     "from threading import Thread\n",
     "\n",
@@ -41,7 +58,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "\n",
     "The `time` module is python standard module, which contains timing-related functions like the `sleep` and `time` function for example. \n",
@@ -52,16 +73,34 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
-    "The `threading` module is a module which allows you to specify how the processes in your notebook are executed. A computer program is a collection of instructions. A process is the execution of those instructions. A thread is a subset of the process. A process can have one or more threads. The `Thread` function can start a process in background, such that your Jupyter notbook is not blocked for the specific time the process is executed. We will talk about how to use this module later in this section.\n",
-    "\n"
+    "The `threading` module is a module which allows you to specify how the processes in your notebook are executed. \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "The `ipycanvas` module is the one which helps us to draw the objects of our simulation."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 271,
-   "metadata": {},
+   "execution_count": 407,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "skip"
+    }
+   },
    "outputs": [],
    "source": [
     "import numpy as np\n",
@@ -73,22 +112,34 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Particle class"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "We start by using out colloidal particle class, which we developed in the last section."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 374,
-   "metadata": {},
+   "execution_count": 404,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "outputs": [],
    "source": [
     "# Class definition\n",
@@ -135,22 +186,34 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Create a set of particles "
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "We want to animate the Brownian motion of many particles. The best is therefore to create a `list` which contains all the individual `Colloid` objects. We start by creating 200 colloids at the position `(0,0)` to see how the spread from the origin. They are stored in the list `p`."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 396,
-   "metadata": {},
+   "execution_count": 408,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "# number of particles\n",
@@ -163,14 +226,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Canvas and drawing function"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "Next, we need  a canvas, in which we draw our particles and we need the drawing function. \n",
     "\n",
@@ -179,9 +250,28 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 399,
-   "metadata": {},
-   "outputs": [],
+   "execution_count": 409,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "fd4e1b3cee2d4acc9289463ee1ee391a",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Canvas(height=300, width=300)"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
    "source": [
     "canvas = Canvas(width=300, height=300)\n",
     "display(canvas)"
@@ -189,14 +279,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "![particles](img/particles.png)"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "We realize the drawing in a `for` loop, which is first updating all particle positions and then drawing all the particles. \n",
     "\n",
@@ -205,8 +303,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
+   "execution_count": 400,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "scale=1e7 # this is to scale up all from µm to pixels\n",
@@ -226,21 +328,35 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Threading for animation"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
-    "It is useful to start a simulation as a background process, which is running while you keep calculating in your Jupyter notebook. This can be achieved by setting up a thread, which is nothing else then a background process. There is a lot more behind threading, but we want to keep that simple.\n"
+    "It is useful to start a simulation as a background process, which is running while you keep calculating in your Jupyter notebook. This can be achieved by setting up a thread. \n",
+    "\n",
+    "A computer program is a collection of instructions. A process is the execution of those instructions. A thread is a subset of the process. A process can have one or more threads. The `Thread` function of the `threading` module can start a process in background, such that your Jupyter notbook is not blocked for the specific time the process is executed. We will talk about how to use this module later in this section.\n"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "\n",
     "To setup such a background process you first need to setup a function that should be executed as a thread. This is the updating and drawing of the colloidal particles. \n",
@@ -261,7 +377,11 @@
   {
    "cell_type": "code",
    "execution_count": 379,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "outputs": [],
    "source": [
     "def draw():\n",
@@ -281,8 +401,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 386,
-   "metadata": {},
+   "execution_count": 411,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "outputs": [],
    "source": [
     "simulation = Thread(target=draw)  "
@@ -290,16 +414,39 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "We create a new canvas here, even though we could use the one on the top. It's just nice to not have to scroll up."
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 392,
-   "metadata": {},
-   "outputs": [],
+   "execution_count": 412,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "a17a81a8f2574af5a1c43a8218a635c6",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Canvas(height=300, width=300)"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
    "source": [
     "canvas = Canvas(width=300, height=300)\n",
     "display(canvas)"
@@ -307,7 +454,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "\n",
     "![particles](img/particles.png)"
@@ -315,17 +466,25 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 388,
-   "metadata": {},
+   "execution_count": 413,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "outputs": [],
    "source": [
     "# start the simulation\n",
-    "simulation.start()"
+    "simulation.start() "
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "One of the intruiging things of this type of threading is that all of the parameters of the Colloids may still be changed on the fly while the process is running. So lets just reset the particle positions to the origin and see what is happening in the canvas."
    ]
@@ -333,7 +492,11 @@
   {
    "cell_type": "code",
    "execution_count": 393,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "for i in range(N):\n",
@@ -343,7 +506,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "Now that we have a nice way of simulating particle motion you can extend that a bit. Here are three additions you may want to make:\n",
     "\n",
@@ -356,6 +523,7 @@
   }
  ],
  "metadata": {
+  "celltoolbar": "Slideshow",
   "kernelspec": {
    "display_name": "Python 3",
    "language": "python",
@@ -467,6 +635,18 @@
        "height": 400,
        "layout": "IPY_MODEL_b495fbef03764c098b99c23cd357fcf7",
        "width": 400
+      }
+     },
+     "092e65e88c784ac8a2dbf59cec96e792": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_433fd991fcfe450bbe7f8fc7f2310e4f",
+       "width": 300
       }
      },
      "09c9c23cad9848589e30327b8d76beee": {
@@ -672,6 +852,12 @@
        "layout": "IPY_MODEL_828883a9febb4040846886af64feb371",
        "width": 300
       }
+     },
+     "1f72025260d44392a7780cb1164d8b74": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
      },
      "2016e4daca114fd08d28c22349f18965": {
       "model_module": "@jupyter-widgets/base",
@@ -893,6 +1079,12 @@
        "width": 300
       }
      },
+     "433fd991fcfe450bbe7f8fc7f2310e4f": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "436a203c582b4eecb4a8b0088190624b": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -1060,6 +1252,18 @@
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
+     },
+     "53fa7e9c6bd84642b4c911b64e6fcf10": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_d335d0dc50bc4273bb2f006db7744ccc",
+       "width": 300
+      }
      },
      "543b0ec1ae30409fbb78ba54dada01f6": {
       "buffers": [
@@ -1432,6 +1636,12 @@
       "model_name": "LayoutModel",
       "state": {}
      },
+     "852ae3d86002455c9fa764b2d025a8dd": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
      "86b2490effee4e8985b4d1fef6063e53": {
       "model_module": "ipycanvas",
       "model_module_version": "^0.4.3",
@@ -1654,6 +1864,24 @@
        "layout": "IPY_MODEL_7f1d3339800744dd94be8914130ab7ec",
        "width": 400
       }
+     },
+     "a17a81a8f2574af5a1c43a8218a635c6": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_1f72025260d44392a7780cb1164d8b74",
+       "width": 300
+      }
+     },
+     "a2ef602f5eae4f829869810df992fe01": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
      },
      "a39f8ef49e9b4e2b9079ec05296fe706": {
       "buffers": [
@@ -2058,6 +2286,24 @@
        "width": 800
       }
      },
+     "d335d0dc50bc4273bb2f006db7744ccc": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "d3e566e7c86141c0b9801ceec8f5da0f": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_852ae3d86002455c9fa764b2d025a8dd",
+       "width": 300
+      }
+     },
      "d756ee293eec4003a2b4596f06c690b3": {
       "model_module": "@jupyter-widgets/base",
       "model_module_version": "1.2.0",
@@ -2269,6 +2515,18 @@
       "model_module_version": "1.2.0",
       "model_name": "LayoutModel",
       "state": {}
+     },
+     "fd4e1b3cee2d4acc9289463ee1ee391a": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_a2ef602f5eae4f829869810df992fe01",
+       "width": 300
+      }
      },
      "fe2a24fcdf8e4448834bc80d3841a457": {
       "model_module": "@jupyter-widgets/base",
