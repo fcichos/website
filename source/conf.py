@@ -97,6 +97,7 @@ html_context = {
     'conf_py_path': '/source/'
 }
 
+html_logo = 'img/mona_logo.png'
 
 # -- Extension configuration -------------------------------------------------
 # This is processed by Jinja2 and inserted before each notebook
