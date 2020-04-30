@@ -98,7 +98,7 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L4/1_classes.ipynb
    notebooks/L4/2_brownian_motion.ipynb   
    notebooks/L4/3_animations.ipynb  
-   
+   lectures/L4/assignment_4.rst
    
 Indices and tables
 ==================
