@@ -339,7 +339,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Plotting">Plotting</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Damped-Pendulum-in-SciPy">Damped Pendulum in SciPy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Damped-Driven-Pendulum-in-SciPy">Damped Driven Pendulum in SciPy</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">Definition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">Solution</a></li>
@@ -695,7 +695,7 @@ div.rendered_html tbody tr:hover {
 <h2>Harmonic Oscillator<a class="headerlink" href="#Harmonic-Oscillator" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Physics Interlude:</strong> The harmonic oscillator</p>
-<p>We are going to tackle as a first very simple problem, the harmonic oscillator and we will demonstarte that with the matrix (Crank-Nicholson method or implicit scheme), the Euler type integration method and using some ‘unknown’ integrator in the module <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>.</p>
+<p>We are going to tackle as a first very simple problem, the harmonic oscillator and we will demonstrate that with the matrix (Crank-Nicholson method or implicit scheme), the Euler type integration method and using some ‘unknown’ integrator in the module <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>.</p>
 <p>The equation of motion for a classical harmonic oscillator is given</p>
 <p><span class="math">\begin{equation}
 \frac{d^2x}{dt^2}+\omega^2 x=0
@@ -717,7 +717,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Use-Initial-Conditions">
 <h3>Use Initial Conditions<a class="headerlink" href="#Use-Initial-Conditions" title="Permalink to this headline">¶</a></h3>
-<p>The matrix given for the second detivative actually implies already some initial (bounary) conditions. You probably notice that the matrix contains incomplete coefficients for the second derivative in the first and last line. The first line contains <span class="math notranslate nohighlight">\((-2,1)\)</span>, but the second derivative should contain <span class="math notranslate nohighlight">\((1,-2,1)\)</span>. This <span class="math notranslate nohighlight">\((-2,1)\)</span> thus always includes the boundary condition that <span class="math notranslate nohighlight">\(x_{0}=0\)</span>. To include our own initial/boundary conditions, we have to construct the matrix for the
+<p>The matrix given for the second detivative actually implies already some initial (bounary) conditions. You probably noticed that the matrix contains incomplete coefficients for the second derivative in the first and last line. The first line contains <span class="math notranslate nohighlight">\((-2,1)\)</span>, but the second derivative should contain <span class="math notranslate nohighlight">\((1,-2,1)\)</span>. This <span class="math notranslate nohighlight">\((-2,1)\)</span> thus always includes the boundary condition that <span class="math notranslate nohighlight">\(x_{0}=0\)</span>. To include our own initial/boundary conditions, we have to construct the matrix for the
 second derivative slightly differently and modify the differential equation to</p>
 <p><span class="math">\begin{equation}
 \frac{d^2x}{dt^2}+\omega^2 x=b
@@ -758,13 +758,12 @@ v_{0}\delta t\\
 <h3>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h3>
 <p>This is the final system of coupled equations which we can supply to any matrix solver. We will use a solver from the <code class="docutils literal notranslate"><span class="pre">scipy.linalg</span></code> module. Lets have a look at the details below.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
-<span class="kn">from</span> <span class="nn">scipy.sparse.linalg</span> <span class="kn">import</span> <span class="n">eigsh</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">k</span> <span class="o">=</span> <span class="mf">3.5</span> <span class="c1"># spring constant</span>
@@ -776,14 +775,14 @@ v_{0}\delta t\\
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="c1"># time axis</span>
 
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="c1"># initial conditions vector</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># initial elongation</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># initial velocity</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span> <span class="c1"># initial elongation</span>
+<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># initial velocity</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="c1"># solution vector</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># time intervall of each step</span>
 
 <span class="c1"># construct the matrix</span>
-<span class="n">M</span> <span class="o">=</span> <span class="p">(</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span><span class="o">+</span><span class="n">diags</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span><span class="o">*</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">dt</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+<span class="n">M</span> <span class="o">=</span> <span class="p">(</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span><span class="o">+</span><span class="n">diags</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span><span class="o">*</span> <span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">dt</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
 <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># initial condition for amplitude, x1=1</span>
 <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">=-</span><span class="mi">1</span> <span class="c1"># initial condition for velocity, dx/dt=0</span>
 <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
@@ -797,7 +796,7 @@ v_{0}\delta t\\
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -813,7 +812,7 @@ v_{0}\delta t\\
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_18_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_18_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_18_0.png" style="width: 542px; height: 389px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_18_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_18_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_18_0.png" style="width: 527px; height: 389px;" /></a>
 </div>
 </div>
 </div>
@@ -890,8 +889,9 @@ x(t+\Delta t) = x(t) + \dot{x}(t+\Delta t) \Delta t
 x(t+\Delta t) = x(t) + \frac{\dot{x}(t+\Delta t)+\dot{x}(t)}{2} \Delta t
 \end{equation}</span></p>
 <p>The error of this method scales now with <span class="math notranslate nohighlight">\(\Delta t^3\)</span>. The quality of these three methods is displayed in by the code and the graph below.</p>
+<p><img alt="Derivative" src="../../_images/derivative.png" /></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -970,6 +970,8 @@ x(t+\Delta t) = x(t) + \frac{\dot{x}(t+\Delta t)+\dot{x}(t)}{2} \Delta t
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;position x [m]&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;derivative.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -977,7 +979,7 @@ x(t+\Delta t) = x(t) + \frac{\dot{x}(t+\Delta t)+\dot{x}(t)}{2} \Delta t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_30_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_30_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_30_0.png" style="width: 514px; height: 441px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_31_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_31_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_31_0.png" style="width: 514px; height: 441px;" /></a>
 </div>
 </div>
 </div>
@@ -999,7 +1001,7 @@ x(t+\Delta t) = x(t) + \frac{\dot{x}(t+\Delta t)+\dot{x}(t)}{2} \Delta t
 
     g0 = state[1]  # veliocity
     g1 = −k/m*state[0] # acceleration
-    return numpy.array([g0, g1])
+    return(numpy.array([g0, g1]))
 </pre></div>
 </div>
 <p>This function returns another vector, which is, when multiplying with the timestep <span class="math notranslate nohighlight">\(dt\)</span> the position and velocity again. So this vector contains the velocity and acceleration. These are the derivatives of out state vector <span class="math notranslate nohighlight">\(y\)</span>.</p>
@@ -1010,7 +1012,7 @@ x(t+\Delta t) = x(t) + \frac{\dot{x}(t+\Delta t)+\dot{x}(t)}{2} \Delta t
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>def euler(y, t, dt, derivs):
 
     y_next = y + derivs(y,t) ∗ dt
-    return y_next
+    return(y_next)
 </pre></div>
 </div>
 <p>The code below includes two different physics problems. The first is the free fall with an initial position <span class="math notranslate nohighlight">\(x_0=0\)</span> and an initial velocity <span class="math notranslate nohighlight">\(v_0=10\)</span>. The problem defining function is thereby <em>free_fall</em>. The second problem is a simple harmonic oscillator (SHO) with a spring constant <span class="math notranslate nohighlight">\(k\)</span>, a mass <span class="math notranslate nohighlight">\(m\)</span>. Both problems can be easily calculated by supplying the right derivs function to the solver. To play around with two different solvers, we have integrated the normal <em>Euler</em>
@@ -1041,17 +1043,17 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <span class="k">def</span> <span class="nf">free_fall</span><span class="p">(</span><span class="n">state</span> <span class="p">,</span> <span class="n">time</span><span class="p">):</span>
     <span class="n">g0</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">g1</span> <span class="o">=</span> <span class="o">-</span><span class="n">gravity</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">])</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">]))</span>
 
 <span class="k">def</span> <span class="nf">SHO</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
     <span class="n">g0</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">g1</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span><span class="o">/</span><span class="n">m</span> <span class="o">*</span> <span class="n">state</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">])</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">]))</span>
 
 <span class="c1">##  solving the problem with euler</span>
 <span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">derivs</span><span class="p">):</span>
     <span class="n">y_next</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">derivs</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">*</span> <span class="n">dt</span>
-    <span class="k">return</span> <span class="n">y_next</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">y_next</span><span class="p">)</span>
 
 
 <span class="c1">##  solving the problem with runge kutta</span>
@@ -1059,7 +1061,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
     <span class="n">k0</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">derivs</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
     <span class="n">k1</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">derivs</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">k0</span><span class="p">,</span> <span class="n">time</span> <span class="o">+</span> <span class="n">dt</span><span class="p">)</span>
     <span class="n">y_next</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">k0</span> <span class="o">+</span> <span class="n">k1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">y_next</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">y_next</span><span class="p">)</span>
 
 <span class="c1">##  loop through the timesteps</span>
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
@@ -1095,7 +1097,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_35_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_35_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_35_0.png" style="width: 709px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_36_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_36_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_36_0.png" style="width: 709px; height: 348px;" /></a>
 </div>
 </div>
 </div>
@@ -1113,7 +1115,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="section" id="Setup">
 <h3>Setup<a class="headerlink" href="#Setup" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1140,7 +1142,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="section" id="Definition">
 <h3>Definition<a class="headerlink" href="#Definition" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1148,7 +1150,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <span class="k">def</span> <span class="nf">SHO</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
     <span class="n">g0</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">g1</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span><span class="o">/</span><span class="n">m</span> <span class="o">*</span> <span class="n">state</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">])</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1156,7 +1158,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="section" id="id1">
 <h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1195,13 +1197,13 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_45_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_45_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_45_0.png" style="width: 709px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_46_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_46_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_46_0.png" style="width: 709px; height: 348px;" /></a>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="Damped-Pendulum-in-SciPy">
-<h2>Damped Pendulum in SciPy<a class="headerlink" href="#Damped-Pendulum-in-SciPy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Damped-Driven-Pendulum-in-SciPy">
+<h2>Damped Driven Pendulum in SciPy<a class="headerlink" href="#Damped-Driven-Pendulum-in-SciPy" title="Permalink to this headline">¶</a></h2>
 <p>Write a <code class="docutils literal notranslate"><span class="pre">derivs</span></code> function for a damped driven pendulum:</p>
 <p><span class="math">\begin{equation}
 \ddot{\theta}=-\frac{g}{L}\sin(\theta)-b \dot{\theta}+\beta\cos(\omega t)
@@ -1210,7 +1212,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="section" id="id2">
 <h3>Setup<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1237,14 +1239,14 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="section" id="id3">
 <h3>Definition<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">pendulum_def</span><span class="p">(</span><span class="n">state</span> <span class="p">,</span> <span class="n">time</span><span class="p">):</span>
     <span class="n">g0</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">g1</span> <span class="o">=</span> <span class="o">-</span><span class="n">gravity</span><span class="o">/</span><span class="n">length</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">time</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">])</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">])</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1252,7 +1254,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="section" id="id4">
 <h3>Solution<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1264,7 +1266,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="section" id="id5">
 <h3>Plotting<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1282,7 +1284,16 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_54_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_54_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_54_0.png" style="width: 527px; height: 387px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_56_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_56_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_56_0.png" style="width: 527px; height: 387px;" /></a>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
