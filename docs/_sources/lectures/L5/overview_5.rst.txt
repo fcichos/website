@@ -7,6 +7,6 @@ In this 5th lecture we will have a look at
 2. Numerical Integration
 3. Solving Ordinary Differential Equations 
 
-The last topic really gets us into dealing with physical problems. We will start with the simple harmonic oscillator but also show the solution of the free fall and the pendulum with friction and inertia
+The last topic really gets us into dealing with physical problems. We will start with the simple harmonic oscillator but also show the solution of the free fall and the physical pendulum with friction.
 The video and the lecture will be in its final form available on the May, 5th. 
 
