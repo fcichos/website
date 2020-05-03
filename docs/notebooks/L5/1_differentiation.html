@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Numerical Integration" href="2_integration.html" />
-    <link rel="prev" title="Exercise 4" href="../../lectures/L4/assignment_4.html" /> 
+    <link rel="prev" title="Lecture Contents" href="../../lectures/L5/overview_5.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -295,14 +295,15 @@
 </ul>
 <p class="caption"><span class="caption-text">Lecture 5:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L5/overview_5.html">Lecture Contents</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Numerical Differentiation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#First-order-derivative">First order derivative</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Matrix-version">Matrix version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Matrix-version-of-the-first-derivative">Matrix version of the first derivative</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Second-order-derivative">Second order derivative</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#SciPy-Module">SciPy Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Matrix version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Matrix-version">Matrix version</a></li>
 </ul>
 </li>
 </ul>
@@ -314,9 +315,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_solving_ODEs.html">Solving ODEs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Harmonic-Oscillator">Harmonic Oscillator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Implicit-Solution---Crank-Nicholson">Implicit Solution - Crank Nicholson</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Matrices">Matrices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Define-Matrices">Define Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Use-Initial-Conditions">Use Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Solution">Solution</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Explicit-Solution---Numerical-Integration">Explicit Solution - Numerical Integration</a><ul>
@@ -328,8 +331,20 @@
 <li class="toctree-l4"><a class="reference internal" href="3_solving_ODEs.html#Solving-the-problem">Solving the problem</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Solution-using-SciPy">Solution using SciPy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Example:-Damped-Pendulum">Example: Damped Pendulum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Solving-the-Harmonic-Oscillator-in-SciPy">Solving the Harmonic Oscillator in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Definition">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id1">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Damped-Pendulum-in-SciPy">Damped Pendulum in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id2">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id3">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id4">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id5">Plotting</a></li>
 </ul>
 </li>
 </ul>
@@ -643,14 +658,14 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id2"><span class="problematic" id="id3">`source/notebooks/L5/1_differentiation.ipynb`_</span></a>.
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L5/1_differentiation.ipynb`_</span></a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L5/1_differentiation.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <div class="section" id="Numerical-Differentiation">
 <h1>Numerical Differentiation<a class="headerlink" href="#Numerical-Differentiation" title="Permalink to this headline">¶</a></h1>
 <p>We did already have a look at the numerical differentiation in Lecture 3. We therefore don’t have to extend that to much here. Yet we want to formalize the numerical differentiation a bit.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -681,11 +696,11 @@ div.rendered_html tbody tr:hover {
 <p><span class="math">\begin{equation}
 f^{\prime}(x)=\lim_{\delta x \rightarrow 0}\frac{f(x+x_{0})-f(x)}{\Delta x}
 \end{equation}</span></p>
-<p>such that, if we don’t the limit we can approximate the derivative by</p>
+<p>such that, if we don’t take the limit we can approximate the derivative by</p>
 <p><span class="math">\begin{equation}
-f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i-1}}{2\Delta x}
+f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i}}{\Delta x}
 \end{equation}</span></p>
-<p>Here we look at the left and right of the current posiiton <span class="math notranslate nohighlight">\(i\)</span> and thus have to devide by the twice the interval <span class="math notranslate nohighlight">\(\Delta x\)</span>.</p>
+<p>Here we look to the right of the current posiiton <span class="math notranslate nohighlight">\(i\)</span> and devide by the interval <span class="math notranslate nohighlight">\(\Delta x\)</span>.</p>
 <p>Some better notation may be found by the Taylor expansion:</p>
 <p><span class="math">\begin{equation}
 f(x)=f(x_{0})+(x-x_0)f^{\prime}(x)+\frac{(x-x_0)^2}{2!}f^{\prime\prime}(x)+\frac{(x-x_0)^3}{3!}f^{(3)}(x)+\ldots
@@ -702,18 +717,18 @@ f_{i-1}=f_{i}-\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}
 <p><span class="math">\begin{equation}
 f_{i+1}-f_{i-1}=2\Delta x f_{i}^{\prime}+2\frac{\Delta x^3}{6} f_{i}^{(3)}+ \ldots
 \end{equation}</span></p>
-<p>which yields when neglecting the last term on the right side</p>
+<p>which when neglecting the last term on the right side yields</p>
 <p><span class="math">\begin{equation}
 f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i-1}}{2\Delta x}
 \end{equation}</span></p>
-<p>This is the formula we obtained from the definition of the derivative. Using this we obtained already a function calculating the derivative.</p>
+<p>This is similar to the formula we obtained from the definition of the derivative. Here, however, we use the function value to the left and the right of the position <span class="math notranslate nohighlight">\(i\)</span> and twice the interval, which actually improves accuracy.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">D</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.e-9</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -722,8 +737,8 @@ f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i-1}}{2\Delta x}
 f_{i}^{\prime}=\frac{1}{12 \Delta x}(f_{i-2}-8f_{i-1}+8f_{i+1}-f_{i-2})
 \end{equation}</span></p>
 <p>This can be used to give better values for the first derivative.</p>
-<div class="section" id="Matrix-version">
-<h3>Matrix version<a class="headerlink" href="#Matrix-version" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Matrix-version-of-the-first-derivative">
+<h3>Matrix version of the first derivative<a class="headerlink" href="#Matrix-version-of-the-first-derivative" title="Permalink to this headline">¶</a></h3>
 <p>If we supply to the above function an array of positions <span class="math notranslate nohighlight">\(x_{i}\)</span> at which we would like to calculate the derivative, the we obtain and array of derivative values. We can write this procedure also in a different way, which will be helpful for solving differential equation later.</p>
 <p>If we consider the above finite difference formulas for a set of positions <span class="math notranslate nohighlight">\(x_{i}\)</span>, we can represent the first derivative at these positions by matrix operation as well:</p>
 <p><span class="math notranslate nohighlight">\(f^{\prime}=\frac{1}{\delta x} \begin{bmatrix} -1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; -1 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; -1 &amp; 1 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; -1 &amp; 1 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; 1\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -1\\ \end{bmatrix} \begin{bmatrix} x_{1}\\ x_{2}\\ x_{3}\\ x_{4}\\ x_{5}\\ x_{6} \end{bmatrix} = \begin{bmatrix} (x_{2}-x_{1})/\delta x\\ (x_{3}-x_{2})/\delta x\\ (x_{4}-x_{3})/\delta x\\ (x_{5}-x_{4})/\delta x\\ (x_{6}-x_{5})/\delta x\\ (0-x_{6})/\delta x\\ \end{bmatrix}\)</span></p>
@@ -740,6 +755,10 @@ f_{i}^{\prime\prime}\approx \frac{f_{i-1}-2f_{i}+f_{i+1}}{\Delta x^2}
 <p>gives the basic equation for calculating the second order derivative and the next order may be obtained from</p>
 <p><span class="math">\begin{equation}
 f_{i}^{\prime\prime}\approx \frac{1}{12 \Delta x^{2}}(-f_{i-2}+16f_{i-1}-30 f_{i}+16f_{i+1}-f_{i+2})
+\end{equation}</span></p>
+<p>which is again better than our previous formula</p>
+<p><span class="math">\begin{equation}
+f^{\prime\prime}_{i}\approx=\frac{f_{i+2}-2f_{i+1}+f_{i}}{\Delta x^2}
 \end{equation}</span></p>
 </div>
 <div class="section" id="SciPy-Module">
@@ -778,8 +797,8 @@ f_{i}^{\prime\prime}\approx \frac{1}{12 \Delta x^{2}}(-f_{i-2}+16f_{i-1}-30 f_{i
 -0.9983341664682823
 </pre></div></div>
 </div>
-<div class="section" id="id1">
-<h3>Matrix version<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Matrix-version">
+<h3>Matrix version<a class="headerlink" href="#Matrix-version" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module also allows us to construct the matrices as mentioned above. We will need the <code class="docutils literal notranslate"><span class="pre">diags</span></code> method from the <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module for that purpose.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
@@ -879,15 +898,6 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
-</div>
-</div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
@@ -905,7 +915,7 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
         <a href="2_integration.html" class="btn btn-neutral float-right" title="Numerical Integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../lectures/L4/assignment_4.html" class="btn btn-neutral float-left" title="Exercise 4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../../lectures/L5/overview_5.html" class="btn btn-neutral float-left" title="Lecture Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
