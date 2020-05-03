@@ -1,7 +1,7 @@
 Lecture Contents
 ================
 
-In this second lecture we will have a look at some
+In this 5th lecture we will have a look at
 
 1. Numerical Differentiation
 2. Numerical Integration

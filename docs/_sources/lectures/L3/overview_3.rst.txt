@@ -1,7 +1,7 @@
 Lecture Contents
 ================
 
-In this second lecture we will have a look at some
+In this third lecture we will have a look at
 
 1. Input and output
 2. Flow control

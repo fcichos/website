@@ -1,7 +1,7 @@
 Lecture Contents
 ================
 
-In this second lecture we will have a look at some
+In this 4th lecture we will have a look at 
 
 1. Classes and Objects
 2. Physics Project: Brownian Motion
