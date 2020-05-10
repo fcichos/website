@@ -28,6 +28,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -822,7 +823,7 @@ div.rendered_html tbody tr:hover {
 F(t)=k X_{0}\cos(\omega t)
 \end{equation}</span></p>
 <p>where <span class="math notranslate nohighlight">\(X_{0}\)</span> could be a driving pistons amplitude. Thus <span class="math notranslate nohighlight">\(\beta=\omega_0^{2}X_{0}\)</span>.</p>
-<p><img alt="Figure 1" src="../../_images/piston.png" /></p>
+<p><img alt="Figure 1" src="notebooks/L6/piston.png" /></p>
 <p>From this equation of motion, we can define our <em>derivs</em> function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pendulum_def</span><span class="p">(</span><span class="n">state</span> <span class="p">,</span> <span class="n">time</span><span class="p">):</span>
     <span class="n">g0</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># velocity</span>
