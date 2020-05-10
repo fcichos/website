@@ -8,7 +8,7 @@ In this 6th lecture we will have a look at
 3. Fourier Analysis 
 
 The video and the lecture will be in its final form available on the May, 12th. I'm still a bit behind with updating my comments to the assignment.
-But they will come. Please also check out the assignment poge of lecture 5 again. I will publish a video on the COVID19 simulation for those who have not managed to get the simulation running.
+But they will come. Please also check out the assignment poge of lecture 4 again. I will publish a video on the COVID19 simulation for those who have not managed to get the simulation running.
 
 
 .. raw:: html
