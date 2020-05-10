@@ -42,6 +42,9 @@ extensions = [
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
 templates_path = ['_templates']
 
+mathjax_config = {
+'TeX': {'equationNumbers': {'autoNumber': 'AMS', 'useLabelIds': True}},
+}
 
 # -- Options for HTML output -------------------------------------------------
 

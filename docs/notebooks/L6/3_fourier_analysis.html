@@ -27,7 +27,7 @@
         <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -193,6 +193,53 @@
 <li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Operations-involving-multiple-arrays">Operations involving multiple arrays</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/2_plotting.html">Plotting data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Simple-Plotting">Simple Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Line-Plot">Line Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Axis-Labels">Axis Labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Legends">Legends</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Combined-plots">Combined plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Saving-figures">Saving figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Plots-with-error-bars">Plots with error bars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Masked-arrays">Masked arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Log-log-plots">Log-log plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Arranging-multiple-plots">Arranging multiple plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Simple-contour-plot">Simple contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Color-contour-plot">Color contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Image-plot">Image plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#3D-Plotting">3D Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Projection-Scence">Projection Scence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Surface-Plotting">Surface Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Additional-Plotting">Additional Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Insets">Insets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Spine-axis">Spine axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Polar-plot">Polar plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Text-annotation">Text annotation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/3_randomnumbers.html">Random numbers</a><ul>
@@ -402,12 +449,13 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Fourier Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Fourier-analysis">Fourier analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Fourier-series">Fourier series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Fourier-transform">Fourier transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Fourier-series">Fourier series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Fourier-transform">Fourier transform</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Frequency-analysis">Frequency analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Appendix:-Fourier-Analysis-of-a-damped-oscillation">Appendix: Fourier Analysis of a damped oscillation</a></li>
 </ul>
 </li>
 </ul>
@@ -719,7 +767,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id50"><span class="problematic" id="id51">`source/notebooks/L6/3_fourier_analysis.ipynb`_</span></a>.
+<p>This page was generated from <a href="#id2"><span class="problematic" id="id3">`source/notebooks/L6/3_fourier_analysis.ipynb`_</span></a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L6/3_fourier_analysis.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <div class="section" id="Fourier-Analysis">
@@ -783,100 +831,67 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Fourier-series">
 <h3>Fourier series<a class="headerlink" href="#Fourier-series" title="Permalink to this headline">¶</a></h3>
 <p>A Fourier series is a representation of periodic function <span class="math notranslate nohighlight">\(f(t)\)</span> of period <span class="math notranslate nohighlight">\(2\pi\)</span> or more general as described below on an arbitrary interval <span class="math notranslate nohighlight">\(T\)</span> regarding sine and cosine functions</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id2"><span class="problematic" id="id3">`</span></a>begin{equation} label{eq:fourier_sum}</dt><dd><p>f(t)=frac{A_{0}}{2}+sum_{k=1}^{infty}left ( A_{k}cosleft (omega_k tright) + B_{k}sinleft (omega_k tright)right )</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p><span class="math">\begin{equation} \label{eq:fourier_sum}
+f(t)=\frac{A_{0}}{2}+\sum_{k=1}^{\infty}\left ( A_{k}\cos\left (\omega_k t\right) + B_{k}\sin\left (\omega_k t\right)\right )
+\end{equation}</span></p>
 <p>where <span class="math notranslate nohighlight">\(\omega_k=\frac{2\pi k}{T}\)</span>. <span class="math notranslate nohighlight">\(T\)</span> represents the period of the cosine and sine functions. Their amplitude is defined by the coefficients <span class="math notranslate nohighlight">\(A_k\)</span> and <span class="math notranslate nohighlight">\(B_k\)</span>. The term <span class="math notranslate nohighlight">\(A_0\)</span> is a constant offset added to the oscillating sine and consine functions. Equation <span class="math">\ref{eq:fourier_sum}</span> therefore represents an arbitrary periodic function <span class="math notranslate nohighlight">\(f(t)\)</span> on an interval T as a sum of oscillating sine and cosine functions of discrete frequencies (<span class="math notranslate nohighlight">\(\omega_k\)</span>)</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id4"><span class="problematic" id="id5">`</span></a>begin{equation*}</dt><dd><p>omega_k= 0, frac{2pi}{T}, frac{4pi}{T}, frac{6pi}{T}, … , frac{npi}{T}</p>
-</dd>
-</dl>
-<p>end{equation*}`</p>
+<p><span class="math">\begin{equation*}
+\omega_k= 0, \frac{2\pi}{T}, \frac{4\pi}{T}, \frac{6\pi}{T}, ... , \frac{n\pi}{T}
+\end{equation*}</span></p>
 <p>and varying amplitudes. The cosine and sine functions in the sum (Eq. <span class="math">\ref{eq:fourier_sum}</span>) can be shown to be orthogonal by using the trigonometric identity</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id6"><span class="problematic" id="id7">`</span></a>begin{equation}</dt><dd><p>sin(omega_{i} t)sin(omega_{k}t )=frac{1}{2}lbracecos((omega_{i}-omega_{k})t)- cos((omega_{i}+omega_{k})trbrace</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p><span class="math">\begin{equation}
+\sin(\omega_{i} t)\sin(\omega_{k}t )=\frac{1}{2}\lbrace\cos((\omega_{i}-\omega_{k})t)- \cos((\omega_{i}+\omega_{k})t\rbrace
+\end{equation}</span></p>
 <p>Therefore the integral</p>
 <p><span class="math">\begin{equation}
 \int\limits_{-\frac{T}{2}}^{+\frac{T}{2}}  \sin(\omega_{i}t)\sin (\omega_k t) dt
 \end{equation}</span></p>
 <p>can be split into two integrals over a cosine function with the sum <span class="math notranslate nohighlight">\((\omega_{1}+\omega_{2})\)</span> and the difference frequency <span class="math notranslate nohighlight">\((\omega_{1}-\omega_{2})\)</span>. As the integration results in a sine function and has to be evaluated at <span class="math notranslate nohighlight">\(T/2\)</span> and <span class="math notranslate nohighlight">\(-T/2\)</span> with <span class="math notranslate nohighlight">\(\omega_k=k 2\pi/T\)</span>, <span class="math notranslate nohighlight">\((k \in \mathbb{Z}^+ )\)</span>, the integral results in</p>
-<dl>
-<dt>:nbsphinx-math:<a href="#id8"><span class="problematic" id="id9">`</span></a>begin{equation}label{eq:orthog}</dt><dd><blockquote>
-<div><dl class="simple">
-<dt>intlimits_{-frac{T}{2}}^{+frac{T}{2}}  sin(omega_{i}t)sin (omega_k t) dt  =begin{cases}</dt><dd><dl class="simple">
-<dt>0 &amp;text{for }  ineq k, \</dt><dd><p>T &amp;text{for }  i=k</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
-<p>end{cases}</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p><span class="math">\begin{equation}\label{eq:orthog}
+\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}}  \sin(\omega_{i}t)\sin (\omega_k t) dt  =\begin{cases}
+0 &\text{for }  i\neq k, \\
+T &\text{for }  i=k
+\end{cases}
+\end{equation}</span></p>
 <p>Equivalently, the same can be carried out for the cosine functions, which yields</p>
-<dl>
-<dt>:nbsphinx-math:<a href="#id10"><span class="problematic" id="id11">`</span></a>begin{equation}</dt><dd><dl class="simple">
-<dt>intlimits_{-frac{T}{2}}^{+frac{T}{2}}  cos(omega_{i}t)cos (omega_k t) dt  =begin{cases}</dt><dd><p>0 &amp;text{for }  ineq k, \
-T &amp;text{for }  i=k</p>
-</dd>
-</dl>
-<p>end{cases}</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>As mentioned above the coefficients <span class="math notranslate nohighlight">\(A_k\)</span> and <span class="math notranslate nohighlight">\(B_k\)</span> are determined by the projections of the function <span class="math notranslate nohighlight">\(f(t)\)</span> onto the basis functions as defined in section <span class="math">\ref{sec:proj_function_space}</span> and displayed in Eq.:nbsphinx-math:<cite>ref{A_k}</cite>-<span class="math">\ref{B_k}</span>.</p>
-<dl>
-<dt>:nbsphinx-math:<a href="#id12"><span class="problematic" id="id13">`</span></a>begin{align}label{Projections}</dt><dd><dl class="simple">
-<dt>intlimits_{-frac{T}{2}}^{+frac{T}{2}} &amp; cos (omega_k t) dt  =begin{cases}</dt><dd><p>0 &amp;text{for }  kneq0, \
-T &amp;text{for }  k=0</p>
-</dd>
-</dl>
-<p>end{cases} \
-intlimits_{-frac{T}{2}}^{+frac{T}{2}} &amp; sin(omega_k t) dt=0  text{ for all }k</p>
-</dd>
-</dl>
-<p>end{align}`</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id14"><span class="problematic" id="id15">`</span></a>begin{equation}label{A_k}</dt><dd><p>A_k=frac{2}{T}intlimits_{-frac{T}{2}}^{+frac{T}{2}} f(t)cos(omega_k t) dt  text{ for } k neq 0</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p><span class="math">\begin{equation}
+\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}}  \cos(\omega_{i}t)\cos (\omega_k t) dt  =\begin{cases}
+0 &\text{for }  i\neq k, \\
+T &\text{for }  i=k
+\end{cases}
+\end{equation}</span></p>
+<p>As mentioned above the coefficients <span class="math notranslate nohighlight">\(A_k\)</span> and <span class="math notranslate nohighlight">\(B_k\)</span> are determined by the projections of the function <span class="math notranslate nohighlight">\(f(t)\)</span> onto the basis functions as displayed in Eq.:nbsphinx-math:<cite>ref{A_k}</cite>-<span class="math">\ref{B_k}</span>.</p>
+<p><span class="math">\begin{align}\label{Projections}
+\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}} & \cos (\omega_k t) dt  =\begin{cases}
+0 &\text{for }  k\neq0, \\
+T &\text{for }  k=0
+\end{cases} \\
+\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}} & \sin(\omega_k t) dt=0  \text{ for all }k
+\end{align}</span></p>
+<p><span class="math">\begin{equation}\label{A_k}
+A_k=\frac{2}{T}\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}} f(t)\cos(\omega_k t) dt  \text{ for } k \neq 0
+\end{equation}</span></p>
 <p>and for <span class="math notranslate nohighlight">\(k=0\)</span></p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id16"><span class="problematic" id="id17">`</span></a>begin{equation}label{A_0}</dt><dd><p>A_0= frac{1}{T}intlimits_{-frac{T}{2}}^{+frac{T}{2}} f(t) dt</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p><span class="math">\begin{equation}\label{A_0}
+A_0= \frac{1}{T}\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}} f(t) dt
+\end{equation}</span></p>
 <p>In this case <span class="math notranslate nohighlight">\(\frac{2}{T}\)</span> and <span class="math notranslate nohighlight">\(\frac{1}{T}\)</span> are the mean values for the Equations. To get the coefficient <span class="math notranslate nohighlight">\(B_k\)</span> I need to multiply <span class="math notranslate nohighlight">\(f(t)\)</span> with <span class="math notranslate nohighlight">\(\sin (\omega_k t)\)</span> and integrate it from <span class="math notranslate nohighlight">\(-\frac{T}{2}\)</span> to <span class="math notranslate nohighlight">\(+\frac{T}{2}\)</span>.</p>
 <p>As a result of this, we obtain</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id18"><span class="problematic" id="id19">`</span></a>begin{equation}label{B_k}</dt><dd><p>B_k=frac{2}{T}intlimits_{-frac{T}{2}}^{+frac{T}{2}} f(t) sin(omega_k t) dt,,  forall k</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-</div>
+<p><span class="math">\begin{equation}\label{B_k}
+B_k=\frac{2}{T}\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}} f(t) \sin(\omega_k t) dt,\,  \forall k
+\end{equation}</span></p>
 <div class="section" id="Fourier-transform">
-<h3>Fourier transform<a class="headerlink" href="#Fourier-transform" title="Permalink to this headline">¶</a></h3>
+<h4>Fourier transform<a class="headerlink" href="#Fourier-transform" title="Permalink to this headline">¶</a></h4>
 <p>The Fourier transform is a generalisation of the complex Fourier series to the representation of arbitrary non-periodic functions <span class="math notranslate nohighlight">\(f(t)\)</span> by a continuous spectrum of complex functions <span class="math notranslate nohighlight">\(\exp(i\omega t)\)</span>. This transform is therefore also called continuous Fourier transform. The sum of individual sine and cosine functions with discrete frequencies <span class="math notranslate nohighlight">\(\omega_{k}\)</span> in the Fourier series is now replaced by an integral over the complex function <span class="math notranslate nohighlight">\(\exp(i\omega t)\)</span> with arbitrary
 continuous values of the frequency <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
 <p>The Fourier transform of the function <span class="math notranslate nohighlight">\(f(t)\)</span> is therefore defined by</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id20"><span class="problematic" id="id21">`</span></a>begin{equation}</dt><dd><p>F(omega)=intlimits_{-infty}^{+infty}f(t)e^{-iomega t}dt</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p><span class="math">\begin{equation}
+F(\omega)=\int\limits_{-\infty}^{+\infty}f(t)e^{-i\omega t}dt
+\end{equation}</span></p>
 <p>with <span class="math notranslate nohighlight">\(F(\omega)\)</span> now representing the spectrum of frequencies contributing to the function <span class="math notranslate nohighlight">\(f(t)\)</span>. Similarly, the so called inverse Fourier transform of the spectrum <span class="math notranslate nohighlight">\(F(\omega)\)</span> yields the original function <span class="math notranslate nohighlight">\(f(t)\)</span> again (Eq. <span class="math">\ref{eq:inverse_FT}</span>).</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id22"><span class="problematic" id="id23">`</span></a>begin{equation}label{eq:inverse_FT}</dt><dd><p>f(t)=frac{1}{2pi}intlimits_{-infty}^{+infty}F(omega)e^{+iomega t}dt</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p><span class="math">\begin{equation}\label{eq:inverse_FT}
+f(t)=\frac{1}{2\pi}\int\limits_{-\infty}^{+\infty}F(\omega)e^{+i\omega t}dt
+\end{equation}</span></p>
 <p>Note that the Fourier transform <span class="math notranslate nohighlight">\(F(\omega)\)</span> is a complex number, which gives you information on the phase and amplitude of the oscillations. Not all of the oscillations have to align in with the same phase. As compared to the last lecture, we may get the phase of the oscillation at a frequency <span class="math notranslate nohighlight">\(\omega\)</span> by</p>
 <p><span class="math">\begin{equation}
 \phi=\tan^{-1}\left(\frac{Im(F(\omega))}{Re(F(\omega))}\right)
@@ -891,10 +906,35 @@ x_{0}^{\rm theo}=|F(\omega)|
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="Frequency-analysis">
 <h3>Frequency analysis<a class="headerlink" href="#Frequency-analysis" title="Permalink to this headline">¶</a></h3>
+<p>To use the Fourier analysis we load the data of our previous simulation with the normal modes and the beat mode of the harmonic oscillator.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">nm1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;nm1.txt&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">nm2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;nm2.txt&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">beats</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;beats.txt&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">t</span><span class="o">=</span><span class="n">nm1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">theta1_nm1</span><span class="o">=</span><span class="n">nm1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">theta1_nm2</span><span class="o">=</span><span class="n">nm2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">theta1_beats</span><span class="o">=</span><span class="n">beats</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -903,133 +943,35 @@ x_{0}^{\rm theo}=|F(\omega)|
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;frequency [Hz]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ft1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">ft1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">theta1_nm1</span><span class="p">)</span>
 <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">time</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ft1</span><span class="p">)[:</span><span class="mi">1000</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ft1</span><span class="p">)[:</span><span class="mi">1000</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;normal mode 1&#39;</span><span class="p">)</span>
+
+<span class="n">ft1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">theta1_nm2</span><span class="p">)</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">time</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ft1</span><span class="p">)[:</span><span class="mi">1000</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;normal mode 2&#39;</span><span class="p">)</span>
+
+<span class="n">ft1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">theta1_beats</span><span class="p">)</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">time</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ft1</span><span class="p">)[:</span><span class="mi">1000</span><span class="p">],</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;beat mode&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-4-afa5ed6f67cf&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> plt<span class="ansi-blue-fg">.</span>ylabel<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;Amplitude&#39;</span><span class="ansi-blue-fg">,</span>fontsize<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">16</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> plt<span class="ansi-blue-fg">.</span>tick_params<span class="ansi-blue-fg">(</span>labelsize<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">14</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 6</span><span class="ansi-red-fg"> </span>ft1<span class="ansi-blue-fg">=</span>np<span class="ansi-blue-fg">.</span>fft<span class="ansi-blue-fg">.</span>fft<span class="ansi-blue-fg">(</span>alpha<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> freq <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>fft<span class="ansi-blue-fg">.</span>fftfreq<span class="ansi-blue-fg">(</span>t<span class="ansi-blue-fg">.</span>shape<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>time<span class="ansi-blue-fg">/</span>t<span class="ansi-blue-fg">.</span>shape<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> plt<span class="ansi-blue-fg">.</span>plot<span class="ansi-blue-fg">(</span>freq<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">1000</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>np<span class="ansi-blue-fg">.</span>abs<span class="ansi-blue-fg">(</span>ft1<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">1000</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;alpha&#39; is not defined
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_3_fourier_analysis_6_1.png"><img alt="../../_images/notebooks_L6_3_fourier_analysis_6_1.png" src="../../_images/notebooks_L6_3_fourier_analysis_6_1.png" style="width: 415px; height: 338px;" /></a>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="Appendix:-Fourier-Analysis-of-a-damped-oscillation">
-<h2>Appendix: Fourier Analysis of a damped oscillation<a class="headerlink" href="#Appendix:-Fourier-Analysis-of-a-damped-oscillation" title="Permalink to this headline">¶</a></h2>
-<p>Consider a generalised description of the oscillation by</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id24"><span class="problematic" id="id25">`</span></a>begin{equation}</dt><dd><p>f(t)=a(t)cos(omega_S t)</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>Where <span class="math notranslate nohighlight">\(a(t)\)</span> is the time varying amplitude. This product of two functions can be treated with the help of the so-called convolution theorem. A convolution is represented by</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id26"><span class="problematic" id="id27">`</span></a>begin{equation}label{eq:convint}</dt><dd><p>f(t)*g(t)=int_{-infty}^{infty} f(tau)g(t-tau)dtau</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>which means, that one sums up all contributions of a function <span class="math notranslate nohighlight">\(g(t)\)</span> centered at a time value of <span class="math notranslate nohighlight">\(\tau\)</span> with amplitude <span class="math notranslate nohighlight">\(f(\tau)\)</span>. Convolutions play an important role for example in optics, where the microscope resolution function convolutes the structural images of all objects.</p>
-<p>This convolution integral can be transformed into a product of the Fourier transforms <span class="math notranslate nohighlight">\((\mathscr{F}\)</span>) of both functions</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id28"><span class="problematic" id="id29">`</span></a>begin{equation}</dt><dd><p>H(omega)G(omega)=mathscr{F}(f*g)</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>So the product of the Fourier transform of the individual functions in the product is the same as the Fourier transform of the convolution integral Eq. <span class="math">\ref{eq:convint}</span>.</p>
-<p>What is relevant in the discussed case of the oscillating guitar string is the inverse relation of the convolution theorem</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id30"><span class="problematic" id="id31">`</span></a>begin{equation}</dt><dd><p>H(omega)*G(omega)=mathscr{F}(f(t) g(t))</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>This means that the Fourier transform of a product of two functions is equivalent to a convolution of the Fourier transforms of the individual functions.</p>
-<p>The convolution integral of the Fourier transformed function then corresponds to</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id32"><span class="problematic" id="id33">`</span></a>begin{equation}label{eq:inverse_conv}</dt><dd><p>H(omega)*G(omega)=frac{1}{sqrt{2pi}}int_{-infty}^{infty} F(Omega)G(omega-Omega)dOmega</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>Using this relation and</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id34"><span class="problematic" id="id35">`</span></a>begin{equation}</dt><dd><p>H(omega)=mathscr{F}(cos(omega_S t))</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>and</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id36"><span class="problematic" id="id37">`</span></a>begin{equation}</dt><dd><p>G(omega)=mathscr{F}(Theta(t) e^{-t/tau})</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>I can compute all types of amplitude modulated harmonic oscillations in Fourier space. In particular, the Fourier transform <span class="math notranslate nohighlight">\(\mathscr{F}\)</span> of a harmonic function <span class="math notranslate nohighlight">\(\cos(\omega_S t)\)</span> results in a so-called delta function (<span class="math notranslate nohighlight">\(\delta(t)\)</span>)</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id38"><span class="problematic" id="id39">`</span></a>begin{equation}label{eq:cosineft}</dt><dd><p>H(omega)=mathscr{F}(cos(omega_S t))=sqrt{frac{pi}{2}} delta(omega+omega_S)-sqrt{frac{pi}{2}} delta(omega+omega_S)</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>The <span class="math notranslate nohighlight">\(\delta\)</span>-function has the properties as described in section <span class="math">\ref{sec:delta}</span>.</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id40"><span class="problematic" id="id41">`</span></a>begin{equation}label{eq:lorentz}</dt><dd><p>G(omega)=mathscr{F}(Theta(t)e^{-t/tau})=frac{1}{sqrt{2pi}}frac{i tau}{(i-tauomega)}</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>The squared magnitude of Eq. <span class="math">\ref{eq:lorentz}</span> yields a Lorentzian lineshape</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id42"><span class="problematic" id="id43">`</span></a>begin{equation}</dt><dd><p><a href="#id44"><span class="problematic" id="id45">|</span></a>G(omega)|^{2}=frac{1}{2 pi} frac{tau^2}{1+tau^{2}omega^{2}}</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>for the frequency spectrum, which is very common in physics. This Lorentzian function has a maximum at <span class="math notranslate nohighlight">\(\omega=0\)</span> with <span class="math notranslate nohighlight">\(|G(\omega)|^2=\tau^2/2\pi\)</span>.</p>
-<p>With the help of Eq. <span class="math">\ref{eq:cosineft}</span> and Eq. <span class="math">\ref{eq:lorentz}</span> I can write the convolution integral <span class="math">\ref{eq:inverse_conv}</span> as</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id46"><span class="problematic" id="id47">`</span></a>begin{equation}label{Delta Functions}</dt><dd><p>H(omega)*G(omega)=frac{1}{sqrt{2pi}}int_{-infty}^{infty}  sqrt{frac{pi}{2}} [delta(Omega-omega_S) + delta(Omega+omega_S)] frac{1}{sqrt{2pi}}frac{i tau}{(i-tau (omega-Omega))} dOmega</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>The integration can be carried out using the integration rule in Eq. <span class="math">\ref{delta}</span> for the delta function which leaves me with the integral of the function displayed in Eq. <span class="math">\ref{Delta Functions}</span> as equal to</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id48"><span class="problematic" id="id49">`</span></a>begin{equation}label{Hallo}</dt><dd><p>F(omega)= H(omega)*G(omega)=frac{1}{sqrt{2pi}}cdotfrac{sqrtpi}{sqrt2 sqrt{2pi}}left [frac{itau}{(i-tau(omega-omega_S))} + frac{itau}{(i-tau(omega+omega_S))}right ]</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
-<p>This yields</p>
-<p><span class="math">\begin{equation}
-F(\omega)=\frac{1}{\sqrt{2\pi}}\frac{1/\tau+i\omega}{(1/\tau+i\omega)^2+\omega_S^2}
-\end{equation}</span></p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
-</pre></div>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_3_fourier_analysis_9_0.png"><img alt="../../_images/notebooks_L6_3_fourier_analysis_9_0.png" src="../../_images/notebooks_L6_3_fourier_analysis_9_0.png" style="width: 433px; height: 333px;" /></a>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
+</div>
 </div>
 
 

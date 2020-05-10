@@ -27,8 +27,7 @@
         <script src="../../_static/language_data.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -194,6 +193,53 @@
 <li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Operations-involving-multiple-arrays">Operations involving multiple arrays</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/2_plotting.html">Plotting data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Simple-Plotting">Simple Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Line-Plot">Line Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Axis-Labels">Axis Labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Legends">Legends</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Combined-plots">Combined plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Saving-figures">Saving figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Plots-with-error-bars">Plots with error bars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/2_plotting.html#Masked-arrays">Masked arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Log-log-plots">Log-log plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Arranging-multiple-plots">Arranging multiple plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Simple-contour-plot">Simple contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Color-contour-plot">Color contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Image-plot">Image plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#3D-Plotting">3D Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Projection-Scence">Projection Scence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Surface-Plotting">Surface Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Additional-Plotting">Additional Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Insets">Insets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Spine-axis">Spine axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/2_plotting.html#Polar-plot">Polar plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/2_plotting.html#Text-annotation">Text annotation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L2/3_randomnumbers.html">Random numbers</a><ul>
@@ -403,12 +449,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_fourier_analysis.html">Fourier Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="3_fourier_analysis.html#Fourier-analysis">Fourier analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_fourier_analysis.html#Fourier-series">Fourier series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_fourier_analysis.html#Fourier-transform">Fourier transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_fourier_analysis.html#Fourier-series">Fourier series</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_fourier_analysis.html#Fourier-transform">Fourier transform</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="3_fourier_analysis.html#Frequency-analysis">Frequency analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="3_fourier_analysis.html#Appendix:-Fourier-Analysis-of-a-damped-oscillation">Appendix: Fourier Analysis of a damped oscillation</a></li>
 </ul>
 </li>
 </ul>
@@ -728,7 +775,7 @@ div.rendered_html tbody tr:hover {
 <p>We will continue our course with some physical problems, we are going to tackle. One of the more extensive solutions will consider two coupled pendula. This belongs to the class of coupled oscillators, which are extremely important. They will later yield propagating waves. They are important for phonons, i.e. coupled vibration of atoms in solids, but there are also many other axamples. One can realize the coupled oscillation on different ways. He we will do that not with spring oscillators, by
 with pendula.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[385]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -771,7 +818,7 @@ with pendula.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[385]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -828,7 +875,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 </div>
 <p>So the state vector just gets longer and the coupling is in the definition of the velocities and accelerations. The results are then the positions and velocities of the objects. Use this type of scheme to define the problem and write a function, which returns the state of the objects as before.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[151]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -854,7 +901,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <li><p>spring constant of the coupling spring, <span class="math notranslate nohighlight">\(k=5\)</span></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[387]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -871,7 +918,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 </div>
 <p>As compared to our previous problem of a damped driven pendulum, where we had two initial conditions for the second order differential equation, we have now two second order differential equation. We therefore need 4 initial parameters, which are the initial elongations of both pendula and their corresponding initial angular velocities We will notice, that the solution,i.e. the motion of the pendula, will strongly depend on the initial conditions.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[388]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -893,7 +940,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <h3>Solve the equation of motion<a class="headerlink" href="#Solve-the-equation-of-motion" title="Permalink to this headline">¶</a></h3>
 <p>We have to define a timeperiod over which we would like to obtain the solution. We use here a period of 400s where we calculate the solution at 10000 points along the 400s.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[389]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1042,7 +1089,6 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <div class="output_area docutils container">
 <script type="application/vnd.jupyter.widget-view+json">{"model_id": "", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p><img alt="image0" src="../../_images/motion.mov" /></p>
 </div>
 </div>
 <div class="section" id="Normal-Modes">
@@ -1052,7 +1098,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <h3>In-phase motion<a class="headerlink" href="#In-phase-motion" title="Permalink to this headline">¶</a></h3>
 <p>The first one, will create an in-phase motion of the two pendula by setting their initial elongation equal, i.e. <span class="math notranslate nohighlight">\(\theta_{1}(t=0)=\theta_{2}(t=0)\)</span>. Both pendula then oscillate with their natural frequency and the coupling spring is never elongated.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[362]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1072,7 +1118,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[363]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1097,7 +1143,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[364]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1118,7 +1164,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_43_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_43_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_43_0.png" style="width: 715px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_42_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_42_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_42_0.png" style="width: 715px; height: 348px;" /></a>
 </div>
 </div>
 </div>
@@ -1189,7 +1235,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_48_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_48_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_48_0.png" style="width: 715px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_47_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_47_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_47_0.png" style="width: 715px; height: 348px;" /></a>
 </div>
 </div>
 </div>
@@ -1262,7 +1308,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_53_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_53_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_53_0.png" style="width: 715px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_52_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_52_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_52_0.png" style="width: 715px; height: 348px;" /></a>
 </div>
 </div>
 </div>
@@ -1296,7 +1342,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_58_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_58_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_58_0.png" style="width: 751px; height: 333px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_57_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_57_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_57_0.png" style="width: 751px; height: 333px;" /></a>
 </div>
 </div>
 </div>
@@ -1325,7 +1371,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_60_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_60_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_60_0.png" style="width: 760px; height: 337px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_59_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_59_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_59_0.png" style="width: 760px; height: 337px;" /></a>
 </div>
 </div>
 </div>
@@ -1355,7 +1401,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_62_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_62_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_62_0.png" style="width: 750px; height: 333px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_61_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_61_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_61_0.png" style="width: 750px; height: 333px;" /></a>
 </div>
 </div>
 </div>
@@ -1386,7 +1432,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_65_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_65_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_65_0.png" style="width: 757px; height: 338px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_64_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_64_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_64_0.png" style="width: 757px; height: 338px;" /></a>
 </div>
 </div>
 </div>
@@ -1418,7 +1464,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_68_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_68_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_68_0.png" style="width: 748px; height: 333px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_67_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_67_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_67_0.png" style="width: 748px; height: 333px;" /></a>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1431,7 +1477,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"02f181b234af4812a6d3de6be88137ee": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "073f4d212b29419db069e484623f689f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "0a98fbe5a1f44c22845b5a13020f9afc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "147f06d9e4414f2bbdcf4bd015720d4a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "19cf639bf7bd4b7b82d759320c28f029": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_33d106aca7194c72b6237f81de942200", "width": 300}}, "21a4704eb3c94cf3afe74e7fd4d38a45": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "224b52477dad4090854e1e786e51e858": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "26a0ab62966a4192b620cd4c0464e12d": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_2f1e6b82b11d404380d49ede66b42a39", "width": 300}}, "2f1e6b82b11d404380d49ede66b42a39": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "33d106aca7194c72b6237f81de942200": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "36df036a9d0b4bc8ad61970993988bb7": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_0a98fbe5a1f44c22845b5a13020f9afc", "width": 300}}, "4a01ce22822d473d993d1c3abf1f731d": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_d136c9beca6a43ba906af7c6337c03c3", "width": 300}}, "4a05091cf2bd4e26b3b6d1eef77341bd": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_9443f71c72674718afdad681675248f0", "width": 300}}, "4e2b15ebca214147bee733ced719a8f0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5597dd9f21b34f1f8110caee930bbb7e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "575ae5cb24f146da9d0939e15e56b5e6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "594384a8adc04150bd62faf9b91122c1": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_5597dd9f21b34f1f8110caee930bbb7e", "width": 300}}, "5c659797b3434e6e9c41fb7b4623bd03": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5e0ffcc3ca304b3ca1645be9d4545ea4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "68ef166cdd614ac28aec22d7472bf88c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "70673b10b94742fc98b655da071430d7": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_02f181b234af4812a6d3de6be88137ee", "width": 300}}, "72e70fe22e714c2f8af0326d4c84c5e9": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_fe760146dd1d4cb78d0f1d9fdeaf42c1", "width": 300}}, "75725237c580406387628d964f23853a": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_b6d1224d02ab48b7a9f5440aeebbcffc", "width": 300}}, "773135a520f24dbd82a6efcfc548e91b": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_c1c564aa6d8a40c790a945b4c5cc7d3d", "width": 300}}, "8dcf6fd79d15412ea49b0adaaffadc8b": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_575ae5cb24f146da9d0939e15e56b5e6", "width": 300}}, "9443f71c72674718afdad681675248f0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "9d59aac4481e4495814da588b6e0a604": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "9e529aca34cf4389942fc04bca779037": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_5e0ffcc3ca304b3ca1645be9d4545ea4", "width": 300}}, "a20e3f74741b4488a3e0da923f4d5ece": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a9394951f5974849b3e08a7a7436679a": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_073f4d212b29419db069e484623f689f", "width": 300}}, "aaacfdc410704f54bb062a3d4741e709": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_5c659797b3434e6e9c41fb7b4623bd03", "width": 300}}, "ac69fef5a58a4fc683c3393c6ba2ee67": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_cd703f497e39414d8b84105635ddb001", "width": 300}}, "ad90a03261e54684b8dd818e90ecc73d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b43a7fd704754de2bd69b11318249e19": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_ad90a03261e54684b8dd818e90ecc73d", "width": 300}}, "b6d1224d02ab48b7a9f5440aeebbcffc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b71d0eec07e549efae3e0c06a00af3c0": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_147f06d9e4414f2bbdcf4bd015720d4a", "width": 300}}, "bd9aca5bf1044a5c93fb1f607ac50516": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c1c564aa6d8a40c790a945b4c5cc7d3d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c25072ac37924d619ca7577c03bdf619": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_c27a7e8d99044aad9627ee744371bc66", "width": 300}}, "c27a7e8d99044aad9627ee744371bc66": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c398c2e8a51d4eb69c49b13dd08a23e0": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_9d59aac4481e4495814da588b6e0a604", "width": 300}}, "c7ecde0129ba48f9aa4dc137f972082d": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_21a4704eb3c94cf3afe74e7fd4d38a45", "width": 300}}, "cbc6469a91f0485ba5c941f95280af73": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_a20e3f74741b4488a3e0da923f4d5ece", "width": 300}}, "cd703f497e39414d8b84105635ddb001": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d136c9beca6a43ba906af7c6337c03c3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d1924309a1cc4ab29ac774ed7e486f86": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_ee1f909b674d448cbc62a0d411e27b7b", "width": 300}}, "db88f1088dd04ffeab984e57d3f2a621": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_bd9aca5bf1044a5c93fb1f607ac50516", "width": 300}}, "e28e4d42221b4bbaaa109bc7197a2b6d": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 200, "layout": "IPY_MODEL_4e2b15ebca214147bee733ced719a8f0", "width": 300}}, "e31b748e258e4b3ab542a5c7b4617abf": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_68ef166cdd614ac28aec22d7472bf88c", "width": 300}}, "eb841212eb8a4bd48457f071ada81ac3": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_224b52477dad4090854e1e786e51e858", "width": 300}}, "ee1f909b674d448cbc62a0d411e27b7b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "fe760146dd1d4cb78d0f1d9fdeaf42c1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}}, "version_major": 2, "version_minor": 0}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 </div>
