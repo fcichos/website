@@ -1,0 +1,395 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Fourier Analysis"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "<style>\n",
+       ".output_png {\n",
+       "    display: table-cell;\n",
+       "    text-align: center;\n",
+       "    vertical-align: middle;\n",
+       "}\n",
+       "</style>\n"
+      ],
+      "text/plain": [
+       "<IPython.core.display.HTML object>"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "from scipy.integrate import odeint\n",
+    "import matplotlib.pyplot as plt\n",
+    "from matplotlib import animation\n",
+    "\n",
+    "%matplotlib inline\n",
+    "%config InlineBackend.figure_format = 'retina'\n",
+    "\n",
+    "# default values for plotting\n",
+    "plt.rcParams.update({'font.size': 12,\n",
+    "                     'axes.titlesize': 18,\n",
+    "                     'axes.labelsize': 16,\n",
+    "                     'axes.labelpad': 14,\n",
+    "                     'lines.linewidth': 1,\n",
+    "                     'lines.markersize': 10,\n",
+    "                     'xtick.labelsize' : 16,\n",
+    "                     'ytick.labelsize' : 16,\n",
+    "                     'xtick.top' : True,\n",
+    "                     'xtick.direction' : 'in',\n",
+    "                     'ytick.right' : True,\n",
+    "                     'ytick.direction' : 'in',}) \n",
+    "\n",
+    "# center the plots\n",
+    "from IPython.core.display import HTML\n",
+    "HTML(\"\"\"\n",
+    "<style>\n",
+    ".output_png {\n",
+    "    display: table-cell;\n",
+    "    text-align: center;\n",
+    "    vertical-align: middle;\n",
+    "}\n",
+    "</style>\n",
+    "\"\"\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Fourier analysis"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Fourier series\n",
+    "A Fourier series is a representation of periodic function $f(t)$ of period $2\\pi$ or more general as described below on an arbitrary interval $T$ regarding sine and cosine functions\n",
+    "\n",
+    "\\begin{equation} \\label{eq:fourier_sum}\n",
+    "    f(t)=\\frac{A_{0}}{2}+\\sum_{k=1}^{\\infty}\\left ( A_{k}\\cos\\left (\\omega_k t\\right) + B_{k}\\sin\\left (\\omega_k t\\right)\\right )\n",
+    "\\end{equation}\n",
+    "\n",
+    "where $\\omega_k=\\frac{2\\pi k}{T}$.  $T$ represents the period of the cosine and sine functions. Their amplitude is defined by the coefficients $A_k$ and $B_k$. The term $A_0$ is a constant offset added to the oscillating sine and consine functions. Equation \\ref{eq:fourier_sum} therefore represents an arbitrary periodic function $f(t)$ on an interval T as a sum of oscillating sine and cosine functions of discrete frequencies ($\\omega_k$)\n",
+    " \n",
+    "\\begin{equation*}\n",
+    "    \\omega_k= 0, \\frac{2\\pi}{T}, \\frac{4\\pi}{T}, \\frac{6\\pi}{T}, ... , \\frac{n\\pi}{T}\n",
+    "\\end{equation*}\n",
+    "\n",
+    "and varying amplitudes. The cosine and sine functions in the sum (Eq.  \\ref{eq:fourier_sum}) can be shown to be orthogonal by using the trigonometric identity \n",
+    "\n",
+    "\\begin{equation}\n",
+    "\t\\sin(\\omega_{i} t)\\sin(\\omega_{k}t )=\\frac{1}{2}\\lbrace\\cos((\\omega_{i}-\\omega_{k})t)- \\cos((\\omega_{i}+\\omega_{k})t\\rbrace\n",
+    "\\end{equation}\n",
+    "\n",
+    "Therefore the integral \n",
+    "\n",
+    "\\begin{equation}\n",
+    "\\int\\limits_{-\\frac{T}{2}}^{+\\frac{T}{2}}  \\sin(\\omega_{i}t)\\sin (\\omega_k t) dt\t\n",
+    "\\end{equation}\n",
+    "\n",
+    "can be split into two integrals over a cosine function with the sum $(\\omega_{1}+\\omega_{2})$ and the difference frequency $(\\omega_{1}-\\omega_{2})$. As the integration results in a sine function and has to be evaluated at $T/2$ and $-T/2$ with $\\omega_k=k 2\\pi/T$, $(k \\in \\mathbb{Z}^+ )$, the integral results in \n",
+    "\n",
+    "\\begin{equation}\\label{eq:orthog}\n",
+    "        \\int\\limits_{-\\frac{T}{2}}^{+\\frac{T}{2}}  \\sin(\\omega_{i}t)\\sin (\\omega_k t) dt  =\\begin{cases}\n",
+    "         0 &\\text{for }  i\\neq k, \\\\\n",
+    "                  T &\\text{for }  i=k\n",
+    "\t\\end{cases}\n",
+    "\\end{equation}\n",
+    "\n",
+    "Equivalently, the same can be carried out for the cosine functions, which yields\n",
+    "\n",
+    "\\begin{equation}\n",
+    "    \\int\\limits_{-\\frac{T}{2}}^{+\\frac{T}{2}}  \\cos(\\omega_{i}t)\\cos (\\omega_k t) dt  =\\begin{cases}\n",
+    "         0 &\\text{for }  i\\neq k, \\\\\n",
+    "         T &\\text{for }  i=k\n",
+    "    \\end{cases} \n",
+    "\\end{equation}\n",
+    "\n",
+    "As mentioned above the coefficients $A_k$ and $B_k$ are determined by the projections of the function $f(t)$ onto the basis functions as defined in section \\ref{sec:proj_function_space} and  displayed in Eq.\\ref{A_k}-\\ref{B_k}. \n",
+    "\n",
+    "\n",
+    "\\begin{align}\\label{Projections}\n",
+    "    \\int\\limits_{-\\frac{T}{2}}^{+\\frac{T}{2}} & \\cos (\\omega_k t) dt  =\\begin{cases}\n",
+    "         0 &\\text{for }  k\\neq0, \\\\\n",
+    "         T &\\text{for }  k=0\n",
+    "    \\end{cases} \\\\\n",
+    "    \\int\\limits_{-\\frac{T}{2}}^{+\\frac{T}{2}} & \\sin(\\omega_k t) dt=0  \\text{ for all }k \n",
+    "\\end{align}\n",
+    "\n",
+    "\\begin{equation}\\label{A_k}\n",
+    "    A_k=\\frac{2}{T}\\int\\limits_{-\\frac{T}{2}}^{+\\frac{T}{2}} f(t)\\cos(\\omega_k t) dt  \\text{ for } k \\neq 0\n",
+    "\\end{equation}\n",
+    "\n",
+    "and for $k=0$\n",
+    "\n",
+    "\\begin{equation}\\label{A_0}\n",
+    "    A_0= \\frac{1}{T}\\int\\limits_{-\\frac{T}{2}}^{+\\frac{T}{2}} f(t) dt\n",
+    "\\end{equation}\n",
+    "\n",
+    "In this case $\\frac{2}{T}$ and $\\frac{1}{T}$ are the mean values for the Equations. To get the coefficient $B_k$ I need to multiply $f(t)$ with $\\sin (\\omega_k t)$ and integrate it from $-\\frac{T}{2}$ to $+\\frac{T}{2}$. \n",
+    "\n",
+    "As a result of this, we obtain \n",
+    "\n",
+    "\\begin{equation}\\label{B_k}\n",
+    "    B_k=\\frac{2}{T}\\int\\limits_{-\\frac{T}{2}}^{+\\frac{T}{2}} f(t) \\sin(\\omega_k t) dt,\\,  \\forall k\n",
+    "\\end{equation}\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Fourier transform\n",
+    "\n",
+    "The Fourier transform is a generalisation of the complex Fourier series to the representation of arbitrary non-periodic functions $f(t)$ by a continuous spectrum of complex functions $\\exp(i\\omega t)$. This transform is therefore also called continuous Fourier transform. The sum of individual sine and cosine functions with discrete frequencies $\\omega_{k}$ in the Fourier series is now replaced by an integral over the complex function $\\exp(i\\omega t)$ with arbitrary continuous values of the frequency $\\omega$. \n",
+    "\n",
+    "\n",
+    "The Fourier transform of the function $f(t)$ is therefore defined by \n",
+    "\n",
+    "\\begin{equation}\n",
+    "    F(\\omega)=\\int\\limits_{-\\infty}^{+\\infty}f(t)e^{-i\\omega t}dt\n",
+    "\\end{equation}\n",
+    "\n",
+    "with $F(\\omega)$ now representing the spectrum of frequencies contributing to the function $f(t)$. Similarly, the so called inverse Fourier transform of the spectrum $F(\\omega)$ yields the original function $f(t)$ again (Eq. \\ref{eq:inverse_FT}). \n",
+    "\n",
+    "\\begin{equation}\\label{eq:inverse_FT}\n",
+    "    f(t)=\\frac{1}{2\\pi}\\int\\limits_{-\\infty}^{+\\infty}F(\\omega)e^{+i\\omega t}dt\n",
+    "\\end{equation}\n",
+    "\n",
+    "Note that the Fourier transform $F(\\omega)$ is a complex number, which gives you information on the phase and amplitude of the oscillations. Not all of the oscillations have to align in with the same phase. As compared to the last lecture, we may get the phase of the oscillation at a frequency $\\omega$ by\n",
+    "\n",
+    "\\begin{equation}\n",
+    "\\phi=\\tan^{-1}\\left(\\frac{Im(F(\\omega))}{Re(F(\\omega))}\\right)\n",
+    "\\end{equation}\n",
+    "\n",
+    "and the amplitude at a frequency $\\omega$ by\n",
+    "\n",
+    "\\begin{equation}\n",
+    "x_{0}^{\\rm theo}=|F(\\omega)|\n",
+    "\\end{equation}\n",
+    "\n",
+    "There are a number of efficient numerical algorithms available, which simplify the Fourier transformation. These are called *Fast Fourier Transforms* and implemented in *numpy* for example. We will use these algorithms to calculate the numerical Fourier transforms of our signals to identify the different oscillations in our signal. \n",
+    "Below is an example how the numpy function cab be used and how to obtain the proper frequency axis.\n",
+    "\n",
+    "~~~\n",
+    "f=np.fft.fft(alpha)\n",
+    "freq = np.fft.fftfreq(t.shape[-1],time/t.shape[-1])\n",
+    "~~~\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Frequency analysis"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2018-05-29T11:01:55.420585Z",
+     "start_time": "2018-05-29T11:01:55.415985Z"
+    }
+   },
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'alpha' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-4-afa5ed6f67cf>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mylabel\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'Amplitude'\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mfontsize\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;36m16\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtick_params\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlabelsize\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;36m14\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0mft1\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfft\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfft\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0malpha\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0mfreq\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfft\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfftfreq\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshape\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mtime\u001b[0m\u001b[0;34m/\u001b[0m\u001b[0mt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mshape\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0mplt\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mplot\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfreq\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;36m1000\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mabs\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mft1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;36m1000\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mNameError\u001b[0m: name 'alpha' is not defined"
+     ]
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x360 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "image/png": {
+       "height": 338,
+       "width": 415
+      },
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# calculate the frequency spectrum of the oscillations for different initial conditions\n",
+    "plt.figure(1,figsize=(6,5))\n",
+    "plt.xlabel('frequency [Hz]', fontsize=16)\n",
+    "plt.ylabel('Amplitude',fontsize=16)\n",
+    "plt.tick_params(labelsize=14)\n",
+    "ft1=np.fft.fft(alpha)\n",
+    "freq = np.fft.fftfreq(t.shape[-1],time/t.shape[-1])\n",
+    "plt.plot(freq[:1000],np.abs(ft1)[:1000])\n",
+    "plt.xlim(0.2,0.6)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Appendix: Fourier Analysis of a damped oscillation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Consider a generalised description of the oscillation by\n",
+    "\n",
+    "\\begin{equation}\n",
+    "    f(t)=a(t)\\cos(\\omega_S t)\n",
+    "\\end{equation}\n",
+    "\n",
+    "Where $a(t)$ is the time varying amplitude. This product of two functions can be treated with the help of the so-called convolution theorem. \n",
+    "A convolution is represented by\n",
+    "\n",
+    "\\begin{equation}\\label{eq:convint}\n",
+    "    f(t)*g(t)=\\int_{-\\infty}^{\\infty} f(\\tau)g(t-\\tau)d\\tau\n",
+    "\\end{equation}\n",
+    "\n",
+    "which means, that one sums up all contributions of a function $g(t)$ centered at a time value of $\\tau$ with amplitude $f(\\tau)$. Convolutions play an important role for example in optics, where the microscope resolution function convolutes the structural images of all objects.\n",
+    "\n",
+    "This convolution integral can be transformed into a product of the Fourier transforms $(\\mathscr{F}$) of both functions \n",
+    "\n",
+    "\\begin{equation}\n",
+    "    H(\\omega)G(\\omega)=\\mathscr{F}(f*g)\n",
+    "\\end{equation}\n",
+    "\n",
+    "So the product of the Fourier transform of the individual functions in the product is the same as the Fourier transform of the convolution integral Eq. \\ref{eq:convint}.\n",
+    "\n",
+    "What is relevant in the discussed case of the oscillating guitar string is the inverse relation of the convolution theorem\n",
+    "\n",
+    "\\begin{equation}\n",
+    "    H(\\omega)*G(\\omega)=\\mathscr{F}(f(t) g(t))\n",
+    "\\end{equation}\n",
+    "\n",
+    "This means that the Fourier transform of a product of two functions is equivalent to a convolution of the Fourier transforms of the individual functions.\n",
+    "\n",
+    "The convolution integral of the Fourier transformed function then corresponds to\n",
+    "\n",
+    "\n",
+    "\\begin{equation}\\label{eq:inverse_conv}\n",
+    "    H(\\omega)*G(\\omega)=\\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty} F(\\Omega)G(\\omega-\\Omega)d\\Omega\n",
+    "\\end{equation}\n",
+    "\n",
+    "Using this relation and \n",
+    "\n",
+    "\\begin{equation}\n",
+    "    H(\\omega)=\\mathscr{F}(\\cos(\\omega_S t))\n",
+    "\\end{equation}\n",
+    "\n",
+    "and \n",
+    "\n",
+    "\\begin{equation}\n",
+    "    G(\\omega)=\\mathscr{F}(\\Theta(t) e^{-t/\\tau})\n",
+    "\\end{equation}\n",
+    "\n",
+    "I can compute all types of amplitude modulated harmonic oscillations in Fourier space.\n",
+    "In particular, the Fourier transform $\\mathscr{F}$ of a harmonic function $\\cos(\\omega_S t)$ results in a so-called delta function ($\\delta(t)$)\n",
+    "\n",
+    "\\begin{equation}\\label{eq:cosineft}\n",
+    "    H(\\omega)=\\mathscr{F}(\\cos(\\omega_S t))=\\sqrt{\\frac{\\pi}{2}} \\delta(\\omega+\\omega_S)-\\sqrt{\\frac{\\pi}{2}} \\delta(\\omega+\\omega_S)\n",
+    "\\end{equation}\n",
+    "\n",
+    "The $\\delta$-function has the properties as described in section \\ref{sec:delta}.\n",
+    "\n",
+    "\\begin{equation}\\label{eq:lorentz}\n",
+    "    G(\\omega)=\\mathscr{F}(\\Theta(t)e^{-t/\\tau})=\\frac{1}{\\sqrt{2\\pi}}\\frac{i \\tau}{(i-\\tau\\omega)}\n",
+    "\\end{equation}\n",
+    "\n",
+    "The squared magnitude of Eq. \\ref{eq:lorentz} yields a Lorentzian lineshape  \n",
+    "\n",
+    "\\begin{equation}\n",
+    "    |G(\\omega)|^{2}=\\frac{1}{2 \\pi} \\frac{\\tau^2}{1+\\tau^{2}\\omega^{2}}\n",
+    "\\end{equation}\n",
+    "\n",
+    "for the frequency spectrum, which is very common in physics. This Lorentzian function has a maximum at $\\omega=0$ with $|G(\\omega)|^2=\\tau^2/2\\pi$. \n",
+    "\n",
+    "With the help of Eq. \\ref{eq:cosineft} and Eq. \\ref{eq:lorentz} I can write  the convolution integral \\ref{eq:inverse_conv} as \n",
+    "\n",
+    "\\begin{equation}\\label{Delta Functions}\n",
+    "    H(\\omega)*G(\\omega)=\\frac{1}{\\sqrt{2\\pi}}\\int_{-\\infty}^{\\infty}  \\sqrt{\\frac{\\pi}{2}} [\\delta(\\Omega-\\omega_S) + \\delta(\\Omega+\\omega_S)] \\frac{1}{\\sqrt{2\\pi}}\\frac{i \\tau}{(i-\\tau (\\omega-\\Omega))} d\\Omega\n",
+    "\\end{equation}\n",
+    "\n",
+    "The integration can be carried out using the integration rule in Eq. \\ref{delta} for the delta function which leaves me with the integral of the function displayed in Eq. \\ref{Delta Functions} as equal to \n",
+    "\n",
+    "\\begin{equation}\\label{Hallo}\n",
+    "    F(\\omega)= H(\\omega)*G(\\omega)=\\frac{1}{\\sqrt{2\\pi}}\\cdot\\frac{\\sqrt\\pi}{\\sqrt2 \\sqrt{2\\pi}}\\left [\\frac{i\\tau}{(i-\\tau(\\omega-\\omega_S))} + \\frac{i\\tau}{(i-\\tau(\\omega+\\omega_S))}\\right ]\n",
+    "\\end{equation}\n",
+    "\n",
+    "This yields \n",
+    "\n",
+    "\\begin{equation}\n",
+    "F(\\omega)=\\frac{1}{\\sqrt{2\\pi}}\\frac{1/\\tau+i\\omega}{(1/\\tau+i\\omega)^2+\\omega_S^2}\n",
+    "\\end{equation}\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
