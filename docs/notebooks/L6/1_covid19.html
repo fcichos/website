@@ -28,6 +28,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -448,14 +449,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_fourier_analysis.html">Fourier Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="3_fourier_analysis.html#Fourier-analysis">Fourier analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_fourier_analysis.html#Fourier-series">Fourier series</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3_fourier_analysis.html#Fourier-transform">Fourier transform</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="3_fourier_analysis.html#Frequency-analysis">Frequency analysis</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="3_fourier_analysis.html#Fourier-series">Fourier series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_fourier_analysis.html#Fourier-transform">Fourier transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_fourier_analysis.html#Frequency-analysis-of-our-coupled-pendula">Frequency analysis of our coupled pendula</a></li>
 </ul>
 </li>
 </ul>
@@ -767,14 +763,14 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id3"><span class="problematic" id="id4">`source/notebooks/L6/1_covid19.ipynb`_</span></a>.
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L6/1_covid19.ipynb`_</span></a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L6/1_covid19.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <div class="section" id="COVID19">
 <h1>COVID19<a class="headerlink" href="#COVID19" title="Permalink to this headline">¶</a></h1>
 <p>In the previous assignment you have developed a particle based simulation of disease spreading. One infected individual was infecting other individuals when meeting them. The individuals were then recovering after a certain time of being infected and becoming immune to further infections. We now have a look at a model of disease spreading, which describes the same problem in terms of three coupled differential equations. This is the Kermack-McKendrick Model.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[242]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -819,11 +815,9 @@ number of people who is infected. That seems to be clear as none can be infected
 <p><span class="math">\begin{equation}
 \dot{y}=k_{I}xy-k_{R}y
 \end{equation}</span></p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}</dt><dd><p>dot{z}=k_{R}y</p>
-</dd>
-</dl>
-<p>end{equation}`</p>
+<p><span class="math">\begin{equation}
+\dot{z}=k_{R}y
+\end{equation}</span></p>
 </div>
 </div>
 <div class="section" id="Setup">
@@ -832,26 +826,26 @@ number of people who is infected. That seems to be clear as none can be infected
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(n=1000\)</span> people</p></li>
 <li><p><span class="math notranslate nohighlight">\(i=1\)</span> infected people at the beginning</p></li>
-<li><p><span class="math notranslate nohighlight">\(N=1000\)</span> timesteps of the simulation</p></li>
+<li><p><span class="math notranslate nohighlight">\(N=200\)</span> timesteps of the simulation, i.e. days</p></li>
 </ul>
 <p>We chose the individual rates the following way</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(k_I=0.001\)</span> the rate of infection</p></li>
-<li><p><span class="math notranslate nohighlight">\(k_R=0.1\)</span> the rate of recovery</p></li>
+<li><p><span class="math notranslate nohighlight">\(k_I=0.0002\)</span> the rate of infection, multiplication with n gives the number of people infected by one individual per day</p></li>
+<li><p><span class="math notranslate nohighlight">\(k_R=0.1\)</span> the rate of recovery, this means here 10 days for recovery</p></li>
 <li><p><span class="math notranslate nohighlight">\(k_D=0.05\)</span> the rate of death, if we include death as well</p></li>
 </ul>
 <p>These rates are just guesses (well I tried earlier), but you might want to map the earlier particle based simulation onto this model to compare the dynamics observed both.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[321]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">n</span><span class="o">=</span><span class="mi">1000</span> <span class="c1"># total people</span>
 <span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># infected people</span>
 <span class="n">state</span><span class="o">=</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># initial state</span>
-<span class="n">N</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">200</span>
 
-<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -860,13 +854,13 @@ number of people who is infected. That seems to be clear as none can be infected
 <h2>Definition<a class="headerlink" href="#Definition" title="Permalink to this headline">¶</a></h2>
 <p>Our <code class="docutils literal notranslate"><span class="pre">covid19</span></code> function now implements the differential equations above into a function. This is rather straight forward, as they are only first order differential euqations.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[326]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">covid19</span><span class="p">(</span><span class="n">state</span> <span class="p">,</span> <span class="n">time</span><span class="p">):</span>
-    <span class="n">k_I</span><span class="o">=</span><span class="mf">0.001</span> <span class="c1">## infection rate</span>
-    <span class="n">k_R</span><span class="o">=</span><span class="mf">0.1</span> <span class="c1">## recovery rate</span>
+    <span class="n">k_I</span><span class="o">=</span><span class="mf">0.2</span><span class="o">/</span><span class="n">n</span> <span class="c1">## infection rate</span>
+    <span class="n">k_R</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span> <span class="c1">## recovery rate</span>
     <span class="n">k_D</span><span class="o">=</span><span class="mf">0.01</span> <span class="c1">## death rate</span>
     <span class="n">g0</span> <span class="o">=</span> <span class="o">-</span><span class="n">k_I</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">g1</span> <span class="o">=</span> <span class="n">k_I</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">k_R</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">k_D</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -880,7 +874,7 @@ number of people who is infected. That seems to be clear as none can be infected
 <h2>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h2>
 <p>The following code solves the coupled differential equations and sorts the solution into individual arrays for further plotting.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[327]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -898,7 +892,7 @@ number of people who is infected. That seems to be clear as none can be infected
 <h2>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h2>
 <p>We can now plot the solution of the model. You see that after some delay, the number of infected people quickly increases until the recovery sets in. Then the number of infected people decreases again until all are recovered. You may change the above rate of death now to see how it effects the diagram. You can now play around and check out what happens if you increase the recovery or infection rate.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[328]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -911,7 +905,7 @@ number of people who is infected. That seems to be clear as none can be infected
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;fraction [%]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -928,7 +922,7 @@ number of people who is infected. That seems to be clear as none can be infected
 <h2>Real COVID19 numbers<a class="headerlink" href="#Real-COVID19-numbers" title="Permalink to this headline">¶</a></h2>
 <p>To compare the behavior to the current pandemic, I have downloaded some the current data for 5 different countries and stored them in the <code class="docutils literal notranslate"><span class="pre">covid19.csv</span></code> file. The data file reports <strong>Date</strong>, <strong>Country</strong>, <strong>Confirmed</strong>, <strong>Recovered</strong> and <strong>Deaths</strong>. To make the data comparable, I have already normalized the cases to the population of the country and multiplied by 1 million. That means the data is showsing the number of cases per million.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[330]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -941,7 +935,7 @@ number of people who is infected. That seems to be clear as none can be infected
 <p>To analyze the current situation we want to plot the total number of cases. To make the data more comparable, we do the following calculations. We first normalize the number of cases to the total population of the country. I have done that already in the dataset as mentioned above. The second issue is, that one should compare the data of different countries, when the total number of cases per million inhabitants crosses one for example. That is the only useful way to compare data. Note that this
 is a cummulative number.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[331]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -974,7 +968,7 @@ is a cummulative number.</p>
 <h3>Number of Deaths<a class="headerlink" href="#Number-of-Deaths" title="Permalink to this headline">¶</a></h3>
 <p>The graph below does the same analysis as the one for the confimed cases, but only for the number of death. While the differences in the cummulative numbers of confirmed cases are small, the number of death per million in the countries show already some differences in the total death. Yet the kinetics is still similar.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[332]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1098,7 +1092,7 @@ is a cummulative number.</p>
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on May 10, 2020.
+        Last updated on May 12, 2020.
       </span>
 
     </p>

@@ -448,14 +448,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Fourier Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Fourier-analysis">Fourier analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Fourier-series">Fourier series</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Fourier-transform">Fourier transform</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Frequency-analysis">Frequency analysis</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#Fourier-series">Fourier series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Fourier-transform">Fourier transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Frequency-analysis-of-our-coupled-pendula">Frequency analysis of our coupled pendula</a></li>
 </ul>
 </li>
 </ul>
@@ -767,13 +762,20 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id2"><span class="problematic" id="id3">`source/notebooks/L6/3_fourier_analysis.ipynb`_</span></a>.
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L6/3_fourier_analysis.ipynb`_</span></a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L6/3_fourier_analysis.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <div class="section" id="Fourier-Analysis">
 <h1>Fourier Analysis<a class="headerlink" href="#Fourier-Analysis" title="Permalink to this headline">¶</a></h1>
+<p>Fourier analysis or the description of functions as s sereies of sine and cosine function could be a very useful tool in the numerical analysis of data as well as in the numerical solution of differential equations. If you look through experiments, fourier transforms are frequently employed.</p>
+<ul class="simple">
+<li><p>optical tweezers are often characterized by the frequency spectrum of positional fluctuations</p></li>
+<li><p>Lock-In detection works by doing a Fourier analysis for a very special frequency of signals</p></li>
+<li><p>Optics can be understood in terms of Fourier transforms</p></li>
+</ul>
+<p>There is a whole bunch of additional fields where the Fourier transform and analysis is important. We are going to have a quick look at Fourier Series and Fourier transforms from a mathematical point of view. We will apply that to analyze the frequency spectrum of the oscillations of our coupled pendula. Later, we will come back to that when we simulate the motion of a Gaussian wavepacket for quantum mechanics.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -814,7 +816,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -826,10 +828,8 @@ div.rendered_html tbody tr:hover {
 }
 </style></div>
 </div>
-<div class="section" id="Fourier-analysis">
-<h2>Fourier analysis<a class="headerlink" href="#Fourier-analysis" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="Fourier-series">
-<h3>Fourier series<a class="headerlink" href="#Fourier-series" title="Permalink to this headline">¶</a></h3>
+<h2>Fourier series<a class="headerlink" href="#Fourier-series" title="Permalink to this headline">¶</a></h2>
 <p>A Fourier series is a representation of periodic function <span class="math notranslate nohighlight">\(f(t)\)</span> of period <span class="math notranslate nohighlight">\(2\pi\)</span> or more general as described below on an arbitrary interval <span class="math notranslate nohighlight">\(T\)</span> regarding sine and cosine functions</p>
 <p><span class="math">\begin{equation} \label{eq:fourier_sum}
 f(t)=\frac{A_{0}}{2}+\sum_{k=1}^{\infty}\left ( A_{k}\cos\left (\omega_k t\right) + B_{k}\sin\left (\omega_k t\right)\right )
@@ -880,8 +880,9 @@ A_0= \frac{1}{T}\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}} f(t) dt
 <p><span class="math">\begin{equation}\label{B_k}
 B_k=\frac{2}{T}\int\limits_{-\frac{T}{2}}^{+\frac{T}{2}} f(t) \sin(\omega_k t) dt,\,  \forall k
 \end{equation}</span></p>
+</div>
 <div class="section" id="Fourier-transform">
-<h4>Fourier transform<a class="headerlink" href="#Fourier-transform" title="Permalink to this headline">¶</a></h4>
+<h2>Fourier transform<a class="headerlink" href="#Fourier-transform" title="Permalink to this headline">¶</a></h2>
 <p>The Fourier transform is a generalisation of the complex Fourier series to the representation of arbitrary non-periodic functions <span class="math notranslate nohighlight">\(f(t)\)</span> by a continuous spectrum of complex functions <span class="math notranslate nohighlight">\(\exp(i\omega t)\)</span>. This transform is therefore also called continuous Fourier transform. The sum of individual sine and cosine functions with discrete frequencies <span class="math notranslate nohighlight">\(\omega_{k}\)</span> in the Fourier series is now replaced by an integral over the complex function <span class="math notranslate nohighlight">\(\exp(i\omega t)\)</span> with arbitrary
 continuous values of the frequency <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
 <p>The Fourier transform of the function <span class="math notranslate nohighlight">\(f(t)\)</span> is therefore defined by</p>
@@ -906,9 +907,8 @@ x_{0}^{\rm theo}=|F(\omega)|
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Frequency-analysis">
-<h3>Frequency analysis<a class="headerlink" href="#Frequency-analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Frequency-analysis-of-our-coupled-pendula">
+<h2>Frequency analysis of our coupled pendula<a class="headerlink" href="#Frequency-analysis-of-our-coupled-pendula" title="Permalink to this headline">¶</a></h2>
 <p>To use the Fourier analysis we load the data of our previous simulation with the normal modes and the beat mode of the harmonic oscillator.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
@@ -921,6 +921,7 @@ x_{0}^{\rm theo}=|F(\omega)|
 </pre></div>
 </div>
 </div>
+<p>The follwing code extracts the data and sorts them into individual arrays for eaysier plotting.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
@@ -933,6 +934,7 @@ x_{0}^{\rm theo}=|F(\omega)|
 </pre></div>
 </div>
 </div>
+<p>The next few lines are mainly for plotting the data but also for</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
@@ -965,13 +967,12 @@ x_{0}^{\rm theo}=|F(\omega)|
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_3_fourier_analysis_9_0.png"><img alt="../../_images/notebooks_L6_3_fourier_analysis_9_0.png" src="../../_images/notebooks_L6_3_fourier_analysis_9_0.png" style="width: 433px; height: 333px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_3_fourier_analysis_11_0.png"><img alt="../../_images/notebooks_L6_3_fourier_analysis_11_0.png" src="../../_images/notebooks_L6_3_fourier_analysis_11_0.png" style="width: 433px; height: 333px;" /></a>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
-</div>
 </div>
 
 
@@ -994,7 +995,7 @@ x_{0}^{\rm theo}=|F(\omega)|
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on May 10, 2020.
+        Last updated on May 12, 2020.
       </span>
 
     </p>
