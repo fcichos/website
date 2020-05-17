@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Numerical Differentiation &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  <title>Planetary Motion &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
   
 
   
@@ -40,8 +40,8 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Numerical Integration" href="2_integration.html" />
-    <link rel="prev" title="Lecture Contents" href="../../lectures/L5/overview_5.html" /> 
+    <link rel="next" title="Diffusion equation" href="3_diffusion_equation.html" />
+    <link rel="prev" title="Spring Pendulum" href="1_spring_pendulum.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -341,57 +341,57 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L4/assignment_4.html">Exercise 4</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 5:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L5/overview_5.html">Lecture Contents</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Numerical Differentiation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#First-order-derivative">First order derivative</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Matrix-version-of-the-first-derivative">Matrix version of the first derivative</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/1_differentiation.html">Numerical Differentiation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#First-order-derivative">First order derivative</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/1_differentiation.html#Matrix-version-of-the-first-derivative">Matrix version of the first derivative</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Second-order-derivative">Second order derivative</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#SciPy-Module">SciPy Module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Matrix-version">Matrix version</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="2_integration.html">Numerical Integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_integration.html#Box-method">Box method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_integration.html#Trapezoid-method">Trapezoid method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_integration.html#Simpson-method">Simpson method</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="3_solving_ODEs.html">Solving ODEs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Harmonic-Oscillator">Harmonic Oscillator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Implicit-Solution---Crank-Nicholson">Implicit Solution - Crank Nicholson</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Define-Matrices">Define Matrices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Use-Initial-Conditions">Use Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Solution">Solution</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Explicit-Solution---Numerical-Integration">Explicit Solution - Numerical Integration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Euler-Method">Euler Method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Euler-Cromer-Method">Euler Cromer Method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Midpoint-Method">Midpoint Method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Putting-it-all-together">Putting it all together</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3_solving_ODEs.html#The-definition-of-the-problem">The definition of the problem</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3_solving_ODEs.html#Solving-the-problem">Solving the problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#Second-order-derivative">Second order derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#SciPy-Module">SciPy Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/1_differentiation.html#Matrix-version">Matrix version</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Solving-the-Harmonic-Oscillator-in-SciPy">Solving the Harmonic Oscillator in SciPy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Setup">Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Definition">Definition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id1">Solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#Plotting">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/2_integration.html">Numerical Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Box-method">Box method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Trapezoid-method">Trapezoid method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Simpson-method">Simpson method</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="3_solving_ODEs.html#Damped-Driven-Pendulum-in-SciPy">Damped Driven Pendulum in SciPy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id2">Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id3">Definition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id4">Solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_solving_ODEs.html#id5">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/3_solving_ODEs.html">Solving ODEs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Harmonic-Oscillator">Harmonic Oscillator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Implicit-Solution---Crank-Nicholson">Implicit Solution - Crank Nicholson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Define-Matrices">Define Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Use-Initial-Conditions">Use Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solution">Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Explicit-Solution---Numerical-Integration">Explicit Solution - Numerical Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Euler-Method">Euler Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Euler-Cromer-Method">Euler Cromer Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Midpoint-Method">Midpoint Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Putting-it-all-together">Putting it all together</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L5/3_solving_ODEs.html#The-definition-of-the-problem">The definition of the problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solving-the-problem">Solving the problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solving-the-Harmonic-Oscillator-in-SciPy">Solving the Harmonic Oscillator in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Definition">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id1">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Damped-Driven-Pendulum-in-SciPy">Damped Driven Pendulum in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id2">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id3">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id4">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id5">Plotting</a></li>
 </ul>
 </li>
 </ul>
@@ -456,50 +456,50 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Lecture 7:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L7/overview_7.html">Lecture Contents</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../L7/1_spring_pendulum.html">Spring Pendulum</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L7/1_spring_pendulum.html#Physical-Model">Physical Model</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Equations-of-motion">Equations of motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_spring_pendulum.html">Spring Pendulum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_spring_pendulum.html#Physical-Model">Physical Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_spring_pendulum.html#Equations-of-motion">Equations of motion</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../L7/1_spring_pendulum.html#Numerical-Solution">Numerical Solution</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Initial-parameters">Initial parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Solution">Solution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Plotting">Plotting</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../L7/1_spring_pendulum.html#Angle-and-Length-over-Time">Angle and Length over Time</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../L7/2_planetary_motion.html">Planetary Motion</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L7/2_planetary_motion.html#Physical-Model">Physical Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L7/2_planetary_motion.html#Numerical-Solution">Numerical Solution</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Initial-Parameters:-Planets">Initial Parameters: Planets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Solution:-Planets">Solution: Planets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Plotting:-Planets">Plotting: Planets</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../L7/2_planetary_motion.html#Trajectory">Trajectory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../L7/2_planetary_motion.html#Energy">Energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_spring_pendulum.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_spring_pendulum.html#Initial-parameters">Initial parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_spring_pendulum.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_spring_pendulum.html#Plotting">Plotting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1_spring_pendulum.html#Angle-and-Length-over-Time">Angle and Length over Time</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../L7/3_diffusion_equation.html">Diffusion equation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../L7/3_diffusion_equation.html#Physical-Model">Physical Model</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Spatial-derivative">Spatial derivative</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Temporal-derivative">Temporal derivative</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Bringing-all-together">Bringing all together</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Planetary Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Physical-Model">Physical Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Initial-Parameters:-Planets">Initial Parameters: Planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Solution:-Planets">Solution: Planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Plotting:-Planets">Plotting: Planets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Trajectory">Trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Energy">Energy</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../L7/3_diffusion_equation.html#Numerical-Solution">Numerical Solution</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Setup-Domain">Setup Domain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Initial-Conditions">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Matrix-Setup">Matrix Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_diffusion_equation.html">Diffusion equation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_diffusion_equation.html#Physical-Model">Physical Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_diffusion_equation.html#Spatial-derivative">Spatial derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_diffusion_equation.html#Temporal-derivative">Temporal derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_diffusion_equation.html#Bringing-all-together">Bringing all together</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_diffusion_equation.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_diffusion_equation.html#Setup-Domain">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_diffusion_equation.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_diffusion_equation.html#Matrix-Setup">Matrix Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_diffusion_equation.html#Solution">Solution</a></li>
 </ul>
 </li>
 </ul>
@@ -549,14 +549,14 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>Numerical Differentiation</li>
+      <li>Planetary Motion</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
             
-              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L5/1_differentiation.ipynb" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L7/2_planetary_motion.ipynb" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -813,23 +813,25 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L5/1_differentiation.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L5/1_differentiation.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L7/2_planetary_motion.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L7/2_planetary_motion.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
-<div class="section" id="Numerical-Differentiation">
-<h1>Numerical Differentiation<a class="headerlink" href="#Numerical-Differentiation" title="Permalink to this headline">¶</a></h1>
-<p>We did already have a look at the numerical differentiation in Lecture 3. We therefore don’t have to extend that to much here. Yet we want to formalize the numerical differentiation a bit.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="section" id="Planetary-Motion">
+<h1>Planetary Motion<a class="headerlink" href="#Planetary-Motion" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 
+<span class="c1"># default values for plotting</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
                      <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
                      <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
@@ -842,202 +844,152 @@ div.rendered_html tbody tr:hover {
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="First-order-derivative">
-<h2>First order derivative<a class="headerlink" href="#First-order-derivative" title="Permalink to this headline">¶</a></h2>
-<p>Our previous way of finding the derivative was based on its definition</p>
-<p><span class="math">\begin{equation}
-f^{\prime}(x)=\lim_{\Delta x \rightarrow 0}\frac{f(x+x_{0})-f(x)}{\Delta x}
-\end{equation}</span></p>
-<p>such that, if we don’t take the limit we can approximate the derivative by</p>
-<p><span class="math">\begin{equation}
-f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i}}{\Delta x}
-\end{equation}</span></p>
-<p>Here we look to the right of the current posiiton <span class="math notranslate nohighlight">\(i\)</span> and devide by the interval <span class="math notranslate nohighlight">\(\Delta x\)</span>.</p>
-<p>Some better notation may be found by the Taylor expansion:</p>
-<p><span class="math">\begin{equation}
-f(x)=f(x_{0})+(x-x_0)f^{\prime}(x)+\frac{(x-x_0)^2}{2!}f^{\prime\prime}(x)+\frac{(x-x_0)^3}{3!}f^{(3)}(x)+\ldots
-\end{equation}</span></p>
-<p>which gives in discrete notation</p>
-<p><span class="math">\begin{equation}
-f_{i+1}=f_{i}+\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}+\frac{\Delta x^3 }{3!}f_{i}^{(3)}+\ldots
-\end{equation}</span></p>
-<p>The same can be done to obtain the function value at <span class="math notranslate nohighlight">\(i-1\)</span></p>
-<p><span class="math">\begin{equation}
-f_{i-1}=f_{i}-\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}-\frac{\Delta x^3 }{3!}f_{i}^{(3)}+\ldots
-\end{equation}</span></p>
-<p>Subtracting the two last equations, i.e. calculating <span class="math notranslate nohighlight">\(f_{i+1}-f_{i-1}\)</span>, results in</p>
-<p><span class="math">\begin{equation}
-f_{i+1}-f_{i-1}=2\Delta x f_{i}^{\prime}+2\frac{\Delta x^3}{6} f_{i}^{(3)}+ \ldots
-\end{equation}</span></p>
-<p>which when neglecting the last term on the right side yields</p>
-<p><span class="math">\begin{equation}
-f^{\prime}_{i}\approx \frac{f_{i+1}-f_{i-1}}{2\Delta x}
-\end{equation}</span></p>
-<p>This is similar to the formula we obtained from the definition of the derivative. Here, however, we use the function value to the left and the right of the position <span class="math notranslate nohighlight">\(i\)</span> and twice the interval, which actually improves accuracy.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">D</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1.e-9</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>One may continue that type of derivation now to obtain higher order approximation of the first derivative with better accuracy. For that purpose you may calculate now <span class="math notranslate nohighlight">\(f_{i\pm 2}\)</span> and combining that with <span class="math notranslate nohighlight">\(f_{i+1}-f_{i-1}\)</span> will lead to</p>
-<p><span class="math">\begin{equation}
-f_{i}^{\prime}=\frac{1}{12 \Delta x}(f_{i-2}-8f_{i-1}+8f_{i+1}-f_{i+2})
-\end{equation}</span></p>
-<p>This can be used to give better values for the first derivative.</p>
-<div class="section" id="Matrix-version-of-the-first-derivative">
-<h3>Matrix version of the first derivative<a class="headerlink" href="#Matrix-version-of-the-first-derivative" title="Permalink to this headline">¶</a></h3>
-<p>If we supply to the above function an array of positions <span class="math notranslate nohighlight">\(x_{i}\)</span> at which we would like to calculate the derivative, then we obtain and array of derivative values. We can write this procedure also in a different way, which will be helpful for solving differential equation later.</p>
-<p>If we consider the above finite difference formulas for a set of positions <span class="math notranslate nohighlight">\(x_{i}\)</span>, we can represent the first derivative at these positions by matrix operation as well:</p>
-<p><span class="math notranslate nohighlight">\(f^{\prime}=\frac{1}{\Delta x} \begin{bmatrix} -1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; -1 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; -1 &amp; 1 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; -1 &amp; 1 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; 1\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -1\\ \end{bmatrix} \begin{bmatrix} f_{1}\\ f_{2}\\ f_{3}\\ f_{4}\\ f_{5}\\ f_{6} \end{bmatrix} = \begin{bmatrix} (f_{2}-f_{1})/\Delta x\\ (f_{3}-f_{2})/\Delta x\\ (f_{4}-f_{3})/\Delta x\\ (f_{5}-f_{4})/\Delta x\\ (f_{6}-f_{5})/\Delta x\\ (0-f_{6})/\Delta x\\ \end{bmatrix}\)</span></p>
-<p>Note that we took here the derivative only to the right side! Each row of the matrix multiplied by the vector containing the positions is then containing the derivative of the function <span class="math notranslate nohighlight">\(f\)</span> at the position <span class="math notranslate nohighlight">\(x_{i}\)</span> and the resulting vector represents the deravitave in a certain position region.</p>
-<p>We will demonstrate how to generate such a mtrix with the <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module below.</p>
-</div>
-</div>
-<div class="section" id="Second-order-derivative">
-<h2>Second order derivative<a class="headerlink" href="#Second-order-derivative" title="Permalink to this headline">¶</a></h2>
-<p>Higher order derivatives are also available from the same process. By adding <span class="math notranslate nohighlight">\(f_{i+2}\)</span> and <span class="math notranslate nohighlight">\(f_{i-1}\)</span> we arrive at</p>
-<p><span class="math">\begin{equation}
-f_{i}^{\prime\prime}\approx \frac{f_{i-1}-2f_{i}+f_{i+1}}{\Delta x^2}
-\end{equation}</span></p>
-<p>gives the basic equation for calculating the second order derivative and the next order may be obtained from</p>
-<p><span class="math">\begin{equation}
-f_{i}^{\prime\prime}\approx \frac{1}{12 \Delta x^{2}}(-f_{i-2}+16f_{i-1}-30 f_{i}+16f_{i+1}-f_{i+2})
-\end{equation}</span></p>
-<p>which is again better than our previous formula</p>
-<p><span class="math">\begin{equation}
-f^{\prime\prime}_{i}\approx\frac{f_{i+2}-2f_{i+1}+f_{i}}{\Delta x^2}
-\end{equation}</span></p>
-</div>
-<div class="section" id="SciPy-Module">
-<h2>SciPy Module<a class="headerlink" href="#SciPy-Module" title="Permalink to this headline">¶</a></h2>
-<p>Of course, we are not the first to define some functions for calculating the derivative of functions numerically. This is already implemented in different modules. One module is the above mentioned <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module provides the method <code class="docutils literal notranslate"><span class="pre">derivative</span></code>, which we can call with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-</pre></div>
-</div>
-<p>This will calculate the n<span class="math notranslate nohighlight">\(th\)</span> derivative of the function <span class="math notranslate nohighlight">\(f\)</span> at the position <span class="math notranslate nohighlight">\(x\)</span> with a intervall <span class="math notranslate nohighlight">\(dx=1.0\)</span> (default value).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## the derivative method is hidden in the `misc` sub-module of `SciPy`.</span>
-<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">derivative</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">derivative</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">dx</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># center the plots</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">.output_png {</span>
+<span class="s2">    display: table-cell;</span>
+<span class="s2">    text-align: center;</span>
+<span class="s2">    vertical-align: middle;</span>
+<span class="s2">}</span>
+<span class="s2">&lt;/style&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
--0.9999999999898844
-</pre></div></div>
+<div class="output_area rendered_html docutils container">
+<style>
+.output_png {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+</style></div>
 </div>
-<div class="section" id="Matrix-version">
-<h3>Matrix version<a class="headerlink" href="#Matrix-version" title="Permalink to this headline">¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module also allows us to construct the matrices as mentioned above. We will need the <code class="docutils literal notranslate"><span class="pre">diags</span></code> method from the <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module for that purpose.</p>
+<div class="section" id="Physical-Model">
+<h2>Physical Model<a class="headerlink" href="#Physical-Model" title="Permalink to this headline">¶</a></h2>
+<p>From the above defined equation of motion for the spring pendulum, it is only a small step to simulate planetary motion, which you should know well from you mechanics lectures. The equations of motion in angular and radial direction can be obtained very similarly. Here, however, there is no force in the tangential direction as we deal with the central symmetric gravitational potential. The equations of motion read:</p>
+<p><span class="math">\begin{eqnarray}
+\ddot{r}&=&r\dot{\theta}^2-\frac{G\, M}{r^2}\\
+\ddot{\theta}&=&-\frac{1}{r}2\dot{r}\dot{\theta}
+\end{eqnarray}</span></p>
+<p>We know the resulting trajectory of this motion</p>
+<p><span class="math">\begin{equation}
+r(\theta)=\frac{p}{1+\epsilon \cos(\theta)}
+\end{equation}</span></p>
+<p>with</p>
+<p><span class="math">\begin{equation}
+p=\frac{L^2}{G M m^2}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\epsilon=\sqrt{1+\frac{2\frac{E}{m}\frac{L^2}{m^2}}{G^2M^2}}
+\end{equation}</span></p>
+<p>The trajectory is therefore determined by <span class="math notranslate nohighlight">\(p\)</span> and the excentricity <span class="math notranslate nohighlight">\(\epsilon\)</span>. For <span class="math notranslate nohighlight">\(0&lt;\epsilon&lt;1\)</span>(E&lt;0) there is a closed orbit with an ellipctical shape. For <span class="math notranslate nohighlight">\(\epsilon=0\)</span> the orbit is circular.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
+<span></span><span class="k">def</span> <span class="nf">planetary_motion</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">time</span> <span class="p">):</span>
+    <span class="n">g0</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">g1</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">/</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">g2</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">g3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g0</span><span class="p">,</span> <span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<p>Lets assume, we want to calculate the derivative of the <code class="docutils literal notranslate"><span class="pre">sin</span></code> function at certain positions.</p>
+</div>
+<div class="section" id="Numerical-Solution">
+<h2>Numerical Solution<a class="headerlink" href="#Numerical-Solution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Initial-Parameters:-Planets">
+<h3>Initial Parameters: Planets<a class="headerlink" href="#Initial-Parameters:-Planets" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">N</span><span class="o">=</span><span class="mi">100</span>
-<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span></span><span class="c1"># mass m1, m2, length of pendula L1, L2, position of the coupling, spring constant k, gravitational acceleration</span>
+<span class="n">G</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">M</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># mass of the sun</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># mass of the earth</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span> <span class="p">([</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">r_o</span><span class="o">=</span> <span class="mf">1.8</span> <span class="c1"># initial radius</span>
+<span class="n">v_o</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># initial radial velocity</span>
+<span class="n">theta_o</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># initial angle</span>
+<span class="n">omega_o</span> <span class="o">=</span> <span class="mi">1</span><span class="c1"># initial angular velocity, for 2.222 it becomes circular</span>
+
+
+<span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">r_o</span>
+<span class="n">state</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">v_o</span>
+<span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_o</span>
+<span class="n">state</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">omega_o</span>
+
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
 </pre></div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">diags</span></code> function uses a set of numbers, that shoud be distributed along the diagonal of the matrix. If you supply a list like in the example below, the numbers are distributed using the offsets as defined in the second list. The <code class="docutils literal notranslate"><span class="pre">shape</span></code> keyword defines the shape of the matrix. Try the example in the over next cell with the <code class="docutils literal notranslate"><span class="pre">.todense()</span></code> suffix. This converts the otherwise unreadable sparse output to a readable matrix form.</p>
+</div>
+<div class="section" id="Solution:-Planets">
+<h3>Solution: Planets<a class="headerlink" href="#Solution:-Planets" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">answer</span> <span class="o">=</span> <span class="n">odeint</span> <span class="p">(</span> <span class="n">planetary_motion</span> <span class="p">,</span> <span class="n">state</span> <span class="p">,</span> <span class="n">time</span> <span class="p">)</span>
+
+<span class="n">xdata</span> <span class="o">=</span> <span class="n">answer</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ydata</span> <span class="o">=</span> <span class="n">answer</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># ellipse parameters</span>
+
+<span class="n">L</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">r_o</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">omega_o</span> <span class="c1"># angular momentum</span>
+<span class="n">E</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">v_o</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">r_o</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">omega_o</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">r_o</span>
+
+<span class="n">p</span><span class="o">=</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="p">)</span>
+<span class="n">e</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">E</span><span class="o">*</span><span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">*</span><span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Plotting:-Planets">
+<h3>Plotting: Planets<a class="headerlink" href="#Plotting:-Planets" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="Trajectory">
+<h4>Trajectory<a class="headerlink" href="#Trajectory" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
-        [ 0., -1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
-        [ 0.,  0., -1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.],
-        [ 0.,  0.,  0., -1.,  1.,  0.,  0.,  0.,  0.,  0.],
-        [ 0.,  0.,  0.,  0., -1.,  1.,  0.,  0.,  0.,  0.],
-        [ 0.,  0.,  0.,  0.,  0., -1.,  1.,  0.,  0.,  0.],
-        [ 0.,  0.,  0.,  0.,  0.,  0., -1.,  1.,  0.,  0.],
-        [ 0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  1.,  0.],
-        [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.,  1.],
-        [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0., -1.]])
-</pre></div></div>
-</div>
-<p>To comply with out previous definition of N=100 data point and the intervall <span class="math notranslate nohighlight">\(dx\)</span>, we define</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">m</span><span class="o">=</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<p>The derivative is then only a simple elementwise matrix multiplication.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">diff</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:],</span><span class="n">diff</span><span class="p">[:],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f^{\prime}$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(x)=x^</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$f$, $f^{\prime}$&#39;</span><span class="p">)</span>
+<span></span><span class="c1"># analytical solution</span>
+<span class="n">theta</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">r</span><span class="o">=</span><span class="n">p</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">e</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">))</span>
+
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="n">ydata</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;numerical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Function and Numerical Derivative&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1046,16 +998,49 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_1_differentiation_30_0.png"><img alt="../../_images/notebooks_L5_1_differentiation_30_0.png" src="../../_images/notebooks_L5_1_differentiation_30_0.png" style="width: 562px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L7_2_planetary_motion_14_0.png"><img alt="../../_images/notebooks_L7_2_planetary_motion_14_0.png" src="../../_images/notebooks_L7_2_planetary_motion_14_0.png" style="width: 460px; height: 419px;" /></a>
 </div>
 </div>
-<p>Check yourself, that the following line of code will calculate the second derivative.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="n">diags</span><span class="p">([</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</div>
+<div class="section" id="Energy">
+<h4>Energy<a class="headerlink" href="#Energy" title="Permalink to this headline">¶</a></h4>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">Etot</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Ekin</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Epot</span><span class="o">=-</span><span class="n">G</span><span class="o">*</span><span class="n">M</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Ekin</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Epot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Etot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;energy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L7_2_planetary_motion_17_0.png"><img alt="../../_images/notebooks_L7_2_planetary_motion_17_0.png" src="../../_images/notebooks_L7_2_planetary_motion_17_0.png" style="width: 426px; height: 286px;" /></a>
+</div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
+</div>
 </div>
 </div>
 
@@ -1067,10 +1052,10 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="2_integration.html" class="btn btn-neutral float-right" title="Numerical Integration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="3_diffusion_equation.html" class="btn btn-neutral float-right" title="Diffusion equation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../lectures/L5/overview_5.html" class="btn btn-neutral float-left" title="Lecture Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="1_spring_pendulum.html" class="btn btn-neutral float-left" title="Spring Pendulum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

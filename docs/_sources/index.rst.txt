@@ -119,7 +119,16 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L6/1_covid19.ipynb
    notebooks/L6/2_coupled_pendula.ipynb   
    notebooks/L6/3_fourier_analysis.ipynb  
-   
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Lecture 7:
+
+   lectures/L7/overview_7.rst
+   notebooks/L7/1_spring_pendulum.ipynb
+   notebooks/L7/2_planetary_motion.ipynb   
+   notebooks/L7/3_diffusion_equation.ipynb  
    
 Indices and tables
 ==================
