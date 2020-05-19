@@ -1,0 +1,13 @@
+font.size: 16 
+axes.titlesize: 16
+axes.labelsize: 14
+axes.labelpad: 14
+lines.linewidth: 1
+lines.markersize: 10
+xtick.labelsize: 14
+ytick.labelsize: 14
+xtick.top: True
+ytick.right: True
+xtick.direction: in
+ytick.direction: in
+
