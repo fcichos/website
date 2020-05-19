@@ -129,6 +129,7 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L7/1_spring_pendulum.ipynb
    notebooks/L7/2_planetary_motion.ipynb   
    notebooks/L7/3_diffusion_equation.ipynb  
+   lectures/L7/assignment_7.rst
    
 Indices and tables
 ==================
