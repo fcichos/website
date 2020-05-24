@@ -4,3 +4,4 @@ seaborn==0.8.1
 pandas
 ipycanvas
 scipy
+ipywidgets
