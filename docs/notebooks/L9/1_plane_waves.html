@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Spherical waves" href="2_spherical_waves.html" />
     <link rel="prev" title="Lecture Contents" href="../../lectures/L9/overview_9.html" /> 
 </head>
 
@@ -539,6 +540,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#Refracted-wave">Refracted wave</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="2_spherical_waves.html">Spherical waves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_spherical_waves.html#Plot-the-amplitude-of-the-field-as-a-functon-of-distance">Plot the amplitude of the field as a functon of distance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_spherical_waves.html#Plot-the-intensity-in-a-plane-z">Plot the intensity in a plane z</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_spherical_waves.html#Interference-between-a-spherical-and-a-plane-wave">Interference between a spherical and a plane wave</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -894,11 +901,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Equations">
 <h2>Equations<a class="headerlink" href="#Equations" title="Permalink to this headline">¶</a></h2>
-<p>A plane wave is given in its complex notion by</p>
+<p>A plane wave is a solution of the homogeneous wave equation and is given in its complex form by</p>
 <p><span class="math">\begin{equation}
 E=E_{0}e^{i\vec{k}\cdot \vec{r}}e^{-i\omega t}
 \end{equation}</span></p>
-<p>where the two exponential contain an spatial and a temporal phase. We will include in the following the spatial and the temporal phase. For plotting just the spatial variation of the electric field, we may just use the spatial part of the equation</p>
+<p>where the two exponential contain an spatial and a temporal phase. <span class="math notranslate nohighlight">\(E_{0}\)</span> denotes the amplitude of the plane wave. The plane is defined by the shape of the wavefront which is given by <span class="math notranslate nohighlight">\(\vec{k}\cdot \vec{r}=const\)</span>, which is just the definition of a plane perpendicular to <span class="math notranslate nohighlight">\(\vec{k}\)</span>.</p>
+<p>A wave is a physical quantity which oscillates in space and time. Its energy current density is related to the square magnitude of the amplitude. We will include in the following the spatial and the temporal phase. For plotting just the spatial variation of the electric field, you may just use the spatial part of the equation</p>
 <p><span class="math">\begin{equation}
 E=E_{0}e^{i\vec{k}\cdot \vec{r}}
 \end{equation}</span></p>
@@ -939,11 +947,11 @@ k_{z}^{\prime}+ik_{z}^{"} \\
 <p>The complex number of the refractive index means, that there is some damping of the electromagnetic wave due to absorption, for example.</p>
 <p>The wavelength is then related to</p>
 <p><span class="math">\begin{equation}
-Real(k)=\eta \frac{2\pi}{\lambda_{0}}
+\Re(k)=\eta \frac{2\pi}{\lambda_{0}}
 \end{equation}</span></p>
 <p>and the imaginary part gives the damping</p>
 <p><span class="math">\begin{equation}
-Imag(k)=\kappa \frac{2\pi}{\lambda_{0}}
+\Im(k)=\kappa \frac{2\pi}{\lambda_{0}}
 \end{equation}</span></p>
 <p>Lets have a look at waves and wave propagation. We want to create a wave, which has a wavelength of 532 nm in vacuum.</p>
 <div class="nbinput nblast docutils container">
@@ -1645,6 +1653,8 @@ k_{0z,t}=\pm \frac{1}{n_{1}}\sqrt{n_2^2 k_{0z,in}^2 -(n_{1}^2-n_{2}^2)k_{0x}^{2}
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2_spherical_waves.html" class="btn btn-neutral float-right" title="Spherical waves" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../../lectures/L9/overview_9.html" class="btn btn-neutral float-left" title="Lecture Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
