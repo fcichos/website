@@ -523,6 +523,21 @@
 <p class="caption"><span class="caption-text">Lecture 9:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L9/overview_9.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_plane_waves.html">Plane Waves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Equations">Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Plane-wave-propagation">Plane wave propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Imaginary-wave-vector">Imaginary wave vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Interference-of-two-plane-waves">Interference of two plane waves</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_plane_waves.html#Plane-wave-at-a-boundary">Plane wave at a boundary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Fresnel-equations">Fresnel equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Incident-wave">Incident wave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Reflected-wave">Reflected wave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_plane_waves.html#Refracted-wave">Refracted wave</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -838,7 +853,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Spherical-waves">
 <h1>Spherical waves<a class="headerlink" href="#Spherical-waves" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -875,27 +890,27 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">spherical_wave</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">r0</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
     <span class="n">k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">r0</span><span class="p">)</span><span class="o">-</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">r0</span><span class="p">)))</span>
+    <span class="k">return</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">r0</span><span class="p">)</span><span class="o">-</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">r0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="Plot-the-amplitude-of-the-field-as-a-functon-of-distance">
 <h2>Plot the amplitude of the field as a functon of distance<a class="headerlink" href="#Plot-the-amplitude-of-the-field-as-a-functon-of-distance" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
-<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">10e-6</span><span class="p">,</span><span class="mf">10e-6</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">20e-6</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5e-6</span><span class="p">,</span><span class="mf">5e-6</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">10e-6</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">X</span><span class="p">,</span><span class="n">Z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
 <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Z</span><span class="p">])</span>
@@ -906,13 +921,12 @@ div.rendered_html tbody tr:hover {
 <span class="n">omega0</span><span class="o">=</span><span class="n">k0</span><span class="o">*</span><span class="n">c</span>
 
 <span class="n">k</span><span class="o">=</span><span class="n">k0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
-<span class="n">r0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">10e-9</span><span class="p">])</span>
+<span class="n">r0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="n">field</span><span class="o">=</span><span class="n">spherical_wave</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">r0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1">#plt.contourf(Z,X,np.abs(field)**2,20)</span>
 
 <span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">transpose</span><span class="p">()),</span><span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">transpose</span><span class="p">()),</span><span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span><span class="n">vmin</span><span class="o">=-</span><span class="mf">1e6</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">1e6</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
@@ -924,22 +938,22 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_4_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_4_0.png" src="../../_images/notebooks_L9_2_spherical_waves_4_0.png" style="width: 378px; height: 340px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_4_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_4_0.png" src="../../_images/notebooks_L9_2_spherical_waves_4_0.png" style="width: 353px; height: 334px;" /></a>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">((</span><span class="n">z</span><span class="o">+</span><span class="mf">1e-6</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">transpose</span><span class="p">()[</span><span class="mi">100</span><span class="p">,:])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">transpose</span><span class="p">()[</span><span class="mi">100</span><span class="p">,:])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;z in [µm]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;intensity [a.u.]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -951,7 +965,7 @@ Text(0, 0.5, &#39;intensity [a.u.]&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_5_1.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_5_1.png" src="../../_images/notebooks_L9_2_spherical_waves_5_1.png" style="width: 417px; height: 282px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_5_1.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_5_1.png" src="../../_images/notebooks_L9_2_spherical_waves_5_1.png" style="width: 392px; height: 295px;" /></a>
 </div>
 </div>
 </div>
@@ -959,7 +973,7 @@ Text(0, 0.5, &#39;intensity [a.u.]&#39;)
 <h2>Plot the intensity in a plane z<a class="headerlink" href="#Plot-the-intensity-in-a-plane-z" title="Permalink to this headline">¶</a></h2>
 <p>We can alo plot the intensity of a spherical wave at a certain distance from the source in the xy-plane.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -971,10 +985,9 @@ Text(0, 0.5, &#39;intensity [a.u.]&#39;)
 <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="mf">10e-6</span><span class="p">])</span>
 <span class="n">k1</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">wavelength</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">])</span>
 <span class="n">r0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">20e-9</span><span class="p">])</span>
-<span class="n">field</span><span class="o">=</span><span class="n">spherical_wave</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">r0</span><span class="p">)</span>
+<span class="n">field</span><span class="o">=</span><span class="n">spherical_wave</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">r0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
 
-<span class="c1">#plt.contourf(Z,X,np.abs(field)**2,100)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y [µm]&#39;</span><span class="p">)</span>
@@ -994,17 +1007,17 @@ Text(0, 0.5, &#39;intensity [a.u.]&#39;)
 <div class="section" id="Interference-between-a-spherical-and-a-plane-wave">
 <h2>Interference between a spherical and a plane wave<a class="headerlink" href="#Interference-between-a-spherical-and-a-plane-wave" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">plane_wave_phase</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">phi</span><span class="p">):</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="o">+</span><span class="n">phi</span><span class="p">)))</span>
+<span></span><span class="k">def</span> <span class="nf">plane_wave</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="o">-</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1017,7 +1030,7 @@ Text(0, 0.5, &#39;intensity [a.u.]&#39;)
 <span class="n">k1</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">wavelength</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">])</span>
 <span class="n">r0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">2e-6</span><span class="p">])</span>
 
-<span class="n">field</span><span class="o">=</span><span class="n">plane_wave</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">spherical_wave</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">r0</span><span class="p">)</span>
+<span class="n">field</span><span class="o">=</span><span class="n">plane_wave</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="n">spherical_wave</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">omega0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">r0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
 
 <span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span>
@@ -1037,397 +1050,18 @@ Text(0, 0.5, &#39;intensity [a.u.]&#39;)
 <a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_10_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_10_0.png" src="../../_images/notebooks_L9_2_spherical_waves_10_0.png" style="width: 541px; height: 503px;" /></a>
 </div>
 </div>
-<div class="section" id="Diffraction-pattern-of-a-single-slit-using-Huygens-principle">
-<h3>Diffraction pattern of a single slit using Huygens principle<a class="headerlink" href="#Diffraction-pattern-of-a-single-slit-using-Huygens-principle" title="Permalink to this headline">¶</a></h3>
-<p>The Huygens principle states, that each point is space which which is experiencing an electromagnetic wave is the source of a spherical wave. This means nothing else, that any wave can be expanded into a superposition of spherical waves, which is the fundamental of Mie scattering for example. Here we would like to have a look at the Huygens principle by playing around with the interference from multiple sources arranged in a line. Using this way we can simulate the diffraction patterns from a
-slit or a grating.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-
-<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">50e-6</span><span class="p">,</span><span class="mf">50e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">50e-6</span><span class="p">,</span><span class="mf">50e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">100e-6</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
-
-<span class="n">X</span><span class="p">,</span><span class="n">Z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-<span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Z</span><span class="p">])</span>
-
-<span class="n">k</span><span class="o">=</span><span class="n">k0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">])</span>
-
-<span class="n">field</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">d</span><span class="o">=</span><span class="mf">2e-6</span>
-<span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
-    <span class="n">r0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">5e-6</span><span class="p">])</span>
-    <span class="n">field</span><span class="o">=</span><span class="n">field</span><span class="o">+</span><span class="n">spherical_wave</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">r0</span><span class="p">)</span>
-
-<span class="n">field</span><span class="o">=</span><span class="n">field</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
-<span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_12_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_12_0.png" src="../../_images/notebooks_L9_2_spherical_waves_12_0.png" style="width: 368px; height: 334px;" /></a>
-</div>
-</div>
-<p><strong>exercise</strong></p>
-<p>Plot the intensity pattern at a certain distance z and compare that to the analytical solution</p>
-<p><span class="math">\begin{equation}
-I=I_{0}\left (\frac{\sin(\delta)}{\delta}\right )^2
-\end{equation}</span></p>
-<p>where <span class="math">\begin{equation}
-\delta=\frac{\pi d}{\lambda}\sin(\theta)
-\end{equation}</span></p>
-<p>and <span class="math notranslate nohighlight">\(d\)</span> is the slit width.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## code goes here</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="mi">199</span><span class="p">,:])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x [µm]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;intensity [a.u.]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_14_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_14_0.png" src="../../_images/notebooks_L9_2_spherical_waves_14_0.png" style="width: 428px; height: 280px;" /></a>
-</div>
-</div>
-<p><strong>exercise</strong></p>
-<p>create the intensity pattern generated by a grating with 10 slits of width <span class="math notranslate nohighlight">\(d\)</span> and distance <span class="math notranslate nohighlight">\(D\)</span>. Compare that to the analytical solution.</p>
-<p><span class="math">\begin{equation}
-I=I_{0}\left (\frac{\sin(\delta)}{\delta}\right )^2\left (\frac{\sin(N\gamma)}{\sin(\gamma)}\right )^2
-\end{equation}</span></p>
-<p>where <span class="math">\begin{equation}
-\gamma=\frac{\pi D}{\lambda}\sin(\theta)
-\end{equation}</span></p>
-<p>and <span class="math notranslate nohighlight">\(N\)</span> is the number of slits.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## code goes here</span>
+<span></span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="Gaussian-Beams">
-<h4>Gaussian Beams<a class="headerlink" href="#Gaussian-Beams" title="Permalink to this headline">¶</a></h4>
-<p>A Gaussian beam is an important solution in optics as it represents a confined electromagnetic wave in form of a beam. It is the solution of the paraxial Helmholtz equation:</p>
-<p><span class="math">\begin{equation}
-\left ( \frac{\partial^2 }{\partial x^2}+\frac{\partial^2 }{\partial y^2}-2ik\frac{\partial }{\partial z}\right ) E(\vec{r})=0
-\end{equation}</span></p>
-<p>The solution is given by</p>
-<p><span class="math">\begin{equation}
-E(r,z)=E_{0}\frac{w_0}{w(z)}e^{-\frac{r^2}{w(z)^2}}e^{-i\left [ kz+k\frac{r^2}{2R(z)} -\Psi(z)\right ]}
-\end{equation}</span></p>
-<p>and is the standard representation of focused beams in optics.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">gaussian_beam</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">w0</span><span class="p">):</span>
-    <span class="n">zr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">w0</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">z</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">rho2</span><span class="o">=</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">w</span><span class="o">=</span><span class="n">w0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">zr</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">R</span><span class="o">=</span><span class="n">z</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="n">zr</span><span class="o">/</span><span class="n">z</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">psi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">zr</span><span class="p">)</span>
-    <span class="n">E</span><span class="o">=</span><span class="n">w0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">rho2</span><span class="o">/</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">z</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">rho2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="p">)</span><span class="o">-</span><span class="n">psi</span><span class="p">))</span><span class="o">/</span><span class="n">w</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">4e-6</span><span class="p">,</span><span class="mf">4e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">10e-6</span><span class="p">,</span><span class="mf">10e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">20e-6</span><span class="p">,</span><span class="mf">20e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-
-
-<span class="c1">#X,Y=np.meshgrid(x,y)</span>
-<span class="n">X</span><span class="p">,</span><span class="n">Z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-<span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Z</span><span class="p">])</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">field</span><span class="o">=</span><span class="n">gaussian_beam</span><span class="p">(</span><span class="n">k0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">)</span>
-<span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">transpose</span><span class="p">()),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_19_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_19_0.png" src="../../_images/notebooks_L9_2_spherical_waves_19_0.png" style="width: 750px; height: 202px;" /></a>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">8e-6</span><span class="p">,</span><span class="mf">8e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2e-6</span><span class="p">,</span><span class="mf">2e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">20e-6</span><span class="p">,</span><span class="mf">20e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-
-
-
-<span class="c1">#X,Y=np.meshgrid(x,y)</span>
-<span class="n">X</span><span class="p">,</span><span class="n">Z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-<span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Z</span><span class="p">])</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">field</span><span class="o">=</span><span class="n">gaussian_beam</span><span class="p">(</span><span class="n">k0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">)</span>
-
-
-<span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">Z</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">X</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;grays&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/anaconda3/lib/python3.7/site-packages/matplotlib/contour.py:1000: UserWarning: The following kwargs were not used by contour: &#39;color&#39;
-  s)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_20_1.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_20_1.png" src="../../_images/notebooks_L9_2_spherical_waves_20_1.png" style="width: 750px; height: 336px;" /></a>
-</div>
-</div>
-<p><strong>exercise</strong></p>
-<p>Try to find the width of the Gaussian beam numerically and plot it as a function of propagation distance.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">## code goes here</span>
-</pre></div>
-</div>
-</div>
-<p>A Gaussian beam is characterized by a Gaussian intensity distribution perpendicular to the optical axis. We can check that by plotting the intensity of the beam at a certain position z along the progation direction.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="p">[:,</span><span class="mi">500</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;z-position [µm]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;intensity&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="p">[</span><span class="mi">500</span><span class="p">,:])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x-position [µm]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;intensity&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_24_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_24_0.png" src="../../_images/notebooks_L9_2_spherical_waves_24_0.png" style="width: 857px; height: 353px;" /></a>
-</div>
-</div>
-</div>
-<div class="section" id="Oscillating-Dipole-Field">
-<h4>Oscillating Dipole Field<a class="headerlink" href="#Oscillating-Dipole-Field" title="Permalink to this headline">¶</a></h4>
-<p>In the case of fluorescence light emitted by a molecules for example, the radiation source is an oscillating dipole. The oscillating dipole field is given by</p>
-<p><span class="math">\begin{equation}
-\vec{E}=\frac{1}{4\pi \epsilon_{0}}\left [ \frac{ k^2}{r} (\hat{r} \times \vec{p})\times \hat{r}+\left (\frac{1}{r^3}-\frac{i k}{r^2} \right )(3\hat{r}[\hat{r}\cdot \vec{p}-\vec{p}]) \right ]e^{i k r}
-\end{equation}</span></p>
-<p>Write a function which calculates the dipole field at a given point <span class="math notranslate nohighlight">\(r\)</span>. In a scattering problem, the dipole is excited by the electric field of a plane wave or Gaussian bea, at the position of the dipole. In the far field, the dipole electric field is interfering</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">dipole_wave</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
-    <span class="n">k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-    <span class="n">k</span><span class="o">=</span><span class="mi">1</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">z</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">dr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ex</span><span class="o">=</span><span class="n">x</span><span class="o">/</span><span class="n">dr</span>
-    <span class="n">ey</span><span class="o">=</span><span class="n">y</span><span class="o">/</span><span class="n">dr</span>
-    <span class="n">ez</span><span class="o">=</span><span class="n">z</span><span class="o">/</span><span class="n">dr</span>
-    <span class="n">er</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ex</span><span class="p">,</span><span class="n">ey</span><span class="p">,</span><span class="n">ez</span><span class="p">])</span>
-    <span class="n">term1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">er</span><span class="p">,</span><span class="n">p</span><span class="p">),</span><span class="n">er</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">dr</span>
-    <span class="n">term2</span><span class="o">=</span><span class="p">(</span><span class="n">er</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">er</span><span class="p">,</span><span class="n">p</span><span class="p">)</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">dr</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="n">dr</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">total</span><span class="o">=</span><span class="p">(</span><span class="n">term1</span><span class="o">+</span><span class="n">term2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">r</span><span class="p">)</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
-
-<span class="n">p</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="n">field</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)])</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)):</span>
-            <span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">z</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span>
-            <span class="n">f</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dipole_wave</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">),</span><span class="n">dipole_wave</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">)))</span>
-            <span class="c1">#f=(dipole_wave(p,k,r))</span>
-
-            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1.5</span><span class="p">:</span>
-                <span class="n">field</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span> <span class="n">f</span>
-
-
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[108]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-
-<span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">field</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.03</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;z-position&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x-position&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_28_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_28_0.png" src="../../_images/notebooks_L9_2_spherical_waves_28_0.png" style="width: 531px; height: 497px;" /></a>
-</div>
-</div>
-</div>
-<div class="section" id="Lenses">
-<h4>Lenses<a class="headerlink" href="#Lenses" title="Permalink to this headline">¶</a></h4>
-<p>Lenses delay the phase of the electromagnetic wave depending on the distance from the optical axis. The delay is measured by the transmission function</p>
-<p><span class="math">\begin{equation}
-t(x,y)=\exp\left ( -i k \frac{x^2+y^2}{2f}\right )
-\end{equation}</span></p>
-<p>where <span class="math notranslate nohighlight">\(f\)</span> is the focal distance.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[113]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">lens</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[114]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">532e-9</span>
-<span class="n">k0</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">wavelength</span>
-<span class="n">k</span><span class="o">=</span><span class="n">k0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[115]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5e-6</span><span class="p">,</span><span class="mf">5e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">10e-6</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-
-<span class="n">X</span><span class="p">,</span><span class="n">Z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
-<span class="n">r</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Z</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[118]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">field</span><span class="o">=</span><span class="n">plane_wave</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
-<span class="n">phase</span><span class="o">=</span><span class="n">lens</span><span class="p">(</span><span class="n">k0</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="mf">100e-6</span><span class="p">)</span>
-<span class="n">field</span><span class="o">=</span><span class="n">field</span><span class="o">*</span><span class="n">phase</span>
-<span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">transpose</span><span class="p">()),</span><span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;z-position [µm]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x-position [µm]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L9_2_spherical_waves_33_0.png"><img alt="../../_images/notebooks_L9_2_spherical_waves_33_0.png" src="../../_images/notebooks_L9_2_spherical_waves_33_0.png" style="width: 353px; height: 334px;" /></a>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
-</div>
-</div>
 </div>
 
 

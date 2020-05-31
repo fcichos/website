@@ -1,7 +1,7 @@
 Lecture Contents
 ================
 
-In Lecture 9 we start to explore electromagnetic waves. We will not do that by solving a differential equation again, but by adding different electromagnetic waves.
+In Lecture 9 we start to explore electromagnetic waves. We will not do that by solving a differential equation again, but by adding different electromagnetic waves. If you did not cover electromagnetic waves in other lectures, I hope you still can follow the calculations in the lecture.
 
 1. Plane waves
 2. Spherical waves

@@ -145,7 +145,8 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    :caption: Lecture 9:
 
    lectures/L9/overview_9.rst
-   notebooks/L9/1_plane_wave.ipynb
+   notebooks/L9/1_plane_waves.ipynb
+   notebooks/L9/2_spherical_waves.ipynb
    
    
 Indices and tables
