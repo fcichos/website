@@ -522,6 +522,10 @@
 </ul>
 </li>
 </ul>
+<p class="caption"><span class="caption-text">Lecture 9:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L9/overview_9.html">Lecture Contents</a></li>
+</ul>
 
             
           
@@ -837,8 +841,9 @@ div.rendered_html tbody tr:hover {
 <h1>Coupled Pendula<a class="headerlink" href="#Coupled-Pendula" title="Permalink to this headline">¶</a></h1>
 <p>We will continue our course with some physical problems, we are going to tackle. One of the more extensive solutions will consider two coupled pendula. This belongs to the class of coupled oscillators, which are extremely important. They will later yield propagating waves. They are important for phonons, i.e. coupled vibration of atoms in solids, but there are also many other axamples. One can realize the coupled oscillation on different ways. He we will do that not with spring oscillators, by
 with pendula.</p>
+<p>import Cell from ‘&#64;nteract/presentational-components/src/components/cell’;</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -881,7 +886,7 @@ with pendula.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -938,7 +943,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 </div>
 <p>So the state vector just gets longer and the coupling is in the definition of the velocities and accelerations. The results are then the positions and velocities of the objects. Use this type of scheme to define the problem and write a function, which returns the state of the objects as before.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -964,7 +969,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <li><p>spring constant of the coupling spring, <span class="math notranslate nohighlight">\(k=5\)</span></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -981,7 +986,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 </div>
 <p>As compared to our previous problem of a damped driven pendulum, where we had two initial conditions for the second order differential equation, we have now two second order differential equation. We therefore need 4 initial parameters, which are the initial elongations of both pendula and their corresponding initial angular velocities We will notice, that the solution,i.e. the motion of the pendula, will strongly depend on the initial conditions.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1003,7 +1008,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <h3>Solve the equation of motion<a class="headerlink" href="#Solve-the-equation-of-motion" title="Permalink to this headline">¶</a></h3>
 <p>We have to define a timeperiod over which we would like to obtain the solution. We use here a period of 400s where we calculate the solution at 10000 points along the 400s.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1016,7 +1021,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 </div>
 <p>We are now ready to calculate the solution. Finally, we extract also the angles of the individual pendula, their angular velocities and the position of the point masses at the end of the pendulum. This can be then readily used to create some animation.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[390]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1044,7 +1049,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <p>First, get some impression of how the angles change over time.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[391]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1066,7 +1071,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_25_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_25_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_25_0.png" style="width: 719px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_26_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_26_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_26_0.png" style="width: 719px; height: 348px;" /></a>
 </div>
 </div>
 </div>
@@ -1074,7 +1079,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <h3>Animation<a class="headerlink" href="#Animation" title="Permalink to this headline">¶</a></h3>
 <p>The plot of the angles over time is not always giving a good insight. With our knowledge about animations, we may easily animate the motion of the two pendula as well.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[392]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1085,7 +1090,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 </div>
 <p>For the physics, it has neven been interesting to define at which distance the pendula are mounted at a ceiling for example. For drawing them we have to do that together with some additional parameters, which define for example the position of where to draw in the canvas and the conversion of <em>meters</em> to <em>pixels</em>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[393]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1228,7 +1233,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_43_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_43_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_43_0.png" style="width: 715px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_44_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_44_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_44_0.png" style="width: 715px; height: 348px;" /></a>
 </div>
 </div>
 </div>
@@ -1299,7 +1304,7 @@ I_{2}\ddot{\theta_{2}}&=&-m_{2}gL_{2}\sin(\theta_{2})+kc^2[\sin(\theta_{1})-\sin
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_48_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_48_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_48_0.png" style="width: 715px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_49_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_49_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_49_0.png" style="width: 715px; height: 348px;" /></a>
 </div>
 </div>
 </div>
@@ -1372,7 +1377,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_53_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_53_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_53_0.png" style="width: 715px; height: 348px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_54_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_54_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_54_0.png" style="width: 715px; height: 348px;" /></a>
 </div>
 </div>
 </div>
@@ -1406,7 +1411,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_58_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_58_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_58_0.png" style="width: 751px; height: 333px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_59_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_59_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_59_0.png" style="width: 751px; height: 333px;" /></a>
 </div>
 </div>
 </div>
@@ -1435,7 +1440,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_60_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_60_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_60_0.png" style="width: 760px; height: 337px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_61_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_61_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_61_0.png" style="width: 760px; height: 337px;" /></a>
 </div>
 </div>
 </div>
@@ -1465,7 +1470,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_62_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_62_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_62_0.png" style="width: 750px; height: 333px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_63_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_63_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_63_0.png" style="width: 750px; height: 333px;" /></a>
 </div>
 </div>
 </div>
@@ -1496,7 +1501,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_65_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_65_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_65_0.png" style="width: 757px; height: 338px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_66_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_66_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_66_0.png" style="width: 757px; height: 338px;" /></a>
 </div>
 </div>
 </div>
@@ -1528,7 +1533,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_68_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_68_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_68_0.png" style="width: 748px; height: 333px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L6_2_coupled_pendula_69_0.png"><img alt="../../_images/notebooks_L6_2_coupled_pendula_69_0.png" src="../../_images/notebooks_L6_2_coupled_pendula_69_0.png" style="width: 748px; height: 333px;" /></a>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
@@ -1560,7 +1565,7 @@ point it’s easily to recognize how the wife is generated. In a set of many cou
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on May 24, 2020.
+        Last updated on May 31, 2020.
       </span>
 
     </p>
