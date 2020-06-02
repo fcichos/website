@@ -871,7 +871,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id3"><span class="problematic" id="id4">`source/notebooks/L8/1_curve_fitting.ipynb`_</span></a>.
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L8/1_curve_fitting.ipynb`_</span></a>.
 <span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L8/1_curve_fitting.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
 </div>
 <div class="section" id="Curve-fitting">
@@ -1215,11 +1215,9 @@ r_i=100\left (\frac{y_i-f(x_{i},a)}{y_i}\right )
 </div>
 </div>
 <p>We may therefore want to characterize how much the individual parameters vary with each other. In other word, this means that we want to know whether the fit parameters are independent or not, which is a good quality measure of our model. For this pupose we use a generalization of the variance definition</p>
-<p>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}
-sigma^{2}=frac{1}{N}sum_{i=1}^{N}(y_{i}-&lt;y&gt;)^2</p>
-<blockquote>
-<div><p>end{equation}`</p>
-</div></blockquote>
+<p><span class="math">\begin{equation}
+\sigma^{2}=\frac{1}{N}\sum_{i=1}^{N}(y_{i}-<y>)^2
+\end{equation}</span></p>
 <p>which is the mean squared deviation of the individual values from its mean. This equation is a special case of a the so-called covariance</p>
 <p><span class="math">\begin{equation}
 {\rm cov(x,y)}=\frac{1}{N}\sum_{i=1}^{N}(x_{i}-<x>)(y_{i}-<y>)
