@@ -6,7 +6,7 @@ The nineth assignment will be about the electromagnetic waves and the resolution
 1. Apply Huygens principle to calculate the intensity distribution in the focus of a spherical mirror
 2. Determine the resolution as a function of the numerical aperture
 
-to study the solution of a more biologically focused problem.
+to test your abilities to calculate with complex numbers.
 
 Have fun!
 
