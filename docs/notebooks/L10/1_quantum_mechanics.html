@@ -1007,10 +1007,42 @@ the propagation of probability density. The wavefunction itself is thus just the
 <p><span class="math notranslate nohighlight">\(V\Psi= \begin{bmatrix}  V(x_{1}) &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; V(x_{2}) &amp; 0 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; V(x_{3}) &amp; 0 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; V(x_{4}) &amp; 0 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; V(x_{5}) &amp; 0\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; V(x_{6})\\ \end{bmatrix} \begin{bmatrix} \Psi(x_{1})\\ \Psi(x_{2})\\ \Psi(x_{3})\\ \Psi(x_{4})\\ \Psi(x_{5})\\ \Psi(x_{6}) \end{bmatrix}\)</span></p>
 <p>an you may insert the specific potential energy values for your particular problem here.</p>
 <p>Our final problem <span class="math notranslate nohighlight">\(\hat{H}\Psi=E\Psi\)</span> will thus have the following shape</p>
-<p>$</p>
-<p>=E</p>
-<p>$</p>
+<p><span class="math">\begin{equation}
+\begin{bmatrix}
+-2+V(x_{1}) & 1  & 0 & 0 & 0 & 0\\
+1 & -2+V(x_{2}) & 1 & 0 & 0 & 0\\
+0 & 1 & -2+V(x_{3})  & 1 & 0 & 0 \\
+0 &0 & 1  & -2+V(x_{4})  & 1 & 0 \\
+0 & 0 & 0  & 1  &  -2+V(x_{5}) & 1 \\
+0 & 0 & 0  & 0  &  1 &  -2+V(x_{6}) \\
+\end{bmatrix}
+\begin{bmatrix}
+\Psi(x_{1})\\
+\Psi(x_{2})\\
+\Psi(x_{3})\\
+\Psi(x_{4})\\
+\Psi(x_{5})\\
+\Psi(x_{6})
+\end{bmatrix}=E
+\begin{bmatrix}
+\Psi(x_{1})\\
+\Psi(x_{2})\\
+\Psi(x_{3})\\
+\Psi(x_{4})\\
+\Psi(x_{5})\\
+\Psi(x_{6})
+\end{bmatrix}
+\end{equation}</span></p>
 <p>This is the final system of coupled equations which we can supply to any matrix solver. We will use a solver from the <em>scipy.linalg</em> module. In case we have special boundary conditions, we need to take them into account and replace the first and the last line for example with the particular boundary conditions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>

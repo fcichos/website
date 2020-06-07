@@ -217,14 +217,14 @@
    "source": [
     "Our final problem $\\hat{H}\\Psi=E\\Psi$ will thus have the following shape\n",
     "\n",
-    "$\n",
+    "\\begin{equation}\n",
     "\\begin{bmatrix}\n",
-    " -2+V(x_{1}) & 1  & 0 & 0 & 0 & 0\\\\\n",
-    " 1 & -2+V(x_{2}) & 1 & 0 & 0 & 0\\\\\n",
-    " 0 & 1 & -2+V(x_{3})  & 1 & 0 & 0 \\\\\n",
-    " 0 &0 & 1  & -2+V(x_{4})  & 1 & 0 \\\\\n",
-    " 0 & 0 & 0  & 1  &  -2+V(x_{5}) & 1 \\\\\n",
-    " 0 & 0 & 0  & 0  &  1 &  -2+V(x_{6}) \\\\\n",
+    "-2+V(x_{1}) & 1  & 0 & 0 & 0 & 0\\\\\n",
+    "1 & -2+V(x_{2}) & 1 & 0 & 0 & 0\\\\\n",
+    "0 & 1 & -2+V(x_{3})  & 1 & 0 & 0 \\\\\n",
+    "0 &0 & 1  & -2+V(x_{4})  & 1 & 0 \\\\\n",
+    "0 & 0 & 0  & 1  &  -2+V(x_{5}) & 1 \\\\\n",
+    "0 & 0 & 0  & 0  &  1 &  -2+V(x_{6}) \\\\\n",
     "\\end{bmatrix}\n",
     "\\begin{bmatrix}\n",
     "\\Psi(x_{1})\\\\\n",
@@ -241,10 +241,18 @@
     "\\Psi(x_{4})\\\\\n",
     "\\Psi(x_{5})\\\\\n",
     "\\Psi(x_{6})\n",
-    "\\end{bmatrix}$\n",
+    "\\end{bmatrix}\n",
+    "\\end{equation}\n",
     "\n",
     "This is the final system of coupled equations which we can supply to any matrix solver. We will use a solver from the *scipy.linalg* module. In case we have special boundary conditions, we need to take them into account and replace the first and the last line for example with the particular boundary conditions. "
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
