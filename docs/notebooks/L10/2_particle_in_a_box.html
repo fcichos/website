@@ -578,23 +578,18 @@
 <li class="toctree-l3"><a class="reference internal" href="1_quantum_mechanics.html#Potential-energy">Potential energy</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="1_quantum_mechanics.html#Particle-in-a-box">Particle in a box</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="1_quantum_mechanics.html#Energies-of-bound-state">Energies of bound state</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="1_quantum_mechanics.html#Harmonic-Oscillator">Harmonic Oscillator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_quantum_mechanics.html#Periodic-Potential">Periodic Potential</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Particle in a box</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Definition-of-problem">Definition of problem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Definition-of-the-problem">Definition of the problem</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Potential-energy">Potential energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Kinetic-energy">Kinetic energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Solution">Solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Plotting">Plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Energies-of-bound-state">Energies of bound state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Energies-of-bound-states">Energies of bound states</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_harmonic_oscillator.html">Harmonic Oscillator</a><ul>
@@ -603,8 +598,10 @@
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Kinetic-energy">Kinetic energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Solution">Solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Energies-of-the-states">Energies of the states</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="3_harmonic_oscillator.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="4_periodic_potential.html">Periodic Potential</a><ul>
@@ -616,6 +613,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="4_periodic_potential.html#Energy-states">Energy states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_periodic_potential.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 </ul>
@@ -932,8 +930,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Particle-in-a-box">
 <h1>Particle in a box<a class="headerlink" href="#Particle-in-a-box" title="Permalink to this headline">¶</a></h1>
+<p>Let’s apply the whole thing to the problem of a particle in a box. This means, we look at a quantum mechanical object in a potential well.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -961,11 +960,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p>Let’s apply the whole thing to the problem of a particle in a box. This means, we look at a quantum mechanical object in a potential well. The problem is sketched below.</p>
+<p>The problem is sketched below.</p>
 <p><img alt="Particle in a Box" src="../../_images/particle_in_box.png" /></p>
-<p>We need to define this rectangular box with zero potential energy inside the box and finite potential energy outside. Since the quantum mechanical object is a wave, we expect that only certain standing waves of particular wavelength can exist inside the box. These waves are connected to certain probability densities of finding the particle at certain positions and specific energy values. These are the energy levels, which are often so characteristic of the quantum realm.</p>
-<div class="section" id="Definition-of-problem">
-<h2>Definition of problem<a class="headerlink" href="#Definition-of-problem" title="Permalink to this headline">¶</a></h2>
+<p>We need to define this rectangular box with zero potential energy inside the box and finite potential energy outside. Since the quantum mechanical object is a wave, we expect that only certain standing waves of particular wavelength can exist inside the box. These waves are connected to certain probability densities of finding the particle at certain positions and specific energy values. These are the energy levels, which are often characteristic of the quantum realm.</p>
+<div class="section" id="Definition-of-the-problem">
+<h2>Definition of the problem<a class="headerlink" href="#Definition-of-the-problem" title="Permalink to this headline">¶</a></h2>
 <p>Before we start, we need to define some quantities:</p>
 <ul class="simple">
 <li><p>we will study a box of d=1 nm in width in a domain of L=5 nm</p></li>
@@ -974,7 +973,7 @@ div.rendered_html tbody tr:hover {
 <li><p>the potential energy inside the box will be zero</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -994,8 +993,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Potential-energy">
 <h3>Potential energy<a class="headerlink" href="#Potential-energy" title="Permalink to this headline">¶</a></h3>
+<p>We first define the diagonal potential energy matrix.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1010,8 +1010,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Kinetic-energy">
 <h3>Kinetic energy<a class="headerlink" href="#Kinetic-energy" title="Permalink to this headline">¶</a></h3>
+<p>Next are the derivatives of the kinetic energy matrix.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1022,7 +1023,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>An finally the total Hamilton operator matrix.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1031,12 +1032,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p>The last step is to solve the system of coupled equations usering the <code class="docutils literal notranslate"><span class="pre">eigsh</span></code> method of the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> module. We can already anticipate that we get multiple solution, e.g. multiple wavelength that fit inside the box. So there must be a certain number of eigenvalues. The method <code class="docutils literal notranslate"><span class="pre">eigsh</span></code> allows to specify the number of eigenvalues and eigenfunctions <span class="math notranslate nohighlight">\(n\)</span> we would like to calculate.</p>
 </div>
 <div class="section" id="Solution">
 <h3>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h3>
+<p>The last step is to solve the system of coupled equations usering the <code class="docutils literal notranslate"><span class="pre">eigsh</span></code> method of the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> module. We can already anticipate that we get multiple solution, e.g. multiple wavelength that fit inside the box. So there must be a certain number of eigenvalues. The method <code class="docutils literal notranslate"><span class="pre">eigsh</span></code> allows to specify the number of eigenvalues and eigenfunctions <span class="math notranslate nohighlight">\(n\)</span> we would like to calculate.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1050,7 +1051,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1065,10 +1066,10 @@ div.rendered_html tbody tr:hover {
     <span class="n">vec</span> <span class="o">=</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span>
     <span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">],</span><span class="n">vecs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]))</span>
     <span class="n">vec</span> <span class="o">=</span> <span class="n">vec</span><span class="o">/</span><span class="n">mag</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">vals</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">escale</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span> <span class="n">psiscale</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">vals</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">escale</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$n=</span><span class="si">%i</span><span class="s2">$&quot;</span><span class="o">%</span><span class="k">k</span>)
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">vals</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">escale</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span> <span class="n">psiscale</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">vals</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">escale</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span><span class="n">U_vec</span><span class="o">*</span><span class="n">escale</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;position $x$ [nm]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;energy $E$ in eV, Wavefunction $\Psi(x)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="n">scale</span><span class="p">,</span><span class="n">L</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="n">scale</span><span class="p">])</span>
@@ -1086,38 +1087,43 @@ div.rendered_html tbody tr:hover {
 <p>The diagram shows the corresponding energy states (the eigenvalues of the solution) and the value <span class="math notranslate nohighlight">\(|\Psi|^2\)</span>, which gives the probability to find the particle inside the box. The latter shows, that in contrast to what we expect from classical theory, where we would expect the particle to be with equal probability found at all positions inside the box, we get in quantum mechanics only certain positions at which we would find the particle. Also, the higher the energy state, the more equally
 is the particle distributed over the box. For a finite box depth, however, we get only a finite number of energy states in which the particle is bound. A second interesting observation here is that the particle has a finite probability to enter the potential barrier. Especially for the higher energy states, the wavefunction decays exponentially into the barrier. This is similar to the evanescent wave we studied during the last lecture.</p>
 </div>
-<div class="section" id="Energies-of-bound-state">
-<h3>Energies of bound state<a class="headerlink" href="#Energies-of-bound-state" title="Permalink to this headline">¶</a></h3>
-<p>In the case of the particle in a box only certain energies with spatial distributions are allowed. The particle is not everywhere in the box but can only be found in certain regions. The energies which correspond to these distributions are increasing nonlinearly with its index. Below we plot the energy as a function of the index of the energy value. This index is called <em>quantum number</em> as we can enumerate the solutions in quantum mechanics. The graph shows that the energy of the bound states
-increases with the square of the quantum number, i.e. <span class="math notranslate nohighlight">\(E_{n}\propto n^2\)</span>.</p>
+<div class="section" id="Energies-of-bound-states">
+<h3>Energies of bound states<a class="headerlink" href="#Energies-of-bound-states" title="Permalink to this headline">¶</a></h3>
+<p>In the case of the particle in a box only certain energies are allowed. The energies which correspond to these distributions are increasing nonlinearly with its index. Below we plot the energy as a function of the index of the energy value. This index is called <em>quantum number</em> as we can enumerate the solutions in quantum mechanics. The graph shows that the energy of the bound states increases with the square of the quantum number, i.e. <span class="math notranslate nohighlight">\(E_{n}\propto n^2\)</span>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;quantum number n&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E$ [eV]&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;quantum number n&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E$ [eV]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">[:</span><span class="mi">11</span><span class="p">])))</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">vals</span><span class="p">[:</span><span class="mi">11</span><span class="p">]</span><span class="o">*</span><span class="n">escale</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x7fa3126ca790&gt;]
+[&lt;matplotlib.lines.Line2D at 0x7fad63eb4650&gt;]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L10_2_particle_in_a_box_19_1.png"><img alt="../../_images/notebooks_L10_2_particle_in_a_box_19_1.png" src="../../_images/notebooks_L10_2_particle_in_a_box_19_1.png" style="width: 407px; height: 442px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L10_2_particle_in_a_box_19_1.png"><img alt="../../_images/notebooks_L10_2_particle_in_a_box_19_1.png" src="../../_images/notebooks_L10_2_particle_in_a_box_19_1.png" style="width: 408px; height: 444px;" /></a>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="Where-to-go-from-here?">
+<h2>Where to go from here?<a class="headerlink" href="#Where-to-go-from-here?" title="Permalink to this headline">¶</a></h2>
+<p>You may try at this point to create two closely spaced potential wells, e.g. two of 1 nm width with a distance of 0.1 nm or with a distance of 2 nm. You should see that for large distances of the wells the energy values in the individual wells are the same, while for the smaller distance they split up into two due to the interaction.</p>
+<p><img alt="Double Well" src="../../_images/double_well.png" /></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1130,7 +1136,6 @@ increases with the square of the quantum number, i.e. <span class="math notrans
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
-</div>
 </div>
 
 
@@ -1155,7 +1160,7 @@ increases with the square of the quantum number, i.e. <span class="math notrans
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 07, 2020.
+        Last updated on Jun 08, 2020.
       </span>
 
     </p>

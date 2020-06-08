@@ -577,23 +577,18 @@
 <li class="toctree-l3"><a class="reference internal" href="1_quantum_mechanics.html#Potential-energy">Potential energy</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="1_quantum_mechanics.html#Particle-in-a-box">Particle in a box</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="1_quantum_mechanics.html#Energies-of-bound-state">Energies of bound state</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="1_quantum_mechanics.html#Harmonic-Oscillator">Harmonic Oscillator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_quantum_mechanics.html#Periodic-Potential">Periodic Potential</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="2_particle_in_a_box.html">Particle in a box</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_particle_in_a_box.html#Definition-of-problem">Definition of problem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_particle_in_a_box.html#Definition-of-the-problem">Definition of the problem</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Potential-energy">Potential energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Kinetic-energy">Kinetic energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Solution">Solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Plotting">Plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Energies-of-bound-state">Energies of bound state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Energies-of-bound-states">Energies of bound states</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_harmonic_oscillator.html">Harmonic Oscillator</a><ul>
@@ -602,8 +597,10 @@
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Kinetic-energy">Kinetic energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Solution">Solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Energies-of-the-states">Energies of the states</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="3_harmonic_oscillator.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Periodic Potential</a><ul>
@@ -615,6 +612,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Energy-states">Energy states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 </ul>
@@ -931,9 +929,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Periodic-Potential">
 <h1>Periodic Potential<a class="headerlink" href="#Periodic-Potential" title="Permalink to this headline">¶</a></h1>
-<p>Finally we want to have a look at a system which is contains periodicity. This is an example, which is relevant for electrons propagating in a perdiodic lattice. In a realistic case, the potential would be formed by a periodic replication of Coulomb potentials at the position of the ions. For simplicity we just introduce a sine function for the potential. The result of this calculation shall be a band structure.</p>
+<p>Finally we want to have a look at a system which is contains a periodic potential. This is an example, which is relevant for electrons propagating in a perdiodic lattice. In a realistic case, the potential would be formed by a periodic replication of Coulomb potentials at the position of the ions. For simplicity we just introduce a sine function for the potential. The result of this calculation resembles to be a band structure as we would observe it in solids for example.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -961,21 +959,21 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<p>Our periodic potential shall be finite in size and we will simulate that with a sine function. This time, we will not look at realistic length and energy scales, but just take a model function.</p>
+<p>Our periodic potential shall be finite in size and we will simulate that with the square of a cosine function. This time, we will not look at realistic length and energy scales, but just take a model function.</p>
 <p>Our potential will be like that</p>
 <p><img alt="Periodic Potential" src="../../_images/periodic_potential.png" /></p>
-<p>where we chose the height and period of the sine function.</p>
+<p>where we chose the height and period of the cosine function.</p>
 <div class="section" id="Definition-of-the-problem">
 <h2>Definition of the problem<a class="headerlink" href="#Definition-of-the-problem" title="Permalink to this headline">¶</a></h2>
 <p>Before we start, we need to define some quantities:</p>
 <ul class="simple">
 <li><p>we will study this time a domain of <span class="math notranslate nohighlight">\(L=4\pi\)</span></p></li>
 <li><p>we will use N=3001 positions along <span class="math notranslate nohighlight">\(x\)</span></p></li>
-<li><p>our potential will be described by <span class="math notranslate nohighlight">\(V(x)=A\sin^2(b\cdot x)\)</span></p></li>
+<li><p>our potential will be described by <span class="math notranslate nohighlight">\(V(x)=A\cos^2(b\cdot x)\)</span></p></li>
 <li><p>we will choose <span class="math notranslate nohighlight">\(A=30\)</span>, <span class="math notranslate nohighlight">\(b=3\)</span></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -988,8 +986,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Potential-energy">
 <h3>Potential energy<a class="headerlink" href="#Potential-energy" title="Permalink to this headline">¶</a></h3>
+<p>We first define the diagonal potential energy matrix.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1004,8 +1003,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Kinetic-energy">
 <h3>Kinetic energy<a class="headerlink" href="#Kinetic-energy" title="Permalink to this headline">¶</a></h3>
+<p>Next are the derivatives of the kinetic energy matrix.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1016,7 +1016,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>An finally the total Hamilton operator matrix again.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[115]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1028,13 +1028,14 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Solution">
 <h3>Solution<a class="headerlink" href="#Solution" title="Permalink to this headline">¶</a></h3>
+<p>The last step is again the solution using the <code class="docutils literal notranslate"><span class="pre">eigsh</span></code> solver.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[116]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># diagonalize the matrix and take the first n eigenvalues and eigenvectors</span>
-<span class="n">n</span><span class="o">=</span><span class="mi">48</span>
+<span class="n">n</span><span class="o">=</span><span class="mi">100</span>
 <span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">eigsh</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;SM&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1043,7 +1044,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="Plotting">
 <h3>Plotting<a class="headerlink" href="#Plotting" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[125]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1053,6 +1054,7 @@ div.rendered_html tbody tr:hover {
     <span class="n">vec</span> <span class="o">=</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span>
     <span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">],</span><span class="n">vecs</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]))</span>
     <span class="n">vec</span> <span class="o">=</span> <span class="n">vec</span><span class="o">/</span><span class="n">mag</span>
+    <span class="c1">#plt.axhline(y=vals[k])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">5000</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">vals</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$n=</span><span class="si">%i</span><span class="s2">$&quot;</span><span class="o">%</span><span class="k">k</span>)
 
 
@@ -1071,42 +1073,63 @@ div.rendered_html tbody tr:hover {
 <a class="reference internal image-reference" href="../../_images/notebooks_L10_4_periodic_potential_15_0.png"><img alt="../../_images/notebooks_L10_4_periodic_potential_15_0.png" src="../../_images/notebooks_L10_4_periodic_potential_15_0.png" style="width: 854px; height: 389px;" /></a>
 </div>
 </div>
+<p>In this case, it might be more instructive to look at individual wavefunctions, what are plotted below. It reveals that we have two effects.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[126]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">vec</span> <span class="o">=</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="n">n</span><span class="p">]</span>
+<span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="n">n</span><span class="p">],</span><span class="n">vecs</span><span class="p">[:,</span> <span class="n">n</span><span class="p">]))</span>
+<span class="n">vec</span> <span class="o">=</span> <span class="n">vec</span><span class="o">/</span><span class="n">mag</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">vals</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">5000</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">vals</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+
+<span class="n">n</span><span class="o">=</span><span class="mi">25</span>
+
+<span class="n">vec</span> <span class="o">=</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="n">n</span><span class="p">]</span>
+<span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span> <span class="n">n</span><span class="p">],</span><span class="n">vecs</span><span class="p">[:,</span> <span class="n">n</span><span class="p">]))</span>
+<span class="n">vec</span> <span class="o">=</span> <span class="n">vec</span><span class="o">/</span><span class="n">mag</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">vals</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">5000</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">vals</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">U_vec</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E, \Psi(x)$&quot;</span><span class="p">)</span>
+<span class="c1">#plt.xlim([-6,6])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L10_4_periodic_potential_17_0.png"><img alt="../../_images/notebooks_L10_4_periodic_potential_17_0.png" src="../../_images/notebooks_L10_4_periodic_potential_17_0.png" style="width: 849px; height: 389px;" /></a>
+</div>
+</div>
+<p>One effect comes from the finite size of the periodic structure. This creates an envelope which is similar to the shape of the wavefunction we had for the particle in a box. The second effect comes from the periodic structure itself, when the wavefunction is localized in the individual potential wells. The close spacing of the wells lets all wells interact with each other which creates energy bands.</p>
 </div>
 </div>
 <div class="section" id="Energy-states">
 <h2>Energy states<a class="headerlink" href="#Energy-states" title="Permalink to this headline">¶</a></h2>
-<p>If we plot the energy states as a function of the index of the energy state, we recognize a gap of energy states, which is not accessible by any state.</p>
+<p>If we plot the energy states as a function of the index of the energy state, we recognize a gap of energy states, which is not accessible by any state. These are the abdn gaps existing in periodic structures like that.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[129]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;eigenvalue number&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;energy $E$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;energy $E$ [a.u.]&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L10_4_periodic_potential_18_0.png"><img alt="../../_images/notebooks_L10_4_periodic_potential_18_0.png" src="../../_images/notebooks_L10_4_periodic_potential_18_0.png" style="width: 404px; height: 497px;" /></a>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;distance $x$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|\Psi(x)|^2$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1115,9 +1138,13 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L10_4_periodic_potential_19_0.png"><img alt="../../_images/notebooks_L10_4_periodic_potential_19_0.png" src="../../_images/notebooks_L10_4_periodic_potential_19_0.png" style="width: 890px; height: 389px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L10_4_periodic_potential_21_0.png"><img alt="../../_images/notebooks_L10_4_periodic_potential_21_0.png" src="../../_images/notebooks_L10_4_periodic_potential_21_0.png" style="width: 407px; height: 497px;" /></a>
 </div>
 </div>
+</div>
+<div class="section" id="Where-to-go-from-here?">
+<h2>Where to go from here?<a class="headerlink" href="#Where-to-go-from-here?" title="Permalink to this headline">¶</a></h2>
+<p>To extend this model, you could try to find out how to remove the boundary effetcs. One may create perdiodic boundaries for this model. Research the web for that.</p>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
@@ -1143,7 +1170,7 @@ div.rendered_html tbody tr:hover {
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 07, 2020.
+        Last updated on Jun 08, 2020.
       </span>
 
     </p>

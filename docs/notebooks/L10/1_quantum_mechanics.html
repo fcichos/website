@@ -581,14 +581,15 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="2_particle_in_a_box.html">Particle in a box</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="2_particle_in_a_box.html#Definition-of-problem">Definition of problem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_particle_in_a_box.html#Definition-of-the-problem">Definition of the problem</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Potential-energy">Potential energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Kinetic-energy">Kinetic energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Solution">Solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Plotting">Plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Energies-of-bound-state">Energies of bound state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_particle_in_a_box.html#Energies-of-bound-states">Energies of bound states</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_harmonic_oscillator.html">Harmonic Oscillator</a><ul>
@@ -597,8 +598,10 @@
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Kinetic-energy">Kinetic energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Solution">Solution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_harmonic_oscillator.html#Energies-of-the-states">Energies of the states</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="3_harmonic_oscillator.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="4_periodic_potential.html">Periodic Potential</a><ul>
@@ -610,6 +613,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="4_periodic_potential.html#Energy-states">Energy states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_periodic_potential.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 </ul>
@@ -926,8 +930,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Quantum-Mechanics">
 <h1>Quantum Mechanics<a class="headerlink" href="#Quantum-Mechanics" title="Permalink to this headline">¶</a></h1>
-<p>In the last lecture, we have modeled electromagnetic waves noit by solving the wave equation, but by taking the solutions of wave equations. Today we will solve a wave equation, but not for electromagnetic waves, but for matter waves. We will solve the stationary Schrödinger equation with the implicit solution scheme. With the help of that we will tackle the particle in a box, the harmonic oscillator and the periodic potential. All of these problems have also analytical solutions, thus we do not
-need the numerical solution. But it will give us some practice on how to tackle such problems. As not all of you might be familiar with the physical description of quantum mechanics, we will give a short introduction into this field first.</p>
+<p>In the last lecture, we have modeled electromagnetic waves not by solving the wave equation, but by taking the solutions of wave equations like a plane wave or a spherical wave. Today we will solve a wave equation, but not for electromagnetic waves, but for matter waves. We will solve the stationary Schrödinger equation with the implicit solution scheme, which we have already applied for the diffusion equation. With the help of that we will tackle the particle in a box, the harmonic oscillator
+and the periodic potential. All of these problems have also analytical solutions, thus we do not need the numerical solution in principle. But it will give us some practice on how to tackle such problems. As not all of you might be familiar with the physical description of quantum mechanics, we will give a short introduction into this field first.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -960,11 +964,11 @@ need the numerical solution. But it will give us some practice on how to tackle 
 </div>
 <div class="section" id="Quantum-Mechanics-in-a-Nutshell">
 <h2>Quantum Mechanics in a Nutshell<a class="headerlink" href="#Quantum-Mechanics-in-a-Nutshell" title="Permalink to this headline">¶</a></h2>
-<p>Quantum Mechanics assumes that all particles propagate as waves. They are therefore described by a wavefunction <span class="math notranslate nohighlight">\(\Psi(x,t)\)</span>. A quantum mechanical object posseses an amplitude and a phase and propagates in space and time. One could see the wavefunction in analogy to the electric field <span class="math notranslate nohighlight">\(\vec{E}(x)\)</span> of an electromagnetic wave. As the square of the electric field describes the propagation of energy of a wave, the square magnitude of the wavefunction, i.e. <span class="math notranslate nohighlight">\(|\Psi(x,t)|^2\)</span>, describes
-the propagation of probability density. The wavefunction itself is thus just the probability amplitude.</p>
+<p>Quantum Mechanics assumes that all particles propagate as waves. They are described by a wavefunction <span class="math notranslate nohighlight">\(\Psi(x,t)\)</span>. A quantum mechanical object thus posseses an amplitude and a phase which propagate in space and time. One could see the wavefunction in analogy to the electric field <span class="math notranslate nohighlight">\(\vec{E}(x)\)</span> of an electromagnetic wave. As the square of the electric field describes the propagation of energy of a wave, the square magnitude of the wavefunction, i.e. <span class="math notranslate nohighlight">\(|\Psi(x,t)|^2\)</span>, describes the
+propagation of probability density of the quantum mechanical wave. The wavefunction itself is thus just the probability amplitude.</p>
 <div class="section" id="Time-dependent-Schrödinger-equation">
 <h3>Time dependent Schrödinger equation<a class="headerlink" href="#Time-dependent-Schrödinger-equation" title="Permalink to this headline">¶</a></h3>
-<p>The dynamics of a quantum mechanical wave is described by the time dependent Schrödinger equation</p>
+<p>The dynamics of a quantum mechanical wave is described,for example, by the time dependent Schrödinger equation</p>
 <p><span class="math">\begin{equation}
 -i\hbar\frac{\partial \Psi(x,t)}{\partial t} = \left ( \frac{-\hbar^2 }{2m}\frac{\partial^2}{\partial x^2}+V(x,t) \right ) \Psi(x,t)
 \end{equation}</span></p>
@@ -976,12 +980,12 @@ the propagation of probability density. The wavefunction itself is thus just the
 </div>
 <div class="section" id="Stationary-Schrödinger-equation">
 <h3>Stationary Schrödinger equation<a class="headerlink" href="#Stationary-Schrödinger-equation" title="Permalink to this headline">¶</a></h3>
-<p>Our first problems will be stationary problems. We will not ask for the temporal development of the particle position. We will rather ask, what solutions without timedependence are possible. In general this is much like the question asking what kind of standing waves are possible on a string or in an optical resonator. In quantum mechanics the boundaries, which define the standing waves are formed by the potential energy <span class="math notranslate nohighlight">\(V(x)\)</span>.</p>
-<p>We therefore also need the stationary Schrödinger equation, where the left side of the tome dependent Schrödinger equation does not depend on time, hence is constant in time. This stationary (time-independent) Schrödinger equation is</p>
+<p>Our first problems will be stationary problems. We will not ask for the temporal development of the quantum object. We will rather ask, what solutions without time dependence are possible. In general this is much like the question asking what kind of standing waves are possible on a string or in an optical resonator. In quantum mechanics the boundaries, which define the standing waves are formed by the potential energy <span class="math notranslate nohighlight">\(V(x)\)</span>.</p>
+<p>We therefore also need the stationary Schrödinger equation, where the left side of the time dependent Schrödinger equation does not depend on time, hence is constant in time. This stationary (time-independent) Schrödinger equation is</p>
 <p><span class="math">\begin{equation}
 \hat{H}\Psi(x)=E\Psi(x)
 \end{equation}</span></p>
-<p>The Hamilton operator <span class="math notranslate nohighlight">\(\hat{H}\)</span> gives a recipe how to calculate the energies for a given wavefunction <span class="math notranslate nohighlight">\(\Psi(x)\)</span> in terms of derivates or multiplications by functions. If this recipe results in just a multiplication of the wave function with a number <span class="math notranslate nohighlight">\(E\)</span>, then these wavefunctions are eigenfunction of the Hamilton operator and the values of <span class="math notranslate nohighlight">\(E\)</span> are the eigenvalues of the problem, i.e. the time-independent solutions of this differential equation.</p>
+<p>The Hamilton operator <span class="math notranslate nohighlight">\(\hat{H}\)</span> gives a recipe how to calculate the energies for a given wavefunction <span class="math notranslate nohighlight">\(\Psi(x)\)</span> in terms of derivates or multiplications by functions. If this recipe reduces to a multiplication of the wave function with a number <span class="math notranslate nohighlight">\(E\)</span>, then these wavefunctions are eigenfunction of the Hamilton operator and the values of <span class="math notranslate nohighlight">\(E\)</span> are the eigenvalues of the problem, i.e. the time-independent solutions of this differential equation.</p>
 </div>
 </div>
 <div class="section" id="Recap:-Implicit-Solution">
@@ -990,16 +994,16 @@ the propagation of probability density. The wavefunction itself is thus just the
 <p><span class="math">\begin{equation}
 \left ( \frac{-\hbar^2 }{2m}\frac{\partial^2}{\partial x^2}+V(x) \right ) \Psi(x)=E\Psi(x)
 \end{equation}</span></p>
-<p>Since we want to apply our implicit solution scheme (Cranck Nicolson), we need to represent both parts as matrices.</p>
+<p>Since we want to apply our implicit solution scheme (Cranck Nicolson), we want to represent both parts as matrices.</p>
 <div class="section" id="Kinetic-energy">
 <h3>Kinetic energy<a class="headerlink" href="#Kinetic-energy" title="Permalink to this headline">¶</a></h3>
-<p>We remember that we can write the second derivative approximation of our wavefunction <span class="math notranslate nohighlight">\(\Psi(x)\)</span> in the finite difference version</p>
+<p>We remember that we can write the second derivative of our wavefunction <span class="math notranslate nohighlight">\(\Psi(x)\)</span> in the finite difference approximation as</p>
 <p><span class="math">\begin{equation}
 \Psi^{''}(x)=\frac{\Psi(x+\delta x)-2\Psi(x)+\Psi(x-\delta x)}{\delta x^{2}}
 \end{equation}</span></p>
-<p>If we want to evaluate the wavefunction at certain positions <span class="math notranslate nohighlight">\(x_{i}\)</span>, then this second deraívative translates into</p>
+<p>If we want to evaluate the wavefunction at certain positions <span class="math notranslate nohighlight">\(x_{i}\)</span>, then this second derivative translates into</p>
 <p><span class="math notranslate nohighlight">\(T\Psi=\frac{d^2}{dx^2}\Psi=\frac{1}{\delta x^2} \begin{bmatrix} -2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\  1 &amp; -2 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\  0 &amp; 1 &amp; -2 &amp; 1 &amp; 0 &amp; 0\\  0 &amp; 0 &amp; 1 &amp; -2 &amp; 1 &amp; 0\\  0 &amp; 0 &amp; 0 &amp; 1 &amp; -2 &amp; 1\\  0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; -2\\ \end{bmatrix} \begin{bmatrix} \Psi(x_{1})\\ \Psi(x_{2})\\ \Psi(x_{3})\\ \Psi(x_{4})\\ \Psi(x_{5})\\ \Psi(x_{6}) \end{bmatrix}\)</span></p>
-<p>if we just use 6 positions. Please remember, that in the version above, we have imposed already boundary conditions in the first and the last row, which are <span class="math notranslate nohighlight">\(\Psi(x_{0})=0\)</span> and <span class="math notranslate nohighlight">\(\Psi(x_{7})=0\)</span>. If we multiply this matrix by <span class="math notranslate nohighlight">\(\hbar^{2}/2m\)</span>, we obtain the kinetic energy.</p>
+<p>if we just use 6 positions. Please remember, that in the version above, we have imposed already boundary conditions in the first and the last row, which are <span class="math notranslate nohighlight">\(\Psi(x_{0})=0\)</span> and <span class="math notranslate nohighlight">\(\Psi(x_{7})=0\)</span>. If we multiply this matrix by <span class="math notranslate nohighlight">\(-\hbar^{2}/2m\)</span>, we obtain the kinetic energy for an object of mass <span class="math notranslate nohighlight">\(m\)</span>.</p>
 </div>
 <div class="section" id="Potential-energy">
 <h3>Potential energy<a class="headerlink" href="#Potential-energy" title="Permalink to this headline">¶</a></h3>
@@ -1033,7 +1037,7 @@ the propagation of probability density. The wavefunction itself is thus just the
 \Psi(x_{6})
 \end{bmatrix}
 \end{equation}</span></p>
-<p>This is the final system of coupled equations which we can supply to any matrix solver. We will use a solver from the <em>scipy.linalg</em> module. In case we have special boundary conditions, we need to take them into account and replace the first and the last line for example with the particular boundary conditions.</p>
+<p>where I skipped the prefactor <span class="math notranslate nohighlight">\(-\hbar^2/2m\)</span>, to fit the matrices on one line. Yet I did not succeed. This is the final system of coupled equations which we can supply to any matrix solver. We will use a solver from the <em>scipy.linalg</em> module. In case we have special boundary conditions, we need to take them into account and replace the first and the last line for example with the particular boundary conditions.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1071,7 +1075,7 @@ the propagation of probability density. The wavefunction itself is thus just the
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 07, 2020.
+        Last updated on Jun 08, 2020.
       </span>
 
     </p>
