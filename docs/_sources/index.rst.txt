@@ -162,6 +162,16 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L10/3_harmonic_oscillator.ipynb
    notebooks/L10/4_periodic_potential.ipynb
 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Lecture 11:
+
+   lectures/L11/overview_11.rst
+   notebooks/L11/1_quantum_dynamics.ipynb
+   notebooks/L11/2_particle_in_a_box.ipynb
+   notebooks/L11/3_tunneling.ipynb
+
    
 Indices and tables
 ==================

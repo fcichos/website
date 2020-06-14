@@ -20,6 +20,7 @@
 project = 'Introduction to Computer-based Physical Modeling'
 copyright = '2020, Frank Cichos'
 author = 'Frank Cichos'
+master_doc = 'index'
 
 # The full version, including alpha/beta/rc tags
 release = '1'
