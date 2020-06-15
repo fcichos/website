@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -550,7 +551,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -621,10 +622,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../lectures/L11/overview_11.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html">Time Dependent Quantum Mechanics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Wave-Packets">Wave Packets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Definition-of-the-wave-packet-functions">Definition of the wave packet functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Matter-wavepacket-with-equal-amplitude-of-components">Matter wavepacket with equal amplitude of components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Wavepackets">Wavepackets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Wavepacket">Wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Wavepacket-with-rectangular-amplitude">Wavepacket with rectangular amplitude</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/1_quantum_dynamics.html#Gaussian-Wave-Packet">Gaussian Wave Packet</a></li>
 </ul>
 </li>
@@ -639,6 +640,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/2_particle_in_a_box.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/L11/3_tunneling.html">Tunneling through a barrier</a><ul>
@@ -646,13 +648,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Cranck-Nicolson-Solution">Cranck Nicolson Solution</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Setup-Domain">Setup Domain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Initial-Conditions">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Matrix-Setp">Matrix Setp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Matrix-Setup">Matrix Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Propagation-Matrix">Propagation Matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Animation-setup">Animation setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Animation">Animation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Split-Step-Method">Split Step Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Split-Step-Method">Split Step Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#id1">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Potential-energy-landscape">Potential energy landscape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Initial-wavepacket">Initial wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Fourier-Transform-Setup">Fourier Transform Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Phase-Factor-per-Timestep">Phase Factor per Timestep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#id2">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#id3">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/L11/3_tunneling.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 </ul>
@@ -753,7 +765,7 @@
 </div></blockquote>
 <p>You will be guided from here to several resources that you can use to learn programming in Python. Thereby we will make use of some great tools in the web, like</p>
 <ol class="arabic">
-<li><p class="first"><strong>myBinder</strong> service to host Jupyter Notebooks (<a class="reference external" href="https://mybinder.org">https://mybinder.org</a>). The Binder project offers an easy place to share computing environments to everyone</p>
+<li><p><strong>myBinder</strong> service to host Jupyter Notebooks (<a class="reference external" href="https://mybinder.org">https://mybinder.org</a>). The Binder project offers an easy place to share computing environments to everyone</p>
 <blockquote>
 <div><a class="reference internal image-reference" href="../_images/binder.png"><img alt="binder screen" class="align-center" src="../_images/binder.png" style="width: 600px;" /></a>
 <p>When you are exploring the following website you will notice the following icon on several places.</p>
@@ -761,12 +773,11 @@
 <p>This icon indicates that this webpage is based on a Jupyter Notebook. Rather than just looking at the website, you may click on the icon and the myBinder service will be opened to allow you to interactively use the notebook. <em>Please be patient and wait until binder has started.</em>  All notebooks on myBinder will be hosted temporarily. If you show inactivity for to long, the server will close the connection. If you are finsihed working on a notebook, you may download it to keep a copy. Go ahead and click on the icon to get an empty notebook.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><strong>GitHub and GitHub Pages</strong> for hosting notebooks and website (<a class="reference external" href="https://github.com">https://github.com</a>). GitHub is a great place to host you collaborative coding projects including version control. In the upper right corner, you will also find a link to the GitHub repository hosting the notebooks.</p>
-</li>
+<li><p><strong>GitHub and GitHub Pages</strong> for hosting notebooks and website (<a class="reference external" href="https://github.com">https://github.com</a>). GitHub is a great place to host you collaborative coding projects including version control. In the upper right corner, you will also find a link to the GitHub repository hosting the notebooks.</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/github.png"><img alt="github screen" class="align-center" src="../_images/github.png" style="width: 600px;" /></a>
 <ol class="arabic simple" start="3">
-<li><strong>Anaconda Jupyter package</strong> for creating the notebooks (<a class="reference external" href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a>). The anaconda package privides you with the Jupyter Notebook environment including Python. If you want to use Jupyter at home without online access, this is a good package to install.</li>
+<li><p><strong>Anaconda Jupyter package</strong> for creating the notebooks (<a class="reference external" href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a>). The anaconda package privides you with the Jupyter Notebook environment including Python. If you want to use Jupyter at home without online access, this is a good package to install.</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/anaconda.png"><img alt="anaconda screen" class="align-center" src="../_images/anaconda.png" style="width: 600px;" /></a>
 </div>
@@ -793,7 +804,7 @@
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 14, 2020.
+        Last updated on Jun 15, 2020.
       </span>
 
     </p>

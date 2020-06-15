@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -548,7 +549,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -619,10 +620,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L11/overview_11.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L11/1_quantum_dynamics.html">Time Dependent Quantum Mechanics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wave-Packets">Wave Packets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Definition-of-the-wave-packet-functions">Definition of the wave packet functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Matter-wavepacket-with-equal-amplitude-of-components">Matter wavepacket with equal amplitude of components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepackets">Wavepackets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepacket">Wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepacket-with-rectangular-amplitude">Wavepacket with rectangular amplitude</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Gaussian-Wave-Packet">Gaussian Wave Packet</a></li>
 </ul>
 </li>
@@ -637,6 +638,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L11/3_tunneling.html">Tunneling through a barrier</a><ul>
@@ -644,13 +646,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Cranck-Nicolson-Solution">Cranck Nicolson Solution</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Setup-Domain">Setup Domain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Initial-Conditions">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Matrix-Setp">Matrix Setp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Matrix-Setup">Matrix Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Propagation-Matrix">Propagation Matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Animation-setup">Animation setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Animation">Animation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Split-Step-Method">Split Step Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Split-Step-Method">Split Step Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id1">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Potential-energy-landscape">Potential energy landscape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Initial-wavepacket">Initial wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Fourier-Transform-Setup">Fourier Transform Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Phase-Factor-per-Timestep">Phase Factor per Timestep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id2">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id3">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 </ul>
@@ -785,20 +797,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -891,7 +916,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -962,8 +987,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L4/5_differentiation.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L4/5_differentiation.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L4/5_differentiation.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L4/5_differentiation.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
@@ -972,7 +998,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <span></span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">ipycanvas</span> <span class="kn">import</span> <span class="n">MultiCanvas</span><span class="p">,</span> <span class="n">hold_canvas</span>
 </pre></div>
@@ -1050,7 +1076,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ca5726fadfb14384846331515e1f130f", "version_minor": 0, "version_major": 2}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ca5726fadfb14384846331515e1f130f", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
@@ -1108,7 +1134,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 
 
@@ -1124,7 +1150,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 14, 2020.
+        Last updated on Jun 15, 2020.
       </span>
 
     </p>

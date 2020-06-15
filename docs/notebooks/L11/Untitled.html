@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -548,7 +549,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -619,10 +620,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L11/overview_11.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_quantum_dynamics.html">Time Dependent Quantum Mechanics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_quantum_dynamics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_quantum_dynamics.html#Wave-Packets">Wave Packets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="1_quantum_dynamics.html#Definition-of-the-wave-packet-functions">Definition of the wave packet functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_quantum_dynamics.html#Matter-wavepacket-with-equal-amplitude-of-components">Matter wavepacket with equal amplitude of components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_quantum_dynamics.html#Wavepackets">Wavepackets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_quantum_dynamics.html#Wavepacket">Wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_quantum_dynamics.html#Wavepacket-with-rectangular-amplitude">Wavepacket with rectangular amplitude</a></li>
 <li class="toctree-l3"><a class="reference internal" href="1_quantum_dynamics.html#Gaussian-Wave-Packet">Gaussian Wave Packet</a></li>
 </ul>
 </li>
@@ -637,6 +638,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="2_particle_in_a_box.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_tunneling.html">Tunneling through a barrier</a><ul>
@@ -644,13 +646,23 @@
 <li class="toctree-l2"><a class="reference internal" href="3_tunneling.html#Cranck-Nicolson-Solution">Cranck Nicolson Solution</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Setup-Domain">Setup Domain</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Initial-Conditions">Initial Conditions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Matrix-Setp">Matrix Setp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Matrix-Setup">Matrix Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Propagation-Matrix">Propagation Matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Animation-setup">Animation setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Animation">Animation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="3_tunneling.html#Split-Step-Method">Split Step Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_tunneling.html#Split-Step-Method">Split Step Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#id1">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Potential-energy-landscape">Potential energy landscape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Initial-wavepacket">Initial wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Fourier-Transform-Setup">Fourier Transform Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#Phase-Factor-per-Timestep">Phase Factor per Timestep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#id2">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_tunneling.html#id3">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_tunneling.html#Where-to-go-from-here?">Where to go from here?</a></li>
 </ul>
 </li>
 </ul>
@@ -785,20 +797,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -891,7 +916,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -962,15 +987,16 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L11/Untitled.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L11/Untitled.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L11/Untitled.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L11/Untitled.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[586]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
 <span class="kn">from</span> <span class="nn">scipy.fftpack</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span><span class="n">ifft</span>
@@ -993,9 +1019,9 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1046,7 +1072,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">gauss_x</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">k0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">/</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1j</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">k0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">/</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">k0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1166,9 +1192,9 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">psi_x</span><span class="o">=</span><span class="n">psi_x0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="n">psi_modx</span><span class="o">=</span><span class="n">psi_x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span> <span class="o">*</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">*</span> <span class="n">dx</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">phase_x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span><span class="o">*</span><span class="n">V_x</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span>
-<span class="n">phase_k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span><span class="o">*</span><span class="n">hbar</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">m</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
+<span class="n">psi_modx</span><span class="o">=</span><span class="n">psi_x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">*</span> <span class="n">dx</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">phase_x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">V_x</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span>
+<span class="n">phase_k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">hbar</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">m</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1199,7 +1225,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">## setup the canvas</span>
-<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1208,7 +1234,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b53423a356224829ac5ba2bdbc6a45e0", "version_minor": 0, "version_major": 2}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b53423a356224829ac5ba2bdbc6a45e0", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[635]:
@@ -1320,10 +1346,10 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">gauss_x</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">k0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">/</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1j</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">k0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span><span class="o">/</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">k0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
 
 <span class="k">def</span> <span class="nf">gauss_k</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">sigma</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">k0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">k0</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1j</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">k0</span><span class="p">)</span> <span class="o">*</span> <span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">k0</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">k0</span><span class="p">)</span> <span class="o">*</span> <span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1448,7 +1474,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <span class="sd">    Schrodinger equation for an arbitrary potential</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">psi_x0</span><span class="p">,</span> <span class="n">V_x</span><span class="p">,</span>
-                 <span class="n">k0</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">hbar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+                 <span class="n">k0</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">hbar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">t0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
 
         <span class="c1"># Validation of array inputs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">psi_x0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">V_x</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">psi_x0</span><span class="p">,</span> <span class="n">V_x</span><span class="p">))</span>
@@ -1467,30 +1493,30 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
         <span class="bp">self</span><span class="o">.</span><span class="n">compute_k_from_x</span><span class="p">()</span>
 
         <span class="c1"># variables which hold steps in evolution of the</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve_half</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">k_evolve</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dt_</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve_half</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_evolve</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dt_</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="c1"># attributes used for dynamic plotting</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">psi_x_line</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">psi_k_line</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">V_x_line</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">psi_x_line</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">psi_k_line</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">V_x_line</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">_set_psi_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psi_x</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">psi_mod_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">psi_x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">psi_mod_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">psi_x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
                           <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dx</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_get_psi_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">psi_mod_x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">psi_mod_x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
                 <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_set_psi_k</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psi_k</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">psi_mod_k</span> <span class="o">=</span> <span class="n">psi_k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">psi_mod_k</span> <span class="o">=</span> <span class="n">psi_k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                                         <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dk</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_get_psi_k</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">psi_mod_k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">psi_mod_k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span>
                                         <span class="bp">self</span><span class="o">.</span><span class="n">dk</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_get_dt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1499,10 +1525,10 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
     <span class="k">def</span> <span class="nf">_set_dt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">dt</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt_</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dt_</span> <span class="o">=</span> <span class="n">dt</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve_half</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="mi">1j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">V_x</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve_half</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">V_x</span>
                                          <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">hbar</span> <span class="o">*</span> <span class="n">dt</span> <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve_half</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x_evolve_half</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">k_evolve</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="mi">1j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hbar</span> <span class="o">/</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">k_evolve</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">hbar</span> <span class="o">/</span>
                                     <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
 
     <span class="n">psi_x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_psi_x</span><span class="p">,</span> <span class="n">_set_psi_x</span><span class="p">)</span>
@@ -1547,7 +1573,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">## setup the canvas</span>
-<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">380</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1556,7 +1582,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eca6f27ea9d0492783f765d382732866", "version_minor": 0, "version_major": 2}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "eca6f27ea9d0492783f765d382732866", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[471]:
@@ -1671,7 +1697,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"ac8ccba81bf54a8c9d8d29026460b19c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "c943afff5c67491cac37e9a19a913be9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "7afe47f0ddab44a1a8750345a4fb9d3f": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_25083e8387694064aafdd1d1cc2879ba", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}, "3329b002578143f4a3acfae03a963138": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_c065ca38206d4bada92bd01e2b2c72c6", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}, "741d534c50e7437dbcd7ce080b8d9824": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "88818b59160c4281a0213470ea9af798": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "c065ca38206d4bada92bd01e2b2c72c6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "12868f17e7f94dd6b52a5e6b9a68aff3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "1a03ef665294405fb2552a7ebbf0afdd": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_d49035427ef449528731f2cb88519272", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}, "d49035427ef449528731f2cb88519272": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "722f95f64b4c438884b8eb7897a81b32": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_741d534c50e7437dbcd7ce080b8d9824", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}, "25083e8387694064aafdd1d1cc2879ba": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "f4243af9f1b9486aa3efbc360588653a": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_9200ab31e3a544f786f4f3f9d20f569c", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}, "b5a1b3d235f1499180e1d085010baf6e": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_88818b59160c4281a0213470ea9af798", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}, "9200ab31e3a544f786f4f3f9d20f569c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "a84c21c27c234f8e9f7a45ef43e1d068": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_12868f17e7f94dd6b52a5e6b9a68aff3", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}, "b38e4f53373b4c27a31121adfbce3544": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_ac8ccba81bf54a8c9d8d29026460b19c", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}, "b53423a356224829ac5ba2bdbc6a45e0": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_c943afff5c67491cac37e9a19a913be9", "_model_module_version": "^0.4.3", "height": 380}, "model_name": "CanvasModel"}}, "version_minor": 0, "version_major": 2}
+{"state": {"12868f17e7f94dd6b52a5e6b9a68aff3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1a03ef665294405fb2552a7ebbf0afdd": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_d49035427ef449528731f2cb88519272", "width": 800}}, "25083e8387694064aafdd1d1cc2879ba": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "3329b002578143f4a3acfae03a963138": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_c065ca38206d4bada92bd01e2b2c72c6", "width": 800}}, "722f95f64b4c438884b8eb7897a81b32": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_741d534c50e7437dbcd7ce080b8d9824", "width": 800}}, "741d534c50e7437dbcd7ce080b8d9824": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7afe47f0ddab44a1a8750345a4fb9d3f": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_25083e8387694064aafdd1d1cc2879ba", "width": 800}}, "88818b59160c4281a0213470ea9af798": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "9200ab31e3a544f786f4f3f9d20f569c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a84c21c27c234f8e9f7a45ef43e1d068": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_12868f17e7f94dd6b52a5e6b9a68aff3", "width": 800}}, "ac8ccba81bf54a8c9d8d29026460b19c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b38e4f53373b4c27a31121adfbce3544": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_ac8ccba81bf54a8c9d8d29026460b19c", "width": 800}}, "b53423a356224829ac5ba2bdbc6a45e0": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_c943afff5c67491cac37e9a19a913be9", "width": 800}}, "b5a1b3d235f1499180e1d085010baf6e": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_88818b59160c4281a0213470ea9af798", "width": 800}}, "c065ca38206d4bada92bd01e2b2c72c6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c943afff5c67491cac37e9a19a913be9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d49035427ef449528731f2cb88519272": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f4243af9f1b9486aa3efbc360588653a": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 380, "layout": "IPY_MODEL_9200ab31e3a544f786f4f3f9d20f569c", "width": 800}}}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 
@@ -1688,7 +1714,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 14, 2020.
+        Last updated on Jun 15, 2020.
       </span>
 
     </p>
