@@ -1231,22 +1231,22 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 \end{equation}</span></p>
 <p>such that</p>
 <div class="math notranslate nohighlight">
-\[i\hbar\frac{\partial \Psi(x,t)}{\partial t} = [\hat{D}+\hat{N}]\Psi\]</div>
+\[i\hbar\frac{\partial \Psi(x,t)}{\partial t} = [\hat{D}+\hat{N}]\, \Psi\]</div>
 <p>with the solution</p>
 <div class="math notranslate nohighlight">
-\[\Psi(x,t)=e^{-i(\hat{D}+\hat{N})t/\hbar}\Psi(x,0)\]</div>
+\[\Psi(x,t)=e^{-i(\hat{D}+\hat{N})t/\hbar}\, \Psi(x,0)\]</div>
 <p>If we only make a small timestep <span class="math notranslate nohighlight">\(dt\)</span>, we can write the latter equation also as</p>
 <div class="math notranslate nohighlight">
 \[\Psi(x,t+dt)=e^{-i\hat{D}dt/\hbar}e^{-i\hat{N}dt/\hbar} \Psi(x,t)\]</div>
 <p>We may now turn to momentum space by taking the Fourier transform <span class="math notranslate nohighlight">\(F\)</span></p>
 <div class="math notranslate nohighlight">
-\[\tilde{\Psi}(k,t+dt)=F\left [e^{-i\hat{D}dt/\hbar}e^{-i\hat{N}dt/\hbar}\right ]\tilde{\Psi}(k,t)\]</div>
+\[\tilde{\Psi}(k,t+dt)=F\left [e^{-i\hat{D}dt/\hbar}e^{-i\hat{N}dt/\hbar}\,\Psi(k,t) \right ]\]</div>
 <p>What we know now from the momentum Schrödinger equation is that the operator <span class="math notranslate nohighlight">\(\hat{D}\)</span> will just turn into a multiplication with <span class="math notranslate nohighlight">\(\hbar k^2/2m\)</span> in momentum space and therefore</p>
 <div class="math notranslate nohighlight">
-\[\tilde{\Psi}(k,t+dt)=e^{i\frac{\hbar k^2}{2m}dt}F\left [e^{-i\hat{N}dt/\hbar}\right ]\tilde{\Psi}(k,t)\]</div>
+\[\tilde{\Psi}(k,t+dt)=e^{i\frac{\hbar k^2}{2m}dt}F\left [e^{-i\hat{N}dt/\hbar}\, \Psi(k,t)\right]\]</div>
 <p>Thus if we just do the inverse Fourier transform of that, we obtain</p>
 <div class="math notranslate nohighlight">
-\[\Psi(x,t+dt)=F^{-1}\left [ e^{i\frac{\hbar k^2}{2m}dt} F\left [e^{-i\hat{N}dt/\hbar}\Psi(x,t) \right ]  \right]\]</div>
+\[\Psi(x,t+dt)=F^{-1}\left [ e^{i\frac{\hbar k^2}{2m}dt} F\left [e^{-i\hat{N}dt/\hbar}\,\Psi(x,t) \right ]  \right]\]</div>
 <p>This is the receipe for the solution of the time dependent Schrödinger equation. We will do this simulation with the help of the FFT we considered already earlier.</p>
 <div class="section" id="id1">
 <h3>Setup Domain<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
