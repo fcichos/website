@@ -21,14 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -551,7 +550,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -799,33 +798,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -918,7 +904,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -989,9 +975,8 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/1_input_output.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L3/1_input_output.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
-</div>
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/1_input_output.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L3/1_input_output.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Input-and-output">
 <h1>Input and output<a class="headerlink" href="#Input-and-output" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="Keyboard-input">
@@ -1060,30 +1045,30 @@ float
 <span class="n">int2</span> <span class="o">=</span> <span class="mi">942885</span>
 <span class="n">float1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.0</span>
 <span class="n">float2</span> <span class="o">=</span> <span class="mf">3.141592653589793e-14</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">string1</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">string2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 1. </span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 2. </span><span class="si">{0:s}</span><span class="s1"> </span><span class="si">{1:s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 3. </span><span class="si">{0:s}</span><span class="s1"> </span><span class="si">{0:s}</span><span class="s1"> </span><span class="si">{1:s}</span><span class="s1"> - </span><span class="si">{0:s}</span><span class="s1"> </span><span class="si">{1:s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 4. </span><span class="si">{0:10s}{1:5s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 6. </span><span class="si">{0:d}</span><span class="s1"> </span><span class="si">{1:d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 7. </span><span class="si">{0:8d}</span><span class="s1"> </span><span class="si">{1:10d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 8. </span><span class="si">{0:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; 9. {0:6. f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;10. </span><span class="si">{0:8.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="s1">&#39; 11. </span><span class="si">{0:8.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;12. </span><span class="si">{0:0.3e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;13. </span><span class="si">{0:10.3e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;14. </span><span class="si">{0:10.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;15. 12345678901234567890&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;16. </span><span class="si">{0:s}</span><span class="s1">--</span><span class="si">{1:8d}</span><span class="s1">,</span><span class="si">{2:10.3e}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string2</span><span class="p">,</span> <span class="n">int1</span><span class="p">,</span> <span class="n">float2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">string1</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">string2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; 1. {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; 2. {0:s} {1:s}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; 3. {0:s} {0:s} {1:s} - {0:s} {1:s}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; 4. {0:10s}{1:5s}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; 6. {0:d} {1:d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; 7. {0:8d} {1:10d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">int1</span><span class="p">,</span> <span class="n">int2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; 8. {0:0.3f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; 9. {0:6. f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;10. {0:8.3f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="s1">&#39; 11. {0:8.3f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;12. {0:0.3e}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;13. {0:10.3e}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;14. {0:10.3f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">float2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39; ***&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;15. 12345678901234567890&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;16. {0:s}--{1:8d},{2:10.3e}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">string2</span><span class="p">,</span> <span class="n">int1</span><span class="p">,</span> <span class="n">float2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1129,7 +1114,7 @@ How are you my friend?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># don&#39;t forget to import numpy</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span> <span class="c1"># don&#39;t forget to import numpy</span>
 </pre></div>
 </div>
 </div>
@@ -1155,7 +1140,7 @@ How are you my friend?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span> <span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span> <span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1165,7 +1150,7 @@ How are you my friend?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">time</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span> <span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">time</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span> <span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">unpack</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1183,7 +1168,7 @@ How are you my friend?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span> <span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">dataPt</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;MyData.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span> <span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1224,8 +1209,8 @@ How are you my friend?
 <h3>File I/O with Pandas<a class="headerlink" href="#File-I/O-with-Pandas" title="Permalink to this headline">¶</a></h3>
 <p>Pandas is a software library written for the Python programming language. It is used for data manipulation and analysis. It provides special data structures and operations for the manipulation of numerical tables and time series and builds on top of numpy.</p>
 <ul class="simple">
-<li><p>Easy handling of missing data</p></li>
-<li><p>Intelligent label-based slicing, fancy indexing, and subsetting of large data sets</p></li>
+<li>Easy handling of missing data</li>
+<li>Intelligent label-based slicing, fancy indexing, and subsetting of large data sets</li>
 </ul>
 <p>The data formats provided by the pandas module are used by several other modules, such as the <a class="reference external" href="https://soft-matter.github.io/trackpy/v0.3.2/">trackpy</a> which is a moduly for feature tracking and analysis in image series.</p>
 <div class="section" id="Short-intro-to-Pandas">
@@ -1235,14 +1220,14 @@ How are you my friend?
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># import the pandas module</span>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span> <span class="c1"># import the pandas module</span>
 </pre></div>
 </div>
 </div>
 <p>Pandas provides two data structures</p>
 <ul class="simple">
-<li><p>Series</p></li>
-<li><p>Data Frames</p></li>
+<li>Series</li>
+<li>Data Frames</li>
 </ul>
 <p>A <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html">Series</a> is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.). The axis labels are collectively referred to as the index.</p>
 <div class="nbinput docutils container">
@@ -1455,7 +1440,7 @@ array([[1, 5, 6, 4, 9],
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;2018-04-11_sds011_sensor_12253.csv&quot;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;2018-04-11_sds011_sensor_12253.csv&quot;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1628,7 +1613,7 @@ array([[1, 5, 6, 4, 9],
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
+{"state": {}, "version_minor": 0, "version_major": 2}
 </script></div>
 </div>
 </div>

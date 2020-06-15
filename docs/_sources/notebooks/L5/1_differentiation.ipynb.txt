@@ -216,7 +216,7 @@
     "f_{3}\\\\\n",
     "f_{4}\\\\\n",
     "f_{5}\\\\\n",
-    "f_{6}\n",
+    "f_{6}\\\\\n",
     "\\end{bmatrix}\n",
     "=\n",
     "\\begin{bmatrix}\n",
@@ -576,6 +576,9 @@
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
    "version": "3.7.6"
+  },
+  "nteract": {
+   "version": "0.23.3"
   },
   "widgets": {
    "application/vnd.jupyter.widget-state+json": {

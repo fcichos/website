@@ -21,14 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -551,7 +550,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -758,9 +757,8 @@
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/Intro/Introduction2Jupyter.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/Intro/Introduction2Jupyter.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
-</div>
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/Intro/Introduction2Jupyter.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/Intro/Introduction2Jupyter.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Introduction-to-Jupyter">
 <h1>Introduction to Jupyter<a class="headerlink" href="#Introduction-to-Jupyter" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="What-is-Jupyter-Notebook?">
@@ -769,19 +767,19 @@
 <p>These documents provide a <strong>complete and self-contained record of a computation</strong> that can be converted to various formats and shared with others using email, version control systems (like git/<a class="reference external" href="https://github.com">GitHub</a>) or <a class="reference external" href="http://nbviewer.jupyter.org">nbviewer.jupyter.org</a>.</p>
 <p>The Jupyter Notebook combines three components:</p>
 <ul class="simple">
-<li><p><strong>Notebook editor</strong>: an interactive application for writing and running code interactively and editing notebook documents. If you run Jupyter on desktop, you will be using Jupyter’s web application.</p></li>
-<li><p><strong>Kernels</strong>: Separate processes started by Jupyter on your server, that runs users’ code in a given language and returns output back to the notebook web application. The kernel also handles things like computations for interactive widgets, tab completion and introspection.</p></li>
-<li><p><strong>Notebook documents</strong>: Self-contained documents that contain a representation of all content visible in the notebook editor, including inputs and outputs of the computations, markdown text, equations, images, and rich media representations of objects. Each notebook document has its own kernel.</p></li>
+<li><strong>Notebook editor</strong>: an interactive application for writing and running code interactively and editing notebook documents. If you run Jupyter on desktop, you will be using Jupyter’s web application.</li>
+<li><strong>Kernels</strong>: Separate processes started by Jupyter on your server, that runs users’ code in a given language and returns output back to the notebook web application. The kernel also handles things like computations for interactive widgets, tab completion and introspection.</li>
+<li><strong>Notebook documents</strong>: Self-contained documents that contain a representation of all content visible in the notebook editor, including inputs and outputs of the computations, markdown text, equations, images, and rich media representations of objects. Each notebook document has its own kernel.</li>
 </ul>
 </div>
 <div class="section" id="Notebook-editor">
 <h2>Notebook editor<a class="headerlink" href="#Notebook-editor" title="Permalink to this headline">¶</a></h2>
 <p>The Notebook editor is web application running in your browse. It enables you to</p>
 <ul class="simple">
-<li><p><strong>Edit code</strong> in individual cell</p></li>
-<li><p><strong>Run code</strong> in individuall cells in arbitrary oder and display results of the computation in various formats (HTML, LaTeX, PNG, SVG, PDF)</p></li>
-<li><p>Create and use <strong>interactive JavaScript widgets</strong>, which bind interactive user interface controls and visualizations to reactive kernel side computations.</p></li>
-<li><p>Add <strong>documentation text</strong> using <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> markup language, including LaTeX equations</p></li>
+<li><strong>Edit code</strong> in individual cell</li>
+<li><strong>Run code</strong> in individuall cells in arbitrary oder and display results of the computation in various formats (HTML, LaTeX, PNG, SVG, PDF)</li>
+<li>Create and use <strong>interactive JavaScript widgets</strong>, which bind interactive user interface controls and visualizations to reactive kernel side computations.</li>
+<li>Add <strong>documentation text</strong> using <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> markup language, including LaTeX equations</li>
 </ul>
 </div>
 <div class="section" id="Kernels">
@@ -796,9 +794,9 @@
 <p>A notebook is just a <strong>file on your server’s filesystem with a ``.ipynb`` extension</strong>. This allows you to share your notebook easily.</p>
 <p>Notebooks consist of a <strong>linear sequence of cells</strong>. There are three basic cell types:</p>
 <ul class="simple">
-<li><p><strong>Code cells:</strong> Input and output of live code that is run in the kernel.</p></li>
-<li><p><strong>Markdown cells:</strong> Narrative text with embedded LaTeX equations.</p></li>
-<li><p><strong>Raw cells:</strong> Unformatted text that is included, without modification, when notebooks are converted to different formats using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code>.</p></li>
+<li><strong>Code cells:</strong> Input and output of live code that is run in the kernel.</li>
+<li><strong>Markdown cells:</strong> Narrative text with embedded LaTeX equations.</li>
+<li><strong>Raw cells:</strong> Unformatted text that is included, without modification, when notebooks are converted to different formats using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code>.</li>
 </ul>
 <p>Internally, notebook documents are <a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a><strong>text files</strong> with <strong>binary data encoded in</strong><a class="reference external" href="http://en.wikipedia.org/wiki/Base64">base64</a>. This allows them to be <strong>read and manipulated programmatically</strong> by any programming language.</p>
 <p><strong>Notebooks can be exported</strong> to different static formats including HTML, reStructeredText, LaTeX, PDF, and slide shows (<a class="reference external" href="http://lab.hakim.se/reveal-js/">reveal.js</a>) using Jupyter’s <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> utility.</p>

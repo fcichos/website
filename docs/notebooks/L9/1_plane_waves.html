@@ -21,14 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -551,7 +550,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -799,33 +798,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -918,7 +904,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -989,9 +975,8 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L9/1_plane_waves.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L9/1_plane_waves.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
-</div>
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L9/1_plane_waves.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L9/1_plane_waves.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Plane-Waves">
 <h1>Plane Waves<a class="headerlink" href="#Plane-Waves" title="Permalink to this headline">¶</a></h1>
 <p>In the previous parts we have dealt with mechanics essentially. Even if we have described Brownian motion, this has been done by a particular type of Newtons equation of motion, it is much like mechanics. Now we would like to have a look at some examples from electromagnetic waves. We will not solve the wave equation but look at some solution using the complex notion of the electric field. This shall train our use of complex numbers. The special solutions are the <strong>plane wave</strong> and the
@@ -1001,12 +986,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span><span class="n">time</span>
 <span class="kn">from</span> <span class="nn">ipycanvas</span> <span class="kn">import</span> <span class="n">MultiCanvas</span><span class="p">,</span> <span class="n">hold_canvas</span><span class="p">,</span><span class="n">Canvas</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="kn">as</span> <span class="nn">cm</span>
 
 
 
@@ -1022,9 +1007,9 @@ div.rendered_html tbody tr:hover {
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 
 </pre></div>
@@ -1056,7 +1041,7 @@ k_{0z}\\
 k_{0}=\frac{2\pi}{\lambda_{0}}=\frac{\omega}{c_{0}}
 \end{equation}</span></p>
 <p>At the same time, its magnitude is also given by the frequency of the light devided by the wave vector. The latter is called a dispersion relation.</p>
-<p>In a medium, the wavevector is by a factor of <span class="math notranslate nohighlight">\(n\)</span> longer, where n is the refractive index. Since the refractive index may be a complex number, e.g. <span class="math notranslate nohighlight">\(n=\eta+i\kappa\)</span>, the wavevector can be imaginary as well. It is then given by</p>
+<p>In a medium, the wavevector is by a factor of <span class="math notranslate nohighlight">\(n\)</span> longer, where n is the refractive index. Since the refractive index may be a complex number, e.g.&nbsp;<span class="math notranslate nohighlight">\(n=\eta+i\kappa\)</span>, the wavevector can be imaginary as well. It is then given by</p>
 <p><span class="math">\begin{equation}
 \vec{k}=n\vec{k}_{0}=
 \begin{pmatrix}
@@ -1083,7 +1068,7 @@ k_{z}^{\prime}+ik_{z}^{"} \\
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">plane_wave</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="o">-</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1j</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">r</span><span class="p">)</span><span class="o">-</span><span class="n">omega</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1180,7 +1165,7 @@ I\propto |E|^{2}
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1189,7 +1174,7 @@ I\propto |E|^{2}
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8c9bfba5d94a447684757a71be4f99ef", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8c9bfba5d94a447684757a71be4f99ef", "version_minor": 0, "version_major": 2}</script></div>
 </div>
 <p>To do the animation I use a little trick to get the same color map as in the matplotlib plotting. The function below uses the matplotlib color map <code class="docutils literal notranslate"><span class="pre">seismic</span></code> and the corresponding mapping of values with a given minimum <code class="docutils literal notranslate"><span class="pre">vmin</span></code> and maximum <code class="docutils literal notranslate"><span class="pre">vmax</span></code> value. The mapping is done in the animation function with <code class="docutils literal notranslate"><span class="pre">c=m.to_rgba(tmp)</span></code>.</p>
 <div class="nbinput nblast docutils container">
@@ -1233,7 +1218,7 @@ With the call below, you may animate the wave now with different refractive indi
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">eta</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">kappa</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">n</span><span class="o">=</span><span class="n">eta</span><span class="o">+</span><span class="n">kappa</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span>
+<span class="n">n</span><span class="o">=</span><span class="n">eta</span><span class="o">+</span><span class="n">kappa</span><span class="o">*</span><span class="mi">1j</span>
 
 <span class="n">k</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="n">k0</span><span class="o">*</span><span class="n">vec</span>
 <span class="n">time</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">5e-14</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
@@ -1258,7 +1243,7 @@ With the call below, you may animate the wave now with different refractive indi
 
 <span class="n">eta</span><span class="o">=</span><span class="mf">1.5</span>
 <span class="n">kappa</span><span class="o">=</span><span class="mf">0.1</span>
-<span class="n">n</span><span class="o">=</span><span class="n">eta</span><span class="o">+</span><span class="n">kappa</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span>
+<span class="n">n</span><span class="o">=</span><span class="n">eta</span><span class="o">+</span><span class="n">kappa</span><span class="o">*</span><span class="mi">1j</span>
 <span class="n">vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
 <span class="n">vec</span><span class="o">=</span><span class="n">vec</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="n">vec</span><span class="p">))</span>
 <span class="n">k</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="n">k0</span><span class="o">*</span><span class="n">vec</span>
@@ -1332,7 +1317,7 @@ the fact the the intensity is the square of the electric field.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8c9bfba5d94a447684757a71be4f99ef", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8c9bfba5d94a447684757a71be4f99ef", "version_minor": 0, "version_major": 2}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -1497,12 +1482,12 @@ I\propto|\vec{E}|^2=|\vec{E}_{1}|^2+|\vec{E}_{2}|^2+ \vec{E}_{1}^{*}\vec{E}_{2}+
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;reflection&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rs</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\alpha$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$R_</span><span class="si">{s}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$R_{s}$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;transmission&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rs</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span><span class="n">n2</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\alpha$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$T_</span><span class="si">{s}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$T_{s}$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1556,7 +1541,7 @@ k_{x,in}=k_{x,r}=k_{x,t}
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">vec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span><span class="mf">0.</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)])</span>
 <span class="n">k1</span><span class="o">=</span><span class="mf">1.5</span><span class="o">*</span><span class="n">k0</span><span class="o">*</span><span class="n">vec</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="s1">&#39;[1/m]&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="s1">&#39;[1/m]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1571,7 +1556,7 @@ k_{x,in}=k_{x,r}=k_{x,t}
 </div>
 <div class="section" id="Reflected-wave">
 <h2>Reflected wave<a class="headerlink" href="#Reflected-wave" title="Permalink to this headline">¶</a></h2>
-<p>For the reflected wave the z-component of the wavevector is just flipped in sign, e.g. <span class="math notranslate nohighlight">\(k_{z,r}=-k_{z,in}\)</span>.</p>
+<p>For the reflected wave the z-component of the wavevector is just flipped in sign, e.g.&nbsp;<span class="math notranslate nohighlight">\(k_{z,r}=-k_{z,in}\)</span>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
@@ -1579,7 +1564,7 @@ k_{x,in}=k_{x,r}=k_{x,t}
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">k2</span><span class="o">=</span><span class="mf">1.5</span><span class="o">*</span><span class="n">k0</span><span class="o">*</span><span class="n">vec</span>
 <span class="n">k2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">k2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*-</span><span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">k2</span><span class="p">,</span><span class="s1">&#39;[1/m]&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">k2</span><span class="p">,</span><span class="s1">&#39;[1/m]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1616,7 +1601,7 @@ k_{0z,t}=\pm \frac{1}{n_{1}}\sqrt{n_2^2 k_{0z,in}^2 -(n_{1}^2-n_{2}^2)k_{0x}^{2}
 <span class="n">k3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">k1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">k3</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">k1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">n2</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">n1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">k1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span><span class="o">/</span><span class="n">n1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">k3</span><span class="p">,</span><span class="s1">&#39;[1/m]&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">k3</span><span class="p">,</span><span class="s1">&#39;[1/m]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1687,7 +1672,7 @@ k_{0z,t}=\pm \frac{1}{n_{1}}\sqrt{n_2^2 k_{0z,in}^2 -(n_{1}^2-n_{2}^2)k_{0x}^{2}
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1696,7 +1681,7 @@ k_{0z,t}=\pm \frac{1}{n_{1}}\sqrt{n_2^2 k_{0z,in}^2 -(n_{1}^2-n_{2}^2)k_{0x}^{2}
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a58358b376b408c828ac27f5e0b5e76", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4a58358b376b408c828ac27f5e0b5e76", "version_minor": 0, "version_major": 2}</script></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[661]:
@@ -1779,7 +1764,7 @@ k_{0z,t}=\pm \frac{1}{n_{1}}\sqrt{n_2^2 k_{0z,in}^2 -(n_{1}^2-n_{2}^2)k_{0x}^{2}
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"04bb0efa2c484049ba4fb78ccad78914": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1d1b669d89e5486b8530719b68a54e32": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "4a58358b376b408c828ac27f5e0b5e76": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_1d1b669d89e5486b8530719b68a54e32", "sync_image_data": true, "width": 300}}, "8c9bfba5d94a447684757a71be4f99ef": {"buffers": [{"data": "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", "encoding": "base64", "path": ["image_data"]}], "model_module": "ipycanvas", "model_module_version": "^0.4.3", "model_name": "CanvasModel", "state": {"_model_module_version": "^0.4.3", "_view_module_version": "^0.4.3", "height": 300, "layout": "IPY_MODEL_04bb0efa2c484049ba4fb78ccad78914", "sync_image_data": true, "width": 300}}}, "version_major": 2, "version_minor": 0}
+{"state": {"1d1b669d89e5486b8530719b68a54e32": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "4a58358b376b408c828ac27f5e0b5e76": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"layout": "IPY_MODEL_1d1b669d89e5486b8530719b68a54e32", "_model_module_version": "^0.4.3", "height": 300, "width": 300, "_view_module_version": "^0.4.3", "sync_image_data": true}, "model_name": "CanvasModel"}, "04bb0efa2c484049ba4fb78ccad78914": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "8c9bfba5d94a447684757a71be4f99ef": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"layout": "IPY_MODEL_04bb0efa2c484049ba4fb78ccad78914", "_model_module_version": "^0.4.3", "height": 300, "width": 300, "_view_module_version": "^0.4.3", "sync_image_data": true}, "buffers": [{"path": ["image_data"], "data": "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", "encoding": "base64"}], "model_name": "CanvasModel"}}, "version_minor": 0, "version_major": 2}
 </script></div>
 </div>
 
