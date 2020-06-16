@@ -980,7 +980,7 @@ This page was generated from <a href="#id4"><span class="problematic" id="id5">`
 <h1>Tunneling through a barrier<a class="headerlink" href="#Tunneling-through-a-barrier" title="Permalink to this headline">¶</a></h1>
 <p>We will develop two different solutions of the same problem. Solution 1 is with the Crank Nicolson scheme and solution 2 with the Split Step method, which might be a bit more tricky.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[148]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1060,7 +1060,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <h3>Setup Domain<a class="headerlink" href="#Setup-Domain" title="Permalink to this headline">¶</a></h3>
 <p>As usual we need to define a spatial domain and a timstep for the solution.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[247]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1076,7 +1076,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <h3>Initial Conditions<a class="headerlink" href="#Initial-Conditions" title="Permalink to this headline">¶</a></h3>
 <p>Next we define the initial gaussian wavepacket with a certain momentum given by the wavenumber <span class="math notranslate nohighlight">\(k_{0}\)</span>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[248]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1086,7 +1086,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[249]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1105,7 +1105,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <h3>Matrix Setup<a class="headerlink" href="#Matrix-Setup" title="Permalink to this headline">¶</a></h3>
 <p>At first we define the potential energy landscape.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[250]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1117,7 +1117,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 <p>Then the Hamitonion made of the second derivative and the potential energy landscape.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[251]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1132,7 +1132,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <h3>Propagation Matrix<a class="headerlink" href="#Propagation-Matrix" title="Permalink to this headline">¶</a></h3>
 <p>With the help of the hamiltonian we now define the matrices we have to multiply to the current wavefunction to obtain the wavefunction at the next timestep.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[252]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1147,7 +1147,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <h3>Animation setup<a class="headerlink" href="#Animation-setup" title="Permalink to this headline">¶</a></h3>
 <p>With that, we are ready to show the simulation result in an animation</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[253]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1173,7 +1173,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <div class="section" id="Animation">
 <h3>Animation<a class="headerlink" href="#Animation" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[254]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1186,24 +1186,24 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "00f8b71bc1c64e5dba7f5db111c0beb2", "version_minor": 0, "version_major": 2}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "36fb4707ef184a3793c0a8e63a65e975", "version_minor": 0, "version_major": 2}</script></div>
 </div>
 <p>For the animation, we just loop over 1000 steps, where we just calculate the product of the evolution matrix and the wavefunction. In each step, we also take care of normalizing the wavefunction again.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[256]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
     <span class="n">psi</span> <span class="o">=</span> <span class="n">evolution_matrix</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span>
-    <span class="n">prob</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="n">norm</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
     <span class="n">prob</span> <span class="o">/=</span> <span class="n">norm</span>
     <span class="n">psi</span> <span class="o">/=</span> <span class="n">norm</span><span class="o">**</span><span class="mf">0.5</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">restore_region</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">draw_artist</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
-    <span class="n">points</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">prob</span><span class="p">)</span>
+    <span class="n">points</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="n">prob</span><span class="p">)</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">buffer_rgba</span><span class="p">())</span>
@@ -1262,10 +1262,14 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <p>We first need to setup our domain together with the time resolution.</p>
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle">Bug</p>
-<p>There is still a bug in my code below. I could not find it but I’m willing to donate a pizza for the first to identify and correct this bug.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>There is still a bug in my code below. I could not find it but I&#39;m willing to donate a pizza for the first to identify and correct this bug.
+
+Update: Looks like the bug has been found and all is good now! That means, sorry, pizza is gone!
+</pre></div>
+</div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[257]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1276,7 +1280,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[258]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1288,12 +1292,12 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[259]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">## timestep of our simulation</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.005</span>
 </pre></div>
 </div>
 </div>
@@ -1302,7 +1306,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <h3>Potential energy landscape<a class="headerlink" href="#Potential-energy-landscape" title="Permalink to this headline">¶</a></h3>
 <p>We want to study the tunneling of a wavepacket through a barrier, so we need to define a potential energy landscape, which contains two extremely high barriers at the left and the right side and in the middle a smaller barrier through which we can tunnel.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[260]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1319,7 +1323,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[261]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1345,11 +1349,11 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <h3>Initial wavepacket<a class="headerlink" href="#Initial-wavepacket" title="Permalink to this headline">¶</a></h3>
 <p>Our initial wavepacket will be a Gaussian wavepacket, which is centered at <span class="math notranslate nohighlight">\(x_0=-50\)</span>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[262]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">k0</span><span class="o">=</span><span class="mf">1.</span>
+<span></span><span class="n">k0</span><span class="o">=</span><span class="mf">1.3</span>
 <span class="n">x0</span><span class="o">=-</span><span class="mi">50</span>
 <span class="n">sigma0</span><span class="o">=</span><span class="mi">5</span>
 <span class="n">psi</span><span class="o">=</span> <span class="n">gauss_x</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sigma0</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">k0</span><span class="p">)</span>
@@ -1360,7 +1364,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[263]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1392,7 +1396,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 \[\tilde{\Psi}_{\rm mod}=\tilde{\Psi}(k_{m},t)e^{-im x_{0}\Delta k}\]</div>
 <p>with <span class="math notranslate nohighlight">\(k_m = k_0 + m \Delta k\)</span>. Here we define the space for the Fourier transform.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[264]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1406,7 +1410,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 <p>So the modified Gaussian wavepacket for the Fourier transform is</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[265]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1422,12 +1426,12 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 \[\Psi(x,t+dt)=F^{-1}\left [ e^{i\frac{\hbar k^2}{2m}dt} F\left [e^{-iV(x)dt/\hbar}\Psi(x,t) \right ]  \right]\]</div>
 <p>Both are just phases factors, which stay the same for each timestep. We may thus calculate them one, and reuse them.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[266]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">phase_x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span><span class="o">*</span><span class="n">V_x</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span>
-<span class="n">phase_k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span><span class="o">*</span><span class="n">hbar</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">m</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
+<span class="n">phase_k</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span><span class="o">*</span><span class="n">hbar</span><span class="o">*</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">m</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1435,7 +1439,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <div class="section" id="id2">
 <h3>Animation setup<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[267]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1456,7 +1460,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[268]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1470,14 +1474,14 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4d56cb9ef33944f2a956961fa3b306cf", "version_minor": 0, "version_major": 2}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "28ba43c30a9c424d8a917b05e5853bd1", "version_minor": 0, "version_major": 2}</script></div>
 </div>
 </div>
 <div class="section" id="id3">
 <h3>Animation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>The animation runs in the same way as before.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[269]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1488,7 +1492,9 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
         <span class="n">tmp</span><span class="o">=</span><span class="n">ifft</span><span class="p">(</span><span class="n">phase_k</span><span class="o">*</span><span class="n">fft</span><span class="p">(</span><span class="n">psi_modx</span><span class="o">*</span><span class="n">phase_x</span><span class="p">))</span>
         <span class="n">psi_modx</span><span class="o">=</span><span class="n">tmp</span>
         <span class="n">psi</span><span class="o">=</span><span class="n">tmp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1j</span> <span class="o">*</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
-        <span class="n">prob</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+        <span class="n">prob</span><span class="o">/=</span><span class="n">norm</span>
 
     <span class="n">points</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="n">prob</span><span class="p">)</span>
     <span class="c1">#points.set_data(x,1e5*np.abs(psi_modx)**2)</span>
@@ -1505,7 +1511,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[270]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1522,7 +1528,7 @@ i\hbar \frac{\partial \tilde{\Psi}}{\partial t}=\frac{\hbar^{2}k^{2}}{2m}\tilde{
 <p>You can also have a look at the transmitted and reflected wave amplitudes as a function of the height an the width of the barrier.</p>
 <p>Finally, you may want to change the potential energy landscape.</p>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {"36fb4707ef184a3793c0a8e63a65e975": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_63cc9bfc05cb4707a14a8ba45e6f916d", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "011d476004214a34b52e93d7a286c63a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "3f3957777aa549d2b8c57b6c790a6ca6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "e33ba0a2c5904d4a87547303e8d83bce": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "28ba43c30a9c424d8a917b05e5853bd1": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_3f3957777aa549d2b8c57b6c790a6ca6", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "d97d71314f7649c2b516056799ee0a62": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "9061ec952cca4639a08c71f3027cb4ba": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "639145236a02457da5a4cb58fa63d904": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_eff076860f104073bb2d388fa25ce1f9", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "63cc9bfc05cb4707a14a8ba45e6f916d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "eff076860f104073bb2d388fa25ce1f9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "23a56bb8e1804995a7837ab214f79328": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_e33ba0a2c5904d4a87547303e8d83bce", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "5e658ff4b6984924be0e9bb754960a7b": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_d97d71314f7649c2b516056799ee0a62", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "b25789f661dc4382ad0ceadcd36d7e42": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_011d476004214a34b52e93d7a286c63a", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "bbea3c446e9f4270a586f38fea7c776e": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_9061ec952cca4639a08c71f3027cb4ba", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}}, "version_minor": 0, "version_major": 2}
 </script></div>
 </div>
 
