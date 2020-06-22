@@ -172,7 +172,14 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L11/2_particle_in_a_box.ipynb
    notebooks/L11/3_tunneling.ipynb
 
-   
+.. toctree::
+   :maxdepth: 2
+   :caption: Lecture 12:
+
+   lectures/L12/overview_12.rst
+   notebooks/L12/1_hydrodynamics.ipynb
+   notebooks/L12/2_reinforcement_learning.ipynb
+
 Indices and tables
 ==================
 
