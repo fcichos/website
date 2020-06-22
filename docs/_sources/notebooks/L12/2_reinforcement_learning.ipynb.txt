@@ -433,7 +433,7 @@
     }
    },
    "source": [
-    "![](gridworld.png)"
+    "![Gridworld](gridworld.png)"
    ]
   },
   {
