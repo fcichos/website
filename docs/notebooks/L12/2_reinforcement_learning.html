@@ -1069,7 +1069,7 @@ learning. We will do that in a way that you calculate as much as possible in pur
 <li>unsupervised learning: let the system figure out what is right or wrong</li>
 </ul>
 <p>The graphics below gives a small summary. In our course, we cannot cover all methods. We will focus on <strong>Reinforcement Learning</strong> and <strong>Neural Networks</strong> just to show you, how things could look in Python.</p>
-<p><img alt="image0" src="../../_images/state_n_action.png" /></p>
+<p><img alt="image0" src="../../_images/ml_overview.png" /></p>
 <p>Image taken from F. Cichos et al.&nbsp;Nature Machine Intelligence (2020).</p>
 </div>
 <div class="section" id="Reinforcement-Learning">
@@ -1125,9 +1125,9 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h2>Navigating a Grid World<a class="headerlink" href="#Navigating-a-Grid-World" title="Permalink to this headline">¶</a></h2>
 <p>For our Python course we will have a look at the standard problem of reinforcement learning, which is the navigation in a grid world. Each of the grid cells below represents a state <span class="math notranslate nohighlight">\(s\)</span> in which an object could reside. In each of these states, the object can take several actions. If it may step to left, right, up or down, there are 4 actions, which we may call <span class="math notranslate nohighlight">\(a_{1},a_{2},a_{3}\)</span> and <span class="math notranslate nohighlight">\(a_{4}\)</span>.</p>
 <p>This image below shows our gridworld, with 25 states, where the shaded state is the goal state where we want the agent to go to independent of its intial state.</p>
-<p><img alt="image0" src="../../_images/state_n_action.png" /></p>
+<p><img alt="gridworld" src="../../_images/gridworld.png" /></p>
 <p>In each of these state, we have 4 possible action as depicted below</p>
-<p><img alt="image0" src="../../_images/state_n_action.png" /></p>
+<p><img alt="actions" src="../../_images/state_n_action.png" /></p>
 <div class="section" id="Initialize-Reinforcement-Learning">
 <h3>Initialize Reinforcement Learning<a class="headerlink" href="#Initialize-Reinforcement-Learning" title="Permalink to this headline">¶</a></h3>
 <p>At first we would like to initialize our problem. We have as depicted above 25 states, where one state is the goal state. We would like to use 4 actions to move between the states so our Q-value matrix has 100 entries. We would like to give a penalty of <span class="math notranslate nohighlight">\(R=-1\)</span> for all states except for the goal state where we give a reward of <span class="math notranslate nohighlight">\(R=10\)</span>.</p>
