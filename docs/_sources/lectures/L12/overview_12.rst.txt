@@ -5,7 +5,6 @@ In Lecture 12 we want close our considerations of different physical problems wi
 
 1. Hydrodynamics
 2. Reinforcement Learning
-s
 
 I hope you stay motivated! Stay safe!
 
