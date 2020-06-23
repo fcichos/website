@@ -706,6 +706,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#Plot-the-policy">Plot the policy</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Where-to-go-from-here">Where to go from here</a></li>
 </ul>
 </li>
 </ul>
@@ -1024,7 +1025,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <p>We are close to the end of the course and covered different applications of Python to physical problems. The course is not intended to teach the physics, but exercise the application of Python. One field, which is increasingly important also in physics is the field of machine learning. Machine learning is the summarizing term for a number of computational procedures to extract useful information from data. We would like to spend the rest of the course to introduce you into a tiny part of machine
 learning. We will do that in a way that you calculate as much as possible in pure Python without any additional packages.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[754]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[767]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1068,14 +1069,15 @@ learning. We will do that in a way that you calculate as much as possible in pur
 <li>unsupervised learning: let the system figure out what is right or wrong</li>
 </ul>
 <p>The graphics below gives a small summary. In our course, we cannot cover all methods. We will focus on <strong>Reinforcement Learning</strong> and <strong>Neural Networks</strong> just to show you, how things could look in Python.</p>
-<p><img alt="Image" src="../../_images/ml_overview.png" /></p>
+<p><img alt="image0" src="../../_images/state_n_action.png" /></p>
 <p>Image taken from F. Cichos et al.&nbsp;Nature Machine Intelligence (2020).</p>
 </div>
 <div class="section" id="Reinforcement-Learning">
 <h2>Reinforcement Learning<a class="headerlink" href="#Reinforcement-Learning" title="Permalink to this headline">¶</a></h2>
 <p>Reinforcement learning is learning what to do—how to map situations to actions—so as to maximize a numerical reward signal. The learner or agent is not told which actions to take, as in most forms of machine learning, but instead must discover which actions yield the most reward by trying them. In the most interesting and challenging cases, actions may affect not only the immediate reward but also the next situation and, through that, all subsequent rewards. These two
 characteristics—trial-and-error search and delayed reward—are the two most important distinguishing features of reinforcement learning.</p>
-<p>It has been around since the 1950s but gained momentum only in 2013 with the demonstrations of DeepMind on how to learn play Atari games like pong.</p>
+<p>It has been around since the 1950s but gained momentum only in 2013 with the demonstrations of DeepMind on how to learn play Atari games like pong. The graphic below shows some of its applications in the field of robotics and gaming.</p>
+<p><img alt="overview_rl" src="../../_images/overview_RL.png" /></p>
 <div class="section" id="Markov-Decision-Process">
 <h3>Markov Decision Process<a class="headerlink" href="#Markov-Decision-Process" title="Permalink to this headline">¶</a></h3>
 <p>The key element of reinforcement learning is the so-called Markov Decision Process. The Markov decision process (MDP) denotes a formalism of planning actions in the face of uncertainty. A MDP consist formally of</p>
@@ -1123,7 +1125,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h2>Navigating a Grid World<a class="headerlink" href="#Navigating-a-Grid-World" title="Permalink to this headline">¶</a></h2>
 <p>For our Python course we will have a look at the standard problem of reinforcement learning, which is the navigation in a grid world. Each of the grid cells below represents a state <span class="math notranslate nohighlight">\(s\)</span> in which an object could reside. In each of these states, the object can take several actions. If it may step to left, right, up or down, there are 4 actions, which we may call <span class="math notranslate nohighlight">\(a_{1},a_{2},a_{3}\)</span> and <span class="math notranslate nohighlight">\(a_{4}\)</span>.</p>
 <p>This image below shows our gridworld, with 25 states, where the shaded state is the goal state where we want the agent to go to independent of its intial state.</p>
-<p><img alt="Gridworld" src="../../_images/gridworld.png" /></p>
+<p><img alt="image0" src="../../_images/state_n_action.png" /></p>
 <p>In each of these state, we have 4 possible action as depicted below</p>
 <p><img alt="image0" src="../../_images/state_n_action.png" /></p>
 <div class="section" id="Initialize-Reinforcement-Learning">
@@ -1132,7 +1134,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <p>Our agent shall learn with a learning rate of <span class="math notranslate nohighlight">\(\alpha=0.5\)</span> and we will discount future rewards with <span class="math notranslate nohighlight">\(\gamma=0.5\)</span>.</p>
 <p>There is one tiny detail, which is useful to understand. If we run into a certain strategy and this is not the optimal strategy, it is difficult for the algorithm to choose a different action. Therefore the so called <span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy factor is introduced. It tells you at which fraction of events in a state a random action is to be chosen over the action with the larges Q-value. We will set this <span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy value to 0.2, meaning that 20% of the actions are chosen randomly.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[755]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[805]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1154,7 +1156,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h3>List of actions<a class="headerlink" href="#List-of-actions" title="Permalink to this headline">¶</a></h3>
 <p>The actions, which we can take in each state are defined by 2-d vectors here which increase either the row or the column index in our gridworld.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[756]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[806]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1167,7 +1169,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h3>Initial state<a class="headerlink" href="#Initial-state" title="Permalink to this headline">¶</a></h3>
 <p>We chose the initial state from which we start randomly. We also initialize a list, where we register the sum of all Q-values. This is helpful to monitor the convergence of our algorithm.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[757]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[807]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1183,7 +1185,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h3>Reinforcement Learning Loop<a class="headerlink" href="#Reinforcement-Learning-Loop" title="Permalink to this headline">¶</a></h3>
 <p>The cell below is all you need for the learning how to navigate the grid world.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[758]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[808]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1202,12 +1204,10 @@ we would like to explore in a small Python program, which is not too difficult.<
         <span class="n">Q</span><span class="p">[</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">action</span><span class="p">]</span><span class="o">=</span><span class="n">Q</span><span class="p">[</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">action</span><span class="p">]</span><span class="o">+</span><span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="n">R</span><span class="p">[</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">+</span><span class="n">gamma</span><span class="o">*</span><span class="n">next_Q</span><span class="o">-</span><span class="n">Q</span><span class="p">[</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">action</span><span class="p">])</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">next_state</span><span class="o">==</span><span class="n">n_rows</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="c1">## the goal state, episode ends</span>
             <span class="n">next_state</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">([</span><span class="n">n_rows</span><span class="p">,</span><span class="n">n_columns</span><span class="p">])</span>
-            <span class="n">next_action</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">next_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">next_state</span><span class="p">[</span><span class="mi">1</span><span class="p">],:])</span>
             <span class="n">ep</span><span class="o">+=</span><span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">Q</span><span class="p">[</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">action</span><span class="p">]</span><span class="o">=</span><span class="n">Q</span><span class="p">[</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">action</span><span class="p">]</span><span class="o">+</span><span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="o">-</span><span class="n">Q</span><span class="p">[</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">curr_state</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">action</span><span class="p">]);</span>
         <span class="n">next_state</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">([</span><span class="n">n_rows</span><span class="p">,</span><span class="n">n_columns</span><span class="p">])</span>
-        <span class="n">next_action</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">next_state</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">next_state</span><span class="p">[</span><span class="mi">1</span><span class="p">],:])</span>
         <span class="n">ep</span><span class="o">+=</span><span class="mi">1</span>
     <span class="n">qsum</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Q</span><span class="p">))</span>
 
@@ -1222,7 +1222,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h3>Convergence of the Q-learning<a class="headerlink" href="#Convergence-of-the-Q-learning" title="Permalink to this headline">¶</a></h3>
 <p>The convergence of our learning is best judged from the sum of all Q-values in the matrix. This should converge to a negative value as most of the time our agent is getting the penalty <span class="math notranslate nohighlight">\(R=-1\)</span> and only sparsely <span class="math notranslate nohighlight">\(R=10\)</span> at the goal.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[762]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[809]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1247,7 +1247,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <div class="math notranslate nohighlight">
 \[\pi^{*}(s)={\rm argmax_{a}}Q^{*}(s,a)\]</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[760]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[810]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1260,7 +1260,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <div class="section" id="Plot-the-policy">
 <h3>Plot the policy<a class="headerlink" href="#Plot-the-policy" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[761]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[811]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1282,7 +1282,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_rows</span><span class="o">*</span><span class="n">n_columns</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_rows</span><span class="o">*</span><span class="n">n_columns</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">n_columns</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">n_columns</span><span class="p">)</span><span class="n">b</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">n_rows</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
@@ -1299,10 +1299,14 @@ we would like to explore in a small Python program, which is not too difficult.<
 <a class="reference internal image-reference" href="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png"><img alt="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" src="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" style="width: 349px; height: 340px;" /></a>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="Where-to-go-from-here">
+<h2>Where to go from here<a class="headerlink" href="#Where-to-go-from-here" title="Permalink to this headline">¶</a></h2>
+<p>If you want to know more about Reinforcement Learning, have a look at the <a class="reference external" href="http://incompleteideas.net/book/bookdraft2017nov5.pdf">book</a> of Sutton and Barto.</p>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_minor": 0, "version_major": 2}
 </script></div>
-</div>
 </div>
 
 
