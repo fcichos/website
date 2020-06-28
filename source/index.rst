@@ -184,7 +184,7 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    :maxdepth: 2
    :caption: Lecture 13:
 
-   lectures/L13/overview_12.rst
+   lectures/L13/overview_13.rst
    notebooks/L13/1_deep_learning.ipynb
    notebooks/L13/2_deep_learning_keras.ipynb   
 
