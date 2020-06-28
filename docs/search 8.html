@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Search &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="#" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+          
+
+          
+            
+            <img src="_static/mona_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="course-info/website.html">This Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/exam.html">Exams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="course-info/resources.html#molecular-nanophotonics-group">Molecular Nanophotonics Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course-info/resources.html#python-documentation">Python Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course-info/resources.html#python-tutorials">Python Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="course-info/instructor.html">Instructor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/Intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html">Introduction to Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html#What-is-Jupyter-Notebook?">What is Jupyter Notebook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html#Notebook-editor">Notebook editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html#Kernels">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/Introduction2Jupyter.html#Notebook-documents">Notebook documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html">Notebook editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Edit-mode">Edit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Command-mode">Command mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Keyboard-navigation">Keyboard navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Running-code">Running code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/NotebookEditor.html#Managing-the-kernel">Managing the kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Intro/EditCells.html">Entering code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Intro/EditCells.html#Entering-Markdown">Entering Markdown</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Markdown-basics">Markdown basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Headings">Headings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Embedded-code">Embedded code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/Intro/EditCells.html#Videos">Videos</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L1/overview_1.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L1/1_variables.html">Variables and types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/1_variables.html#Symbol-names">Symbol names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/1_variables.html#Variable-Assignment">Variable Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/1_variables.html#Number-types">Number types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L1/1_variables.html#Integers">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L1/1_variables.html#Floating-Point">Floating Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L1/1_variables.html#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L1/1_variables.html#Type-casting">Type casting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L1/2_operators.html">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L1/3_datatypes.html">Data Types in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/3_datatypes.html#Strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/3_datatypes.html#Lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/3_datatypes.html#Tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/3_datatypes.html#Dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L1/4_modules.html">Modules and namespaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/4_modules.html#Modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/4_modules.html#Namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L1/4_modules.html#Contents-of-a-module">Contents of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L1/assignment_1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L2/overview_2.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L2/1_numpy.html">NumPy arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/1_numpy.html#Creating-Numpy-Arrays">Creating Numpy Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#From-lists">From lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Using-array-generating-functions">Using array-generating functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#linspace-and-logspace">linspace and logspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#mgrid">mgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#diag">diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#zeros-and-ones">zeros and ones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Slicing">Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Reshaping">Reshaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Stacking-and-repeating-arrays">Stacking and repeating arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#Concatenate">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/1_numpy.html#Hstack-and-vstack">Hstack and vstack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/1_numpy.html#Applying-mathematical-functions">Applying mathematical functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Operation-involving-one-array">Operation involving one array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/1_numpy.html#Operations-involving-multiple-arrays">Operations involving multiple arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L2/2_plotting.html">Plotting data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Simple-Plotting">Simple Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Line-Plot">Line Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/2_plotting.html#Axis-Labels">Axis Labels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/2_plotting.html#Legends">Legends</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Combined-plots">Combined plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Saving-figures">Saving figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Plots-with-error-bars">Plots with error bars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Setting-plotting-limits-and-excluding-data">Setting plotting limits and excluding data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L2/2_plotting.html#Masked-arrays">Masked arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Logarithmic-plots">Logarithmic plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Semi-log-plots">Semi-log plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Log-log-plots">Log-log plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Arranging-multiple-plots">Arranging multiple plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Contour-and-Density-Plots">Contour and Density Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Simple-contour-plot">Simple contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Color-contour-plot">Color contour plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Image-plot">Image plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#3D-Plotting">3D Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Projection-Scence">Projection Scence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Line-Plotting-in-3D">Line Plotting in 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Surface-Plotting">Surface Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Additional-Plotting">Additional Plotting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Insets">Insets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Spine-axis">Spine axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L2/2_plotting.html#Polar-plot">Polar plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/2_plotting.html#Text-annotation">Text annotation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html">Random numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L2/3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L2/assignment_2.html">Exercise 2</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 3:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L3/overview_3.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L3/1_input_output.html">Input and output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/1_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/1_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/1_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/1_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L3/1_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L3/1_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/1_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L3/1_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L3/1_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html">Flow Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#Conditionals:-if,-elif,-and-else-statements">Conditionals: if, elif, and else statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#If-example">If example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#If-else-example">If else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#If,-elif,-else-example">If, elif, else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#Loops">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#For-loops">For loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#While-loops">While loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#Loops-and-array-operations">Loops and array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/2_flowcontrol.html#List-comprehensions">List comprehensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L3/3_functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/3_functions.html#Function-definition">Function definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/3_functions.html#Variables-in-functions">Variables in functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/3_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/3_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L3/3_functions.html#Functions-with-variable-number-of-arguments">Functions with variable number of arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/3_functions.html#Unnamed-functions-(lambda-function)">Unnamed functions (lambda function)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L3/3_functions.html#Functions-as-arguments-of-functions">Functions as arguments of functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L3/4_exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L3/assignment_3.html">Exercise 3</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 4:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L4/overview_4.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L4/1_classes.html">Classes and Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/1_classes.html#Definition-of-Classes">Definition of Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/1_classes.html#Class-Methods">Class Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L4/1_classes.html#The-__init__-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L4/1_classes.html#The-__str__-method">The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/1_classes.html#Class-and-object-variables">Class and object variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L4/2_brownian_motion.html">Brownian Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/2_brownian_motion.html#Physics">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/2_brownian_motion.html#Class-Planning">Class Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/2_brownian_motion.html#Simulating">Simulating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/2_brownian_motion.html#Plotting-the-trajectories">Plotting the trajectories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/2_brownian_motion.html#Characterizing-the-Brownian-motion">Characterizing the Brownian motion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L4/2_brownian_motion.html#Calculate-the-particle-velocity">Calculate the particle velocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L4/2_brownian_motion.html#Calculate-the-particle-mean-squared-displacement">Calculate the particle mean squared displacement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L4/3_animations.html">Animations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/3_animations.html#Import-Modules">Import Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/3_animations.html#Particle-class">Particle class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/3_animations.html#Create-a-set-of-particles">Create a set of particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/3_animations.html#Canvas-and-drawing-function">Canvas and drawing function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L4/3_animations.html#Threading-for-animation">Threading for animation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L4/assignment_4.html">Exercise 4</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 5:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L5/overview_5.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L5/1_differentiation.html">Numerical Differentiation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/1_differentiation.html#First-order-derivative">First order derivative</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/1_differentiation.html#Matrix-version-of-the-first-derivative">Matrix version of the first derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/1_differentiation.html#Second-order-derivative">Second order derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/1_differentiation.html#SciPy-Module">SciPy Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/1_differentiation.html#Matrix-version">Matrix version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L5/2_integration.html">Numerical Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/2_integration.html#Box-method">Box method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/2_integration.html#Trapezoid-method">Trapezoid method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/2_integration.html#Simpson-method">Simpson method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html">Solving ODEs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Harmonic-Oscillator">Harmonic Oscillator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Implicit-Solution---Crank-Nicholson">Implicit Solution - Crank Nicholson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Define-Matrices">Define Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Use-Initial-Conditions">Use Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Solution">Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Explicit-Solution---Numerical-Integration">Explicit Solution - Numerical Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Euler-Method">Euler Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Euler-Cromer-Method">Euler Cromer Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Midpoint-Method">Midpoint Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Putting-it-all-together">Putting it all together</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#The-definition-of-the-problem">The definition of the problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Solving-the-problem">Solving the problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Solving-the-Harmonic-Oscillator-in-SciPy">Solving the Harmonic Oscillator in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Definition">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#id1">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#Damped-Driven-Pendulum-in-SciPy">Damped Driven Pendulum in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#id2">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#id3">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#id4">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L5/3_solving_ODEs.html#id5">Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 6:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L6/overview_6.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L6/1_covid19.html">COVID19</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/1_covid19.html#The-Kermack-McKendrick-Model">The Kermack-McKendrick Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/1_covid19.html#Model-Equation">Model Equation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/1_covid19.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/1_covid19.html#Definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/1_covid19.html#Solution">Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/1_covid19.html#Plotting">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/1_covid19.html#Real-COVID19-numbers">Real COVID19 numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/1_covid19.html#Total-number-of-cases">Total number of cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/1_covid19.html#Number-of-Deaths">Number of Deaths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/1_covid19.html#New-cases-per-day">New cases per day</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/1_covid19.html#Current-cases">Current cases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html">Coupled Pendula</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Description-of-the-problem">Description of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Sketch">Sketch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Equations-of-motion">Equations of motion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Solving-the-problem">Solving the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Setting-up-the-function">Setting up the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Define-initial-parameters">Define initial parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Solve-the-equation-of-motion">Solve the equation of motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Animation">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Normal-Modes">Normal Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#In-phase-motion">In-phase motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Out-of-phase-motion">Out-of-phase motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Beat-case">Beat case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Computation-of-energy-(here-for-the-beat-case)">Computation of energy (here for the beat case)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Potential-energy-of-the-pendula">Potential energy of the pendula</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Potential-energy-of-the-spring">Potential energy of the spring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Kinetic-energies">Kinetic energies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Total-energy">Total energy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L6/2_coupled_pendula.html#Total-energy-exchange-of-the-pendula">Total energy exchange of the pendula</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L6/3_fourier_analysis.html">Fourier Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/3_fourier_analysis.html#Fourier-series">Fourier series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/3_fourier_analysis.html#Fourier-transform">Fourier transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L6/3_fourier_analysis.html#Frequency-analysis-of-our-coupled-pendula">Frequency analysis of our coupled pendula</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 7:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L7/overview_7.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L7/1_spring_pendulum.html">Spring Pendulum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L7/1_spring_pendulum.html#Physical-Model">Physical Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/1_spring_pendulum.html#Equations-of-motion">Equations of motion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L7/1_spring_pendulum.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/1_spring_pendulum.html#Initial-parameters">Initial parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/1_spring_pendulum.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/1_spring_pendulum.html#Plotting">Plotting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L7/1_spring_pendulum.html#Angle-and-Length-over-Time">Angle and Length over Time</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L7/2_planetary_motion.html">Planetary Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L7/2_planetary_motion.html#Physical-Model">Physical Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L7/2_planetary_motion.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/2_planetary_motion.html#Initial-Parameters:-Planets">Initial Parameters: Planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/2_planetary_motion.html#Solution:-Planets">Solution: Planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/2_planetary_motion.html#Plotting:-Planets">Plotting: Planets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L7/2_planetary_motion.html#Trajectory">Trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L7/2_planetary_motion.html#Energy">Energy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html">Diffusion equation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Physical-Model">Physical Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Spatial-derivative">Spatial derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Temporal-derivative">Temporal derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Bringing-all-together">Bringing all together</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Setup-Domain">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Matrix-Setup">Matrix Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L7/3_diffusion_equation.html#Solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L7/assignment_7.html">Exercise 7</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 8:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L8/overview_8.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L8/1_curve_fitting.html">Curve fitting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L8/1_curve_fitting.html#Idea">Idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L8/1_curve_fitting.html#Least-squares">Least squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L8/1_curve_fitting.html#Data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L8/1_curve_fitting.html#Least-square-fitting">Least square fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L8/1_curve_fitting.html#\chi-squared-value"><span class="math notranslate nohighlight">\(\chi\)</span>-squared value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L8/1_curve_fitting.html#Residuals">Residuals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L8/1_curve_fitting.html#Covariance-matrix">Covariance matrix</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 9:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L9/overview_9.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L9/1_plane_waves.html">Plane Waves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Equations">Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Electric-field">Electric field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Plane-wave-propagation">Plane wave propagation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Imaginary-wave-vector">Imaginary wave vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Interference-of-two-plane-waves">Interference of two plane waves</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Plane-wave-at-a-boundary">Plane wave at a boundary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Fresnel-equations">Fresnel equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Incident-wave">Incident wave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Reflected-wave">Reflected wave</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/1_plane_waves.html#Refracted-wave">Refracted wave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L9/2_spherical_waves.html">Spherical waves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/2_spherical_waves.html#Equations">Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/2_spherical_waves.html#Electric-field">Electric field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/2_spherical_waves.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/2_spherical_waves.html#Plot-the-intensity-in-an-image-plane">Plot the intensity in an image plane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/2_spherical_waves.html#Interference-between-a-spherical-and-a-plane-wave">Interference between a spherical and a plane wave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L9/3_huygens_principle.html">Huygens principle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L9/4_gaussian_beams.html">Gaussian Beam</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/4_gaussian_beams.html#Equations">Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/4_gaussian_beams.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/4_gaussian_beams.html#Intensity-plot">Intensity plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L9/4_gaussian_beams.html#Intensity-profiles">Intensity profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L9/assignment_9.html">Exercise 9</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 10:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L10/overview_10.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L10/1_quantum_mechanics.html">Quantum Mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/1_quantum_mechanics.html#Quantum-Mechanics-in-a-Nutshell">Quantum Mechanics in a Nutshell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/1_quantum_mechanics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/1_quantum_mechanics.html#Stationary-Schrödinger-equation">Stationary Schrödinger equation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/1_quantum_mechanics.html#Recap:-Implicit-Solution">Recap: Implicit Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/1_quantum_mechanics.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/1_quantum_mechanics.html#Potential-energy">Potential energy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L10/2_particle_in_a_box.html">Particle in a box</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/2_particle_in_a_box.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/2_particle_in_a_box.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/2_particle_in_a_box.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/2_particle_in_a_box.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/2_particle_in_a_box.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/2_particle_in_a_box.html#Energies-of-bound-states">Energies of bound states</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L10/3_harmonic_oscillator.html">Harmonic Oscillator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/3_harmonic_oscillator.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/3_harmonic_oscillator.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/3_harmonic_oscillator.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/3_harmonic_oscillator.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/3_harmonic_oscillator.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/3_harmonic_oscillator.html#Energies-of-the-states">Energies of the states</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/3_harmonic_oscillator.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L10/4_periodic_potential.html">Periodic Potential</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/4_periodic_potential.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/4_periodic_potential.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/4_periodic_potential.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/4_periodic_potential.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L10/4_periodic_potential.html#Plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/4_periodic_potential.html#Energy-states">Energy states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L10/4_periodic_potential.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 11:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L11/overview_11.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L11/1_quantum_dynamics.html">Time Dependent Quantum Mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/1_quantum_dynamics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/1_quantum_dynamics.html#Wavepackets">Wavepackets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/1_quantum_dynamics.html#Wavepacket">Wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/1_quantum_dynamics.html#Wavepacket-with-rectangular-amplitude">Wavepacket with rectangular amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/1_quantum_dynamics.html#Gaussian-Wave-Packet">Gaussian Wave Packet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/1_quantum_dynamics.html#Time-evolution-of-a-Gaussian-Wavepacket">Time evolution of a Gaussian Wavepacket</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L11/2_particle_in_a_box.html">Wavepacket in a Potential Box</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/2_particle_in_a_box.html#Problem-Setup">Problem Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/2_particle_in_a_box.html#Initial-conditions">Initial conditions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/2_particle_in_a_box.html#Eigenfunctions">Eigenfunctions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/2_particle_in_a_box.html#Quality-of-the-coefficients">Quality of the coefficients</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/2_particle_in_a_box.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L11/3_tunneling.html">Tunneling through a barrier</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Schrödinger-equation-for-the-momentum">Schrödinger equation for the momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Crank-Nicolson-Solution">Crank Nicolson Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Setup-Domain">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Matrix-Setup">Matrix Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Propagation-Matrix">Propagation Matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Animation-setup">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Animation">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Split-Step-Method">Split Step Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#id1">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Potential-energy-landscape">Potential energy landscape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Initial-wavepacket">Initial wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Fourier-Transform-Setup">Fourier Transform Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Phase-Factor-per-Timestep">Phase Factor per Timestep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#id2">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L11/3_tunneling.html#id3">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L11/3_tunneling.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 12:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lectures/L12/overview_12.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html">Hydrodynamics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Falling-sphere">Falling sphere</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Function-definition">Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Numerical-solution">Numerical solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Analytical-solution">Analytical solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Stokes-equation">Stokes equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Fundamental-Solutions-of-the-Stokes-Equation">Fundamental Solutions of the Stokes Equation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Stokeslet">Stokeslet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Source-dipole">Source dipole</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/1_hydrodynamics.html#Sum-of-both-solutions">Sum of both solutions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html">Machine Learning and Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Reinforcement-Learning">Reinforcement Learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Markov-Decision-Process">Markov Decision Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Methods-or-RL">Methods or RL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Navigating-a-Grid-World">Navigating a Grid World</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Initialize-Reinforcement-Learning">Initialize Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#List-of-actions">List of actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Initial-state">Initial state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Reinforcement-Learning-Loop">Reinforcement Learning Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Convergence-of-the-Q-learning">Convergence of the Q-learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Policy">Policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Plot-the-policy">Plot the policy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/L12/2_reinforcement_learning.html#Where-to-go-from-here">Where to go from here</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Introduction to Computer-based Physical Modeling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Search</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/fcichos/website/blob/master//source/search" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search
+      functionality.
+    </p>
+  </div>
+  </noscript>
+
+  
+  <div id="search-results">
+  
+  </div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Frank Cichos
+      <span class="lastupdated">
+        Last updated on Jun 23, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+  <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script type="text/javascript" id="searchindexloader"></script>
+   
+
+
+</body>
+</html>

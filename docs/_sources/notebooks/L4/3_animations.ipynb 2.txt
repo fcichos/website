@@ -1,0 +1,554 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Animations"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "Animations are sometimes a nice feature, if you want to have a look at how your calculations evolve over time. Especially in the case of our particle based simulations it seems useful to diplay the position of the particles over time.\n",
+    "\n",
+    "There are multiple ways to animate plots and images in python. Not all of them are always transferable between computers. Matplotlib for example provides a `animate` function, which can also use the `ffmpeg` video compressor. But that requires installation of all of them on the specific system you are working on. \n",
+    "\n",
+    "We want to use the `ipycanvas` module, because it delivers easy drawing of shapes like circles or rectangle in a canvas directly in our Jupyter Notebooks. Have a look at the ([documentation](https://readthedocs.org/projects/ipycanvas/downloads/pdf/latest/)). The module provides even tools to interact with a mouse."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## Import Modules"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "Before we start, lets have a look at the modules we import this time. Except the NumPy modules we never used them before. We import `time`, `threading`, and `ipycanvas`.\n",
+    "\n",
+    "~~~\n",
+    "import numpy as np\n",
+    "from time import sleep,time\n",
+    "from threading import Thread\n",
+    "\n",
+    "from ipycanvas import MultiCanvas, hold_canvas,Canvas\n",
+    "~~~"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "\n",
+    "The `time` module is python standard module, which contains timing-related functions like the `sleep` and `time` function for example. \n",
+    "\n",
+    "* The function suspends execution of the current thread for a given number of seconds.\n",
+    "* The `time()` function returns the number of seconds passed since epoch. For Unix system, `January 1, 1970, 00:00:00` at UTC is epoch (the point where time begins).\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "The `threading` module is a module which allows you to specify how the processes in your notebook are executed. \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "The `ipycanvas` module is the one which helps us to draw the objects of our simulation."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 407,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "skip"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "from time import sleep,time\n",
+    "from threading import Thread\n",
+    "\n",
+    "from ipycanvas import MultiCanvas, hold_canvas,Canvas"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## Particle class"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "We start by using out colloidal particle class, which we developed in the last section."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 404,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# Class definition\n",
+    "class Colloid:\n",
+    "\n",
+    "    # A class variable, counting the number of Colloids\n",
+    "    number = 0\n",
+    "    f = 2.2e-19 # this is k_B T/(6 pi eta) in m^3/s\n",
+    "\n",
+    "    # constructor\n",
+    "    def __init__(self,R, x0=0, y0=0):        \n",
+    "        # add initialisation code here\n",
+    "        self.R=R        \n",
+    "        self.x=[x0]\n",
+    "        self.y=[y0]\n",
+    "        Colloid.number=Colloid.number+1\n",
+    "        self.index=Colloid.number \n",
+    "        self.D=Colloid.f/self.R        \n",
+    "        \n",
+    "    def get_D(self):        \n",
+    "        return(self.D)\n",
+    "    \n",
+    "    def sim_trajectory(self,N,dt):        \n",
+    "        for i in range(N):\n",
+    "            self.update(dt)\n",
+    "    \n",
+    "    def update(self,dt):                   \n",
+    "        self.x.append(self.x[-1]+np.random.normal(0.0, np.sqrt(2*self.D*dt)))\n",
+    "        self.y.append(self.y[-1]+np.random.normal(0.0, np.sqrt(2*self.D*dt)))\n",
+    "        return(self.x[-1],self.y[-1])\n",
+    "        \n",
+    "    def get_trajectory(self):\n",
+    "        return(pd.DataFrame({'x':self.x,'y':self.y}))\n",
+    "    \n",
+    "    # class method accessing a class variable\n",
+    "    @classmethod\n",
+    "    def how_many(cls):\n",
+    "        return(Colloid.number)\n",
+    "    \n",
+    "    # insert something that prints the particle position in a formatted way when printing\n",
+    "    def __str__(self):\n",
+    "        return(\"I'm a particle with radius R={0:0.3e} at x={1:0.3e},y={2:0.3e}.\".format(self.R, self.x[-1], self.y[-1]))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## Create a set of particles "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "We want to animate the Brownian motion of many particles. The best is therefore to create a `list` which contains all the individual `Colloid` objects. We start by creating 200 colloids at the position `(0,0)` to see how the spread from the origin. They are stored in the list `p`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 408,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# number of particles\n",
+    "N=200\n",
+    "\n",
+    "p=[]\n",
+    "for _ in range(N):\n",
+    "    p.append(Colloid(np.random.randint(2,10)*1e-6,0,0))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## Canvas and drawing function"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "Next, we need  a canvas, in which we draw our particles and we need the drawing function. \n",
+    "\n",
+    "The canvas is created by the `Canvas()` constructor if `ipycanvas`. The `display` command displays the canvas below the the cell."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 409,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "fd4e1b3cee2d4acc9289463ee1ee391a",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Canvas(height=300, width=300)"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "canvas = Canvas(width=300, height=300)\n",
+    "display(canvas)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "![particles](img/particles.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "We realize the drawing in a `for` loop, which is first updating all particle positions and then drawing all the particles. \n",
+    "\n",
+    "The loop contains one interesting statement, which is the `with hold_canvas(canvas):`. Its useful to know that this statement halts the execution of all subsequent drawing comments in the following code block to create a \"batch\" of drawing commands send at one to the `ipycanvas` module. This will allow fast drawing of the whole scene.  All the rest of the commands are shortly explained in the loop comments."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 400,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "scale=1e7 # this is to scale up all from µm to pixels\n",
+    "for _ in range(1000):\n",
+    "    for i in range(N):\n",
+    "        p[i].update(0.18)\n",
+    "        \n",
+    "    with hold_canvas(canvas):\n",
+    "        canvas.clear() # clear the canvas before drawing\n",
+    "        canvas.fill_style = 'red' # fill color for the particles\n",
+    "        canvas.global_alpha = 0.5 # make the slightly transparent\n",
+    "        for i in range(N): # loop over all particles\n",
+    "            # draw a filled circle for each particle\n",
+    "            canvas.fill_arc(p[i].x[-1]*scale+150, p[i].y[-1]*scale+150, p[i].R*1e6, 0, 2*np.pi) \n",
+    "        sleep(0.03) # wait 10 ms before drawing the next timestep"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "## Threading for animation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "It is useful to start a simulation as a background process, which is running while you keep calculating in your Jupyter notebook. This can be achieved by setting up a thread. \n",
+    "\n",
+    "A computer program is a collection of instructions. A process is the execution of those instructions. A thread is a subset of the process. A process can have one or more threads. The `Thread` function of the `threading` module can start a process in background, such that your Jupyter notbook is not blocked for the specific time the process is executed. We will talk about how to use this module later in this section.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "\n",
+    "To setup such a background process you first need to setup a function that should be executed as a thread. This is the updating and drawing of the colloidal particles. \n",
+    "The `Thread()` function of the `threading` module is setting up everything for you and assigning that to the variable `simulation`. The `target=draw` statement thereby points the thread to take the right function. Once you start the thread with `simulation.start()` the function draw is executed in background until its finished. \n",
+    "\n",
+    "~~~\n",
+    "def draw():\n",
+    "    # do your drawing code here\n",
+    "\n",
+    "simulation = Thread(target=draw)  \n",
+    "\n",
+    "simulation.start()\n",
+    "~~~\n",
+    "\n",
+    "That's all you need. So lets wrap all our drawing before into a draw function.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 379,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def draw():\n",
+    "    for _ in range(1000):\n",
+    "        for i in range(N):\n",
+    "            p[i].update(0.18)\n",
+    "\n",
+    "        with hold_canvas(canvas):\n",
+    "            canvas.clear() # clear the canvas before drawing\n",
+    "            canvas.fill_style = 'red' # fill color for the particles\n",
+    "            canvas.global_alpha = 0.5 # make the slightly transparent\n",
+    "            for i in range(N): # loop over all particles\n",
+    "                # draw a filled circle for each particle\n",
+    "                canvas.fill_arc(p[i].x[-1]*scale+150, p[i].y[-1]*scale+150, p[i].R*1e6, 0, 2*np.pi) \n",
+    "            sleep(0.03) # wait 10 ms before drawing the next timestep"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 411,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "simulation = Thread(target=draw)  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "We create a new canvas here, even though we could use the one on the top. It's just nice to not have to scroll up."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 412,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "a17a81a8f2574af5a1c43a8218a635c6",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Canvas(height=300, width=300)"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "canvas = Canvas(width=300, height=300)\n",
+    "display(canvas)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "\n",
+    "![particles](img/particles.png)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 413,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "# start the simulation\n",
+    "simulation.start() "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "source": [
+    "One of the intruiging things of this type of threading is that all of the parameters of the Colloids may still be changed on the fly while the process is running. So lets just reset the particle positions to the origin and see what is happening in the canvas."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 393,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "for i in range(N):\n",
+    "    p[i].x=[0]\n",
+    "    p[i].y=[0]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "source": [
+    "Now that we have a nice way of simulating particle motion you can extend that a bit. Here are three additions you may want to make:\n",
+    "\n",
+    "1) **Introduce boundary conditions:** This is a different way of keeping the particles inside the simulation box. They are just reflected by a boundary.\n",
+    "\n",
+    "2) **Introduce a drift velocity:** Particles may not only move diffusively but also with a constant drift velocity in a certain direction. We want to introduce that feature to tackle a COVID-19 spreading.\n",
+    "\n",
+    "3) **Introduce collisions:** To study the spreading of an infection, we have to introduce collisions between particles."
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Slideshow",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

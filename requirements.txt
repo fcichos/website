@@ -5,3 +5,5 @@ pandas
 ipycanvas
 scipy
 ipywidgets
+keras
+tensorflow
