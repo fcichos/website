@@ -650,6 +650,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Lecture 13:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_deep_learning.html">Neural Networks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="1_deep_learning.html#The-MNIST-Data-Set">The MNIST Data Set</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="1_deep_learning.html#Load-the-data">Load the data</a></li>
@@ -673,7 +674,7 @@
 <li class="toctree-l2"><a class="reference internal" href="1_deep_learning.html#Multiclass-Network">Multiclass Network</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="1_deep_learning.html#Changes-to-the-model">Changes to the model</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="1_deep_learning.html#Forward-Pass">Forward Pass</a></li>
-<li class="toctree-l4"><a class="reference internal" href="1_deep_learning.html#id3">Loss Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1_deep_learning.html#id1">Loss Function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="1_deep_learning.html#Back-Propagation">Back Propagation</a></li>
 </ul>
 </li>
@@ -1059,6 +1060,7 @@ case <code class="docutils literal notranslate"><span class="pre">tensorflow</sp
 </div>
 <div class="section" id="MNIST-Data-Set-(Keras)">
 <h2>MNIST Data Set (Keras)<a class="headerlink" href="#MNIST-Data-Set-(Keras)" title="Permalink to this headline">¶</a></h2>
+<p>This loads the same data as in our previous notebook, except that the function to do that is directly provided by <code class="docutils literal notranslate"><span class="pre">keras</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -1081,6 +1083,7 @@ case <code class="docutils literal notranslate"><span class="pre">tensorflow</sp
 </div>
 <div class="section" id="Build-the-model">
 <h2>Build the model<a class="headerlink" href="#Build-the-model" title="Permalink to this headline">¶</a></h2>
+<p>The next few lines create the whole neural network with an input layer, a hidden layer with 64 neurons and and output layer with 10 neurons.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -1090,14 +1093,13 @@ case <code class="docutils literal notranslate"><span class="pre">tensorflow</sp
     <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span> <span class="p">)),</span>
     <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
 <span class="p">])</span>
-
-
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="Compile-the-model">
 <h2>Compile the model<a class="headerlink" href="#Compile-the-model" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">compile</span></code> method assembles everything to create a model for training. You can specify here the stochastic gradient descent method in the same way as the loss function.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -1112,6 +1114,7 @@ case <code class="docutils literal notranslate"><span class="pre">tensorflow</sp
 </div>
 <div class="section" id="Train-the-model">
 <h2>Train the model<a class="headerlink" href="#Train-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Finally, the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method allows us to train the model for a specified number of epochs.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -1184,7 +1187,7 @@ prediction:  3
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L13_2_deep_learning_keras_13_1.png"><img alt="../../_images/notebooks_L13_2_deep_learning_keras_13_1.png" src="../../_images/notebooks_L13_2_deep_learning_keras_13_1.png" style="width: 258px; height: 255px;" /></a>
+<a class="reference internal image-reference" href="../../_images/notebooks_L13_2_deep_learning_keras_17_1.png"><img alt="../../_images/notebooks_L13_2_deep_learning_keras_17_1.png" src="../../_images/notebooks_L13_2_deep_learning_keras_17_1.png" style="width: 258px; height: 255px;" /></a>
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">

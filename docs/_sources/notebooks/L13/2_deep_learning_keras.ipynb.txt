@@ -57,6 +57,13 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This loads the same data as in our previous notebook, except that the function to do that is directly provided by `keras`."
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": 9,
    "metadata": {},
@@ -83,6 +90,13 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The next few lines create the whole neural network with an input layer, a hidden layer with 64 neurons and and output layer with 10 neurons."
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": 10,
    "metadata": {},
@@ -91,8 +105,7 @@
     "model = Sequential([\n",
     "    Dense(64, activation='sigmoid', input_shape=(28 * 28, )),\n",
     "    Dense(10, activation='softmax')\n",
-    "])\n",
-    "\n"
+    "])"
    ]
   },
   {
@@ -100,6 +113,13 @@
    "metadata": {},
    "source": [
     "## Compile the model"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The `compile` method assembles everything to create a model for training. You can specify here the stochastic gradient descent method in the same way as the loss function."
    ]
   },
   {
@@ -118,6 +138,13 @@
    "metadata": {},
    "source": [
     "## Train the model"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Finally, the `fit` method allows us to train the model for a specified number of epochs."
    ]
   },
   {
