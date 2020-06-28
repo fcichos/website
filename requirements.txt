@@ -1,9 +1,10 @@
 numpy==1.16.*
 matplotlib==3.*
 seaborn==0.8.1
-pandas
-ipycanvas
-scipy
-ipywidgets
 keras
 tensorflow
+sklearn
+pandas
+ipycanvas
+scipy==1.4.1
+ipywidgets
