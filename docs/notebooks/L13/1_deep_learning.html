@@ -1062,7 +1062,7 @@ by <strong>Martin Fränzl</strong>.</p>
 <div class="section" id="Load-the-data">
 <h3>Load the data<a class="headerlink" href="#Load-the-data" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[240]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1073,7 +1073,7 @@ by <strong>Martin Fränzl</strong>.</p>
 </div>
 <p>The images are now contained in the array <code class="docutils literal notranslate"><span class="pre">X</span></code>, while the labels (so which number it is) are contained in <code class="docutils literal notranslate"><span class="pre">y</span></code>. Let’s have a look at a random image and label.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[241]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1105,7 +1105,7 @@ label:  4
 <h3>Normalize the data<a class="headerlink" href="#Normalize-the-data" title="Permalink to this headline">¶</a></h3>
 <p>To use data in neural networks as training data, it is always useful to normalize the data to the interval [0, 1].</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[242]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1118,7 +1118,7 @@ label:  4
 <h3>Preparing training and testing data<a class="headerlink" href="#Preparing-training-and-testing-data" title="Permalink to this headline">¶</a></h3>
 <p>The default MNIST labels say ‘1’ for an image of a one, ‘2’ for an image of a two, etc., but we are just building a zero classifier for now. So we want our labels to say 1 when we have a zero, and 0 otherwise. So we overwrite the labels accordingly:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[243]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1130,7 +1130,7 @@ label:  4
 </div>
 <p>We now split the data in a train and test set. The MNIST images are pre-arranged so that the first 60,000 can be used for training, and the last 10,000 for testing. We’ll also transform the data into the shape we want, with each example in a column (instead of a row):</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[244]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1144,7 +1144,7 @@ label:  4
 </div>
 <p>Finally, we shuffle the training set:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[245]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1154,13 +1154,13 @@ label:  4
 </pre></div>
 </div>
 </div>
-<p>Let’s again have a look at random image and label just to check:</p>
+<p>Let’s again have a look at random image and label just to check</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[246]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">56</span>
+<span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1183,13 +1183,13 @@ label:  4
 [0.]
 </pre></div></div>
 </div>
-<p>That’s a zero and we wanted the label to be 1, which it is. Great, so let’s build our first network.</p>
+<p>Try to find a zero to chekc whether the corresponding label is a 1.</p>
 </div>
 </div>
 <div class="section" id="A-Single-Neuron">
 <h2>A Single Neuron<a class="headerlink" href="#A-Single-Neuron" title="Permalink to this headline">¶</a></h2>
 <p>The basic unit of a neural network is a neuron. A neuron takes inputs, does some math with them, and produces one output. The neuron below does that with two inputs.</p>
-<p><img alt="image" src="notebooks/L13/img/neuron.png" /></p>
+<p><img alt="image" src="../../_images/neuron.png" /></p>
 <p>The neuron does now three things.</p>
 <ol class="arabic simple">
 <li><p>Take input values and multipy by weights</p></li>
@@ -1969,7 +1969,7 @@ weighted avg       0.84      0.84      0.84     10000
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 28, 2020.
+        Last updated on Jun 29, 2020.
       </span>
 
     </p>
