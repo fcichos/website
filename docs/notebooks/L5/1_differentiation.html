@@ -21,14 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -488,7 +487,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -651,6 +650,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Lecture 13:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L13/1_deep_learning.html">Neural Networks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#The-MNIST-Data-Set">The MNIST Data Set</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Load-the-data">Load the data</a></li>
@@ -674,7 +674,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Multiclass-Network">Multiclass Network</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Changes-to-the-model">Changes to the model</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Pass">Forward Pass</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id3">Loss Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id1">Loss Function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Back-Propagation">Back Propagation</a></li>
 </ul>
 </li>
@@ -827,33 +827,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -946,7 +933,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1017,9 +1004,8 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L5/1_differentiation.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L5/1_differentiation.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
-</div>
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L5/1_differentiation.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L5/1_differentiation.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Numerical-Differentiation">
 <h1>Numerical Differentiation<a class="headerlink" href="#Numerical-Differentiation" title="Permalink to this headline">¶</a></h1>
 <p>We did already have a look at the numerical differentiation in Lecture 3. We therefore don’t have to extend that to much here. Yet we want to formalize the numerical differentiation a bit.</p>
@@ -1028,8 +1014,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
@@ -1042,9 +1028,9 @@ div.rendered_html tbody tr:hover {
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1072,7 +1058,7 @@ f_{i+1}=f_{i}+\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}
 <p><span class="math">\begin{equation}
 f_{i-1}=f_{i}-\Delta x f_{i}^{\prime}+\frac{\Delta x^2 }{2!}f_{i}^{\prime\prime}-\frac{\Delta x^3 }{3!}f_{i}^{(3)}+\ldots
 \end{equation}</span></p>
-<p>Subtracting the two last equations, i.e. calculating <span class="math notranslate nohighlight">\(f_{i+1}-f_{i-1}\)</span>, results in</p>
+<p>Subtracting the two last equations, i.e.&nbsp;calculating <span class="math notranslate nohighlight">\(f_{i+1}-f_{i-1}\)</span>, results in</p>
 <p><span class="math">\begin{equation}
 f_{i+1}-f_{i-1}=2\Delta x f_{i}^{\prime}+2\frac{\Delta x^3}{6} f_{i}^{(3)}+ \ldots
 \end{equation}</span></p>
@@ -1235,7 +1221,7 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:],</span><span class="n">diff</span><span class="p">[:],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f^{\prime}$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(x)=x^</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(x)=x^{2}$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$f$, $f^{\prime}$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -1258,7 +1244,7 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
+{"state": {}, "version_minor": 0, "version_major": 2}
 </script></div>
 </div>
 </div>
@@ -1285,7 +1271,7 @@ matrix([[-1.,  1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 28, 2020.
+        Last updated on Jun 29, 2020.
       </span>
 
     </p>

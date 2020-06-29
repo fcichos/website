@@ -21,14 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -488,7 +487,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -651,6 +650,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Lecture 13:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L13/1_deep_learning.html">Neural Networks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#The-MNIST-Data-Set">The MNIST Data Set</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Load-the-data">Load the data</a></li>
@@ -674,7 +674,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Multiclass-Network">Multiclass Network</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Changes-to-the-model">Changes to the model</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Pass">Forward Pass</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id3">Loss Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id1">Loss Function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Back-Propagation">Back Propagation</a></li>
 </ul>
 </li>
@@ -827,33 +827,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -946,7 +933,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1017,9 +1004,8 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L1/3_datatypes.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L1/3_datatypes.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
-</div>
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L1/3_datatypes.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L1/3_datatypes.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Data-Types-in-Python">
 <h1>Data Types in Python<a class="headerlink" href="#Data-Types-in-Python" title="Permalink to this headline">¶</a></h1>
 <p>It’s time to look at different data types we may find useful in our course. Besides the number types mentioned previously, there are also other types like <strong>strings</strong>, <strong>lists</strong>, <strong>tuples</strong> and <strong>dictionaries</strong>.</p>
@@ -1075,7 +1061,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1217,7 +1203,7 @@ True
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="s2">&quot;girl&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="s2">&quot;horse&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
+<span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="s2">&quot;girl&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">0j</span><span class="p">,</span> <span class="s2">&quot;horse&quot;</span><span class="p">,</span> <span class="mi">21</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1367,7 +1353,7 @@ True
 [0, 1, 1, 2, 3, 5, 8, 13, 5.0, &#39;girl&#39;, (2+0j), &#39;cat&#39;, 21]
 </pre></div></div>
 </div>
-<p>A very useful feature for lists in python is the <strong>slicing</strong> of lists. Slicing means, that we access only a range of elements in the list, i.e. element 3 to 7. This is done by inserting the starting and the ending element number separated by a colon (:) in the square brackets. The index numbers can be positive or negative again.</p>
+<p>A very useful feature for lists in python is the <strong>slicing</strong> of lists. Slicing means, that we access only a range of elements in the list, i.e.&nbsp;element 3 to 7. This is done by inserting the starting and the ending element number separated by a colon (:) in the square brackets. The index numbers can be positive or negative again.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
@@ -1508,7 +1494,7 @@ True
 [3, 5, 7, 9]
 </pre></div></div>
 </div>
-<p>Lists (and also tuples below) can be multidimensional as well, i.e. for an image. The individual elements may then be addressed by supplying two indices in two square brackets.</p>
+<p>Lists (and also tuples below) can be multidimensional as well, i.e.&nbsp;for an image. The individual elements may then be addressed by supplying two indices in two square brackets.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
@@ -1565,7 +1551,7 @@ True
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">point</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1577,7 +1563,7 @@ True
 (10, 20) &lt;class &#39;tuple&#39;&gt;
 </pre></div></div>
 </div>
-<p>Tuples may be unpacked, e.g. its values may be assigned to normal variables in the following way</p>
+<p>Tuples may be unpacked, e.g.&nbsp;its values may be assigned to normal variables in the following way</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
@@ -1585,8 +1571,8 @@ True
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">point</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y =&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;y =&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1692,7 +1678,7 @@ dict_values([422, 322, 550])
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 28, 2020.
+        Last updated on Jun 29, 2020.
       </span>
 
     </p>

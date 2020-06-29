@@ -21,14 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -486,7 +485,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -649,6 +648,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Lecture 13:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L13/1_deep_learning.html">Neural Networks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#The-MNIST-Data-Set">The MNIST Data Set</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Load-the-data">Load the data</a></li>
@@ -672,7 +672,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Multiclass-Network">Multiclass Network</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Changes-to-the-model">Changes to the model</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Pass">Forward Pass</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id3">Loss Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id1">Loss Function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Back-Propagation">Back Propagation</a></li>
 </ul>
 </li>
@@ -825,33 +825,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -944,7 +931,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1015,85 +1002,84 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id27"><span class="problematic" id="id28">`source/notebooks/L6/DampedOscillation.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L6/DampedOscillation.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
-</div>
+This page was generated from <a href="#id27"><span class="problematic" id="id28">`source/notebooks/L6/DampedOscillation.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L6/DampedOscillation.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Appendix:-Fourier-Analysis-of-a-damped-oscillation">
 <h1>Appendix: Fourier Analysis of a damped oscillation<a class="headerlink" href="#Appendix:-Fourier-Analysis-of-a-damped-oscillation" title="Permalink to this headline">¶</a></h1>
 <p>Consider a generalised description of the oscillation by</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}</dt><dd><p>f(t)=a(t)cos(omega_S t)</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}</dt>
+<dd>f(t)=a(t)cos(omega_S t)</dd>
 </dl>
 <p>end{equation}`</p>
 <p>Where <span class="math notranslate nohighlight">\(a(t)\)</span> is the time varying amplitude. This product of two functions can be treated with the help of the so-called convolution theorem. A convolution is represented by</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id3"><span class="problematic" id="id4">`</span></a>begin{equation}label{eq:convint}</dt><dd><p>f(t)*g(t)=int_{-infty}^{infty} f(tau)g(t-tau)dtau</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id3"><span class="problematic" id="id4">`</span></a>begin{equation}label{eq:convint}</dt>
+<dd>f(t)*g(t)=int_{-infty}^{infty} f(tau)g(t-tau)dtau</dd>
 </dl>
 <p>end{equation}`</p>
 <p>which means, that one sums up all contributions of a function <span class="math notranslate nohighlight">\(g(t)\)</span> centered at a time value of <span class="math notranslate nohighlight">\(\tau\)</span> with amplitude <span class="math notranslate nohighlight">\(f(\tau)\)</span>. Convolutions play an important role for example in optics, where the microscope resolution function convolutes the structural images of all objects.</p>
 <p>This convolution integral can be transformed into a product of the Fourier transforms <span class="math notranslate nohighlight">\((\mathscr{F}\)</span>) of both functions</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id5"><span class="problematic" id="id6">`</span></a>begin{equation}</dt><dd><p>H(omega)G(omega)=mathscr{F}(f*g)</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id5"><span class="problematic" id="id6">`</span></a>begin{equation}</dt>
+<dd>H(omega)G(omega)=mathscr{F}(f*g)</dd>
 </dl>
 <p>end{equation}`</p>
 <p>So the product of the Fourier transform of the individual functions in the product is the same as the Fourier transform of the convolution integral Eq. <span class="math">\ref{eq:convint}</span>.</p>
 <p>What is relevant in the discussed case of the oscillating guitar string is the inverse relation of the convolution theorem</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id7"><span class="problematic" id="id8">`</span></a>begin{equation}</dt><dd><p>H(omega)*G(omega)=mathscr{F}(f(t) g(t))</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id7"><span class="problematic" id="id8">`</span></a>begin{equation}</dt>
+<dd>H(omega)*G(omega)=mathscr{F}(f(t) g(t))</dd>
 </dl>
 <p>end{equation}`</p>
 <p>This means that the Fourier transform of a product of two functions is equivalent to a convolution of the Fourier transforms of the individual functions.</p>
 <p>The convolution integral of the Fourier transformed function then corresponds to</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id9"><span class="problematic" id="id10">`</span></a>begin{equation}label{eq:inverse_conv}</dt><dd><p>H(omega)*G(omega)=frac{1}{sqrt{2pi}}int_{-infty}^{infty} F(Omega)G(omega-Omega)dOmega</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id9"><span class="problematic" id="id10">`</span></a>begin{equation}label{eq:inverse_conv}</dt>
+<dd>H(omega)*G(omega)=frac{1}{sqrt{2pi}}int_{-infty}^{infty} F(Omega)G(omega-Omega)dOmega</dd>
 </dl>
 <p>end{equation}`</p>
 <p>Using this relation and</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id11"><span class="problematic" id="id12">`</span></a>begin{equation}</dt><dd><p>H(omega)=mathscr{F}(cos(omega_S t))</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id11"><span class="problematic" id="id12">`</span></a>begin{equation}</dt>
+<dd>H(omega)=mathscr{F}(cos(omega_S t))</dd>
 </dl>
 <p>end{equation}`</p>
 <p>and</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id13"><span class="problematic" id="id14">`</span></a>begin{equation}</dt><dd><p>G(omega)=mathscr{F}(Theta(t) e^{-t/tau})</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id13"><span class="problematic" id="id14">`</span></a>begin{equation}</dt>
+<dd>G(omega)=mathscr{F}(Theta(t) e^{-t/tau})</dd>
 </dl>
 <p>end{equation}`</p>
 <p>I can compute all types of amplitude modulated harmonic oscillations in Fourier space. In particular, the Fourier transform <span class="math notranslate nohighlight">\(\mathscr{F}\)</span> of a harmonic function <span class="math notranslate nohighlight">\(\cos(\omega_S t)\)</span> results in a so-called delta function (<span class="math notranslate nohighlight">\(\delta(t)\)</span>)</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id15"><span class="problematic" id="id16">`</span></a>begin{equation}label{eq:cosineft}</dt><dd><p>H(omega)=mathscr{F}(cos(omega_S t))=sqrt{frac{pi}{2}} delta(omega+omega_S)-sqrt{frac{pi}{2}} delta(omega+omega_S)</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id15"><span class="problematic" id="id16">`</span></a>begin{equation}label{eq:cosineft}</dt>
+<dd>H(omega)=mathscr{F}(cos(omega_S t))=sqrt{frac{pi}{2}} delta(omega+omega_S)-sqrt{frac{pi}{2}} delta(omega+omega_S)</dd>
 </dl>
 <p>end{equation}`</p>
 <p>The <span class="math notranslate nohighlight">\(\delta\)</span>-function has the properties as described in section <span class="math">\ref{sec:delta}</span>.</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id17"><span class="problematic" id="id18">`</span></a>begin{equation}label{eq:lorentz}</dt><dd><p>G(omega)=mathscr{F}(Theta(t)e^{-t/tau})=frac{1}{sqrt{2pi}}frac{i tau}{(i-tauomega)}</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id17"><span class="problematic" id="id18">`</span></a>begin{equation}label{eq:lorentz}</dt>
+<dd>G(omega)=mathscr{F}(Theta(t)e^{-t/tau})=frac{1}{sqrt{2pi}}frac{i tau}{(i-tauomega)}</dd>
 </dl>
 <p>end{equation}`</p>
 <p>The squared magnitude of Eq. <span class="math">\ref{eq:lorentz}</span> yields a Lorentzian lineshape</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id19"><span class="problematic" id="id20">`</span></a>begin{equation}</dt><dd><p><a href="#id21"><span class="problematic" id="id22">|</span></a>G(omega)|^{2}=frac{1}{2 pi} frac{tau^2}{1+tau^{2}omega^{2}}</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id19"><span class="problematic" id="id20">`</span></a>begin{equation}</dt>
+<dd><a href="#id21"><span class="problematic" id="id22">|</span></a>G(omega)|^{2}=frac{1}{2 pi} frac{tau^2}{1+tau^{2}omega^{2}}</dd>
 </dl>
 <p>end{equation}`</p>
 <p>for the frequency spectrum, which is very common in physics. This Lorentzian function has a maximum at <span class="math notranslate nohighlight">\(\omega=0\)</span> with <span class="math notranslate nohighlight">\(|G(\omega)|^2=\tau^2/2\pi\)</span>.</p>
 <p>With the help of Eq. <span class="math">\ref{eq:cosineft}</span> and Eq. <span class="math">\ref{eq:lorentz}</span> I can write the convolution integral <span class="math">\ref{eq:inverse_conv}</span> as</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id23"><span class="problematic" id="id24">`</span></a>begin{equation}label{Delta Functions}</dt><dd><p>H(omega)*G(omega)=frac{1}{sqrt{2pi}}int_{-infty}^{infty}  sqrt{frac{pi}{2}} [delta(Omega-omega_S) + delta(Omega+omega_S)] frac{1}{sqrt{2pi}}frac{i tau}{(i-tau (omega-Omega))} dOmega</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id23"><span class="problematic" id="id24">`</span></a>begin{equation}label{Delta Functions}</dt>
+<dd>H(omega)*G(omega)=frac{1}{sqrt{2pi}}int_{-infty}^{infty}  sqrt{frac{pi}{2}} [delta(Omega-omega_S) + delta(Omega+omega_S)] frac{1}{sqrt{2pi}}frac{i tau}{(i-tau (omega-Omega))} dOmega</dd>
 </dl>
 <p>end{equation}`</p>
 <p>The integration can be carried out using the integration rule in Eq. <span class="math">\ref{delta}</span> for the delta function which leaves me with the integral of the function displayed in Eq. <span class="math">\ref{Delta Functions}</span> as equal to</p>
-<dl class="simple">
-<dt>:nbsphinx-math:<a href="#id25"><span class="problematic" id="id26">`</span></a>begin{equation}label{Hallo}</dt><dd><p>F(omega)= H(omega)*G(omega)=frac{1}{sqrt{2pi}}cdotfrac{sqrtpi}{sqrt2 sqrt{2pi}}left [frac{itau}{(i-tau(omega-omega_S))} + frac{itau}{(i-tau(omega+omega_S))}right ]</p>
-</dd>
+<dl class="docutils">
+<dt>:nbsphinx-math:<a href="#id25"><span class="problematic" id="id26">`</span></a>begin{equation}label{Hallo}</dt>
+<dd>F(omega)= H(omega)*G(omega)=frac{1}{sqrt{2pi}}cdotfrac{sqrtpi}{sqrt2 sqrt{2pi}}left [frac{itau}{(i-tau(omega-omega_S))} + frac{itau}{(i-tau(omega+omega_S))}right ]</dd>
 </dl>
 <p>end{equation}`</p>
 <p>This yields</p>
@@ -1110,7 +1096,7 @@ F(\omega)=\frac{1}{\sqrt{2\pi}}\frac{1/\tau+i\omega}{(1/\tau+i\omega)^2+\omega_S
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
+{"state": {}, "version_minor": 0, "version_major": 2}
 </script></div>
 
 
@@ -1126,7 +1112,7 @@ F(\omega)=\frac{1}{\sqrt{2\pi}}\frac{1/\tau+i\omega}{(1/\tau+i\omega)^2+\omega_S
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 28, 2020.
+        Last updated on Jun 29, 2020.
       </span>
 
     </p>

@@ -21,14 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -488,7 +487,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -651,6 +650,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Lecture 13:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L13/1_deep_learning.html">Neural Networks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#The-MNIST-Data-Set">The MNIST Data Set</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Load-the-data">Load the data</a></li>
@@ -674,7 +674,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Multiclass-Network">Multiclass Network</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Changes-to-the-model">Changes to the model</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Pass">Forward Pass</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id3">Loss Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id1">Loss Function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Back-Propagation">Back Propagation</a></li>
 </ul>
 </li>
@@ -827,33 +827,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -946,7 +933,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1017,9 +1004,8 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L4/2_brownian_motion.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L4/2_brownian_motion.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
-</div>
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L4/2_brownian_motion.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L4/2_brownian_motion.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Brownian-Motion">
 <h1>Brownian Motion<a class="headerlink" href="#Brownian-Motion" title="Permalink to this headline">¶</a></h1>
 <p>We will use our newly gained knowledge about classes for the simulation of Brownian motion. This actually perfectly fits to the object oriented programming topic, as each Brownian particle (or colloid) can be seen as an object instanciated from the same class, but perhaps with different properties. Some particles might be larger and some smaller for example. We know already some part of that, as we have covered it in earlier lectures.</p>
@@ -1030,9 +1016,9 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># include the required modules</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 
@@ -1044,9 +1030,9 @@ div.rendered_html tbody tr:hover {
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1148,7 +1134,7 @@ p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
 
     <span class="c1"># insert something that prints the particle position in a formatted way when printing</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span><span class="p">(</span><span class="s2">&quot;I&#39;m a particle with radius R=</span><span class="si">{0:0.3e}</span><span class="s2"> at x=</span><span class="si">{1:0.3e}</span><span class="s2">,y=</span><span class="si">{2:0.3e}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">return</span><span class="p">(</span><span class="s2">&quot;I&#39;m a particle with radius R={0:0.3e} at x={1:0.3e},y={2:0.3e}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">R</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1161,10 +1147,10 @@ p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
 <h2>Simulating<a class="headerlink" href="#Simulating" title="Permalink to this headline">¶</a></h2>
 <p>With the help of this Colloid class, we would like to carry out simulations of Brownian motion of multiple particles. The simulations shall</p>
 <ul class="simple">
-<li><p>take n=200 particles</p></li>
-<li><p>have N=200 trajectory points each</p></li>
-<li><p>start all at 0,0</p></li>
-<li><p>particle objects should be stored in a list p_list</p></li>
+<li>take n=200 particles</li>
+<li>have N=200 trajectory points each</li>
+<li>start all at 0,0</li>
+<li>particle objects should be stored in a list p_list</li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[322]:
@@ -1192,7 +1178,7 @@ p(x,\Delta t)=\frac{1}{\sqrt{4\pi D \Delta t}}e^{-\frac{x^2}{4D \Delta t}}
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="nb">print</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="mi">50</span><span class="p">])</span>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">p_list</span><span class="p">[</span><span class="mi">50</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1315,7 +1301,7 @@ v(n dt) = \frac{<\sqrt{(x_{i+n}-x_{i})^2+(y_{i+n}-y_{i})^2}>}{n\,dt}
 <p>Single particle tracking, either in the experiment or in numerical simulations can therefore only deliver an estimate of the diffusion coefficient and care should be taken when using the whole MSD to obtain the diffusion coefficient. One typically uses only a short fraction of the whole MSD data at short times.</p>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_major": 2, "version_minor": 0}
+{"state": {}, "version_minor": 0, "version_major": 2}
 </script></div>
 </div>
 </div>
@@ -1342,7 +1328,7 @@ v(n dt) = \frac{<\sqrt{(x_{i+n}-x_{i})^2+(y_{i+n}-y_{i})^2}>}{n\,dt}
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 28, 2020.
+        Last updated on Jun 29, 2020.
       </span>
 
     </p>

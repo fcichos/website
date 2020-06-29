@@ -21,14 +21,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -488,7 +487,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -651,6 +650,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Lecture 13:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../L13/1_deep_learning.html">Neural Networks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#The-MNIST-Data-Set">The MNIST Data Set</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Load-the-data">Load the data</a></li>
@@ -674,7 +674,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Multiclass-Network">Multiclass Network</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Changes-to-the-model">Changes to the model</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Pass">Forward Pass</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id3">Loss Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id1">Loss Function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Back-Propagation">Back Propagation</a></li>
 </ul>
 </li>
@@ -827,33 +827,20 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
 }
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
-        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
     }
 }
 
@@ -946,7 +933,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
+    padding: 0.3rem;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1017,18 +1004,16 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/Intro/EditCells.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/Intro/EditCells.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
-</div>
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/Intro/EditCells.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/Intro/EditCells.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
 <div class="section" id="Entering-code">
 <h1>Entering code<a class="headerlink" href="#Entering-code" title="Permalink to this headline">¶</a></h1>
 <p>Entering code is pretty easy. You just have to click into a cell and type the commands you want to type. If you have multiple lines of code, just press <strong>enter</strong> at the end of the line and start a new one.</p>
 <ul class="simple">
-<li><p><strong>code blocks</strong> Python identifies blocks of codes belonging together by its identation. This will become important if you write longer code in a cell later. To indent the block, you may use either <em>whitespaces</em> or <em>tabs</em>.</p></li>
-<li><p><strong>comments</strong> Comments can be added to annotate the code, such that you or someone else can understand the code.</p>
-<ul>
-<li><p>Comments in a single line are started with the <code class="docutils literal notranslate"><span class="pre">#</span></code> character at in front of the comment.</p></li>
-<li><p>Comments over multiple lines can be started with <code class="docutils literal notranslate"><span class="pre">'''</span></code>and end with the same <code class="docutils literal notranslate"><span class="pre">'''</span></code>. They are used as <code class="docutils literal notranslate"><span class="pre">docstrings</span></code> to provide a help text.</p></li>
+<li><strong>code blocks</strong> Python identifies blocks of codes belonging together by its identation. This will become important if you write longer code in a cell later. To indent the block, you may use either <em>whitespaces</em> or <em>tabs</em>.</li>
+<li><strong>comments</strong> Comments can be added to annotate the code, such that you or someone else can understand the code.<ul>
+<li>Comments in a single line are started with the <code class="docutils literal notranslate"><span class="pre">#</span></code> character at in front of the comment.</li>
+<li>Comments over multiple lines can be started with <code class="docutils literal notranslate"><span class="pre">'''</span></code>and end with the same <code class="docutils literal notranslate"><span class="pre">'''</span></code>. They are used as <code class="docutils literal notranslate"><span class="pre">docstrings</span></code> to provide a help text.</li>
 </ul>
 </li>
 </ul>
@@ -1090,43 +1075,37 @@ function(x)
 <p>You can make text <em>italic</em> or <strong>bold</strong>.</p>
 <p>You can build nested itemized or enumerated lists:</p>
 <ul class="simple">
-<li><p>first item</p>
-<ul>
-<li><p>first subitem</p>
-<ul>
-<li><p>first subsubitem</p></li>
+<li>first item<ul>
+<li>first subitem<ul>
+<li>first subsubitem</li>
 </ul>
 </li>
-<li><p>second subitem - first subitem of second subitem - second subitem of second subitem</p></li>
+<li>second subitem - first subitem of second subitem - second subitem of second subitem</li>
 </ul>
 </li>
-<li><p>second item</p>
-<ul>
-<li><p>first subitem</p></li>
+<li>second item<ul>
+<li>first subitem</li>
 </ul>
 </li>
-<li><p>third item</p>
-<ul>
-<li><p>first subitem</p></li>
+<li>third item<ul>
+<li>first subitem</li>
 </ul>
 </li>
 </ul>
 <p>Now another list:</p>
 <ol class="arabic simple">
-<li><p>Here we go</p>
-<ol class="arabic simple">
-<li><p>Sublist</p></li>
-<li><p>Sublist</p></li>
+<li>Here we go<ol class="arabic">
+<li>Sublist</li>
+<li>Sublist</li>
 </ol>
 </li>
-<li><p>There we go</p></li>
-<li><p>Now this</p></li>
+<li>There we go</li>
+<li>Now this</li>
 </ol>
 <p>Here is a blockquote:</p>
 <blockquote>
-<div><p>Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense. Readability counts. Special cases aren’t special enough to break the rules. Although practicality beats purity. Errors should never pass silently. Unless explicitly silenced. In the face of ambiguity, refuse the temptation to guess. There should be one– and preferably only one –obvious way to do it.
-Although that way may not be obvious at first unless you’re Dutch. Now is better than never. Although never is often better than <em>right</em> now. If the implementation is hard to explain, it’s a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea – let’s do more of those!</p>
-</div></blockquote>
+<div>Beautiful is better than ugly. Explicit is better than implicit. Simple is better than complex. Complex is better than complicated. Flat is better than nested. Sparse is better than dense. Readability counts. Special cases aren’t special enough to break the rules. Although practicality beats purity. Errors should never pass silently. Unless explicitly silenced. In the face of ambiguity, refuse the temptation to guess. There should be one– and preferably only one –obvious way to do it.
+Although that way may not be obvious at first unless you’re Dutch. Now is better than never. Although never is often better than <em>right</em> now. If the implementation is hard to explain, it’s a bad idea. If the implementation is easy to explain, it may be a good idea. Namespaces are one honking great idea – let’s do more of those!</div></blockquote>
 <p>And shorthand for links:</p>
 <p><a class="reference external" href="http://jupyter.org">Jupyter’s website</a></p>
 </div>
@@ -1236,7 +1215,7 @@ Although that way may not be obvious at first unless you’re Dutch. Now is bett
     <p>
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jun 28, 2020.
+        Last updated on Jun 29, 2020.
       </span>
 
     </p>
