@@ -699,24 +699,31 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../lectures/L14/overview_14.html">Lecture Contents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="1_CNN.html">Convolutional Neural Networks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Layout-of-of-CNN">Layout of of CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Layout-of-a-CNN">Layout of a CNN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Convolutional-Layer">Convolutional Layer</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="1_CNN.html#Padding">Padding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="1_CNN.html#Striding">Striding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_CNN.html#RELU-Activation">RELU Activation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_CNN.html#Pooling-Layer">Pooling Layer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_CNN.html#Output-Size">Output Size</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_CNN.html#Flattening">Flattening</a></li>
-<li class="toctree-l3"><a class="reference internal" href="1_CNN.html#Dropout">Dropout</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#RELU-Activation">RELU Activation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Pooling-Layer">Pooling Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Output-Size">Output Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Flattening">Flattening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Dropout">Dropout</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Fully-Connected-Layer">Fully Connected Layer</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="1_CNN.html#Example-CNN-with-Keras">Example CNN with Keras</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_CNN.html#Where-to-go-from-here?">Where to go from here?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_CNN.html#Example-CNN-with-Keras">Example CNN with Keras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Prepare-the-data">Prepare the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Build-the-network">Build the network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Train-the-network">Train the network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Evaluate-the-trained-network">Evaluate the trained network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Evaluate-the-accuracy-of-your-visual-neural-network-;-)">Evaluate the accuracy of your visual neural network ;-)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1_CNN.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Autoencoder CNN for Time Series Denoising</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Autoencoder">Autoencoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Autoencoder-Structure-and-Purpose">Autoencoder Structure and Purpose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Data-Generation">Data Generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Create-the-Autoencoder-network">Create the Autoencoder network</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Define-model-data">Define model data</a></li>
@@ -1068,8 +1075,8 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </pre></div>
 </div>
 </div>
-<div class="section" id="Autoencoder">
-<h2>Autoencoder<a class="headerlink" href="#Autoencoder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Autoencoder-Structure-and-Purpose">
+<h2>Autoencoder Structure and Purpose<a class="headerlink" href="#Autoencoder-Structure-and-Purpose" title="Permalink to this headline">¶</a></h2>
 <p>Autoencoders are a type of unsupervised neural network. They do not use labeled classes or any labeled data. They are in general used to</p>
 <ul class="simple">
 <li>Accept an input set of data</li>
@@ -1081,7 +1088,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <li><strong>Encoder:</strong> Accepts the input data and compresses it into the latent-space. If we denote our input data as <span class="math notranslate nohighlight">\(x\)</span> and the encoder as <span class="math notranslate nohighlight">\(E\)</span>, then the output latent-space representation, <span class="math notranslate nohighlight">\(s\)</span>, would be <span class="math notranslate nohighlight">\(s = E(x)\)</span>.</li>
 <li><strong>Decoder:</strong> The decoder is responsible for accepting the latent-space representation <span class="math notranslate nohighlight">\(s\)</span> and then reconstructing the original input. If we denote the decoder function as <span class="math notranslate nohighlight">\(D\)</span> and the output of the detector as <span class="math notranslate nohighlight">\(o\)</span>, then we can represent the decoder as <span class="math notranslate nohighlight">\(o = D(s)\)</span>.</li>
 </ul>
-<p>Also no originally developed to denoise data, we will construct an autoencoder, which is learning to denoise a time series.</p>
+<p>Also not originally developed to denoise data, we will construct an autoencoder, which is learning to denoise a time series. Autoencoders are also often used to remove noise from images before applying a CNN to image classification.</p>
 <p>The shape of the autoencoder network could be the following. We take a timeseries as input, which could contain 1024 data points. The datapoints are then compressed down to only 32 datapoints in the encoder steps and then decoded back into the original 1024 datapoint. Due to the compression and the action of the weights, a part of the noise is removed. In our example below, we will represent the autoencoder with a CNN.</p>
 <p><img alt="autoencoder" src="../../_images/autoencoder.png" /></p>
 </div>
@@ -1308,7 +1315,9 @@ _________________________________________________________________
 Epoch 1/5
 374/374 [==============================] - 405s 1s/step - loss: 0.0463 - val_loss: 0.0016
 Epoch 2/5
-322/374 [========================&gt;.....] - ETA: 2:09 - loss: 0.0021
+374/374 [==============================] - 1010s 3s/step - loss: 0.0021 - val_loss: 0.0012
+Epoch 3/5
+357/374 [===========================&gt;..] - ETA: 39s - loss: 0.0014
 </pre></div></div>
 </div>
 </div>
