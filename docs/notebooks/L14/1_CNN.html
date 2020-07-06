@@ -1,0 +1,1538 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Convolutional Neural Networks &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Autoencoder CNN for Time Series Denoising" href="2_AutoEncoder.html" />
+    <link rel="prev" title="Lecture Contents" href="../../lectures/L14/overview_14.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+          
+
+          
+            
+            <img src="../../_static/mona_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#molecular-nanophotonics-group">Molecular Nanophotonics Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-documentation">Python Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/instructor.html">Instructor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/Intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/Introduction2Jupyter.html">Introduction to Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#What-is-Jupyter-Notebook?">What is Jupyter Notebook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-editor">Notebook editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Kernels">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-documents">Notebook documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/NotebookEditor.html">Notebook editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Edit-mode">Edit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Command-mode">Command mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Keyboard-navigation">Keyboard navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Running-code">Running code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Managing-the-kernel">Managing the kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/EditCells.html">Entering code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/EditCells.html#Entering-Markdown">Entering Markdown</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Markdown-basics">Markdown basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Headings">Headings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Embedded-code">Embedded code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Videos">Videos</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/overview_1.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/1_variables.html">Variables and types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Symbol-names">Symbol names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Variable-Assignment">Variable Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Number-types">Number types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Integers">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Floating-Point">Floating Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Type-casting">Type casting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/2_operators.html">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/3_datatypes.html">Data Types in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/4_modules.html">Modules and namespaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Contents-of-a-module">Contents of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/1_numpy.html">NumPy arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Creating-Numpy-Arrays">Creating Numpy Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#From-lists">From lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Using-array-generating-functions">Using array-generating functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#linspace-and-logspace">linspace and logspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#mgrid">mgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#diag">diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#zeros-and-ones">zeros and ones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Slicing">Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Reshaping">Reshaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Stacking-and-repeating-arrays">Stacking and repeating arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Concatenate">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Hstack-and-vstack">Hstack and vstack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Applying-mathematical-functions">Applying mathematical functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Operation-involving-one-array">Operation involving one array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Operations-involving-multiple-arrays">Operations involving multiple arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/3_randomnumbers.html">Random numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/assignment_2.html">Exercise 2</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 3:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/1_input_output.html">Input and output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/1_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L3/1_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/1_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L3/1_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/2_flowcontrol.html">Flow Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_flowcontrol.html#Conditionals:-if,-elif,-and-else-statements">Conditionals: if, elif, and else statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#If-example">If example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#If-else-example">If else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#If,-elif,-else-example">If, elif, else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_flowcontrol.html#Loops">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#For-loops">For loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#While-loops">While loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#Loops-and-array-operations">Loops and array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#List-comprehensions">List comprehensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/3_functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Function-definition">Function definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Variables-in-functions">Variables in functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#Functions-with-variable-number-of-arguments">Functions with variable number of arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Unnamed-functions-(lambda-function)">Unnamed functions (lambda function)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Functions-as-arguments-of-functions">Functions as arguments of functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/4_exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/assignment_3.html">Exercise 3</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 4:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L4/overview_4.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/1_classes.html">Classes and Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/1_classes.html#Definition-of-Classes">Definition of Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/1_classes.html#Class-Methods">Class Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/1_classes.html#The-__init__-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/1_classes.html#The-__str__-method">The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/1_classes.html#Class-and-object-variables">Class and object variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/2_brownian_motion.html">Brownian Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Physics">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Class-Planning">Class Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Simulating">Simulating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Plotting-the-trajectories">Plotting the trajectories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Characterizing-the-Brownian-motion">Characterizing the Brownian motion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/2_brownian_motion.html#Calculate-the-particle-velocity">Calculate the particle velocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/2_brownian_motion.html#Calculate-the-particle-mean-squared-displacement">Calculate the particle mean squared displacement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/3_animations.html">Animations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Import-Modules">Import Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Particle-class">Particle class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Create-a-set-of-particles">Create a set of particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Canvas-and-drawing-function">Canvas and drawing function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Threading-for-animation">Threading for animation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L4/assignment_4.html">Exercise 4</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 5:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L5/overview_5.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/1_differentiation.html">Numerical Differentiation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#First-order-derivative">First order derivative</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/1_differentiation.html#Matrix-version-of-the-first-derivative">Matrix version of the first derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#Second-order-derivative">Second order derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#SciPy-Module">SciPy Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/1_differentiation.html#Matrix-version">Matrix version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/2_integration.html">Numerical Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Box-method">Box method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Trapezoid-method">Trapezoid method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Simpson-method">Simpson method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/3_solving_ODEs.html">Solving ODEs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Harmonic-Oscillator">Harmonic Oscillator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Implicit-Solution---Crank-Nicholson">Implicit Solution - Crank Nicholson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Define-Matrices">Define Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Use-Initial-Conditions">Use Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solution">Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Explicit-Solution---Numerical-Integration">Explicit Solution - Numerical Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Euler-Method">Euler Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Euler-Cromer-Method">Euler Cromer Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Midpoint-Method">Midpoint Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Putting-it-all-together">Putting it all together</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L5/3_solving_ODEs.html#The-definition-of-the-problem">The definition of the problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solving-the-problem">Solving the problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solving-the-Harmonic-Oscillator-in-SciPy">Solving the Harmonic Oscillator in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Definition">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id1">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Damped-Driven-Pendulum-in-SciPy">Damped Driven Pendulum in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id2">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id3">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id4">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id5">Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 6:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L6/overview_6.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/1_covid19.html">COVID19</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#The-Kermack-McKendrick-Model">The Kermack-McKendrick Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#Model-Equation">Model Equation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Solution">Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Plotting">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Real-COVID19-numbers">Real COVID19 numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#Total-number-of-cases">Total number of cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#Number-of-Deaths">Number of Deaths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#New-cases-per-day">New cases per day</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#Current-cases">Current cases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/2_coupled_pendula.html">Coupled Pendula</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/2_coupled_pendula.html#Description-of-the-problem">Description of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Sketch">Sketch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Equations-of-motion">Equations of motion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/2_coupled_pendula.html#Solving-the-problem">Solving the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Setting-up-the-function">Setting up the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Define-initial-parameters">Define initial parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Solve-the-equation-of-motion">Solve the equation of motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Animation">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/2_coupled_pendula.html#Normal-Modes">Normal Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#In-phase-motion">In-phase motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Out-of-phase-motion">Out-of-phase motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Beat-case">Beat case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Computation-of-energy-(here-for-the-beat-case)">Computation of energy (here for the beat case)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Potential-energy-of-the-pendula">Potential energy of the pendula</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Potential-energy-of-the-spring">Potential energy of the spring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Kinetic-energies">Kinetic energies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Total-energy">Total energy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Total-energy-exchange-of-the-pendula">Total energy exchange of the pendula</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/3_fourier_analysis.html">Fourier Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/3_fourier_analysis.html#Fourier-series">Fourier series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/3_fourier_analysis.html#Fourier-transform">Fourier transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/3_fourier_analysis.html#Frequency-analysis-of-our-coupled-pendula">Frequency analysis of our coupled pendula</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 7:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L7/overview_7.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/1_spring_pendulum.html">Spring Pendulum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/1_spring_pendulum.html#Physical-Model">Physical Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Equations-of-motion">Equations of motion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/1_spring_pendulum.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Initial-parameters">Initial parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Plotting">Plotting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L7/1_spring_pendulum.html#Angle-and-Length-over-Time">Angle and Length over Time</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/2_planetary_motion.html">Planetary Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/2_planetary_motion.html#Physical-Model">Physical Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/2_planetary_motion.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Initial-Parameters:-Planets">Initial Parameters: Planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Solution:-Planets">Solution: Planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Plotting:-Planets">Plotting: Planets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L7/2_planetary_motion.html#Trajectory">Trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L7/2_planetary_motion.html#Energy">Energy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/3_diffusion_equation.html">Diffusion equation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/3_diffusion_equation.html#Physical-Model">Physical Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Spatial-derivative">Spatial derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Temporal-derivative">Temporal derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Bringing-all-together">Bringing all together</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/3_diffusion_equation.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Setup-Domain">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Matrix-Setup">Matrix Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L7/assignment_7.html">Exercise 7</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 8:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L8/overview_8.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L8/1_curve_fitting.html">Curve fitting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Idea">Idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Least-squares">Least squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Least-square-fitting">Least square fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L8/1_curve_fitting.html#\chi-squared-value"><span class="math notranslate nohighlight">\(\chi\)</span>-squared value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L8/1_curve_fitting.html#Residuals">Residuals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Covariance-matrix">Covariance matrix</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 9:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L9/overview_9.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L9/2_spherical_waves.html">Spherical waves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Equations">Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Electric-field">Electric field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Plot-the-intensity-in-an-image-plane">Plot the intensity in an image plane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Interference-between-a-spherical-and-a-plane-wave">Interference between a spherical and a plane wave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L9/4_gaussian_beams.html">Gaussian Beam</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L9/4_gaussian_beams.html#Equations">Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/4_gaussian_beams.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/4_gaussian_beams.html#Intensity-plot">Intensity plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/4_gaussian_beams.html#Intensity-profiles">Intensity profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L9/assignment_9.html">Exercise 9</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 10:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L10/overview_10.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L10/1_quantum_mechanics.html">Quantum Mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Quantum-Mechanics-in-a-Nutshell">Quantum Mechanics in a Nutshell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Stationary-Schrödinger-equation">Stationary Schrödinger equation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Recap:-Implicit-Solution">Recap: Implicit Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Potential-energy">Potential energy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L10/2_particle_in_a_box.html">Particle in a box</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Energies-of-bound-states">Energies of bound states</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L10/3_harmonic_oscillator.html">Harmonic Oscillator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Energies-of-the-states">Energies of the states</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L10/4_periodic_potential.html">Periodic Potential</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L10/4_periodic_potential.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/4_periodic_potential.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/4_periodic_potential.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/4_periodic_potential.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/4_periodic_potential.html#Plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/4_periodic_potential.html#Energy-states">Energy states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/4_periodic_potential.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 11:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L11/overview_11.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L11/1_quantum_dynamics.html">Time Dependent Quantum Mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepackets">Wavepackets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepacket">Wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepacket-with-rectangular-amplitude">Wavepacket with rectangular amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Gaussian-Wave-Packet">Gaussian Wave Packet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Time-evolution-of-a-Gaussian-Wavepacket">Time evolution of a Gaussian Wavepacket</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L11/2_particle_in_a_box.html">Wavepacket in a Potential Box</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Problem-Setup">Problem Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Initial-conditions">Initial conditions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Eigenfunctions">Eigenfunctions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Quality-of-the-coefficients">Quality of the coefficients</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L11/3_tunneling.html">Tunneling through a barrier</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Schrödinger-equation-for-the-momentum">Schrödinger equation for the momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Crank-Nicolson-Solution">Crank Nicolson Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Setup-Domain">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Matrix-Setup">Matrix Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Propagation-Matrix">Propagation Matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Animation-setup">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Animation">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Split-Step-Method">Split Step Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id1">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Potential-energy-landscape">Potential energy landscape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Initial-wavepacket">Initial wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Fourier-Transform-Setup">Fourier Transform Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Phase-Factor-per-Timestep">Phase Factor per Timestep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id2">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id3">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 12:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L12/overview_12.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L12/1_hydrodynamics.html">Hydrodynamics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L12/1_hydrodynamics.html#Falling-sphere">Falling sphere</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Function-definition">Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Numerical-solution">Numerical solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Analytical-solution">Analytical solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/1_hydrodynamics.html#Stokes-equation">Stokes equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/1_hydrodynamics.html#Fundamental-Solutions-of-the-Stokes-Equation">Fundamental Solutions of the Stokes Equation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Stokeslet">Stokeslet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Source-dipole">Source dipole</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Sum-of-both-solutions">Sum of both solutions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L12/2_reinforcement_learning.html">Machine Learning and Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Reinforcement-Learning">Reinforcement Learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Markov-Decision-Process">Markov Decision Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Methods-or-RL">Methods or RL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Navigating-a-Grid-World">Navigating a Grid World</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Initialize-Reinforcement-Learning">Initialize Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#List-of-actions">List of actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Initial-state">Initial state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Reinforcement-Learning-Loop">Reinforcement Learning Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Convergence-of-the-Q-learning">Convergence of the Q-learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Policy">Policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Plot-the-policy">Plot the policy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Where-to-go-from-here">Where to go from here</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 13:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L13/1_deep_learning.html">Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#The-MNIST-Data-Set">The MNIST Data Set</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Load-the-data">Load the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Normalize-the-data">Normalize the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Preparing-training-and-testing-data">Preparing training and testing data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#A-Single-Neuron">A Single Neuron</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Propogation">Forward Propogation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Loss-Function">Loss Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Trainging-the-Network">Trainging the Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Backward-Propagation">Backward Propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Stochastic-Gradient-Descent">Stochastic Gradient Descent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Build-an-Train">Build an Train</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Testing-our-model">Testing our model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Network-with-Hidden-Layers">Network with Hidden Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Multiclass-Network">Multiclass Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Changes-to-the-model">Changes to the model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Pass">Forward Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id1">Loss Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Back-Propagation">Back Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Build-and-Train">Build and Train</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Model-performance">Model performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Test-the-model">Test the model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L13/2_deep_learning_keras.html">Neural Network with Keras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#MNIST-Data-Set-(Keras)">MNIST Data Set (Keras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#Build-the-model">Build the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#Compile-the-model">Compile the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#Train-the-model">Train the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#Testing-the-model">Testing the model</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 14:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L14/overview_14.html">Lecture Contents</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Convolutional Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Layout-of-of-CNN">Layout of of CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Convolutional-Layer">Convolutional Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Padding">Padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Striding">Striding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#RELU-Activation">RELU Activation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Pooling-Layer">Pooling Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Output-Size">Output Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Flattening">Flattening</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Dropout">Dropout</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Fully-Connected-Layer">Fully Connected Layer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#Example-CNN-with-Keras">Example CNN with Keras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Where-to-go-from-here?">Where to go from here?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_AutoEncoder.html">Autoencoder CNN for Time Series Denoising</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_AutoEncoder.html#Autoencoder">Autoencoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_AutoEncoder.html#Data-Generation">Data Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_AutoEncoder.html#Create-the-Autoencoder-network">Create the Autoencoder network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_AutoEncoder.html#Define-model-data">Define model data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_AutoEncoder.html#Encoder/Decoder-Setup">Encoder/Decoder Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_AutoEncoder.html#Training-the-encoder">Training the encoder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_AutoEncoder.html#Reconstruction-of-the-Data">Reconstruction of the Data</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Computer-based Physical Modeling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Convolutional Neural Networks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L14/1_CNN.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L14/1_CNN.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L14/1_CNN.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Convolutional-Neural-Networks">
+<h1>Convolutional Neural Networks<a class="headerlink" href="#Convolutional-Neural-Networks" title="Permalink to this headline">¶</a></h1>
+<p>As the last topic of the neural network part of our course, we would like to have a look at convolutional neural networks (CNN). CNNs are very similar to ordinary Neural Networks — they are made up of neurons that have learnable weights and biases. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity. CNNs are frequently employed for visual recognition. I.e. we use them in the Molecular Nanophotonics Group for the real-time detection of single
+particles.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">convolve</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span>
+                    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<p>CNNs are biologically-inspired models inspired by research of <a class="reference external" href="https://de.wikipedia.org/wiki/David_H._Hubel">D. H. Hubel</a> and <a class="reference external" href="https://de.wikipedia.org/wiki/Torsten_N._Wiesel">T. N. Wiesel</a>. They proposed an explanation for the way in which mammals visually perceive the world around them using a layered architecture of neurons in the brain, and this in turn inspired engineers to attempt to develop similar pattern recognition mechanisms in computer vision. In their hypothesis, within the
+visual cortex, complex functional responses generated by “complex cells” are constructed from more simplistic responses from “simple cells’. For instances, simple cells would respond to oriented edges etc, while complex cells will also respond to oriented edges but with a degree of spatial invariances. You may find the following <a class="reference external" href="https://www.youtube.com/watch?v=Cw5PKV9Rj3o">youtube video</a> interesting with that respect.</p>
+<div class="section" id="Layout-of-of-CNN">
+<h2>Layout of of CNN<a class="headerlink" href="#Layout-of-of-CNN" title="Permalink to this headline">¶</a></h2>
+<p><img alt="CNN" src="../../_images/CNN_layout.png" /></p>
+<p>“A simple CNN is a sequence of layers, and every layer of a CNN transforms one volume of activations to another through a differentiable function.” What it actually means is that, each layer is associated with converting the information from the values, available in the previous layers, into some more complex information and pass on to the next layers for further generalization.</p>
+<ol class="arabic simple">
+<li><strong>Convolution Block:</strong> Consists of the Convolution Layer and the Pooling Layer. This layer forms the essential component of Feature-Extraction</li>
+<li><strong>Fully Connected Block</strong> Consists of a fully connected simple neural network architecture. This layer performs the task of Classification based on the input from the convolutional block.</li>
+</ol>
+</div>
+<div class="section" id="Convolutional-Layer">
+<h2>Convolutional Layer<a class="headerlink" href="#Convolutional-Layer" title="Permalink to this headline">¶</a></h2>
+<p>The convolutional layer is related to the extraction of specific features from an image for example. For this pupose it applies a filter with a specific mathematical procedure to the image. This filter is known from image processing to have a filter kernel.</p>
+<p>The image can be represented as a simple matrix with data entries. In general there might be three layers for the colors red green and blue but we will assume just a single layer here. In the same way, the kernel for the convolution is a simple image, just smaller. Often kernel sizes of 3x3 matrix entries are used. The image below shows two examples.</p>
+<p><img alt="image_kernel" src="../../_images/image_kernel.png" /></p>
+<p>If the image is now convoluted with the kernel, a subimage of the same size as the kernel is selected from the image and multiplied elementwise with the kernel. The resulting matrix entries are then summed up to yield a single number, which corresponds to a single pixel in the corresponding convoluted image. The example above results in a 4x4 matrix, as there are just 4 different possible positions of the kernel along the 6x6 image.</p>
+<p><img alt="convolution" src="../../_images/convolution.png" /></p>
+<p>The above example shows, that the maximum value for the convolution result would be given if the original pixel numbers would be in a diagonal. The specific kernel, we have chosen is enhancing diagonal features in the image. Correspondingly other features would be enhanced by other kernels. Many CNNs apply in one step multiple kernels to the image. The results of these operation are called feature maps. The code below demonstrates the convolution with the <code class="docutils literal notranslate"><span class="pre">scipy</span></code> module.</p>
+<p><strong>Image array</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Convolution kernel</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Convolution</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[127]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">r</span><span class="o">=</span><span class="n">convolve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Plotting</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[125]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;kernel&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;convoluted image&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L14_1_CNN_19_0.png"><img alt="../../_images/notebooks_L14_1_CNN_19_0.png" src="../../_images/notebooks_L14_1_CNN_19_0.png" style="width: 1046px; height: 360px;" /></a>
+</div>
+</div>
+<div class="section" id="Padding">
+<h3>Padding<a class="headerlink" href="#Padding" title="Permalink to this headline">¶</a></h3>
+<p>If we try to visualize the operation of convolution, in our head, as the filter matrix moves over the whole image, we find that the no of times, the values of the cells lying within the matrix is considered for the operation is more than the no. of times, the values of the cells in the corners or at the borders, are accounted for. This implies that the values at the corners or around the borders are not being given equal weightage. To overcome this, we add another row and column, of only 0, at
+all the sides of the image matrix. This idea is known as padding. In actual sense, these values being ‘0’ wouldn’t supply any extra information, but will help into accounting the previously less-accounted for values to be given more weightage. As a result of the padding, the output matrix is now of the same size as the input matrix.</p>
+</div>
+<div class="section" id="Striding">
+<h3>Striding<a class="headerlink" href="#Striding" title="Permalink to this headline">¶</a></h3>
+<p>In ‘strided’ convolution, instead of shifting the filter one-row or one-column at a time, we shift it, maybe, 2 or 3 rows or columns, each time. This is generally done to reduce the no of calculation and also reduce the size of the output matrix. For large image, this doesn’t results in loss of data, but reduces computation cost on a large scale.</p>
+</div>
+<div class="section" id="RELU-Activation">
+<h3>RELU Activation<a class="headerlink" href="#RELU-Activation" title="Permalink to this headline">¶</a></h3>
+<p>The resulting feature maps are finally passed through and activation function as we identified before. ReLU or Rectified Linear Unit is applied on all the cells of all the output-matrix. The function is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f(x)=\left\{
+\begin{matrix}
+0\,\, {\rm for\, x&lt;0}\\
+x\,\, {\rm for\, x\ge0}
+\end{matrix}
+\right .\end{split}\]</div>
+<p>The shape of the ReLU function is shown below. It supresses essentially all output values which are negative.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[134]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ReLU(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L14_1_CNN_27_0.png"><img alt="../../_images/notebooks_L14_1_CNN_27_0.png" src="../../_images/notebooks_L14_1_CNN_27_0.png" style="width: 396px; height: 273px;" /></a>
+</div>
+</div>
+<p>The basic intuition to derive from here is that, after convolution, if a particular convolution function results in ‘0’ or a negative value, it implies that the feature is not present there and we denote it by ‘0’, and for all the other cases we keep the value. Together with all the operations and the functions applied on the input image, we form the first part of the Convolutional Block.</p>
+</div>
+<div class="section" id="Pooling-Layer">
+<h3>Pooling Layer<a class="headerlink" href="#Pooling-Layer" title="Permalink to this headline">¶</a></h3>
+<p>The Pooling layer consist of performing the process of extracting a particular value from a set of values, usually the max value or the average value of all the values. This reduces the size of the output matrix. For example, for MAX-POOLING, we take in the max value among all the values of say a 2 X 2 part of the matrix. Thus, we are actually taking in the values denoting the presence of a feature in that section of the image. In this way we are getting rid of unwanted information regarding the
+presence of a feature in a particular portion of the image and considering only what is required to know. It is common to periodically insert a Pooling layer in-between successive convolutional blocks in a CNN architecture. Its function is to progressively reduce the spatial size of the representation to reduce the number of parameters and computation in the network.</p>
+<p><img alt="pooling" src="../../_images/pooling.png" /></p>
+</div>
+<div class="section" id="Output-Size">
+<h3>Output Size<a class="headerlink" href="#Output-Size" title="Permalink to this headline">¶</a></h3>
+<p>All of the given operations are tentatively changing the input matrix size into an output matrix size.</p>
+<div class="math notranslate nohighlight">
+\[n_{\rm out}=\left [ \frac{n_{\rm in}+2p-k}{s}\right ]+1\]</div>
+<p>where</p>
+<ul class="simple">
+<li><span class="math notranslate nohighlight">\(n_{\rm in}\)</span>: number of input features</li>
+<li><span class="math notranslate nohighlight">\(n_{\rm out}\)</span>: number of output</li>
+<li><span class="math notranslate nohighlight">\(k\)</span>: convolution kernel size</li>
+<li><span class="math notranslate nohighlight">\(p\)</span>: padding size</li>
+<li><span class="math notranslate nohighlight">\(s\)</span>: convolution stride size</li>
+</ul>
+<p>For our above example <span class="math notranslate nohighlight">\(n_{\rm in}=6\)</span>, <span class="math notranslate nohighlight">\(k=3\)</span>, <span class="math notranslate nohighlight">\(p=0\)</span> and <span class="math notranslate nohighlight">\(s=1\)</span> from which <span class="math notranslate nohighlight">\(n_{\rm out}=4\)</span> follows.</p>
+</div>
+<div class="section" id="Flattening">
+<h3>Flattening<a class="headerlink" href="#Flattening" title="Permalink to this headline">¶</a></h3>
+<p>After multiple convolution layers and downsampling operations, the 3D representation of the image is converted into a feature vector that is passed into a multi-layer perceptron to output probabilities. The following image describes the flattening operation</p>
+<p><img alt="flattening" src="../../_images/flattening.png" /></p>
+</div>
+<div class="section" id="Dropout">
+<h3>Dropout<a class="headerlink" href="#Dropout" title="Permalink to this headline">¶</a></h3>
+<p>The Dropout layer randomly sets input units to 0 with a frequency of rate at each step during training time, which helps prevent overfitting. Inputs not set to 0 are scaled up by 1/(1 - rate) such that the sum over all inputs is unchanged.</p>
+</div>
+</div>
+<div class="section" id="Fully-Connected-Layer">
+<h2>Fully Connected Layer<a class="headerlink" href="#Fully-Connected-Layer" title="Permalink to this headline">¶</a></h2>
+<p>This layer forms the last block of the CNN architecture, related to the task of classification. This is essentially a Fully connected Simple Neural Network as we constructed it in the lecture before. It is consisting of two or three hidden layers and an output layer generally implemented using ‘Softmax Regression’, that performs the work of classification among a large no of categories. The structure of the output layer therefore depends on what the output should be.</p>
+</div>
+</div>
+<div class="section" id="Example-CNN-with-Keras">
+<h1>Example CNN with Keras<a class="headerlink" href="#Example-CNN-with-Keras" title="Permalink to this headline">¶</a></h1>
+<p>We will use the knowledge gained above to create a convolutional neural network for the character recognition we started already in the last lecture with conventional neural networks. We refer to the same MNIST example as before. As the convolutional networks are more complex, we will use tensorflow and keras as the frontend to program that. Using this, the implementation is straight forward.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[142]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+</pre></div>
+</div>
+</div>
+<p>First we have to load the data and devide that into training and testing data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[146]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Model / data parameters</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># the data, split between train and test sets</span>
+<span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Scale images to the [0, 1] range</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">x_train</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">x_test</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float32&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="c1"># Make sure images have shape (28, 28, 1)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x_train shape:&quot;</span><span class="p">,</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;train samples&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;test samples&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># convert class vectors to binary class matrices</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x_train shape: (60000, 28, 28, 1)
+60000 train samples
+10000 test samples
+</pre></div></div>
+</div>
+<p>Our network shall consist of a</p>
+<ul class="simple">
+<li>input layer with 28 x 28 pixels</li>
+<li>convolutional layer with 32 kernels of 3 x 3 pixels and a ReLU activation</li>
+<li>pooling layer taking the maximum of 2 x 2 pixels</li>
+<li>convolutional layer with 64 kernels of 3 x 3 pixels and a ReLU activation</li>
+<li>pooling layer taking the maximum of 2 x 2 pixels</li>
+<li>flattening layer</li>
+<li>dropout layer which choses randomly 50% of the input</li>
+<li>dense output layer with the number of classes, which is 10</li>
+</ul>
+<p>This network is easily setup in kears by the following commands</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[144]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Model: &#34;sequential_2&#34;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d_4 (Conv2D)            (None, 26, 26, 32)        320
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 13, 13, 32)        0
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 11, 11, 64)        18496
+_________________________________________________________________
+max_pooling2d_5 (MaxPooling2 (None, 5, 5, 64)          0
+_________________________________________________________________
+flatten_2 (Flatten)          (None, 1600)              0
+_________________________________________________________________
+dropout (Dropout)            (None, 1600)              0
+_________________________________________________________________
+dense (Dense)                (None, 10)                16010
+=================================================================
+Total params: 34,826
+Trainable params: 34,826
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div></div>
+</div>
+<p>Next we want to train the network. To do so, we first need to compile the model with a specific loss function, which is the <code class="docutils literal notranslate"><span class="pre">categorical_crossentropy</span></code> method, which we mentioned already last lecture. The compiled model can then be trained for a specific amount of epochs. It is important to have a part of the training data splitted apart to use that as the validation data. This validation data will also be used to calculated the loss but the loss is not minimized on that data but rather on the
+training data. What could happen during training is now that the training loss decreases but the validation loss increases. This in general means that the network is <strong>overfitted</strong> to the training data. It just reflects the training data but is not able to infer any other information accurately from it.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[145]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;categorical_crossentropy&quot;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Epoch 1/15
+422/422 [==============================] - 32s 75ms/step - loss: 0.3592 - accuracy: 0.8913 - val_loss: 0.0797 - val_accuracy: 0.9808
+Epoch 2/15
+422/422 [==============================] - 64s 152ms/step - loss: 0.1095 - accuracy: 0.9674 - val_loss: 0.0579 - val_accuracy: 0.9848
+Epoch 3/15
+422/422 [==============================] - 93s 220ms/step - loss: 0.0823 - accuracy: 0.9751 - val_loss: 0.0470 - val_accuracy: 0.9880
+Epoch 4/15
+422/422 [==============================] - 103s 245ms/step - loss: 0.0690 - accuracy: 0.9792 - val_loss: 0.0399 - val_accuracy: 0.9893
+Epoch 5/15
+422/422 [==============================] - 75s 177ms/step - loss: 0.0634 - accuracy: 0.9804 - val_loss: 0.0363 - val_accuracy: 0.9893
+Epoch 6/15
+422/422 [==============================] - 68s 160ms/step - loss: 0.0556 - accuracy: 0.9826 - val_loss: 0.0342 - val_accuracy: 0.9910
+Epoch 7/15
+422/422 [==============================] - 81s 193ms/step - loss: 0.0526 - accuracy: 0.9837 - val_loss: 0.0342 - val_accuracy: 0.9912
+Epoch 8/15
+422/422 [==============================] - 94s 222ms/step - loss: 0.0480 - accuracy: 0.9848 - val_loss: 0.0312 - val_accuracy: 0.9917
+Epoch 9/15
+422/422 [==============================] - 121s 287ms/step - loss: 0.0440 - accuracy: 0.9865 - val_loss: 0.0331 - val_accuracy: 0.9925
+Epoch 10/15
+422/422 [==============================] - 88s 210ms/step - loss: 0.0418 - accuracy: 0.9870 - val_loss: 0.0334 - val_accuracy: 0.9900
+Epoch 11/15
+422/422 [==============================] - 80s 190ms/step - loss: 0.0394 - accuracy: 0.9876 - val_loss: 0.0310 - val_accuracy: 0.9910
+Epoch 12/15
+422/422 [==============================] - 74s 175ms/step - loss: 0.0363 - accuracy: 0.9882 - val_loss: 0.0308 - val_accuracy: 0.9928
+Epoch 13/15
+422/422 [==============================] - 81s 192ms/step - loss: 0.0362 - accuracy: 0.9882 - val_loss: 0.0285 - val_accuracy: 0.9920
+Epoch 14/15
+422/422 [==============================] - 86s 203ms/step - loss: 0.0343 - accuracy: 0.9885 - val_loss: 0.0302 - val_accuracy: 0.9923
+Epoch 15/15
+422/422 [==============================] - 59s 139ms/step - loss: 0.0338 - accuracy: 0.9888 - val_loss: 0.0285 - val_accuracy: 0.9923
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[145]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;tensorflow.python.keras.callbacks.History at 0x7fe76cbad290&gt;
+</pre></div></div>
+</div>
+<p>The following is just to tell you how accurate the model is. According to that, we achieve about 99% accuracy.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[147]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">score</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Test loss:&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Test accuracy:&quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Test loss: 0.024629030376672745
+Test accuracy: 0.9918000102043152
+</pre></div></div>
+</div>
+<p>We can now randomly select a number from the tesing (not the training) data and display the prediction and compare that vs.&nbsp;your own built in neural network.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[176]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">n</span><span class="o">=</span><span class="n">x_test</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;My prediction is: &#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+My prediction is:  3
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<a class="reference internal image-reference" href="../../_images/notebooks_L14_1_CNN_56_1.png"><img alt="../../_images/notebooks_L14_1_CNN_56_1.png" src="../../_images/notebooks_L14_1_CNN_56_1.png" style="width: 258px; height: 255px;" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="Where-to-go-from-here?">
+<h1>Where to go from here?<a class="headerlink" href="#Where-to-go-from-here?" title="Permalink to this headline">¶</a></h1>
+<p>If you are interested in applying CNNs to classify and locate data, have a look at our <a class="reference external" href="https://github.com/Molecular-Nanophotonics/YOLOv21-Framework">framework for single particle tracking</a> in real time.</p>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {}, "version_minor": 0, "version_major": 2}
+</script></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2_AutoEncoder.html" class="btn btn-neutral float-right" title="Autoencoder CNN for Time Series Denoising" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../lectures/L14/overview_14.html" class="btn btn-neutral float-left" title="Lecture Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Frank Cichos
+      <span class="lastupdated">
+        Last updated on Jul 06, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
