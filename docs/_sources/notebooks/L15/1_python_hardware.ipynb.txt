@@ -2,14 +2,22 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
    "source": [
     "# Python and Hardware"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "In the last lecture, we would like to interface our Python notebook to the real world. We would like to control a small computer, which can measure and control things in the real world, like experiments. \n",
     "We show you how to setup and Arduino nano board and use that to output and input signals. To use this Notebook, you will need an Arduino board. It will do nothing than creating errors if you just use it in the mybinder service.\n",
@@ -19,7 +27,11 @@
   {
    "cell_type": "code",
    "execution_count": 92,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "skip"
+    }
+   },
    "outputs": [],
    "source": [
     "from __future__ import print_function\n",
@@ -53,14 +65,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Arduino Nano Board"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "There are several diffrent Arduino boards available. The one I'm going to use is the Arduino nano, which looks like this\n",
     "\n",
@@ -71,35 +91,55 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "### Arduino Software"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
-    "The Arduino boards are typically programmed with a programming language, which is a bit like C. The programs are written on your computer, compiled and the uploaded to the Arduino. It then runs you program independently. The software interface to write and compile such programs for a number of different boards available is available at the [Arduino Website](https://www.arduino.cc). We will need it actually only once. So go ahead and intsall the software on you computer."
+    "The Arduino boards are typically programmed with a programming language, which is a bit like C. The programs are written on your computer, compiled and the uploaded to the Arduino. It then runs your program independently. The software interface to write and compile such programs for a number of different boards is available at the [Arduino Website](https://www.arduino.cc). We will need it actually only once. So go ahead and install the software on you computer."
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "### Setup your board"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "To communicate in Python with your Arduino you need to prepare your board with a program, that is provided for free with the Arduino programming environment. By the way, the programs for the Arduinos are called `Sketch`, because they are more like a sketch. The sketch that allows the interaction of the Arduino with Python is called `Firmata`."
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "Before we upload the `Firmata` sketch to the Arduino, we need to setup the connection of your computer to the Arduino. To do so, you need to connect your Arduino via USB to your computer and then setup the connection in the `Tools` menu of your Arduino software. On my MacBook, this looks like that\n",
     "\n",
@@ -111,14 +151,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
-    "### Select Firmate Sketch"
+    "### Select Firmata Sketch"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "Next you have to select the firmata sketch. That is available from the examples menu, which should look like below\n",
     "\n",
@@ -129,7 +177,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "A window should open which displays the code of the sketch.\n",
     "\n",
@@ -138,7 +190,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "After that, you can compile the Sketch with the top left button\n",
     "\n",
@@ -147,7 +203,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "And finally you may upload the Sketch to your arduino with the button on the right of the compile button.\n",
     "\n",
@@ -156,14 +216,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Communicating with the board"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "The module, that allows us to communicate with the Arduino board and the Firmata sketch is the `pyfirmata` module. You can install the module on your computer by executing \n",
     "\n",
@@ -178,7 +246,11 @@
   {
    "cell_type": "code",
    "execution_count": 40,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "import pyfirmata"
@@ -186,7 +258,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "The module allows you to connect to the board in a very easy way. You just have to provide the corresponding USB connection details. For Windows, this will be some of the `COM` ports. For Linux and also osX, it wil be one of the devices listed in the `/dev` directory. For my MacBook I just type\n",
     "\n",
@@ -200,7 +276,11 @@
   {
    "cell_type": "code",
    "execution_count": 42,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [
     {
      "name": "stdout",
@@ -216,7 +296,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "Using that USB connection port we may simply assign a new board instance by"
    ]
@@ -224,7 +308,11 @@
   {
    "cell_type": "code",
    "execution_count": 84,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "board = pyfirmata.Arduino('/dev/cu.usbserial-141220')"
@@ -232,14 +320,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Let the on-board LED blink"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "The onboard LED of the Arduino nano is connected to the digital port `D13`. So if we output something to `D13` we get out board LED (the one with the `L`) blinking."
    ]
@@ -247,7 +343,11 @@
   {
    "cell_type": "code",
    "execution_count": 52,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "outputs": [],
    "source": [
     "i=0\n",
@@ -261,14 +361,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "![blinking](blinking.gif)"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "We can also measure the output voltage at the corresponding pin `D13`. Whenever the LED is on, we measrue  a voltage of about 4.7 V, which corresponds to the TTL `HIGH` level, while the voltage of about 0.9 V represents the `LOW` level."
    ]
@@ -276,21 +384,29 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "i=0\n",
     "while i<100:\n",
     "    board.digital[13].write(1)\n",
-    "    time.sleep(0.1)\n",
+    "    time.sleep(2)\n",
     "    board.digital[13].write(0)\n",
-    "    time.sleep(0.1)\n",
+    "    time.sleep(2)\n",
     "    i+=1"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "The values are visible in the video below.\n",
     "\n",
@@ -299,14 +415,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "### Tunable output"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "You may also output some voltages with the Arduino nano. Yet the signal output here works with a so called [pulse width modulation](https://www.arduino.cc/en/tutorial/PWM) (PWM). The pulse width modulation switches a digital port quickly between the HIGH and the LOW values. By varying the time the output is HIGH as compared to LOW, the average voltage is set to a value between 0 V and 5 V. This fast switching is done with a freqeuncy of 500 Hz.\n",
     "\n",
@@ -316,7 +440,11 @@
   {
    "cell_type": "code",
    "execution_count": 100,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "outputs": [],
    "source": [
     "board = pyfirmata.Arduino('/dev/cu.usbserial-141220')"
@@ -324,15 +452,23 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
-    "We can use the PWM mode by setting one of the digital outputs accordingly. The `get_pin` command below, allows you to configure one of the outputs. The string 'd:e:p' configure output `D3` to PWM mode. YOu may also configure the as input 'd:e:i' or output 'd:e:o'."
+    "We can use the PWM mode by setting one of the digital outputs accordingly. The `get_pin` command below, allows you to configure one of the outputs. The string 'd:3:p' configure output `D3` to PWM mode. You may also configure the as input 'd:3:i' or output 'd:3:o'."
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 101,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "outPWM = board.get_pin('d:3:p')"
@@ -340,7 +476,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "The rest is very simple. We can actually use the `ipywidgets` module to create a slider, which allows us to modulate the output voltage."
    ]
@@ -348,7 +488,11 @@
   {
    "cell_type": "code",
    "execution_count": 102,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "def output(x):\n",
@@ -358,7 +502,11 @@
   {
    "cell_type": "code",
    "execution_count": 103,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "def f(x):\n",
@@ -368,7 +516,11 @@
   {
    "cell_type": "code",
    "execution_count": 104,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [
     {
      "data": {
@@ -391,7 +543,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "Here is the movie of what I tried with the slider.\n",
     "\n",
@@ -400,14 +556,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "## Creating an Oscilloscope"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "One of the cool things among many other things you can do with the analog and digital ports of an arduino is to create yout own simple oscilloscope.\n",
     "Its not really as versatile as a more expensive one, but at leat you are able to follow a voltage signal over time easily. The voltage range is limited to 0-5 V without additional electronics, but this may be already enout to couple some sensors. "
@@ -415,7 +579,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "To allow for continuous reporting of the voltage a certain board analog input, we use `board.analog[0].enable_reporting()`. This will switch on the reporting of the analog voltage at port `A0`."
    ]
@@ -423,7 +591,11 @@
   {
    "cell_type": "code",
    "execution_count": 106,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "board.analog[0].enable_reporting()"
@@ -431,7 +603,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "The command read, will then read a single value from the input."
    ]
@@ -439,7 +615,11 @@
   {
    "cell_type": "code",
    "execution_count": 111,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [
     {
      "name": "stdout",
@@ -455,7 +635,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "The reporting will start reporting the analog values continuously without any control. We may, however, use the `pyfirmata.util.Iterator(board)` method to take control over the reading. We get then a new value, whenever a value is read. The iterator is started with `it.start()`."
    ]
@@ -463,7 +647,11 @@
   {
    "cell_type": "code",
    "execution_count": 112,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [],
    "source": [
     "it = pyfirmata.util.Iterator(board)\n",
@@ -474,7 +662,11 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "source": [
     "Since we want to have an oscilloscope, we need to plot the data somewhere. We can use out beloved `ipycanvas` module for that purpose."
    ]
@@ -482,7 +674,11 @@
   {
    "cell_type": "code",
    "execution_count": 129,
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
    "outputs": [
     {
      "data": {
@@ -508,14 +704,22 @@
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "![oscilloscope](oscilloscope.gif)"
    ]
   },
   {
    "cell_type": "markdown",
-   "metadata": {},
+   "metadata": {
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
    "source": [
     "The rest is just easy for us. We create a buffer `data` where we store the voltage value for each x point in the canvas (here 800 px). If we have read 800 values, we will shift the data in the array to the left such that we can insert the new point as the rightmost entry. In addition, I have inserted some autoscaling of the data and a display of the minimum and maximum voltage of the current signal trace. There is much room for improvement. "
    ]
@@ -527,6 +731,9 @@
     "collapsed": true,
     "jupyter": {
      "outputs_hidden": true
+    },
+    "slideshow": {
+     "slide_type": "subslide"
     }
    },
    "outputs": [
@@ -567,12 +774,13 @@
     "        for j in range(i-1):        \n",
     "            canvas.move_to(j,canvas.height-(data[j]-min)*canvas.height/(max-min))\n",
     "            canvas.line_to(j+1,canvas.height-(data[j+1]-min)*canvas.height/(max-min))\n",
-    "        canvas.stroke()            \n",
+    "        canvas.stroke()             \n",
     "        "
    ]
   }
  ],
  "metadata": {
+  "celltoolbar": "Slideshow",
   "kernelspec": {
    "display_name": "Python 3",
    "language": "python",

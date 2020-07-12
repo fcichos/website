@@ -30,7 +30,7 @@
     "import numpy as np\n",
     "import matplotlib.pyplot as plt\n",
     "\n",
-    "## add all the module imports here at the beginning, gibve our usual formatting options."
+    "## add all the module imports here at the beginning, give our usual formatting options."
    ]
   },
   {
