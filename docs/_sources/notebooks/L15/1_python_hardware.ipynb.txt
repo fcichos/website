@@ -1,0 +1,968 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Python and Hardware"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In the last lecture, we would like to interface our Python notebook to the real world. We would like to control a small computer, which can measure and control things in the real world, like experiments. \n",
+    "We show you how to setup and Arduino nano board and use that to output and input signals. To use this Notebook, you will need an Arduino board. It will do nothing than creating errors if you just use it in the mybinder service.\n",
+    "You can find out more about Arduino on their [website](https://arduino.cc)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 92,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from __future__ import print_function\n",
+    "import numpy as np\n",
+    "import time\n",
+    "import matplotlib.pyplot as plt\n",
+    "%matplotlib inline\n",
+    "\n",
+    "from ipycanvas import MultiCanvas, hold_canvas,Canvas\n",
+    "\n",
+    "from ipywidgets import interact, interactive, fixed, interact_manual\n",
+    "import ipywidgets as widgets\n",
+    "\n",
+    "\n",
+    "%config InlineBackend.figure_format = 'retina'\n",
+    "\n",
+    "plt.rcParams.update({'font.size': 18,\n",
+    "                     'axes.titlesize': 20,\n",
+    "                     'axes.labelsize': 20,\n",
+    "                     'axes.labelpad': 1,\n",
+    "                     'lines.linewidth': 2,\n",
+    "                     'lines.markersize': 10,\n",
+    "                     'xtick.labelsize' : 18,\n",
+    "                     'ytick.labelsize' : 18,\n",
+    "                     'xtick.top' : True,\n",
+    "                     'xtick.direction' : 'in',\n",
+    "                     'ytick.right' : True,\n",
+    "                     'ytick.direction' : 'in'\n",
+    "                    })"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Arduino Nano Board"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "There are several diffrent Arduino boards available. The one I'm going to use is the Arduino nano, which looks like this\n",
+    "\n",
+    "![](arduino_nano.png)\n",
+    "\n",
+    "It has an USB connector here on the left and a number of analog (A0-A7) and digital (D2-D13) input and outputs. All of these connectors can be used as inputs and outputs. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Arduino Software"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The Arduino boards are typically programmed with a programming language, which is a bit like C. The programs are written on your computer, compiled and the uploaded to the Arduino. It then runs you program independently. The software interface to write and compile such programs for a number of different boards available is available at the [Arduino Website](https://www.arduino.cc). We will need it actually only once. So go ahead and intsall the software on you computer."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Setup your board"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To communicate in Python with your Arduino you need to prepare your board with a program, that is provided for free with the Arduino programming environment. By the way, the programs for the Arduinos are called `Sketch`, because they are more like a sketch. The sketch that allows the interaction of the Arduino with Python is called `Firmata`."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Before we upload the `Firmata` sketch to the Arduino, we need to setup the connection of your computer to the Arduino. To do so, you need to connect your Arduino via USB to your computer and then setup the connection in the `Tools` menu of your Arduino software. On my MacBook, this looks like that\n",
+    "\n",
+    "![connection](connection.png)\n",
+    "\n",
+    "\n",
+    "You see that the select board is \"Arduino Nano\" and the USB port is `/dev/cu.usbserial-141220`. I selected the processor which works with my board. That could be sometimes a bit tedious. When you further click on the `Serial Monitor` menu above, a window will open, where you can select the speed of your seriaal connection with the board, which you should adjust to 57600 baud.  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Select Firmate Sketch"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Next you have to select the firmata sketch. That is available from the examples menu, which should look like below\n",
+    "\n",
+    "![firmata_sketch](firmata_sketch.png)\n",
+    "\n",
+    "Select the `StandardFirmata` sketch. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "A window should open which displays the code of the sketch.\n",
+    "\n",
+    "![firmata](firmata.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "After that, you can compile the Sketch with the top left button\n",
+    "\n",
+    "![compile](compile.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "And finally you may upload the Sketch to your arduino with the button on the right of the compile button.\n",
+    "\n",
+    "![upload](upload.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Communicating with the board"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The module, that allows us to communicate with the Arduino board and the Firmata sketch is the `pyfirmata` module. You can install the module on your computer by executing \n",
+    "\n",
+    "~~~\n",
+    "!pip install pyfirmata\n",
+    "~~~\n",
+    "\n",
+    "\n",
+    "in one of the Jupyter notebook cells. After you have done so, you may import the module functionality by"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pyfirmata"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The module allows you to connect to the board in a very easy way. You just have to provide the corresponding USB connection details. For Windows, this will be some of the `COM` ports. For Linux and also osX, it wil be one of the devices listed in the `/dev` directory. For my MacBook I just type\n",
+    "\n",
+    "~~~\n",
+    "ls /dev/*usb*\n",
+    "~~~\n",
+    "\n",
+    "into one of the Jupyter notebooks cells."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\u001b[34m\u001b[43m/dev/cu.usbserial-141220\u001b[m\u001b[m   \u001b[34m\u001b[43m/dev/tty.usbserial-141220\u001b[m\u001b[m\n"
+     ]
+    }
+   ],
+   "source": [
+    "ls /dev/*usb*"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Using that USB connection port we may simply assign a new board instance by"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "board = pyfirmata.Arduino('/dev/cu.usbserial-141220')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Let the on-board LED blink"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The onboard LED of the Arduino nano is connected to the digital port `D13`. So if we output something to `D13` we get out board LED (the one with the `L`) blinking."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "i=0\n",
+    "while i<100:\n",
+    "    board.digital[13].write(1)\n",
+    "    time.sleep(0.1)\n",
+    "    board.digital[13].write(0)\n",
+    "    time.sleep(0.1)\n",
+    "    i+=1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![blinking](blinking.gif)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can also measure the output voltage at the corresponding pin `D13`. Whenever the LED is on, we measrue  a voltage of about 4.7 V, which corresponds to the TTL `HIGH` level, while the voltage of about 0.9 V represents the `LOW` level."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "i=0\n",
+    "while i<100:\n",
+    "    board.digital[13].write(1)\n",
+    "    time.sleep(0.1)\n",
+    "    board.digital[13].write(0)\n",
+    "    time.sleep(0.1)\n",
+    "    i+=1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The values are visible in the video below.\n",
+    "\n",
+    "![voltage](voltage.gif)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Tunable output"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "You may also output some voltages with the Arduino nano. Yet the signal output here works with a so called [pulse width modulation](https://www.arduino.cc/en/tutorial/PWM) (PWM). The pulse width modulation switches a digital port quickly between the HIGH and the LOW values. By varying the time the output is HIGH as compared to LOW, the average voltage is set to a value between 0 V and 5 V. This fast switching is done with a freqeuncy of 500 Hz.\n",
+    "\n",
+    "![pwm_swtching](pwm.png)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 100,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "board = pyfirmata.Arduino('/dev/cu.usbserial-141220')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We can use the PWM mode by setting one of the digital outputs accordingly. The `get_pin` command below, allows you to configure one of the outputs. The string 'd:e:p' configure output `D3` to PWM mode. YOu may also configure the as input 'd:e:i' or output 'd:e:o'."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 101,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "outPWM = board.get_pin('d:3:p')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The rest is very simple. We can actually use the `ipywidgets` module to create a slider, which allows us to modulate the output voltage."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def output(x):\n",
+    "    outPWM.write(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def f(x):\n",
+    "    return x"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 104,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "772f9475356f4ccb93d021cb1d05e554",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "interactive(children=(FloatSlider(value=0.5, description='x', max=1.0, step=0.01), Output()), _dom_classes=('w…"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "interact(output, x=(0.0,1.0,0.01));"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Here is the movie of what I tried with the slider.\n",
+    "\n",
+    "![tuning](tuning.gif)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Creating an Oscilloscope"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "One of the cool things among many other things you can do with the analog and digital ports of an arduino is to create yout own simple oscilloscope.\n",
+    "Its not really as versatile as a more expensive one, but at leat you are able to follow a voltage signal over time easily. The voltage range is limited to 0-5 V without additional electronics, but this may be already enout to couple some sensors. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To allow for continuous reporting of the voltage a certain board analog input, we use `board.analog[0].enable_reporting()`. This will switch on the reporting of the analog voltage at port `A0`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "board.analog[0].enable_reporting()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The command read, will then read a single value from the input."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 111,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.3021\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(board.analog[0].read())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The reporting will start reporting the analog values continuously without any control. We may, however, use the `pyfirmata.util.Iterator(board)` method to take control over the reading. We get then a new value, whenever a value is read. The iterator is started with `it.start()`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 112,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "it = pyfirmata.util.Iterator(board)\n",
+    "it.start()\n",
+    "\n",
+    "board.analog[0].enable_reporting()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Since we want to have an oscilloscope, we need to plot the data somewhere. We can use out beloved `ipycanvas` module for that purpose."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 129,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "50d0618568454eddb2c6560ebe3ca3b4",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "Canvas(height=300, width=800)"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "## setup the canvas\n",
+    "canvas = Canvas(width=800, height=300,sync_image_data=False)\n",
+    "canvas.font = '20px serif'\n",
+    "display(canvas)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![oscilloscope](oscilloscope.gif)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The rest is just easy for us. We create a buffer `data` where we store the voltage value for each x point in the canvas (here 800 px). If we have read 800 values, we will shift the data in the array to the left such that we can insert the new point as the rightmost entry. In addition, I have inserted some autoscaling of the data and a display of the minimum and maximum voltage of the current signal trace. There is much room for improvement. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 131,
+   "metadata": {
+    "collapsed": true,
+    "jupyter": {
+     "outputs_hidden": true
+    }
+   },
+   "outputs": [
+    {
+     "ename": "KeyboardInterrupt",
+     "evalue": "",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-131-f7bc658ca79a>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m     22\u001b[0m         \u001b[0;32mfor\u001b[0m \u001b[0mj\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     23\u001b[0m             \u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmove_to\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mheight\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0mmin\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mheight\u001b[0m\u001b[0;34m/\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmax\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0mmin\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 24\u001b[0;31m             \u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mline_to\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m+\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mheight\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mj\u001b[0m\u001b[0;34m+\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0mmin\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mheight\u001b[0m\u001b[0;34m/\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmax\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0mmin\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     25\u001b[0m         \u001b[0mcanvas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstroke\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     26\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+     ]
+    }
+   ],
+   "source": [
+    "data=np.zeros(canvas.width)\n",
+    "i=0\n",
+    "\n",
+    "while True:\n",
+    "    analog_value = board.analog[0].read()\n",
+    "    if i<799:\n",
+    "        data[i]=analog_value\n",
+    "        i+=1\n",
+    "    else:        \n",
+    "        data[:-2]=data[1:-1]\n",
+    "        data[-2]=analog_value\n",
+    "    time.sleep(0.05)\n",
+    "    with hold_canvas(canvas):  \n",
+    "        canvas.clear()\n",
+    "        canvas.line_width = 1\n",
+    "        canvas.begin_path()\n",
+    "        min=data[1:-2].min()\n",
+    "        max=data[1:-2].max()\n",
+    "\n",
+    "        canvas.fill_text(str(max)+' V', 10, 20)\n",
+    "        canvas.fill_text(str(min)+' V', 10, canvas.height-20)\n",
+    "        for j in range(i-1):        \n",
+    "            canvas.move_to(j,canvas.height-(data[j]-min)*canvas.height/(max-min))\n",
+    "            canvas.line_to(j+1,canvas.height-(data[j+1]-min)*canvas.height/(max-min))\n",
+    "        canvas.stroke()            \n",
+    "        "
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {
+     "009f1ca36a69436fbd7c4197d5a90686": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "0410a98a58ff476980a3b20654a97ea5": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "SliderStyleModel",
+      "state": {
+       "description_width": ""
+      }
+     },
+     "0eeae16d9880481097f5ff87ee68fc88": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "FloatSliderModel",
+      "state": {
+       "description": "x",
+       "layout": "IPY_MODEL_27cad2309f144311ab7013c79cfe5a75",
+       "max": 1,
+       "step": 0.01,
+       "style": "IPY_MODEL_345dc7f240f74ba49bd010575d42b6a3",
+       "value": 0.2
+      }
+     },
+     "1f931c990267493fa297231f79f1664b": {
+      "model_module": "@jupyter-widgets/output",
+      "model_module_version": "1.0.0",
+      "model_name": "OutputModel",
+      "state": {
+       "layout": "IPY_MODEL_e74e5a06dff24b8c9aac3680e495f923",
+       "outputs": [
+        {
+         "data": {
+          "text/plain": "0.46"
+         },
+         "metadata": {},
+         "output_type": "display_data"
+        }
+       ]
+      }
+     },
+     "273b7cc53613482b89358c6b1206ef51": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "27cad2309f144311ab7013c79cfe5a75": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "345dc7f240f74ba49bd010575d42b6a3": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "SliderStyleModel",
+      "state": {
+       "description_width": ""
+      }
+     },
+     "50d0618568454eddb2c6560ebe3ca3b4": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_6ecfbd6554d54e64844ae6868cdbcb98",
+       "width": 800
+      }
+     },
+     "53e88b4e8c9446229b59f3fdfeee6bc9": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "VBoxModel",
+      "state": {
+       "_dom_classes": [
+        "widget-interact"
+       ],
+       "children": [
+        "IPY_MODEL_96003a5d49df46d08651258f47df4f2c",
+        "IPY_MODEL_1f931c990267493fa297231f79f1664b"
+       ],
+       "layout": "IPY_MODEL_009f1ca36a69436fbd7c4197d5a90686"
+      }
+     },
+     "5e3871f552ce419cad147258f384c0f5": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_cf8e7d800746470b92cc30dd7f6e7bdf",
+       "width": 800
+      }
+     },
+     "5e9f8d26b54f41688ae9c63c9774d0c1": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_a3924908e5034f2da6bd7ca2ff3cf1e6",
+       "width": 800
+      }
+     },
+     "6671a82045e249e9ad7f06ec35f5c712": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "IntSliderModel",
+      "state": {
+       "description": "x",
+       "layout": "IPY_MODEL_ce8854dbc80e42458890e4f8de0aff8e",
+       "max": 30,
+       "min": -10,
+       "style": "IPY_MODEL_83598645e3044659a9f9626254d682a5",
+       "value": 21
+      }
+     },
+     "6ecfbd6554d54e64844ae6868cdbcb98": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "720a97928dac4c98856ddc38cfb9060f": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_c348470a4c184dab99753d201e777e58",
+       "width": 800
+      }
+     },
+     "75f2fa9158ec48b38ce07a510db143ad": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "772f9475356f4ccb93d021cb1d05e554": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "VBoxModel",
+      "state": {
+       "_dom_classes": [
+        "widget-interact"
+       ],
+       "children": [
+        "IPY_MODEL_0eeae16d9880481097f5ff87ee68fc88",
+        "IPY_MODEL_fda227be2dee4f01add56910ce2ed45a"
+       ],
+       "layout": "IPY_MODEL_c2c7800864954414be1f7d9158e1ad83"
+      }
+     },
+     "78ccb571e43f49e199440e4eb0de8971": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "7c87f9ad44fb47c78cf69221cf33c5c9": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "IntSliderModel",
+      "state": {
+       "description": "x",
+       "layout": "IPY_MODEL_75f2fa9158ec48b38ce07a510db143ad",
+       "max": 1,
+       "step": 0,
+       "style": "IPY_MODEL_0410a98a58ff476980a3b20654a97ea5"
+      }
+     },
+     "83598645e3044659a9f9626254d682a5": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "SliderStyleModel",
+      "state": {
+       "description_width": ""
+      }
+     },
+     "8fe0f8a0f14e45229f1f59873415f789": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "96003a5d49df46d08651258f47df4f2c": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "FloatSliderModel",
+      "state": {
+       "description": "x",
+       "layout": "IPY_MODEL_78ccb571e43f49e199440e4eb0de8971",
+       "max": 1,
+       "step": 0.01,
+       "style": "IPY_MODEL_9bf14f840b96463abcd89467f4359ae2",
+       "value": 0.46
+      }
+     },
+     "96f4a9a2fdf9443085daf96c88e9a3aa": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "VBoxModel",
+      "state": {
+       "_dom_classes": [
+        "widget-interact"
+       ],
+       "children": [
+        "IPY_MODEL_7c87f9ad44fb47c78cf69221cf33c5c9",
+        "IPY_MODEL_cec4d5ae7a404ea39835ea3eedbd4340"
+       ],
+       "layout": "IPY_MODEL_8fe0f8a0f14e45229f1f59873415f789"
+      }
+     },
+     "99cdae4d33044e9bb1d30b4c5d327756": {
+      "model_module": "ipycanvas",
+      "model_module_version": "^0.4.3",
+      "model_name": "CanvasModel",
+      "state": {
+       "_model_module_version": "^0.4.3",
+       "_view_module_version": "^0.4.3",
+       "height": 300,
+       "layout": "IPY_MODEL_c800c5bf1c244404ba490200f190a74c",
+       "width": 800
+      }
+     },
+     "9bf14f840b96463abcd89467f4359ae2": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "SliderStyleModel",
+      "state": {
+       "description_width": ""
+      }
+     },
+     "a3924908e5034f2da6bd7ca2ff3cf1e6": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "a4b819bdd2564d22a378b9def23c473a": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "c0e9304673384677a80300d7d9669554": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "c2c7800864954414be1f7d9158e1ad83": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "c348470a4c184dab99753d201e777e58": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "c800c5bf1c244404ba490200f190a74c": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "ce8854dbc80e42458890e4f8de0aff8e": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "cec4d5ae7a404ea39835ea3eedbd4340": {
+      "model_module": "@jupyter-widgets/output",
+      "model_module_version": "1.0.0",
+      "model_name": "OutputModel",
+      "state": {
+       "layout": "IPY_MODEL_f0a9a37b8d3e41d28b2b4765423910f2",
+       "outputs": [
+        {
+         "data": {
+          "text/plain": "0"
+         },
+         "metadata": {},
+         "output_type": "display_data"
+        }
+       ]
+      }
+     },
+     "cf8e7d800746470b92cc30dd7f6e7bdf": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "db0f62f6e1b1463d8ddba7a0a1ceb16f": {
+      "model_module": "@jupyter-widgets/output",
+      "model_module_version": "1.0.0",
+      "model_name": "OutputModel",
+      "state": {
+       "layout": "IPY_MODEL_273b7cc53613482b89358c6b1206ef51",
+       "outputs": [
+        {
+         "data": {
+          "text/plain": "21"
+         },
+         "metadata": {},
+         "output_type": "display_data"
+        }
+       ]
+      }
+     },
+     "e74e5a06dff24b8c9aac3680e495f923": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "f0a9a37b8d3e41d28b2b4765423910f2": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "1.2.0",
+      "model_name": "LayoutModel",
+      "state": {}
+     },
+     "f6c496badcb24b4699697035b9609b0a": {
+      "model_module": "@jupyter-widgets/controls",
+      "model_module_version": "1.5.0",
+      "model_name": "VBoxModel",
+      "state": {
+       "_dom_classes": [
+        "widget-interact"
+       ],
+       "children": [
+        "IPY_MODEL_6671a82045e249e9ad7f06ec35f5c712",
+        "IPY_MODEL_db0f62f6e1b1463d8ddba7a0a1ceb16f"
+       ],
+       "layout": "IPY_MODEL_c0e9304673384677a80300d7d9669554"
+      }
+     },
+     "fda227be2dee4f01add56910ce2ed45a": {
+      "model_module": "@jupyter-widgets/output",
+      "model_module_version": "1.0.0",
+      "model_name": "OutputModel",
+      "state": {
+       "layout": "IPY_MODEL_a4b819bdd2564d22a378b9def23c473a"
+      }
+     }
+    },
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

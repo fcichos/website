@@ -196,6 +196,16 @@ We will not present a comprehensive list of numerical simulation schemes, but us
    notebooks/L14/1_CNN.ipynb
    notebooks/L14/2_AutoEncoder.ipynb      
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Lecture 15:
+
+   lectures/L15/overview_15.rst
+   notebooks/L15/1_python_hardware.ipynb
+   notebooks/L15/2_project_template.ipynb      
+
+
+
 Indices and tables
 ==================
 

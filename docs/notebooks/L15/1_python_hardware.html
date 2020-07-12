@@ -1,0 +1,1465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python and Hardware &mdash; Introduction to Computer-based Physical Modeling 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project: YOUR PROJECT TITLE" href="2_project_template.html" />
+    <link rel="prev" title="Lecture Contents" href="../../lectures/L15/overview_15.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+          
+
+          
+            
+            <img src="../../_static/mona_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Course Information:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/website.html">This Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/assignments.html">Assignments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/exam.html">Exams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#molecular-nanophotonics-group">Molecular Nanophotonics Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-documentation">Python Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course-info/resources.html#python-tutorials">Python Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../course-info/instructor.html">Instructor</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Jupyter Notebooks:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/Intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/Introduction2Jupyter.html">Introduction to Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#What-is-Jupyter-Notebook?">What is Jupyter Notebook?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-editor">Notebook editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Kernels">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/Introduction2Jupyter.html#Notebook-documents">Notebook documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/NotebookEditor.html">Notebook editor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Edit-mode">Edit mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Command-mode">Command mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Keyboard-navigation">Keyboard navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Running-code">Running code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/NotebookEditor.html#Managing-the-kernel">Managing the kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/EditCells.html">Entering code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Intro/EditCells.html#Entering-Markdown">Entering Markdown</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Markdown-basics">Markdown basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Headings">Headings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Embedded-code">Embedded code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#LaTeX-equations">LaTeX equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intro/EditCells.html#Videos">Videos</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 1:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/overview_1.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/1_variables.html">Variables and types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Symbol-names">Symbol names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Variable-Assignment">Variable Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/1_variables.html#Number-types">Number types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Integers">Integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Floating-Point">Floating Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Complex-Numbers">Complex Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L1/1_variables.html#Type-casting">Type casting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/2_operators.html">Operators and comparisons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/3_datatypes.html">Data Types in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Strings">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Lists">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Tuples">Tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/3_datatypes.html#Dictionaries">Dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L1/4_modules.html">Modules and namespaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Namespaces">Namespaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L1/4_modules.html#Contents-of-a-module">Contents of a module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L1/assignment_1.html">Exercise 1</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 2:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/overview_2.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/1_numpy.html">NumPy arrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Creating-Numpy-Arrays">Creating Numpy Arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#From-lists">From lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Using-array-generating-functions">Using array-generating functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#linspace-and-logspace">linspace and logspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#mgrid">mgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#diag">diag</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#zeros-and-ones">zeros and ones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Manipulating-NumPy-arrays">Manipulating NumPy arrays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Slicing">Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Reshaping">Reshaping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Adding-a-new-dimension:-newaxis">Adding a new dimension: newaxis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Stacking-and-repeating-arrays">Stacking and repeating arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Tile-and-repeat">Tile and repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Concatenate">Concatenate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L2/1_numpy.html#Hstack-and-vstack">Hstack and vstack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/1_numpy.html#Applying-mathematical-functions">Applying mathematical functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Operation-involving-one-array">Operation involving one array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L2/1_numpy.html#Operations-involving-multiple-arrays">Operations involving multiple arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L2/3_randomnumbers.html">Random numbers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Uniformly-distributed-random-numbers">Uniformly distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Normally-distributed-random-numbers">Normally distributed random numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Exponentially-distributed-numbers">Exponentially distributed numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L2/3_randomnumbers.html#Random-distribution-of-integers">Random distribution of integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L2/assignment_2.html">Exercise 2</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 3:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/overview_3.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/1_input_output.html">Input and output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#Keyboard-input">Keyboard input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#Screen-output">Screen output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/1_input_output.html#File-input/output">File input/output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_input_output.html#File-I/O-with-NumPy">File I/O with NumPy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/1_input_output.html#Reading-data-from-a-text-file">Reading data from a text file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L3/1_input_output.html#Writing-data-to-a-text-file">Writing data to a text file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/1_input_output.html#File-I/O-with-Pandas">File I/O with Pandas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L3/1_input_output.html#Short-intro-to-Pandas">Short intro to Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L3/1_input_output.html#Reading-CSV-data-with-Pandas">Reading CSV data with Pandas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/2_flowcontrol.html">Flow Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_flowcontrol.html#Conditionals:-if,-elif,-and-else-statements">Conditionals: if, elif, and else statements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#If-example">If example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#If-else-example">If else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#If,-elif,-else-example">If, elif, else example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#Combining-conditions">Combining conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/2_flowcontrol.html#Loops">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#For-loops">For loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#While-loops">While loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#Loops-and-array-operations">Loops and array operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/2_flowcontrol.html#List-comprehensions">List comprehensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/3_functions.html">Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Function-definition">Function definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Variables-in-functions">Variables in functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Functions-with-more-than-one-input-or-output">Functions with more than one input or output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#Positional-and-keyword-arguments">Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L3/3_functions.html#Functions-with-variable-number-of-arguments">Functions with variable number of arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Unnamed-functions-(lambda-function)">Unnamed functions (lambda function)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L3/3_functions.html#Functions-as-arguments-of-functions">Functions as arguments of functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L3/4_exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L3/assignment_3.html">Exercise 3</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 4:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L4/overview_4.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/1_classes.html">Classes and Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/1_classes.html#Definition-of-Classes">Definition of Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/1_classes.html#Class-Methods">Class Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/1_classes.html#The-__init__-method">The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/1_classes.html#The-__str__-method">The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/1_classes.html#Class-and-object-variables">Class and object variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/2_brownian_motion.html">Brownian Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Physics">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Class-Planning">Class Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Simulating">Simulating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Plotting-the-trajectories">Plotting the trajectories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/2_brownian_motion.html#Characterizing-the-Brownian-motion">Characterizing the Brownian motion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L4/2_brownian_motion.html#Calculate-the-particle-velocity">Calculate the particle velocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L4/2_brownian_motion.html#Calculate-the-particle-mean-squared-displacement">Calculate the particle mean squared displacement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L4/3_animations.html">Animations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Import-Modules">Import Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Particle-class">Particle class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Create-a-set-of-particles">Create a set of particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Canvas-and-drawing-function">Canvas and drawing function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L4/3_animations.html#Threading-for-animation">Threading for animation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L4/assignment_4.html">Exercise 4</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 5:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L5/overview_5.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/1_differentiation.html">Numerical Differentiation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#First-order-derivative">First order derivative</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/1_differentiation.html#Matrix-version-of-the-first-derivative">Matrix version of the first derivative</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#Second-order-derivative">Second order derivative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/1_differentiation.html#SciPy-Module">SciPy Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/1_differentiation.html#Matrix-version">Matrix version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/2_integration.html">Numerical Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Box-method">Box method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Trapezoid-method">Trapezoid method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/2_integration.html#Simpson-method">Simpson method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L5/3_solving_ODEs.html">Solving ODEs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Harmonic-Oscillator">Harmonic Oscillator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Implicit-Solution---Crank-Nicholson">Implicit Solution - Crank Nicholson</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Define-Matrices">Define Matrices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Use-Initial-Conditions">Use Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solution">Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Explicit-Solution---Numerical-Integration">Explicit Solution - Numerical Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Euler-Method">Euler Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Euler-Cromer-Method">Euler Cromer Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Midpoint-Method">Midpoint Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Putting-it-all-together">Putting it all together</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L5/3_solving_ODEs.html#The-definition-of-the-problem">The definition of the problem</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solving-the-problem">Solving the problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Solving-the-Harmonic-Oscillator-in-SciPy">Solving the Harmonic Oscillator in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Definition">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id1">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#Plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L5/3_solving_ODEs.html#Damped-Driven-Pendulum-in-SciPy">Damped Driven Pendulum in SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id2">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id3">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id4">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L5/3_solving_ODEs.html#id5">Plotting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 6:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L6/overview_6.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/1_covid19.html">COVID19</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#The-Kermack-McKendrick-Model">The Kermack-McKendrick Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#Model-Equation">Model Equation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Definition">Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Solution">Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Plotting">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/1_covid19.html#Real-COVID19-numbers">Real COVID19 numbers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#Total-number-of-cases">Total number of cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#Number-of-Deaths">Number of Deaths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#New-cases-per-day">New cases per day</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/1_covid19.html#Current-cases">Current cases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/2_coupled_pendula.html">Coupled Pendula</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/2_coupled_pendula.html#Description-of-the-problem">Description of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Sketch">Sketch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Equations-of-motion">Equations of motion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/2_coupled_pendula.html#Solving-the-problem">Solving the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Setting-up-the-function">Setting up the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Define-initial-parameters">Define initial parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Solve-the-equation-of-motion">Solve the equation of motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Animation">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/2_coupled_pendula.html#Normal-Modes">Normal Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#In-phase-motion">In-phase motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Out-of-phase-motion">Out-of-phase motion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Beat-case">Beat case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L6/2_coupled_pendula.html#Computation-of-energy-(here-for-the-beat-case)">Computation of energy (here for the beat case)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Potential-energy-of-the-pendula">Potential energy of the pendula</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Potential-energy-of-the-spring">Potential energy of the spring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Kinetic-energies">Kinetic energies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Total-energy">Total energy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L6/2_coupled_pendula.html#Total-energy-exchange-of-the-pendula">Total energy exchange of the pendula</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L6/3_fourier_analysis.html">Fourier Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L6/3_fourier_analysis.html#Fourier-series">Fourier series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/3_fourier_analysis.html#Fourier-transform">Fourier transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L6/3_fourier_analysis.html#Frequency-analysis-of-our-coupled-pendula">Frequency analysis of our coupled pendula</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 7:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L7/overview_7.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/1_spring_pendulum.html">Spring Pendulum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/1_spring_pendulum.html#Physical-Model">Physical Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Equations-of-motion">Equations of motion</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/1_spring_pendulum.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Initial-parameters">Initial parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/1_spring_pendulum.html#Plotting">Plotting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L7/1_spring_pendulum.html#Angle-and-Length-over-Time">Angle and Length over Time</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/2_planetary_motion.html">Planetary Motion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/2_planetary_motion.html#Physical-Model">Physical Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/2_planetary_motion.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Initial-Parameters:-Planets">Initial Parameters: Planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Solution:-Planets">Solution: Planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/2_planetary_motion.html#Plotting:-Planets">Plotting: Planets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L7/2_planetary_motion.html#Trajectory">Trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L7/2_planetary_motion.html#Energy">Energy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L7/3_diffusion_equation.html">Diffusion equation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L7/3_diffusion_equation.html#Physical-Model">Physical Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Spatial-derivative">Spatial derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Temporal-derivative">Temporal derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Bringing-all-together">Bringing all together</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L7/3_diffusion_equation.html#Numerical-Solution">Numerical Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Setup-Domain">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Matrix-Setup">Matrix Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L7/3_diffusion_equation.html#Solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L7/assignment_7.html">Exercise 7</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 8:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L8/overview_8.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L8/1_curve_fitting.html">Curve fitting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Idea">Idea</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Least-squares">Least squares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Least-square-fitting">Least square fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L8/1_curve_fitting.html#\chi-squared-value"><span class="math notranslate nohighlight">\(\chi\)</span>-squared value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L8/1_curve_fitting.html#Residuals">Residuals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L8/1_curve_fitting.html#Covariance-matrix">Covariance matrix</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 9:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L9/overview_9.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L9/2_spherical_waves.html">Spherical waves</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Equations">Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Electric-field">Electric field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Plot-the-intensity-in-an-image-plane">Plot the intensity in an image plane</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/2_spherical_waves.html#Interference-between-a-spherical-and-a-plane-wave">Interference between a spherical and a plane wave</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L9/4_gaussian_beams.html">Gaussian Beam</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L9/4_gaussian_beams.html#Equations">Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/4_gaussian_beams.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/4_gaussian_beams.html#Intensity-plot">Intensity plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/4_gaussian_beams.html#Intensity-profiles">Intensity profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L9/assignment_9.html">Exercise 9</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 10:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L10/overview_10.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L10/1_quantum_mechanics.html">Quantum Mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Quantum-Mechanics-in-a-Nutshell">Quantum Mechanics in a Nutshell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Stationary-Schrödinger-equation">Stationary Schrödinger equation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Recap:-Implicit-Solution">Recap: Implicit Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/1_quantum_mechanics.html#Potential-energy">Potential energy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L10/2_particle_in_a_box.html">Particle in a box</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Energies-of-bound-states">Energies of bound states</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L10/3_harmonic_oscillator.html">Harmonic Oscillator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Plotting">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Energies-of-the-states">Energies of the states</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/3_harmonic_oscillator.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L10/4_periodic_potential.html">Periodic Potential</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L10/4_periodic_potential.html#Definition-of-the-problem">Definition of the problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L10/4_periodic_potential.html#Potential-energy">Potential energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/4_periodic_potential.html#Kinetic-energy">Kinetic energy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/4_periodic_potential.html#Solution">Solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L10/4_periodic_potential.html#Plotting">Plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/4_periodic_potential.html#Energy-states">Energy states</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L10/4_periodic_potential.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 11:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L11/overview_11.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L11/1_quantum_dynamics.html">Time Dependent Quantum Mechanics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Time-dependent-Schrödinger-equation">Time dependent Schrödinger equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepackets">Wavepackets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Demonstration-of-superposition-of-plane-waves">Demonstration of superposition of plane waves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepacket">Wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Wavepacket-with-rectangular-amplitude">Wavepacket with rectangular amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Gaussian-Wave-Packet">Gaussian Wave Packet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/1_quantum_dynamics.html#Time-evolution-of-a-Gaussian-Wavepacket">Time evolution of a Gaussian Wavepacket</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L11/2_particle_in_a_box.html">Wavepacket in a Potential Box</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Problem-Setup">Problem Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Initial-conditions">Initial conditions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Eigenfunctions">Eigenfunctions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Quality-of-the-coefficients">Quality of the coefficients</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/2_particle_in_a_box.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L11/3_tunneling.html">Tunneling through a barrier</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Schrödinger-equation-for-the-momentum">Schrödinger equation for the momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Crank-Nicolson-Solution">Crank Nicolson Solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Setup-Domain">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Matrix-Setup">Matrix Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Propagation-Matrix">Propagation Matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Animation-setup">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Animation">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Split-Step-Method">Split Step Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id1">Setup Domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Potential-energy-landscape">Potential energy landscape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Initial-wavepacket">Initial wavepacket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Fourier-Transform-Setup">Fourier Transform Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#Phase-Factor-per-Timestep">Phase Factor per Timestep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id2">Animation setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L11/3_tunneling.html#id3">Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L11/3_tunneling.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 12:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L12/overview_12.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L12/1_hydrodynamics.html">Hydrodynamics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L12/1_hydrodynamics.html#Falling-sphere">Falling sphere</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Function-definition">Function definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Initial-Conditions">Initial Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Numerical-solution">Numerical solution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Analytical-solution">Analytical solution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/1_hydrodynamics.html#Stokes-equation">Stokes equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/1_hydrodynamics.html#Fundamental-Solutions-of-the-Stokes-Equation">Fundamental Solutions of the Stokes Equation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Stokeslet">Stokeslet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Source-dipole">Source dipole</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/1_hydrodynamics.html#Sum-of-both-solutions">Sum of both solutions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L12/2_reinforcement_learning.html">Machine Learning and Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Reinforcement-Learning">Reinforcement Learning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Markov-Decision-Process">Markov Decision Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Methods-or-RL">Methods or RL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Navigating-a-Grid-World">Navigating a Grid World</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Initialize-Reinforcement-Learning">Initialize Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#List-of-actions">List of actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Initial-state">Initial state</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Reinforcement-Learning-Loop">Reinforcement Learning Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Convergence-of-the-Q-learning">Convergence of the Q-learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Policy">Policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Plot-the-policy">Plot the policy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L12/2_reinforcement_learning.html#Where-to-go-from-here">Where to go from here</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 13:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L13/overview_13.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L13/1_deep_learning.html">Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#The-MNIST-Data-Set">The MNIST Data Set</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Load-the-data">Load the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Normalize-the-data">Normalize the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Preparing-training-and-testing-data">Preparing training and testing data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#A-Single-Neuron">A Single Neuron</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Propogation">Forward Propogation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Loss-Function">Loss Function</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Trainging-the-Network">Trainging the Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Backward-Propagation">Backward Propagation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Stochastic-Gradient-Descent">Stochastic Gradient Descent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Build-an-Train">Build an Train</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Testing-our-model">Testing our model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Network-with-Hidden-Layers">Network with Hidden Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Multiclass-Network">Multiclass Network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Changes-to-the-model">Changes to the model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Forward-Pass">Forward Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#id1">Loss Function</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Back-Propagation">Back Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../L13/1_deep_learning.html#Build-and-Train">Build and Train</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../L13/1_deep_learning.html#Model-performance">Model performance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/1_deep_learning.html#Test-the-model">Test the model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L13/2_deep_learning_keras.html">Neural Network with Keras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#MNIST-Data-Set-(Keras)">MNIST Data Set (Keras)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#Build-the-model">Build the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#Compile-the-model">Compile the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#Train-the-model">Train the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L13/2_deep_learning_keras.html#Testing-the-model">Testing the model</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 14:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L14/overview_14.html">Lecture Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../L14/1_CNN.html">Convolutional Neural Networks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Layout-of-a-CNN">Layout of a CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Convolutional-Layer">Convolutional Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L14/1_CNN.html#Padding">Padding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L14/1_CNN.html#Striding">Striding</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#RELU-Activation">RELU Activation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Pooling-Layer">Pooling Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Output-Size">Output Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Flattening">Flattening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Dropout">Dropout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Fully-Connected-Layer">Fully Connected Layer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L14/1_CNN.html#Example-CNN-with-Keras">Example CNN with Keras</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Prepare-the-data">Prepare the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Build-the-network">Build the network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Train-the-network">Train the network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Evaluate-the-trained-network">Evaluate the trained network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Evaluate-the-accuracy-of-your-visual-neural-network-;-)">Evaluate the accuracy of your visual neural network ;-)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/1_CNN.html#Where-to-go-from-here?">Where to go from here?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../L14/2_AutoEncoder.html">Autoencoder CNN for Time Series Denoising</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../L14/2_AutoEncoder.html#Autoencoder-Structure-and-Purpose">Autoencoder Structure and Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/2_AutoEncoder.html#Data-Generation">Data Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/2_AutoEncoder.html#Create-the-Autoencoder-network">Create the Autoencoder network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../L14/2_AutoEncoder.html#Define-model-data">Define model data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L14/2_AutoEncoder.html#Encoder/Decoder-Setup">Encoder/Decoder Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../L14/2_AutoEncoder.html#Training-the-encoder">Training the encoder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../L14/2_AutoEncoder.html#Reconstruction-of-the-Data">Reconstruction of the Data</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lecture 15:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/L15/overview_15.html">Lecture Contents</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python and Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Arduino-Nano-Board">Arduino Nano Board</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Arduino-Software">Arduino Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Setup-your-board">Setup your board</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Select-Firmate-Sketch">Select Firmate Sketch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Communicating-with-the-board">Communicating with the board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Let-the-on-board-LED-blink">Let the on-board LED blink</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Tunable-output">Tunable output</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Creating-an-Oscilloscope">Creating an Oscilloscope</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_project_template.html">Project: YOUR PROJECT TITLE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_project_template.html#Introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_project_template.html#Fundamentals">Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_project_template.html#Results-and-Discussion">Results and Discussion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_project_template.html#Summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Introduction to Computer-based Physical Modeling</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Python and Hardware</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/fcichos/website/blob/master//source/notebooks/L15/1_python_hardware.ipynb" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L15/1_python_hardware.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L15/1_python_hardware.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<div class="section" id="Python-and-Hardware">
+<h1>Python and Hardware<a class="headerlink" href="#Python-and-Hardware" title="Permalink to this headline">¶</a></h1>
+<p>In the last lecture, we would like to interface our Python notebook to the real world. We would like to control a small computer, which can measure and control things in the real world, like experiments. We show you how to setup and Arduino nano board and use that to output and input signals. To use this Notebook, you will need an Arduino board. It will do nothing than creating errors if you just use it in the mybinder service. You can find out more about Arduino on their
+<a class="reference external" href="https://arduino.cc">website</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">ipycanvas</span> <span class="kn">import</span> <span class="n">MultiCanvas</span><span class="p">,</span> <span class="n">hold_canvas</span><span class="p">,</span><span class="n">Canvas</span>
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="kn">as</span> <span class="nn">widgets</span>
+
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                     <span class="s1">&#39;axes.labelpad&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                     <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span>
+                    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Arduino-Nano-Board">
+<h2>Arduino Nano Board<a class="headerlink" href="#Arduino-Nano-Board" title="Permalink to this headline">¶</a></h2>
+<p>There are several diffrent Arduino boards available. The one I’m going to use is the Arduino nano, which looks like this</p>
+<p><img alt="image0" src="../../_images/arduino_nano.png" /></p>
+<p>It has an USB connector here on the left and a number of analog (A0-A7) and digital (D2-D13) input and outputs. All of these connectors can be used as inputs and outputs.</p>
+<div class="section" id="Arduino-Software">
+<h3>Arduino Software<a class="headerlink" href="#Arduino-Software" title="Permalink to this headline">¶</a></h3>
+<p>The Arduino boards are typically programmed with a programming language, which is a bit like C. The programs are written on your computer, compiled and the uploaded to the Arduino. It then runs you program independently. The software interface to write and compile such programs for a number of different boards available is available at the <a class="reference external" href="https://www.arduino.cc">Arduino Website</a>. We will need it actually only once. So go ahead and intsall the software on you computer.</p>
+</div>
+<div class="section" id="Setup-your-board">
+<h3>Setup your board<a class="headerlink" href="#Setup-your-board" title="Permalink to this headline">¶</a></h3>
+<p>To communicate in Python with your Arduino you need to prepare your board with a program, that is provided for free with the Arduino programming environment. By the way, the programs for the Arduinos are called <code class="docutils literal notranslate"><span class="pre">Sketch</span></code>, because they are more like a sketch. The sketch that allows the interaction of the Arduino with Python is called <code class="docutils literal notranslate"><span class="pre">Firmata</span></code>.</p>
+<p>Before we upload the <code class="docutils literal notranslate"><span class="pre">Firmata</span></code> sketch to the Arduino, we need to setup the connection of your computer to the Arduino. To do so, you need to connect your Arduino via USB to your computer and then setup the connection in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> menu of your Arduino software. On my MacBook, this looks like that</p>
+<p><img alt="connection" src="../../_images/connection.png" /></p>
+<p>You see that the select board is “Arduino Nano” and the USB port is <code class="docutils literal notranslate"><span class="pre">/dev/cu.usbserial-141220</span></code>. I selected the processor which works with my board. That could be sometimes a bit tedious. When you further click on the <code class="docutils literal notranslate"><span class="pre">Serial</span> <span class="pre">Monitor</span></code> menu above, a window will open, where you can select the speed of your seriaal connection with the board, which you should adjust to 57600 baud.</p>
+</div>
+<div class="section" id="Select-Firmate-Sketch">
+<h3>Select Firmate Sketch<a class="headerlink" href="#Select-Firmate-Sketch" title="Permalink to this headline">¶</a></h3>
+<p>Next you have to select the firmata sketch. That is available from the examples menu, which should look like below</p>
+<p><img alt="firmata_sketch" src="../../_images/firmata_sketch.png" /></p>
+<p>Select the <code class="docutils literal notranslate"><span class="pre">StandardFirmata</span></code> sketch.</p>
+<p>A window should open which displays the code of the sketch.</p>
+<p><img alt="firmata" src="../../_images/firmata.png" /></p>
+<p>After that, you can compile the Sketch with the top left button</p>
+<p><img alt="compile" src="../../_images/compile.png" /></p>
+<p>And finally you may upload the Sketch to your arduino with the button on the right of the compile button.</p>
+<p><img alt="upload" src="../../_images/upload.png" /></p>
+</div>
+</div>
+<div class="section" id="Communicating-with-the-board">
+<h2>Communicating with the board<a class="headerlink" href="#Communicating-with-the-board" title="Permalink to this headline">¶</a></h2>
+<p>The module, that allows us to communicate with the Arduino board and the Firmata sketch is the <code class="docutils literal notranslate"><span class="pre">pyfirmata</span></code> module. You can install the module on your computer by executing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install pyfirmata
+</pre></div>
+</div>
+<p>in one of the Jupyter notebook cells. After you have done so, you may import the module functionality by</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pyfirmata</span>
+</pre></div>
+</div>
+</div>
+<p>The module allows you to connect to the board in a very easy way. You just have to provide the corresponding USB connection details. For Windows, this will be some of the <code class="docutils literal notranslate"><span class="pre">COM</span></code> ports. For Linux and also osX, it wil be one of the devices listed in the <code class="docutils literal notranslate"><span class="pre">/dev</span></code> directory. For my MacBook I just type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/*</span><span class="n">usb</span><span class="o">*</span>
+</pre></div>
+</div>
+<p>into one of the Jupyter notebooks cells.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/*</span><span class="n">usb</span><span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-blue-fg ansi-yellow-bg">/dev/cu.usbserial-141220</span>   <span class="ansi-blue-fg ansi-yellow-bg">/dev/tty.usbserial-141220</span>
+</pre></div></div>
+</div>
+<p>Using that USB connection port we may simply assign a new board instance by</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">board</span> <span class="o">=</span> <span class="n">pyfirmata</span><span class="o">.</span><span class="n">Arduino</span><span class="p">(</span><span class="s1">&#39;/dev/cu.usbserial-141220&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Let-the-on-board-LED-blink">
+<h2>Let the on-board LED blink<a class="headerlink" href="#Let-the-on-board-LED-blink" title="Permalink to this headline">¶</a></h2>
+<p>The onboard LED of the Arduino nano is connected to the digital port <code class="docutils literal notranslate"><span class="pre">D13</span></code>. So if we output something to <code class="docutils literal notranslate"><span class="pre">D13</span></code> we get out board LED (the one with the <code class="docutils literal notranslate"><span class="pre">L</span></code>) blinking.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">:</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<p><img alt="blinking" src="../../_images/blinking.gif" /></p>
+<p>We can also measure the output voltage at the corresponding pin <code class="docutils literal notranslate"><span class="pre">D13</span></code>. Whenever the LED is on, we measrue a voltage of about 4.7 V, which corresponds to the TTL <code class="docutils literal notranslate"><span class="pre">HIGH</span></code> level, while the voltage of about 0.9 V represents the <code class="docutils literal notranslate"><span class="pre">LOW</span></code> level.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">:</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">board</span><span class="o">.</span><span class="n">digital</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<p>The values are visible in the video below.</p>
+<p><img alt="voltage" src="../../_images/voltage.gif" /></p>
+<div class="section" id="Tunable-output">
+<h3>Tunable output<a class="headerlink" href="#Tunable-output" title="Permalink to this headline">¶</a></h3>
+<p>You may also output some voltages with the Arduino nano. Yet the signal output here works with a so called <a class="reference external" href="https://www.arduino.cc/en/tutorial/PWM">pulse width modulation</a> (PWM). The pulse width modulation switches a digital port quickly between the HIGH and the LOW values. By varying the time the output is HIGH as compared to LOW, the average voltage is set to a value between 0 V and 5 V. This fast switching is done with a freqeuncy of 500 Hz.</p>
+<p><img alt="pwm_swtching" src="../../_images/pwm.png" /></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">board</span> <span class="o">=</span> <span class="n">pyfirmata</span><span class="o">.</span><span class="n">Arduino</span><span class="p">(</span><span class="s1">&#39;/dev/cu.usbserial-141220&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can use the PWM mode by setting one of the digital outputs accordingly. The <code class="docutils literal notranslate"><span class="pre">get_pin</span></code> command below, allows you to configure one of the outputs. The string ‘d:e:p’ configure output <code class="docutils literal notranslate"><span class="pre">D3</span></code> to PWM mode. YOu may also configure the as input ‘d:e:i’ or output ‘d:e:o’.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">outPWM</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">get_pin</span><span class="p">(</span><span class="s1">&#39;d:3:p&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The rest is very simple. We can actually use the <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> module to create a slider, which allows us to modulate the output voltage.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">outPWM</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">interact</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "772f9475356f4ccb93d021cb1d05e554", "version_minor": 0, "version_major": 2}</script></div>
+</div>
+<p>Here is the movie of what I tried with the slider.</p>
+<p><img alt="tuning" src="../../_images/tuning.gif" /></p>
+</div>
+</div>
+<div class="section" id="Creating-an-Oscilloscope">
+<h2>Creating an Oscilloscope<a class="headerlink" href="#Creating-an-Oscilloscope" title="Permalink to this headline">¶</a></h2>
+<p>One of the cool things among many other things you can do with the analog and digital ports of an arduino is to create yout own simple oscilloscope. Its not really as versatile as a more expensive one, but at leat you are able to follow a voltage signal over time easily. The voltage range is limited to 0-5 V without additional electronics, but this may be already enout to couple some sensors.</p>
+<p>To allow for continuous reporting of the voltage a certain board analog input, we use <code class="docutils literal notranslate"><span class="pre">board.analog[0].enable_reporting()</span></code>. This will switch on the reporting of the analog voltage at port <code class="docutils literal notranslate"><span class="pre">A0</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">board</span><span class="o">.</span><span class="n">analog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">enable_reporting</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The command read, will then read a single value from the input.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[111]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">print</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">analog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.3021
+</pre></div></div>
+</div>
+<p>The reporting will start reporting the analog values continuously without any control. We may, however, use the <code class="docutils literal notranslate"><span class="pre">pyfirmata.util.Iterator(board)</span></code> method to take control over the reading. We get then a new value, whenever a value is read. The iterator is started with <code class="docutils literal notranslate"><span class="pre">it.start()</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">it</span> <span class="o">=</span> <span class="n">pyfirmata</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">Iterator</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+<span class="n">it</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">board</span><span class="o">.</span><span class="n">analog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">enable_reporting</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<p>Since we want to have an oscilloscope, we need to plot the data somewhere. We can use out beloved <code class="docutils literal notranslate"><span class="pre">ipycanvas</span></code> module for that purpose.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[129]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## setup the canvas</span>
+<span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">sync_image_data</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="s1">&#39;20px serif&#39;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">canvas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "50d0618568454eddb2c6560ebe3ca3b4", "version_minor": 0, "version_major": 2}</script></div>
+</div>
+<p><img alt="oscilloscope" src="../../_images/oscilloscope.gif" /></p>
+<p>The rest is just easy for us. We create a buffer <code class="docutils literal notranslate"><span class="pre">data</span></code> where we store the voltage value for each x point in the canvas (here 800 px). If we have read 800 values, we will shift the data in the array to the left such that we can insert the new point as the rightmost entry. In addition, I have inserted some autoscaling of the data and a display of the minimum and maximum voltage of the current signal trace. There is much room for improvement.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[131]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">canvas</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">analog_value</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">analog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">799</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">analog_value</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">analog_value</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">hold_canvas</span><span class="p">(</span><span class="n">canvas</span><span class="p">):</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">line_width</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">begin_path</span><span class="p">()</span>
+        <span class="nb">min</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="nb">max</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+        <span class="n">canvas</span><span class="o">.</span><span class="n">fill_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">max</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; V&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">fill_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">min</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; V&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">canvas</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">-</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="nb">min</span><span class="p">)</span><span class="o">*</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="nb">min</span><span class="p">))</span>
+            <span class="n">canvas</span><span class="o">.</span><span class="n">line_to</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">-</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="nb">min</span><span class="p">)</span><span class="o">*</span><span class="n">canvas</span><span class="o">.</span><span class="n">height</span><span class="o">/</span><span class="p">(</span><span class="nb">max</span><span class="o">-</span><span class="nb">min</span><span class="p">))</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">stroke</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-131-f7bc658ca79a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">     22</span>         <span class="ansi-green-fg">for</span> j <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span>i<span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span>             canvas<span class="ansi-blue-fg">.</span>move_to<span class="ansi-blue-fg">(</span>j<span class="ansi-blue-fg">,</span>canvas<span class="ansi-blue-fg">.</span>height<span class="ansi-blue-fg">-</span><span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">[</span>j<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">-</span>min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">*</span>canvas<span class="ansi-blue-fg">.</span>height<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">(</span>max<span class="ansi-blue-fg">-</span>min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 24</span><span class="ansi-red-fg">             </span>canvas<span class="ansi-blue-fg">.</span>line_to<span class="ansi-blue-fg">(</span>j<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span>canvas<span class="ansi-blue-fg">.</span>height<span class="ansi-blue-fg">-</span><span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">[</span>j<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">-</span>min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">*</span>canvas<span class="ansi-blue-fg">.</span>height<span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">(</span>max<span class="ansi-blue-fg">-</span>min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     25</span>         canvas<span class="ansi-blue-fg">.</span>stroke<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     26</span>
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>:
+</pre></div></div>
+</div>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"0410a98a58ff476980a3b20654a97ea5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"description_width": ""}, "model_name": "SliderStyleModel"}, "f0a9a37b8d3e41d28b2b4765423910f2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "5e9f8d26b54f41688ae9c63c9774d0c1": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_a3924908e5034f2da6bd7ca2ff3cf1e6", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "78ccb571e43f49e199440e4eb0de8971": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "8fe0f8a0f14e45229f1f59873415f789": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "772f9475356f4ccb93d021cb1d05e554": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "layout": "IPY_MODEL_c2c7800864954414be1f7d9158e1ad83", "children": ["IPY_MODEL_0eeae16d9880481097f5ff87ee68fc88", "IPY_MODEL_fda227be2dee4f01add56910ce2ed45a"]}, "model_name": "VBoxModel"}, "6ecfbd6554d54e64844ae6868cdbcb98": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "cf8e7d800746470b92cc30dd7f6e7bdf": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "720a97928dac4c98856ddc38cfb9060f": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_c348470a4c184dab99753d201e777e58", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "7c87f9ad44fb47c78cf69221cf33c5c9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"max": 1, "step": 0, "layout": "IPY_MODEL_75f2fa9158ec48b38ce07a510db143ad", "style": "IPY_MODEL_0410a98a58ff476980a3b20654a97ea5", "description": "x"}, "model_name": "IntSliderModel"}, "f6c496badcb24b4699697035b9609b0a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "layout": "IPY_MODEL_c0e9304673384677a80300d7d9669554", "children": ["IPY_MODEL_6671a82045e249e9ad7f06ec35f5c712", "IPY_MODEL_db0f62f6e1b1463d8ddba7a0a1ceb16f"]}, "model_name": "VBoxModel"}, "345dc7f240f74ba49bd010575d42b6a3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"description_width": ""}, "model_name": "SliderStyleModel"}, "c2c7800864954414be1f7d9158e1ad83": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "0eeae16d9880481097f5ff87ee68fc88": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"style": "IPY_MODEL_345dc7f240f74ba49bd010575d42b6a3", "layout": "IPY_MODEL_27cad2309f144311ab7013c79cfe5a75", "description": "x", "max": 1, "value": 0.2, "step": 0.01}, "model_name": "FloatSliderModel"}, "9bf14f840b96463abcd89467f4359ae2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"description_width": ""}, "model_name": "SliderStyleModel"}, "99cdae4d33044e9bb1d30b4c5d327756": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_c800c5bf1c244404ba490200f190a74c", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "53e88b4e8c9446229b59f3fdfeee6bc9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "layout": "IPY_MODEL_009f1ca36a69436fbd7c4197d5a90686", "children": ["IPY_MODEL_96003a5d49df46d08651258f47df4f2c", "IPY_MODEL_1f931c990267493fa297231f79f1664b"]}, "model_name": "VBoxModel"}, "96003a5d49df46d08651258f47df4f2c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"style": "IPY_MODEL_9bf14f840b96463abcd89467f4359ae2", "layout": "IPY_MODEL_78ccb571e43f49e199440e4eb0de8971", "description": "x", "max": 1, "value": 0.46, "step": 0.01}, "model_name": "FloatSliderModel"}, "ce8854dbc80e42458890e4f8de0aff8e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "c348470a4c184dab99753d201e777e58": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "96f4a9a2fdf9443085daf96c88e9a3aa": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "layout": "IPY_MODEL_8fe0f8a0f14e45229f1f59873415f789", "children": ["IPY_MODEL_7c87f9ad44fb47c78cf69221cf33c5c9", "IPY_MODEL_cec4d5ae7a404ea39835ea3eedbd4340"]}, "model_name": "VBoxModel"}, "fda227be2dee4f01add56910ce2ed45a": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"layout": "IPY_MODEL_a4b819bdd2564d22a378b9def23c473a"}, "model_name": "OutputModel"}, "a4b819bdd2564d22a378b9def23c473a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "009f1ca36a69436fbd7c4197d5a90686": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "27cad2309f144311ab7013c79cfe5a75": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "5e3871f552ce419cad147258f384c0f5": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_cf8e7d800746470b92cc30dd7f6e7bdf", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}, "a3924908e5034f2da6bd7ca2ff3cf1e6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "cec4d5ae7a404ea39835ea3eedbd4340": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"outputs": [{"output_type": "display_data", "data": {"text/plain": "0"}, "metadata": {}}], "layout": "IPY_MODEL_f0a9a37b8d3e41d28b2b4765423910f2"}, "model_name": "OutputModel"}, "83598645e3044659a9f9626254d682a5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"description_width": ""}, "model_name": "SliderStyleModel"}, "1f931c990267493fa297231f79f1664b": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"outputs": [{"output_type": "display_data", "data": {"text/plain": "0.46"}, "metadata": {}}], "layout": "IPY_MODEL_e74e5a06dff24b8c9aac3680e495f923"}, "model_name": "OutputModel"}, "c800c5bf1c244404ba490200f190a74c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "db0f62f6e1b1463d8ddba7a0a1ceb16f": {"model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"outputs": [{"output_type": "display_data", "data": {"text/plain": "21"}, "metadata": {}}], "layout": "IPY_MODEL_273b7cc53613482b89358c6b1206ef51"}, "model_name": "OutputModel"}, "6671a82045e249e9ad7f06ec35f5c712": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"style": "IPY_MODEL_83598645e3044659a9f9626254d682a5", "layout": "IPY_MODEL_ce8854dbc80e42458890e4f8de0aff8e", "description": "x", "min": -10, "max": 30, "value": 21}, "model_name": "IntSliderModel"}, "273b7cc53613482b89358c6b1206ef51": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "e74e5a06dff24b8c9aac3680e495f923": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "75f2fa9158ec48b38ce07a510db143ad": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "c0e9304673384677a80300d7d9669554": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {}, "model_name": "LayoutModel"}, "50d0618568454eddb2c6560ebe3ca3b4": {"model_module": "ipycanvas", "model_module_version": "^0.4.3", "state": {"width": 800, "_view_module_version": "^0.4.3", "layout": "IPY_MODEL_6ecfbd6554d54e64844ae6868cdbcb98", "_model_module_version": "^0.4.3", "height": 300}, "model_name": "CanvasModel"}}, "version_minor": 0, "version_major": 2}
+</script></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="2_project_template.html" class="btn btn-neutral float-right" title="Project: YOUR PROJECT TITLE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../lectures/L15/overview_15.html" class="btn btn-neutral float-left" title="Lecture Contents" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Frank Cichos
+      <span class="lastupdated">
+        Last updated on Jul 12, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
