@@ -8,7 +8,7 @@ Course Schedule
 
 The course will be updated weekly with the schedule of the lectures. Thus, expect every 
 
-**Tuesday starting April, 13th at 1:30 pm** 
+**Tuesday starting April, 13th 2021 at 1:30 pm** 
 
 a new lecture and assignment. As it is an online course and the material is available online, you can come back to study whenever it is suitable for you.
 
