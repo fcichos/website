@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Neural Networks" href="../../notebooks/L13/1_deep_learning.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../notebooks/L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../notebooks/L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notebooks/L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../notebooks/L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Lecture Contents</li>
     
@@ -918,8 +921,8 @@
 <h1>Lecture Contents<a class="headerlink" href="#lecture-contents" title="Permalink to this headline">¶</a></h1>
 <p>Lecture 13 is all about Neural Networks. We will create a neural network in Python from the scratch to classify handwritten numbers. This is one of the standard problems you find. In the second part of the lecture we will do the same with the keras and tensorflow modules in Python. You will recognize, by how much these networks simplify the construction of machine learning applications. This lecture has been largely created by Martin Fränzl.</p>
 <ol class="arabic simple">
-<li>Neural Networks (MNIST)</li>
-<li>Neural Networks with Keras (MNIST)</li>
+<li><p>Neural Networks (MNIST)</p></li>
+<li><p>Neural Networks with Keras (MNIST)</p></li>
 </ol>
 <p>The video will this time come a bit later. As I saw that most of you are still behind with some of the other videos :-), this may be a welcome thing.</p>
 </div>
@@ -944,14 +947,22 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -962,7 +973,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

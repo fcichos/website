@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
 </head>
@@ -52,7 +53,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -78,6 +79,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -548,7 +550,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -827,6 +829,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -865,7 +868,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Damped driven oscillator</li>
     
@@ -954,20 +957,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1060,7 +1076,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1131,8 +1147,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id7"><span class="problematic" id="id8">`source/notebooks/L6/damped_driven_oscillator.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L6/damped_driven_oscillator.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id7"><span class="problematic" id="id8">`source/notebooks/L6/damped_driven_oscillator.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L6/damped_driven_oscillator.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Damped-driven-oscillator">
 <h1>Damped driven oscillator<a class="headerlink" href="#Damped-driven-oscillator" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
@@ -1140,8 +1157,8 @@ This page was generated from <a href="#id7"><span class="problematic" id="id8">`
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
 
 
@@ -1157,9 +1174,9 @@ This page was generated from <a href="#id7"><span class="problematic" id="id8">`
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 
 <span class="c1"># center the plots</span>
@@ -1200,9 +1217,9 @@ F(t)=k X_{0}\cos(\omega t)
 <h3>The homogeneous solution of the oscillator<a class="headerlink" href="#The-homogeneous-solution-of-the-oscillator" title="Permalink to this headline">¶</a></h3>
 <p>We may first explore the homogeneous solution of our damped harmonic oscillator. The homogeneous solution means, we do not have a driving force and you might remember your mechanics lectures that in this case we can identify three different solutions comprising the</p>
 <ul class="simple">
-<li>oscillating solution (<span class="math notranslate nohighlight">\(\gamma^2/4-\omega_0^2&lt;0\)</span>)</li>
-<li>aperiodic limit (<span class="math notranslate nohighlight">\(\gamma^2/4-\omega_0^2=0\)</span>)</li>
-<li>creeping case (<span class="math notranslate nohighlight">\(\gamma^2/4-\omega_0^2&gt;0\)</span>)</li>
+<li><p>oscillating solution (<span class="math notranslate nohighlight">\(\gamma^2/4-\omega_0^2&lt;0\)</span>)</p></li>
+<li><p>aperiodic limit (<span class="math notranslate nohighlight">\(\gamma^2/4-\omega_0^2=0\)</span>)</p></li>
+<li><p>creeping case (<span class="math notranslate nohighlight">\(\gamma^2/4-\omega_0^2&gt;0\)</span>)</p></li>
 </ul>
 <p>We may Check for these solutions by varying our oscialltor parameters.</p>
 <div class="nbinput nblast docutils container">
@@ -1228,9 +1245,9 @@ F(t)=k X_{0}\cos(\omega t)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#pendulum derivs function</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">200000</span>  <span class="c1"># number of steps</span>
 <span class="n">xo</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># initial position</span>
@@ -1268,7 +1285,7 @@ F(t)=k X_{0}\cos(\omega t)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_damped_driven_oscillator_6_0.png"><img alt="../../_images/notebooks_L6_damped_driven_oscillator_6_0.png" src="../../_images/notebooks_L6_damped_driven_oscillator_6_0.png" style="width: 542px; height: 389px;" /></a>
+<img alt="../../_images/notebooks_L6_damped_driven_oscillator_6_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_damped_driven_oscillator_6_0.png" style="width: 542px; height: 389px;" />
 </div>
 </div>
 </div>
@@ -1299,9 +1316,9 @@ F(t)=k X_{0}\cos(\omega t)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#pendulum derivs function</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">200000</span>  <span class="c1"># number of steps</span>
 <span class="n">xo</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># initial position</span>
@@ -1341,7 +1358,7 @@ F(t)=k X_{0}\cos(\omega t)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_damped_driven_oscillator_9_0.png"><img alt="../../_images/notebooks_L6_damped_driven_oscillator_9_0.png" src="../../_images/notebooks_L6_damped_driven_oscillator_9_0.png" style="width: 534px; height: 389px;" /></a>
+<img alt="../../_images/notebooks_L6_damped_driven_oscillator_9_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_damped_driven_oscillator_9_0.png" style="width: 534px; height: 389px;" />
 </div>
 </div>
 <p>The solution looks interesting. There is a fast initial oscillation, which decays with time until a slower oscillation with constant amplitude remains. Solving the inhomogeneous differential equation yields the sum of the particular plus the homogenous solution. That’s what we observe here. The decaying oscillation at the beginning is the homogeneous solution. You can easily check that be setting the driving amplitude to <span class="math notranslate nohighlight">\(\beta=0\)</span>. The result is just the damped harmonic oscillator. The
@@ -1353,15 +1370,15 @@ second oscillation is therefore the driven oscillation, which sustains at long t
 x(t)=x(0)\cos(\omega_0 t)e^{-\frac{\gamma}{2}t}+x_{0}\cos(\omega t-\phi)
 \end{equation}</span></p>
 <p>with the frequency dependent amplitude <span class="math notranslate nohighlight">\(x_{0}\)</span></p>
-<dl class="docutils">
-<dt>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}</dt>
-<dd>x_{0}=frac{beta}{[(omega_{0}^2-omega^2)^2+gamma^2omega^2]^{1/2}}</dd>
+<dl class="simple">
+<dt>:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>begin{equation}</dt><dd><p>x_{0}=frac{beta}{[(omega_{0}^2-omega^2)^2+gamma^2omega^2]^{1/2}}</p>
+</dd>
 </dl>
 <p>end{equation}`</p>
 <p>and the phase <span class="math notranslate nohighlight">\(\phi\)</span> of the oscillator</p>
-<dl class="docutils">
-<dt>:nbsphinx-math:<a href="#id3"><span class="problematic" id="id4">`</span></a>begin{equation}</dt>
-<dd>phi=tan^{-1}left(frac{gammaomega}{omega_{0}^2+omega^2}right)</dd>
+<dl class="simple">
+<dt>:nbsphinx-math:<a href="#id3"><span class="problematic" id="id4">`</span></a>begin{equation}</dt><dd><p>phi=tan^{-1}left(frac{gammaomega}{omega_{0}^2+omega^2}right)</p>
+</dd>
 </dl>
 <p>end{equation}`</p>
 <p>The harmonic oscillator is a working horse for many problems in physics. If you describe just the motion of a spring or the oscillation of a transition dipole that radiates. All of those things may be approximated by a simple harmonic oscillator and give some insight.</p>
@@ -1414,9 +1431,9 @@ x_{0}=\sqrt{x_{0}^2\sin^2(\phi)+x_{0}^2\cos^2(\phi)}
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#pendulum derivs function</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
 <span class="k">def</span> <span class="nf">get_phase</span><span class="p">(</span><span class="n">omega</span><span class="p">):</span>
@@ -1509,7 +1526,7 @@ x_{0}=\sqrt{x_{0}^2\sin^2(\phi)+x_{0}^2\cos^2(\phi)}
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;normalized amplitude&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="o">/</span><span class="n">omega_0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n_x0</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">n_x0</span><span class="p">),</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="o">/</span><span class="n">omega_0</span><span class="p">,</span><span class="n">x0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\omega/\omega_{0}$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\omega/\omega_</span><span class="si">{0}</span><span class="s2">$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;normalized amplitude&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1519,7 +1536,7 @@ x_{0}=\sqrt{x_{0}^2\sin^2(\phi)+x_{0}^2\cos^2(\phi)}
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="o">/</span><span class="n">omega_0</span><span class="p">,</span><span class="n">n_phi</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">dd</span><span class="o">=</span><span class="p">(</span><span class="mf">0.98</span><span class="o">-</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="o">/</span><span class="n">omega_0</span><span class="p">,</span><span class="n">phi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\omega/\omega_{0}$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\omega/\omega_</span><span class="si">{0}</span><span class="s2">$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;phase [$pi$]&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -1531,7 +1548,7 @@ x_{0}=\sqrt{x_{0}^2\sin^2(\phi)+x_{0}^2\cos^2(\phi)}
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_damped_driven_oscillator_22_0.png"><img alt="../../_images/notebooks_L6_damped_driven_oscillator_22_0.png" src="../../_images/notebooks_L6_damped_driven_oscillator_22_0.png" style="width: 852px; height: 345px;" /></a>
+<img alt="../../_images/notebooks_L6_damped_driven_oscillator_22_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_damped_driven_oscillator_22_0.png" style="width: 852px; height: 345px;" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1577,9 +1594,9 @@ E_{tot}=E_{kin}+E_{pot}
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1">#pendulum derivs function</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">200000</span>  <span class="c1"># number of steps</span>
 <span class="n">xo</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># initial position</span>
@@ -1617,12 +1634,12 @@ E_{tot}=E_{kin}+E_{pot}
 <span class="n">e_pot</span><span class="o">=</span><span class="n">k</span><span class="o">*</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">e_kin</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">answer</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">e_tot</span><span class="o">=</span><span class="n">e_pot</span><span class="o">+</span><span class="n">e_kin</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">e_pot</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$E_{pot}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">e_pot</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$E_</span><span class="si">{pot}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="c1">#plt.plot(time,e_kin,label=&#39;$E_{kin}$&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">e_tot</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$E_{tot}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">e_tot</span><span class="p">,</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$E_</span><span class="si">{tot}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">e_tot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">gamma</span><span class="o">*</span><span class="n">time</span><span class="p">),</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$E_{tot}, E_{kin}, E_{pot}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$E_</span><span class="si">{tot}</span><span class="s1">, E_</span><span class="si">{kin}</span><span class="s1">, E_</span><span class="si">{pot}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.04</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1633,11 +1650,11 @@ E_{tot}=E_{kin}+E_{pot}
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_damped_driven_oscillator_29_0.png"><img alt="../../_images/notebooks_L6_damped_driven_oscillator_29_0.png" src="../../_images/notebooks_L6_damped_driven_oscillator_29_0.png" style="width: 612px; height: 389px;" /></a>
+<img alt="../../_images/notebooks_L6_damped_driven_oscillator_29_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_damped_driven_oscillator_29_0.png" style="width: 612px; height: 389px;" />
 </div>
 </div>
 <hr class="docutils" />
-<p><strong>Play Around</strong> Change some of the parameters in the above script, i.e.&nbsp;to switch of driving. You may also want to have a look at different driving frequencies. Note that the resonance shall be at <span class="math notranslate nohighlight">\(\Omega=0.98\)</span>. Think about the solutions and why it is like that. ***</p>
+<p><strong>Play Around</strong> Change some of the parameters in the above script, i.e. to switch of driving. You may also want to have a look at different driving frequencies. Note that the resonance shall be at <span class="math notranslate nohighlight">\(\Omega=0.98\)</span>. Think about the solutions and why it is like that. ***</p>
 </div>
 <div class="section" id="Driving-Power">
 <h3>Driving Power<a class="headerlink" href="#Driving-Power" title="Permalink to this headline">¶</a></h3>
@@ -1649,7 +1666,8 @@ P=m\beta\cos(\omega t) \dot{x}
 <p>:nbsphinx-math:<a href="#id5"><span class="problematic" id="id6">`</span></a>begin{eqnarray}
 P&amp;=&amp;- mbeta x_{0}omega cos(omega t) sin(omega t -phi)\</p>
 <blockquote>
-<div>&amp;=&amp; - mbeta x_{0}omega [cos(omega t)sin(omega t)cos(phi)-cos^2(omega t)sin(phi)]</div></blockquote>
+<div><p>&amp;=&amp; - mbeta x_{0}omega [cos(omega t)sin(omega t)cos(phi)-cos^2(omega t)sin(phi)]</p>
+</div></blockquote>
 <p>end{eqnarray}`</p>
 </div>
 <div class="section" id="numerical-power">
@@ -1698,13 +1716,13 @@ P&amp;=&amp;- mbeta x_{0}omega cos(omega t) sin(omega t -phi)\</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L6_damped_driven_oscillator_37_0.png"><img alt="../../_images/notebooks_L6_damped_driven_oscillator_37_0.png" src="../../_images/notebooks_L6_damped_driven_oscillator_37_0.png" style="width: 658px; height: 408px;" /></a>
+<img alt="../../_images/notebooks_L6_damped_driven_oscillator_37_0.png" class="no-scaled-link" src="../../_images/notebooks_L6_damped_driven_oscillator_37_0.png" style="width: 658px; height: 408px;" />
 </div>
 </div>
 <hr class="docutils" />
 <p><strong>Play Around</strong> Look at the absorbed power as a function of the frequency as well. ***</p>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 </div>
@@ -1720,14 +1738,22 @@ P&amp;=&amp;- mbeta x_{0}omega cos(omega t) sin(omega t -phi)\</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1738,7 +1764,6 @@ P&amp;=&amp;- mbeta x_{0}omega cos(omega t) sin(omega t -phi)\</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

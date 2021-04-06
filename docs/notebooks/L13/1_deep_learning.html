@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Neural Network with Keras" href="2_deep_learning_keras.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Neural Networks</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,8 +1149,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id2"><span class="problematic" id="id3">`source/notebooks/L13/1_deep_learning.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L13/1_deep_learning.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id2"><span class="problematic" id="id3">`source/notebooks/L13/1_deep_learning.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L13/1_deep_learning.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Neural-Networks">
 <h1>Neural Networks<a class="headerlink" href="#Neural-Networks" title="Permalink to this headline">¶</a></h1>
 <p>Neural networks are one of the most commonly used machine learning objects nowadays. Mostly these systems are known as <strong>deep neural networks</strong>, which just says something about how many layers in which neurons are arranged exist. We will in this lecture have a look at the basic unit, the neuron, and how to connect and train a network. We will do all ourselves, that means, we will not use one of the many existing python modules, that simplifies the task. This notebook has been largely developed
@@ -1144,8 +1161,8 @@ by <strong>Martin Fränzl</strong>.</p>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
@@ -1159,9 +1176,9 @@ by <strong>Martin Fränzl</strong>.</p>
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span>
                     <span class="p">})</span>
 </pre></div>
@@ -1181,7 +1198,7 @@ by <strong>Martin Fränzl</strong>.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1195,7 +1212,7 @@ by <strong>Martin Fränzl</strong>.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;label: &#39;</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;label: &#39;</span><span class="p">,</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1203,7 +1220,7 @@ by <strong>Martin Fränzl</strong>.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L13_1_deep_learning_10_0.png"><img alt="../../_images/notebooks_L13_1_deep_learning_10_0.png" src="../../_images/notebooks_L13_1_deep_learning_10_0.png" style="width: 323px; height: 255px;" /></a>
+<img alt="../../_images/notebooks_L13_1_deep_learning_10_0.png" class="no-scaled-link" src="../../_images/notebooks_L13_1_deep_learning_10_0.png" style="width: 323px; height: 255px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1278,7 +1295,7 @@ label:  4
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_train</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1286,7 +1303,7 @@ label:  4
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L13_1_deep_learning_22_0.png"><img alt="../../_images/notebooks_L13_1_deep_learning_22_0.png" src="../../_images/notebooks_L13_1_deep_learning_22_0.png" style="width: 317px; height: 259px;" /></a>
+<img alt="../../_images/notebooks_L13_1_deep_learning_22_0.png" class="no-scaled-link" src="../../_images/notebooks_L13_1_deep_learning_22_0.png" style="width: 317px; height: 259px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1308,22 +1325,22 @@ label:  4
 <h3>Forward Propogation<a class="headerlink" href="#Forward-Propogation" title="Permalink to this headline">¶</a></h3>
 <p>The neuron does now three things.</p>
 <ol class="arabic simple">
-<li>Take input values and multipy by weights</li>
+<li><p>Take input values and multipy by weights</p></li>
 </ol>
 <p><span class="math">\begin{eqnarray}
 x_{1}\rightarrow x_{1} w_{1}\\
 x_{2}\rightarrow x_{2} w_{2}
 \end{eqnarray}</span></p>
 <ol class="arabic simple" start="2">
-<li>All the weighted inputs are the added to a bias value <span class="math notranslate nohighlight">\(b\)</span></li>
+<li><p>All the weighted inputs are the added to a bias value <span class="math notranslate nohighlight">\(b\)</span></p></li>
 </ol>
 <p><span class="math">\begin{equation}
 x_{1} w_{1}+ x_{2} w_{2}+b
 \end{equation}</span></p>
 <ol class="arabic simple" start="3">
-<li>The output is generated by applying a function <span class="math notranslate nohighlight">\(\sigma()\)</span> <span class="math">\begin{equation}
+<li><p>The output is generated by applying a function <span class="math notranslate nohighlight">\(\sigma()\)</span> <span class="math">\begin{equation}
 y=\sigma( x_{1} w_{1}+ x_{2} w_{2}+b)
-\end{equation}</span></li>
+\end{equation}</span></p></li>
 </ol>
 <p>This function is called activation function. The activation function is used to turn an unbounded input value into a bounded output value with a predictable range. A commonly used activation function is the <code class="docutils literal notranslate"><span class="pre">sigmoid</span> <span class="pre">function</span></code>.</p>
 <p>For a single input dataset <span class="math notranslate nohighlight">\(x\)</span> a more compact writing of the math above is</p>
@@ -1381,7 +1398,7 @@ y=\sigma( x_{1} w_{1}+ x_{2} w_{2}+b)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L13_1_deep_learning_32_0.png"><img alt="../../_images/notebooks_L13_1_deep_learning_32_0.png" src="../../_images/notebooks_L13_1_deep_learning_32_0.png" style="width: 348px; height: 219px;" /></a>
+<img alt="../../_images/notebooks_L13_1_deep_learning_32_0.png" class="no-scaled-link" src="../../_images/notebooks_L13_1_deep_learning_32_0.png" style="width: 348px; height: 219px;" />
 </div>
 </div>
 <p>If we now have this kind of two input neuron with the weights <span class="math notranslate nohighlight">\(w\)</span> and the bias value <span class="math notranslate nohighlight">\(b\)</span></p>
@@ -1411,7 +1428,7 @@ y=f(w\cdot x+b)=f(7)=0.999
 <p><span class="math">\begin{equation}
 MSE(y,\hat{y})=\frac{1}{n}\sum_{i=1}^{n}(y-\hat{y})^2
 \end{equation}</span></p>
-<p>for a number of <span class="math notranslate nohighlight">\(n\)</span> datasets. Here <span class="math notranslate nohighlight">\(\hat{y}\)</span> is the data that is predicted by the network and <span class="math notranslate nohighlight">\(y\)</span> is the value which represents the so called ground truth, i.e.&nbsp;the data provided by the training set.</p>
+<p>for a number of <span class="math notranslate nohighlight">\(n\)</span> datasets. Here <span class="math notranslate nohighlight">\(\hat{y}\)</span> is the data that is predicted by the network and <span class="math notranslate nohighlight">\(y\)</span> is the value which represents the so called ground truth, i.e. the data provided by the training set.</p>
 <p>We will not use the mean squared error bu the <code class="docutils literal notranslate"><span class="pre">cross-entropy</span></code> for our loss function. The formula for a single training example (one input image) is:</p>
 <p><span class="math">\begin{equation*}
 L(y,\hat{y}) = -y\log(\hat{y})-(1-y)\log(1-\hat{y})\ .
@@ -1503,10 +1520,10 @@ L(y,\hat{y}) &= -y\log(\hat{y})-(1-y)\log(1-\hat{y})\ .
 \[w\leftarrow w-\eta\frac{\partial L}{\partial w}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\eta\)</span> is a constant called the learning rate that controls how fast we train. All we’re doing is subtracting <span class="math notranslate nohighlight">\(\eta \partial L/\partial w\)</span> from <span class="math notranslate nohighlight">\(w\)</span></p>
 <ul class="simple">
-<li>If <span class="math notranslate nohighlight">\(\partial L/\partial w\)</span> is positive, <span class="math notranslate nohighlight">\(w\)</span> will decrease, which makes L decrease.</li>
-<li>If <span class="math notranslate nohighlight">\(\partial L/\partial w\)</span> is negative, <span class="math notranslate nohighlight">\(w\)</span> will increase, which makes L decrease.</li>
+<li><p>If <span class="math notranslate nohighlight">\(\partial L/\partial w\)</span> is positive, <span class="math notranslate nohighlight">\(w\)</span> will decrease, which makes L decrease.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\partial L/\partial w\)</span> is negative, <span class="math notranslate nohighlight">\(w\)</span> will increase, which makes L decrease.</p></li>
 </ul>
-<p>The equations look equivalent for the bias <span class="math notranslate nohighlight">\(b\)</span>. Our back propagation procedure will do that for as many steps we want, i.e.&nbsp;until we feel that the output is close enough to the ground truth. Each back propagation step is called and <code class="docutils literal notranslate"><span class="pre">epoch</span></code>.</p>
+<p>The equations look equivalent for the bias <span class="math notranslate nohighlight">\(b\)</span>. Our back propagation procedure will do that for as many steps we want, i.e. until we feel that the output is close enough to the ground truth. Each back propagation step is called and <code class="docutils literal notranslate"><span class="pre">epoch</span></code>.</p>
 </div>
 <div class="section" id="Build-an-Train">
 <h3>Build an Train<a class="headerlink" href="#Build-an-Train" title="Permalink to this headline">¶</a></h3>
@@ -1534,15 +1551,15 @@ L(y,\hat{y}) &= -y\log(\hat{y})-(1-y)\log(1-\hat{y})\ .
     <span class="n">loss</span> <span class="o">=</span> <span class="n">compute_loss</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
 
     <span class="n">dW</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">db</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">dW</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">db</span>
 
     <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Epoch&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot; loss: &quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot; loss: &quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Final loss:&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final loss:&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1580,7 +1597,7 @@ Final loss: 0.04133292114839401
 <span class="n">predictions</span> <span class="o">=</span> <span class="p">(</span><span class="n">A</span><span class="o">&gt;.</span><span class="mi">5</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1598,7 +1615,7 @@ Final loss: 0.04133292114839401
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1663,7 +1680,7 @@ True
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L13_1_deep_learning_62_1.png"><img alt="../../_images/notebooks_L13_1_deep_learning_62_1.png" src="../../_images/notebooks_L13_1_deep_learning_62_1.png" style="width: 258px; height: 255px;" /></a>
+<img alt="../../_images/notebooks_L13_1_deep_learning_62_1.png" class="no-scaled-link" src="../../_images/notebooks_L13_1_deep_learning_62_1.png" style="width: 258px; height: 255px;" />
 </div>
 </div>
 <p>That’s actually pretty good! We predicted the right values for 8972 cases. We missed only 41 of the cases.</p>
@@ -1702,12 +1719,12 @@ True
 
     <span class="n">dZ2</span> <span class="o">=</span> <span class="n">A2</span><span class="o">-</span><span class="n">Y</span>
     <span class="n">dW2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">dZ2</span><span class="p">,</span> <span class="n">A1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">db2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">db2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="n">dA1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dZ2</span><span class="p">)</span>
     <span class="n">dZ1</span> <span class="o">=</span> <span class="n">dA1</span> <span class="o">*</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Z1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Z1</span><span class="p">))</span>
     <span class="n">dW1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">dZ1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">db1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">db1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="n">W2</span> <span class="o">=</span> <span class="n">W2</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">dW2</span>
     <span class="n">b2</span> <span class="o">=</span> <span class="n">b2</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">db2</span>
@@ -1715,9 +1732,9 @@ True
     <span class="n">b1</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">db1</span>
 
     <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Epoch&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;loss: &quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;loss: &quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Final loss:&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final loss:&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1753,8 +1770,8 @@ Final loss: 0.08367740628296327
 <span class="n">predictions</span> <span class="o">=</span> <span class="p">(</span><span class="n">A2</span><span class="o">&gt;.</span><span class="mi">5</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">,:]</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1793,7 +1810,7 @@ the number predicted.</p>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="mi">255</span>
 </pre></div>
@@ -1849,7 +1866,7 @@ the number predicted.</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L13_1_deep_learning_77_0.png"><img alt="../../_images/notebooks_L13_1_deep_learning_77_0.png" src="../../_images/notebooks_L13_1_deep_learning_77_0.png" style="width: 317px; height: 259px;" /></a>
+<img alt="../../_images/notebooks_L13_1_deep_learning_77_0.png" class="no-scaled-link" src="../../_images/notebooks_L13_1_deep_learning_77_0.png" style="width: 317px; height: 259px;" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1932,12 +1949,12 @@ L(y,\hat{y}) = -\frac{1}{m}\sum_{j=0}^m\sum_{i=0}^n y_i^{(i)}\log(\hat{y}_i^{(i)
 
     <span class="n">dZ2</span> <span class="o">=</span> <span class="n">A2</span><span class="o">-</span><span class="n">Y</span>
     <span class="n">dW2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">dZ2</span><span class="p">,</span> <span class="n">A1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">db2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">db2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="n">dA1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">W2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dZ2</span><span class="p">)</span>
     <span class="n">dZ1</span> <span class="o">=</span> <span class="n">dA1</span> <span class="o">*</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Z1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Z1</span><span class="p">))</span>
     <span class="n">dW1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">dZ1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    <span class="n">db1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">db1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dZ1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="n">W2</span> <span class="o">=</span> <span class="n">W2</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">dW2</span>
     <span class="n">b2</span> <span class="o">=</span> <span class="n">b2</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">db2</span>
@@ -1945,9 +1962,9 @@ L(y,\hat{y}) = -\frac{1}{m}\sum_{j=0}^m\sum_{i=0}^n y_i^{(i)}\log(\hat{y}_i^{(i)
     <span class="n">b1</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">-</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">db1</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Epoch&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;loss: &quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epoch&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;loss: &quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Final loss:&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final loss:&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2002,8 +2019,8 @@ Final loss: 0.5461445785100992
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2071,11 +2088,11 @@ weighted avg       0.84      0.84      0.84     10000
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L13_1_deep_learning_95_1.png"><img alt="../../_images/notebooks_L13_1_deep_learning_95_1.png" src="../../_images/notebooks_L13_1_deep_learning_95_1.png" style="width: 258px; height: 255px;" /></a>
+<img alt="../../_images/notebooks_L13_1_deep_learning_95_1.png" class="no-scaled-link" src="../../_images/notebooks_L13_1_deep_learning_95_1.png" style="width: 258px; height: 255px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 
@@ -2099,14 +2116,22 @@ weighted avg       0.84      0.84      0.84     10000
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -2117,7 +2142,6 @@ weighted avg       0.84      0.84      0.84     10000
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Functions" href="3_functions.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Flow Control</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,8 +1149,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/2_flowcontrol.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L3/2_flowcontrol.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/2_flowcontrol.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L3/2_flowcontrol.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Flow-Control">
 <h1>Flow Control<a class="headerlink" href="#Flow-Control" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
@@ -1144,8 +1161,8 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># include the required modules</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 
@@ -1157,16 +1174,16 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="Conditionals:-if,-elif,-and-else-statements">
 <h2>Conditionals: if, elif, and else statements<a class="headerlink" href="#Conditionals:-if,-elif,-and-else-statements" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements are used to define conditionals in Python. The <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword is followed by a condition, i.e.&nbsp;a logical comparison, which can either be <strong>true</strong> or <strong>false</strong>. We illustrate their use with a few examples.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements are used to define conditionals in Python. The <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword is followed by a condition, i.e. a logical comparison, which can either be <strong>true</strong> or <strong>false</strong>. We illustrate their use with a few examples.</p>
 <div class="admonition note">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note:</strong> code blocks in if and loop statements</p>
 <p>Python uses colons (<code class="docutils literal notranslate"><span class="pre">:</span></code>) to indicate that that a code block belonging to the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement follows. The code block starting on the next line is idented with whitespace (often four spaces) to structure conditional statements. If the condition is True, the indented code block after the colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) is executed. The code block may contain several lines of code with identical identation:</p>
@@ -1192,7 +1209,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span>
 
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The absolute value is {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The absolute value is </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1215,9 +1232,9 @@ The absolute value is 5
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please input an integer: &quot;</span><span class="p">))</span>
 <span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="k">2</span> == 0:
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{0:0d} is an even number.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:0d}</span><span class="s2"> is an even number.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{0:0d} is an odd number.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:0d}</span><span class="s2"> is an odd number.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1237,7 +1254,7 @@ Please input an integer: 9
 <p><span class="math">\begin{equation}
 ax^2+bx+c=0
 \end{equation}</span></p>
-<p>are real, imaginary, or complex for a given set of coefficients a, b, and c.&nbsp;Of course, the answer to that question depends on the value of the discriminant <span class="math notranslate nohighlight">\(d = b^2 − 4ac\)</span>. The solutions are real if <span class="math notranslate nohighlight">\(d \ge 0\)</span>, imaginary if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>,and complex if <span class="math notranslate nohighlight">\(b\ne 0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>. The program below implements the above logic in a Python program. Each part of these statements has a code block to be executed. The code block to be executed is discriminated from the
+<p>are real, imaginary, or complex for a given set of coefficients a, b, and c. Of course, the answer to that question depends on the value of the discriminant <span class="math notranslate nohighlight">\(d = b^2 − 4ac\)</span>. The solutions are real if <span class="math notranslate nohighlight">\(d \ge 0\)</span>, imaginary if <span class="math notranslate nohighlight">\(b=0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>,and complex if <span class="math notranslate nohighlight">\(b\ne 0\)</span> and <span class="math notranslate nohighlight">\(d &lt; 0\)</span>. The program below implements the above logic in a Python program. Each part of these statements has a code block to be executed. The code block to be executed is discriminated from the
 others by an indentation. Usually this is done with a <em>tab</em>, which indents 4 characters. You can either insert 4 spaces or press <em>tab</em>. Play around with the <em>tab</em> to get a feeling how the Jupyter notebook responds to that.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
@@ -1250,12 +1267,12 @@ others by an indentation. Usually this is done with a <em>tab</em>, which indent
 <span class="n">d</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mf">4.</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
 
 <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Solutions are real&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are real&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">b</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Solutions are imaginary&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are imaginary&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Solutions are complex&quot;</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Finished!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solutions are complex&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished!&quot;</span><span class="p">)</span>
 
 </pre></div>
 </div>
@@ -1282,9 +1299,9 @@ Finished!
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
-     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Both parts are true&#39;</span><span class="p">)</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Both parts are true&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;At least one part is not true&#39;</span><span class="p">)</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;At least one part is not true&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1302,7 +1319,7 @@ Both parts are true
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;At least one test is true&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;At least one test is true&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1324,9 +1341,9 @@ At least one test is true
 <span class="n">wind</span> <span class="o">=</span> <span class="s1">&#39;windy&#39;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="n">weather</span> <span class="o">==</span> <span class="s1">&#39;rain&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">wind</span> <span class="o">==</span> <span class="s1">&#39;windy&#39;</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Just stay at home&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Go out and enjoy the weather! :)&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Go out and enjoy the weather! :)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1357,9 +1374,9 @@ Just stay at home
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">dogname</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Molly&quot;</span><span class="p">,</span> <span class="s2">&quot;Buster&quot;</span><span class="p">,</span> <span class="s2">&quot;Maggie&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucy&quot;</span><span class="p">]:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">dogname</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot; Arf, arf!&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;All done.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dogname</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Arf, arf!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All done.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1388,9 +1405,9 @@ All done.
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">dogname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Molly&quot;</span><span class="p">,</span> <span class="s2">&quot;Buster&quot;</span><span class="p">,</span> <span class="s2">&quot;Maggie&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucy&quot;</span><span class="p">]):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">dogname</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot; Arf, arf!&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;All done.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">dogname</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Arf, arf!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All done.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1420,7 +1437,7 @@ All done.
 <span></span><span class="n">s</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="n">i</span>
-<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1468,7 +1485,7 @@ Fibonacci numbers is impractical because we do not know ahead of time how many F
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 </pre></div>
 </div>
@@ -1507,10 +1524,10 @@ Fibonacci numbers is impractical because we do not know ahead of time how many F
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e7</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
     <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1531,11 +1548,11 @@ Fibonacci numbers is impractical because we do not know ahead of time how many F
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e7</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1709,7 +1726,7 @@ array operations over loops.</p>
 </pre></div></div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 </div>
@@ -1734,14 +1751,22 @@ array operations over loops.</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1752,7 +1777,6 @@ array operations over loops.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

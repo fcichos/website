@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Machine Learning and Neural Networks" href="2_reinforcement_learning.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Hydrodynamics</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,22 +1149,23 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L12/1_hydrodynamics.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L12/1_hydrodynamics.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L12/1_hydrodynamics.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L12/1_hydrodynamics.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Hydrodynamics">
 <h1>Hydrodynamics<a class="headerlink" href="#Hydrodynamics" title="Permalink to this headline">¶</a></h1>
-<p>A field that we did not cover in our Python course so far is hydrodynamics. The basic hydrodynamic equations, i.e.&nbsp;the Navier Stokes equation is a nonlinear differential equation and its numerical solution is way beyond the scope of this course. We can, however, have a look at the solution of simple problems. The first is the study of a sphere falling under gravity in a liquid. The second is just the plotting of solutions of the Stokes equation in a streamline plot. So all of that seems to be
+<p>A field that we did not cover in our Python course so far is hydrodynamics. The basic hydrodynamic equations, i.e. the Navier Stokes equation is a nonlinear differential equation and its numerical solution is way beyond the scope of this course. We can, however, have a look at the solution of simple problems. The first is the study of a sphere falling under gravity in a liquid. The second is just the plotting of solutions of the Stokes equation in a streamline plot. So all of that seems to be
 simple as compared to the more difficult things we did recently.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[223]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="kn">as</span> <span class="nn">ma</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">scipy.interpolate</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
 
@@ -1163,9 +1180,9 @@ simple as compared to the more difficult things we did recently.</p>
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1263,7 +1280,7 @@ g^{\prime}=g\left( 1-\frac{\rho_f}{\rho_o}\right )
 </pre></div>
 </div>
 </div>
-<p>The plots below show the change of the position, velocity vs.&nbsp;each other. What is nicely seen, is that the position changes initially in a parabolic way and then turns into a linear increase with time, meaning the the velocity is constant. This is seen in the other two plots, demonstrating the the friction force balances at some point the gravitational force to yield a constant velocty.</p>
+<p>The plots below show the change of the position, velocity vs. each other. What is nicely seen, is that the position changes initially in a parabolic way and then turns into a linear increase with time, meaning the the velocity is constant. This is seen in the other two plots, demonstrating the the friction force balances at some point the gravitational force to yield a constant velocty.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[229]:
 </pre></div>
@@ -1298,7 +1315,7 @@ g^{\prime}=g\left( 1-\frac{\rho_f}{\rho_o}\right )
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L12_1_hydrodynamics_19_0.png"><img alt="../../_images/notebooks_L12_1_hydrodynamics_19_0.png" src="../../_images/notebooks_L12_1_hydrodynamics_19_0.png" style="width: 707px; height: 203px;" /></a>
+<img alt="../../_images/notebooks_L12_1_hydrodynamics_19_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_1_hydrodynamics_19_0.png" style="width: 707px; height: 203px;" />
 </div>
 </div>
 </div>
@@ -1318,12 +1335,12 @@ g^{\prime}=g\left( 1-\frac{\rho_f}{\rho_o}\right )
 </div>
 <div class="section" id="Fundamental-Solutions-of-the-Stokes-Equation">
 <h2>Fundamental Solutions of the Stokes Equation<a class="headerlink" href="#Fundamental-Solutions-of-the-Stokes-Equation" title="Permalink to this headline">¶</a></h2>
-<p>One of the fundamental solutions is created when a particle of radius <span class="math notranslate nohighlight">\(a\)</span> that is dragged with a velocity <span class="math notranslate nohighlight">\({\bf v}=\{v_x,v_y,v_z\}\)</span> through a solution at low Reynolds number is causing a flow field, which corresponds in the farfield to the flow field generated by a point force acting on a volume element. The solution to that problem, which creates finally the friction coefficient we used in the first section is constructed from a so-called Stokeslet, i.e.&nbsp;the flow field created by a
+<p>One of the fundamental solutions is created when a particle of radius <span class="math notranslate nohighlight">\(a\)</span> that is dragged with a velocity <span class="math notranslate nohighlight">\({\bf v}=\{v_x,v_y,v_z\}\)</span> through a solution at low Reynolds number is causing a flow field, which corresponds in the farfield to the flow field generated by a point force acting on a volume element. The solution to that problem, which creates finally the friction coefficient we used in the first section is constructed from a so-called Stokeslet, i.e. the flow field created by a
 point force on a volume element of the fluid. This flow field is given by</p>
 <p><span class="math">\begin{equation}
 {\bf u}_{SL}({\bf r})=\frac{3a}{4 r}\left(I+\hat{r}\hat{r}\right){\bf v}
 \end{equation}</span></p>
-<p>This solution, however, fails to comply with the no-slip boundary condition, i.e.&nbsp;the condition that the fluid and the sphere have the same velocity at the surface.</p>
+<p>This solution, however, fails to comply with the no-slip boundary condition, i.e. the condition that the fluid and the sphere have the same velocity at the surface.</p>
 <div class="section" id="Stokeslet">
 <h3>Stokeslet<a class="headerlink" href="#Stokeslet" title="Permalink to this headline">¶</a></h3>
 <p>So lets create at first a plot of flow field of the Stokeslet. Therefore we have to calculate the out product <span class="math notranslate nohighlight">\(\hat{r}\hat{r}\)</span> together with the identity matrix. <code class="docutils literal notranslate"><span class="pre">Numpy</span></code> provides us with the method <code class="docutils literal notranslate"><span class="pre">outer</span></code> for the outer product. A function, which delivers the stokeslet has then the following shape and returns the flow field x and y vector components.</p>
@@ -1406,7 +1423,7 @@ point force on a volume element of the fluid. This flow field is given by</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L12_1_hydrodynamics_35_0.png"><img alt="../../_images/notebooks_L12_1_hydrodynamics_35_0.png" src="../../_images/notebooks_L12_1_hydrodynamics_35_0.png" style="width: 604px; height: 596px;" /></a>
+<img alt="../../_images/notebooks_L12_1_hydrodynamics_35_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_1_hydrodynamics_35_0.png" style="width: 604px; height: 596px;" />
 </div>
 </div>
 </div>
@@ -1474,7 +1491,7 @@ point force on a volume element of the fluid. This flow field is given by</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L12_1_hydrodynamics_42_0.png"><img alt="../../_images/notebooks_L12_1_hydrodynamics_42_0.png" src="../../_images/notebooks_L12_1_hydrodynamics_42_0.png" style="width: 604px; height: 596px;" /></a>
+<img alt="../../_images/notebooks_L12_1_hydrodynamics_42_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_1_hydrodynamics_42_0.png" style="width: 604px; height: 596px;" />
 </div>
 </div>
 </div>
@@ -1528,11 +1545,11 @@ point force on a volume element of the fluid. This flow field is given by</p>
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L12_1_hydrodynamics_47_0.png"><img alt="../../_images/notebooks_L12_1_hydrodynamics_47_0.png" src="../../_images/notebooks_L12_1_hydrodynamics_47_0.png" style="width: 604px; height: 596px;" /></a>
+<img alt="../../_images/notebooks_L12_1_hydrodynamics_47_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_1_hydrodynamics_47_0.png" style="width: 604px; height: 596px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 </div>
@@ -1557,14 +1574,22 @@ point force on a volume element of the fluid. This flow field is given by</p>
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1575,7 +1600,6 @@ point force on a volume element of the fluid. This flow field is given by</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Solving ODEs" href="3_solving_ODEs.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Numerical Integration</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,8 +1149,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L5/2_integration.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L5/2_integration.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L5/2_integration.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L5/2_integration.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Numerical-Integration">
 <h1>Numerical Integration<a class="headerlink" href="#Numerical-Integration" title="Permalink to this headline">¶</a></h1>
 <p>Our second topic today will be about numerical integration, which is useful in determining of course the integrals of functions at certain positions. Here we will only refer to 3 different methods with increasing accuracy.</p>
@@ -1143,8 +1160,8 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
@@ -1157,9 +1174,9 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1237,13 +1254,13 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_2_integration_8_1.png"><img alt="../../_images/notebooks_L5_2_integration_8_1.png" src="../../_images/notebooks_L5_2_integration_8_1.png" style="width: 401px; height: 255px;" /></a>
+<img alt="../../_images/notebooks_L5_2_integration_8_1.png" class="no-scaled-link" src="../../_images/notebooks_L5_2_integration_8_1.png" style="width: 401px; height: 255px;" />
 </div>
 </div>
 </div>
 <div class="section" id="Trapezoid-method">
 <h2>Trapezoid method<a class="headerlink" href="#Trapezoid-method" title="Permalink to this headline">¶</a></h2>
-<p><img alt="image0" src="../../_images/trapez.png" /></p>
+<p><img alt="image1" src="../../_images/trapez.png" /></p>
 <p>The trapezoid method is taking the next step of function approximation in the interval <span class="math notranslate nohighlight">\(\Delta x\)</span>. It is approximating it with a linear function.</p>
 <p><span class="math">\begin{equation}
 \int_{a}^{b}f(x)dx=\sum_{i=1}^{N}\frac{f(x_i)+f(x_{i-1})}{2}\Delta x
@@ -1395,7 +1412,7 @@ g_{i}(x)=[A]x^2+[B]x+[C]
 </div>
 <p>It turns out, that the Simpson rule is indeed the best among the three methods we have considered. The error is the box method goes as <span class="math notranslate nohighlight">\(\Delta x\)</span>, the one of the trapezoid method as <span class="math notranslate nohighlight">\(\Delta x^2\)</span>, while the simpson method provides and accuracy going with <span class="math notranslate nohighlight">\(\Delta x^4\)</span>. Thus doubling the number of integration points decreases the error by a factor of 16.</p>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 
@@ -1419,14 +1436,22 @@ g_{i}(x)=[A]x^2+[B]x+[C]
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1437,7 +1462,6 @@ g_{i}(x)=[A]x^2+[B]x+[C]
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lecture Contents" href="../../lectures/L13/overview_13.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Machine Learning and Neural Networks</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,8 +1149,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L12/2_reinforcement_learning.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L12/2_reinforcement_learning.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L12/2_reinforcement_learning.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L12/2_reinforcement_learning.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Machine-Learning-and-Neural-Networks">
 <h1>Machine Learning and Neural Networks<a class="headerlink" href="#Machine-Learning-and-Neural-Networks" title="Permalink to this headline">¶</a></h1>
 <p>We are close to the end of the course and covered different applications of Python to physical problems. The course is not intended to teach the physics, but exercise the application of Python. One field, which is increasingly important also in physics is the field of machine learning. Machine learning is the summarizing term for a number of computational procedures to extract useful information from data. We would like to spend the rest of the course to introduce you into a tiny part of machine
@@ -1144,15 +1161,15 @@ learning. We will do that in a way that you calculate as much as possible in pur
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
 <span class="kn">from</span> <span class="nn">scipy.fftpack</span> <span class="kn">import</span> <span class="n">fft</span><span class="p">,</span><span class="n">ifft</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span> <span class="k">as</span> <span class="n">sparse</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">ln</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span><span class="n">time</span>
-<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="kn">as</span> <span class="nn">patches</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">patches</span>
 <span class="kn">from</span> <span class="nn">ipycanvas</span> <span class="kn">import</span> <span class="n">MultiCanvas</span><span class="p">,</span> <span class="n">hold_canvas</span><span class="p">,</span><span class="n">Canvas</span>
 
 
@@ -1168,9 +1185,9 @@ learning. We will do that in a way that you calculate as much as possible in pur
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1179,13 +1196,13 @@ learning. We will do that in a way that you calculate as much as possible in pur
 <h2>Overview<a class="headerlink" href="#Overview" title="Permalink to this headline">¶</a></h2>
 <p>Machine learning has its origins long time ago and many of the currently very popular approaches have been developed in the past century. Two things have been stimmulating the current hype of machine learning techniques. One is the computational power that is available already at the level of your smartphone. The second one is the availability of data. Machine learning is divided into different areas, which are denotes as</p>
 <ul class="simple">
-<li>supervised learning: telling the system what is right or wrong</li>
-<li>semi-supervised learning: having only sparse information on what is right or wrong</li>
-<li>unsupervised learning: let the system figure out what is right or wrong</li>
+<li><p>supervised learning: telling the system what is right or wrong</p></li>
+<li><p>semi-supervised learning: having only sparse information on what is right or wrong</p></li>
+<li><p>unsupervised learning: let the system figure out what is right or wrong</p></li>
 </ul>
 <p>The graphics below gives a small summary. In our course, we cannot cover all methods. We will focus on <strong>Reinforcement Learning</strong> and <strong>Neural Networks</strong> just to show you, how things could look in Python.</p>
-<p><img alt="image0" src="../../_images/ml_overview.png" /></p>
-<p>Image taken from F. Cichos et al.&nbsp;Nature Machine Intelligence (2020).</p>
+<p><img alt="image1" src="../../_images/ml_overview.png" /></p>
+<p>Image taken from F. Cichos et al. Nature Machine Intelligence (2020).</p>
 </div>
 <div class="section" id="Reinforcement-Learning">
 <h2>Reinforcement Learning<a class="headerlink" href="#Reinforcement-Learning" title="Permalink to this headline">¶</a></h2>
@@ -1197,12 +1214,12 @@ characteristics—trial-and-error search and delayed reward—are the two most i
 <h3>Markov Decision Process<a class="headerlink" href="#Markov-Decision-Process" title="Permalink to this headline">¶</a></h3>
 <p>The key element of reinforcement learning is the so-called Markov Decision Process. The Markov decision process (MDP) denotes a formalism of planning actions in the face of uncertainty. A MDP consist formally of</p>
 <ul class="simple">
-<li><span class="math notranslate nohighlight">\(S\)</span>: a set of accessible states in the world</li>
-<li><span class="math notranslate nohighlight">\(D\)</span>: an initial distribution to be in a state</li>
-<li><span class="math notranslate nohighlight">\(P_{sa}\)</span>: transition probability between states</li>
-<li><span class="math notranslate nohighlight">\(A\)</span>: A set of possible actions to take in each state</li>
-<li><span class="math notranslate nohighlight">\(\gamma\)</span>: the discount factor, which is a number between 0 and 1</li>
-<li><span class="math notranslate nohighlight">\(R\)</span>: A reward function</li>
+<li><p><span class="math notranslate nohighlight">\(S\)</span>: a set of accessible states in the world</p></li>
+<li><p><span class="math notranslate nohighlight">\(D\)</span>: an initial distribution to be in a state</p></li>
+<li><p><span class="math notranslate nohighlight">\(P_{sa}\)</span>: transition probability between states</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span>: A set of possible actions to take in each state</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span>: the discount factor, which is a number between 0 and 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(R\)</span>: A reward function</p></li>
 </ul>
 <p>We begin in an initial state <span class="math notranslate nohighlight">\(s_{i,j}\)</span> drawn from the distribution <span class="math notranslate nohighlight">\(D\)</span>. At each time step <span class="math notranslate nohighlight">\(t\)</span>, we then have to pick an action, for example <span class="math notranslate nohighlight">\(a_1(t)\)</span> , as a result of which our state transitions to some state <span class="math notranslate nohighlight">\(s_{i,j+1}\)</span>. The states do not nessecarily correspond to spatial positions, however, as we talk about the gridworld later we may use this example to understand the procedures.</p>
 <p><img alt="gw_with_path" src="../../_images/gw_with_path.png" /></p>
@@ -1352,7 +1369,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png"><img alt="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png" src="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png" style="width: 454px; height: 280px;" /></a>
+<img alt="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_2_reinforcement_learning_49_0.png" style="width: 454px; height: 280px;" />
 </div>
 </div>
 </div>
@@ -1411,7 +1428,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png"><img alt="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" src="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" style="width: 349px; height: 340px;" /></a>
+<img alt="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" class="no-scaled-link" src="../../_images/notebooks_L12_2_reinforcement_learning_54_0.png" style="width: 349px; height: 340px;" />
 </div>
 </div>
 </div>
@@ -1420,7 +1437,7 @@ we would like to explore in a small Python program, which is not too difficult.<
 <h2>Where to go from here<a class="headerlink" href="#Where-to-go-from-here" title="Permalink to this headline">¶</a></h2>
 <p>If you want to know more about Reinforcement Learning, have a look at the <a class="reference external" href="http://incompleteideas.net/book/bookdraft2017nov5.pdf">book</a> of Sutton and Barto.</p>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 
@@ -1444,14 +1461,22 @@ we would like to explore in a small Python program, which is not too difficult.<
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1462,7 +1487,6 @@ we would like to explore in a small Python program, which is not too difficult.<
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

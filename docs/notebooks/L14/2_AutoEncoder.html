@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lecture Contents" href="../../lectures/L15/overview_15.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Autoencoder CNN for Time Series Denoising</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,8 +1149,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L14/2_AutoEncoder.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L14/2_AutoEncoder.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L14/2_AutoEncoder.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L14/2_AutoEncoder.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Autoencoder-CNN-for-Time-Series-Denoising">
 <h1>Autoencoder CNN for Time Series Denoising<a class="headerlink" href="#Autoencoder-CNN-for-Time-Series-Denoising" title="Permalink to this headline">¶</a></h1>
 <p>As a second example, we will create another convolutional neural network (CNN), but this time for time series denoising. The type of neural network architecture we ar using for that purpose is the one of an <strong>autoencoder</strong>.</p>
@@ -1143,8 +1160,8 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
@@ -1157,9 +1174,9 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span>
                     <span class="p">})</span>
 </pre></div>
@@ -1169,14 +1186,14 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <h2>Autoencoder Structure and Purpose<a class="headerlink" href="#Autoencoder-Structure-and-Purpose" title="Permalink to this headline">¶</a></h2>
 <p>Autoencoders are a type of unsupervised neural network. They do not use labeled classes or any labeled data. They are in general used to</p>
 <ul class="simple">
-<li>Accept an input set of data</li>
-<li>Internally compress the input data into a latent-space representation</li>
-<li>Reconstruct the input data from this latent representation</li>
+<li><p>Accept an input set of data</p></li>
+<li><p>Internally compress the input data into a latent-space representation</p></li>
+<li><p>Reconstruct the input data from this latent representation</p></li>
 </ul>
 <p>An autoencoder is having two components:</p>
 <ul class="simple">
-<li><strong>Encoder:</strong> Accepts the input data and compresses it into the latent-space. If we denote our input data as <span class="math notranslate nohighlight">\(x\)</span> and the encoder as <span class="math notranslate nohighlight">\(E\)</span>, then the output latent-space representation, <span class="math notranslate nohighlight">\(s\)</span>, would be <span class="math notranslate nohighlight">\(s = E(x)\)</span>.</li>
-<li><strong>Decoder:</strong> The decoder is responsible for accepting the latent-space representation <span class="math notranslate nohighlight">\(s\)</span> and then reconstructing the original input. If we denote the decoder function as <span class="math notranslate nohighlight">\(D\)</span> and the output of the detector as <span class="math notranslate nohighlight">\(o\)</span>, then we can represent the decoder as <span class="math notranslate nohighlight">\(o = D(s)\)</span>.</li>
+<li><p><strong>Encoder:</strong> Accepts the input data and compresses it into the latent-space. If we denote our input data as <span class="math notranslate nohighlight">\(x\)</span> and the encoder as <span class="math notranslate nohighlight">\(E\)</span>, then the output latent-space representation, <span class="math notranslate nohighlight">\(s\)</span>, would be <span class="math notranslate nohighlight">\(s = E(x)\)</span>.</p></li>
+<li><p><strong>Decoder:</strong> The decoder is responsible for accepting the latent-space representation <span class="math notranslate nohighlight">\(s\)</span> and then reconstructing the original input. If we denote the decoder function as <span class="math notranslate nohighlight">\(D\)</span> and the output of the detector as <span class="math notranslate nohighlight">\(o\)</span>, then we can represent the decoder as <span class="math notranslate nohighlight">\(o = D(s)\)</span>.</p></li>
 </ul>
 <p>Also not originally developed to denoise data, we will construct an autoencoder, which is learning to denoise a time series. Autoencoders are also often used to remove noise from images before applying a CNN to image classification.</p>
 <p>The shape of the autoencoder network could be the following. We take a timeseries as input, which could contain 1024 data points. The datapoints are then compressed down to only 32 datapoints in the encoder steps and then decoded back into the original 1024 datapoint. Due to the compression and the action of the weights, a part of the noise is removed. In our example below, we will represent the autoencoder with a CNN.</p>
@@ -1196,8 +1213,8 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </div>
 <p>We create two series</p>
 <ul class="simple">
-<li>a noisy sample with noise, noisy_input</li>
-<li>a pure series without noise, pure_input</li>
+<li><p>a noisy sample with noise, noisy_input</p></li>
+<li><p>a pure series without noise, pure_input</p></li>
 </ul>
 <p>Overall we will generate 100000 datasets. We will take from that data the training, the testing and the validation data.</p>
 <div class="nbinput nblast docutils container">
@@ -1260,7 +1277,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L14_2_AutoEncoder_15_0.png"><img alt="../../_images/notebooks_L14_2_AutoEncoder_15_0.png" src="../../_images/notebooks_L14_2_AutoEncoder_15_0.png" style="width: 628px; height: 327px;" /></a>
+<img alt="../../_images/notebooks_L14_2_AutoEncoder_15_0.png" class="no-scaled-link" src="../../_images/notebooks_L14_2_AutoEncoder_15_0.png" style="width: 628px; height: 327px;" />
 </div>
 </div>
 </div>
@@ -1460,7 +1477,7 @@ Epoch 5/5
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L14_2_AutoEncoder_31_0.png"><img alt="../../_images/notebooks_L14_2_AutoEncoder_31_0.png" src="../../_images/notebooks_L14_2_AutoEncoder_31_0.png" style="width: 628px; height: 327px;" /></a>
+<img alt="../../_images/notebooks_L14_2_AutoEncoder_31_0.png" class="no-scaled-link" src="../../_images/notebooks_L14_2_AutoEncoder_31_0.png" style="width: 628px; height: 327px;" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1473,7 +1490,7 @@ Epoch 5/5
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 
@@ -1497,14 +1514,22 @@ Epoch 5/5
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1515,7 +1540,6 @@ Epoch 5/5
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Exceptions" href="4_exceptions.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Functions</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,8 +1149,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/3_functions.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L3/3_functions.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L3/3_functions.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L3/3_functions.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Functions">
 <h1>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h1>
 <p>Python allows to define functions. Functions collect code that you would use repeatedly in your program.</p>
@@ -1145,8 +1162,8 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># include the required modules</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 
@@ -1158,9 +1175,9 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1273,7 +1290,7 @@ array([        nan,  0.95885108,  0.84147098,  0.66499666,  0.45464871,
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L3_3_functions_12_0.png"><img alt="../../_images/notebooks_L3_3_functions_12_0.png" src="../../_images/notebooks_L3_3_functions_12_0.png" style="width: 401px; height: 250px;" /></a>
+<img alt="../../_images/notebooks_L3_3_functions_12_0.png" class="no-scaled-link" src="../../_images/notebooks_L3_3_functions_12_0.png" style="width: 401px; height: 250px;" />
 </div>
 </div>
 <p>Loops are in general slowly executed and there is a faster way of checking the elements of an array by the <code class="docutils literal notranslate"><span class="pre">np.where</span></code> function of the NumPy library. There where function has the form</p>
@@ -1304,8 +1321,8 @@ array([        nan,  0.95885108,  0.84147098,  0.66499666,  0.45464871,
 <div class="admonition warning">
 <p class="admonition-title fa fa-exclamation-circle"><strong>Note</strong> Local and global variables</p>
 <ul class="simple">
-<li><strong>local</strong> variables are visible to the inside of a function and live for the time the function is executed</li>
-<li><strong>global</strong> variable are visible outside and inside of a function but can not be changed inside a function except they are declared as <code class="docutils literal notranslate"><span class="pre">global</span></code></li>
+<li><p><strong>local</strong> variables are visible to the inside of a function and live for the time the function is executed</p></li>
+<li><p><strong>global</strong> variable are visible outside and inside of a function but can not be changed inside a function except they are declared as <code class="docutils literal notranslate"><span class="pre">global</span></code></p></li>
 </ul>
 </div>
 <p>Here is an example to illustrate the scope of a variable inside a function.</p>
@@ -1323,13 +1340,13 @@ array([        nan,  0.95885108,  0.84147098,  0.66499666,  0.45464871,
 
     <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="n">y</span><span class="o">=</span><span class="mi">15</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;This is a local variable:&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a local variable:&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">my_function</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;This is a global :&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;This is a changed global :&quot;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a global :&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a changed global :&quot;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1346,14 +1363,14 @@ This is a changed global : 15
 </div>
 <div class="section" id="Functions-with-more-than-one-input-or-output">
 <h2>Functions with more than one input or output<a class="headerlink" href="#Functions-with-more-than-one-input-or-output" title="Permalink to this headline">¶</a></h2>
-<p>Python functions can have any number of input arguments and can return any number of variables. For example, suppose you want a function that outputs n (x, y) coordinates around a circle of radius r centered at the point (x0 , y0 ). The inputs to the function would be r, x0, y0, and n.&nbsp;The outputs would be the n (x, y) coordinates. The following code implements this function.</p>
+<p>Python functions can have any number of input arguments and can return any number of variables. For example, suppose you want a function that outputs n (x, y) coordinates around a circle of radius r centered at the point (x0 , y0 ). The inputs to the function would be r, x0, y0, and n. The outputs would be the n (x, y) coordinates. The following code implements this function.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[154]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
     <span class="k">return</span><span class="p">(</span><span class="n">x0</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
@@ -1370,7 +1387,7 @@ This is a changed global : 15
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">circle</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x0</span><span class="o">+</span><span class="n">x</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="n">y</span>
@@ -1402,7 +1419,7 @@ This is a changed global : 15
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L3_3_functions_29_0.png"><img alt="../../_images/notebooks_L3_3_functions_29_0.png" src="../../_images/notebooks_L3_3_functions_29_0.png" style="width: 208px; height: 196px;" /></a>
+<img alt="../../_images/notebooks_L3_3_functions_29_0.png" class="no-scaled-link" src="../../_images/notebooks_L3_3_functions_29_0.png" style="width: 208px; height: 196px;" />
 </div>
 </div>
 </div>
@@ -1415,7 +1432,7 @@ This is a changed global : 15
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">product</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;args = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;args = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
     <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
         <span class="n">p</span> <span class="o">*=</span> <span class="n">num</span>
@@ -1547,8 +1564,8 @@ args = (2, 3, 4, 5, 6)
 <span></span><span class="n">result1</span> <span class="o">=</span> <span class="n">testfunc</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">result2</span> <span class="o">=</span> <span class="n">testfunc</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">result1</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">result2</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1565,7 +1582,7 @@ args = (2, 3, 4, 5, 6)
 <div class="section" id="Functions-as-arguments-of-functions">
 <h2>Functions as arguments of functions<a class="headerlink" href="#Functions-as-arguments-of-functions" title="Permalink to this headline">¶</a></h2>
 <p>Functions can be arguments of function, as we have seen above. This is a very useful thing, which we may use in out physical modeling for numerical differentiation.</p>
-<p><strong>Numerical Differentiation</strong>. What we want to calculate, is the derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> where the function values are given at certain positions <span class="math notranslate nohighlight">\(x_{i}\)</span>. Since we do not want to calculate the symbolic derivative, we have to get along with an numerical approximation. This can be obtained by looking at the definition of the derivative, i.e.&nbsp;the first derivative</p>
+<p><strong>Numerical Differentiation</strong>. What we want to calculate, is the derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> where the function values are given at certain positions <span class="math notranslate nohighlight">\(x_{i}\)</span>. Since we do not want to calculate the symbolic derivative, we have to get along with an numerical approximation. This can be obtained by looking at the definition of the derivative, i.e. the first derivative</p>
 <p><span class="math">\begin{equation}
 f^{\prime}(x)=\lim_{\delta x->0}\frac{f(x+\delta x)-f(x)}{\delta x}
 \end{equation}</span></p>
@@ -1651,7 +1668,7 @@ f^{\prime}(x_{i})\approx\frac{f(x+\delta x)-f(x)}{\delta x}=\frac{f(x_{i+1})-f(x
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L3_3_functions_55_0.png"><img alt="../../_images/notebooks_L3_3_functions_55_0.png" src="../../_images/notebooks_L3_3_functions_55_0.png" style="width: 415px; height: 280px;" /></a>
+<img alt="../../_images/notebooks_L3_3_functions_55_0.png" class="no-scaled-link" src="../../_images/notebooks_L3_3_functions_55_0.png" style="width: 415px; height: 280px;" />
 </div>
 </div>
 <p>We may similarly also define a second derivative</p>
@@ -1698,11 +1715,11 @@ f^{\prime\prime}(x_{i})\approx\frac{f(x+2\delta x)-2f(x+\delta x)+f(x)}{\delta x
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L3_3_functions_59_0.png"><img alt="../../_images/notebooks_L3_3_functions_59_0.png" src="../../_images/notebooks_L3_3_functions_59_0.png" style="width: 415px; height: 280px;" /></a>
+<img alt="../../_images/notebooks_L3_3_functions_59_0.png" class="no-scaled-link" src="../../_images/notebooks_L3_3_functions_59_0.png" style="width: 415px; height: 280px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 
@@ -1726,14 +1743,22 @@ f^{\prime\prime}(x_{i})\approx\frac{f(x+2\delta x)-2f(x+\delta x)+f(x)}{\delta x
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1744,7 +1769,6 @@ f^{\prime\prime}(x_{i})\approx\frac{f(x+2\delta x)-2f(x+\delta x)+f(x)}{\delta x
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

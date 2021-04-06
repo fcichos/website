@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Random numbers" href="3_randomnumbers.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Plotting data</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,8 +1149,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L2/2_plotting.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L2/2_plotting.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id1"><span class="problematic" id="id2">`source/notebooks/L2/2_plotting.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L2/2_plotting.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Plotting-data">
 <h1>Plotting data<a class="headerlink" href="#Plotting-data" title="Permalink to this headline">¶</a></h1>
 <p>The graphical representation of data plotting is one of the most important tools for evaluating and understanding scientific data and theoretical predictions. However, plotting is not a part of core Python but is provided through one of several possible library modules. The de factor standard for plotting in Python is MatPlotLib. There are nevertheless several other very good modules like PlotLy, Seaborn, Bokeh and other available.</p>
@@ -1147,8 +1164,8 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
@@ -1173,9 +1190,9 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1207,7 +1224,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_9_0.png"><img alt="../../_images/notebooks_L2_2_plotting_9_0.png" src="../../_images/notebooks_L2_2_plotting_9_0.png" style="width: 392px; height: 250px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_9_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_9_0.png" style="width: 392px; height: 250px;" />
 </div>
 </div>
 <div class="section" id="Axis-Labels">
@@ -1233,7 +1250,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_12_0.png"><img alt="../../_images/notebooks_L2_2_plotting_12_0.png" src="../../_images/notebooks_L2_2_plotting_12_0.png" style="width: 423px; height: 281px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_12_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_12_0.png" style="width: 423px; height: 281px;" />
 </div>
 </div>
 </div>
@@ -1261,7 +1278,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_14_0.png"><img alt="../../_images/notebooks_L2_2_plotting_14_0.png" src="../../_images/notebooks_L2_2_plotting_14_0.png" style="width: 423px; height: 281px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_14_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_14_0.png" style="width: 423px; height: 281px;" />
 </div>
 </div>
 </div>
@@ -1289,7 +1306,7 @@ This page was generated from <a href="#id1"><span class="problematic" id="id2">`
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_17_0.png"><img alt="../../_images/notebooks_L2_2_plotting_17_0.png" src="../../_images/notebooks_L2_2_plotting_17_0.png" style="width: 423px; height: 281px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_17_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_17_0.png" style="width: 423px; height: 281px;" />
 </div>
 </div>
 </div>
@@ -1331,7 +1348,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c1"># plot the histogram</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;histogram&#39;</span><span class="p">)</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">bins</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;histogram&#39;</span><span class="p">)</span>
 
 <span class="c1">#plot the analytical solution</span>
 <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span><span class="mf">0.99</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
@@ -1348,7 +1365,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_28_0.png"><img alt="../../_images/notebooks_L2_2_plotting_28_0.png" src="../../_images/notebooks_L2_2_plotting_28_0.png" style="width: 409px; height: 281px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_28_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_28_0.png" style="width: 409px; height: 281px;" />
 </div>
 </div>
 </div>
@@ -1387,7 +1404,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_31_0.png"><img alt="../../_images/notebooks_L2_2_plotting_31_0.png" src="../../_images/notebooks_L2_2_plotting_31_0.png" style="width: 491px; height: 347px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_31_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_31_0.png" style="width: 491px; height: 347px;" />
 </div>
 </div>
 </div>
@@ -1415,7 +1432,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_34_0.png"><img alt="../../_images/notebooks_L2_2_plotting_34_0.png" src="../../_images/notebooks_L2_2_plotting_34_0.png" style="width: 534px; height: 390px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_34_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_34_0.png" style="width: 534px; height: 390px;" />
 </div>
 </div>
 </div>
@@ -1427,8 +1444,8 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># create plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
@@ -1452,7 +1469,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_37_0.png"><img alt="../../_images/notebooks_L2_2_plotting_37_0.png" src="../../_images/notebooks_L2_2_plotting_37_0.png" style="width: 525px; height: 390px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_37_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_37_0.png" style="width: 525px; height: 390px;" />
 </div>
 </div>
 <div class="section" id="Setting-plotting-limits-and-excluding-data">
@@ -1463,8 +1480,8 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
 <span class="n">ytan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -1479,7 +1496,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_40_0.png"><img alt="../../_images/notebooks_L2_2_plotting_40_0.png" src="../../_images/notebooks_L2_2_plotting_40_0.png" style="width: 500px; height: 365px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_40_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_40_0.png" style="width: 500px; height: 365px;" />
 </div>
 </div>
 <div class="section" id="Masked-arrays">
@@ -1494,8 +1511,8 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">)</span>
 <span class="n">ytan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
 
@@ -1514,10 +1531,11 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_42_0.png"><img alt="../../_images/notebooks_L2_2_plotting_42_0.png" src="../../_images/notebooks_L2_2_plotting_42_0.png" style="width: 487px; height: 365px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_42_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_42_0.png" style="width: 487px; height: 365px;" />
 </div>
 </div>
 <p>If you look at the resulting array, you will find, that the entries have not been removed but replaced by <code class="docutils literal notranslate"><span class="pre">--</span></code>, so the values are not existent and thefore not plotted.</p>
+<p><img alt="e279c1067d3b40d99891e07ffd35dfff" class="no-scaled-link" src="../../_images/masked.png" style="width: 400px;" /></p>
 </div>
 </div>
 </div>
@@ -1557,7 +1575,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_46_0.png"><img alt="../../_images/notebooks_L2_2_plotting_46_0.png" src="../../_images/notebooks_L2_2_plotting_46_0.png" style="width: 418px; height: 346px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_46_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_46_0.png" style="width: 418px; height: 346px;" />
 </div>
 </div>
 </div>
@@ -1591,7 +1609,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_48_0.png"><img alt="../../_images/notebooks_L2_2_plotting_48_0.png" src="../../_images/notebooks_L2_2_plotting_48_0.png" style="width: 643px; height: 283px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_48_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_48_0.png" style="width: 643px; height: 283px;" />
 </div>
 </div>
 </div>
@@ -1635,7 +1653,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_50_0.png"><img alt="../../_images/notebooks_L2_2_plotting_50_0.png" src="../../_images/notebooks_L2_2_plotting_50_0.png" style="width: 562px; height: 563px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_50_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_50_0.png" style="width: 562px; height: 563px;" />
 </div>
 </div>
 </div>
@@ -1652,7 +1670,7 @@ p(x)dx=\frac{1}{\pi \Delta x}\frac{dx}{\sqrt{1-\left (\frac{x(t)}{\Delta x}\righ
 <p><span class="math">\begin{equation}
 U(r)=U_{0}\frac{e^{-i\,k r}}{r}
 \end{equation}</span></p>
-<p>where <span class="math notranslate nohighlight">\(U_{0}\)</span> is the amplitude, <span class="math notranslate nohighlight">\(k\)</span> the magnitude of the k-vector, i.e.&nbsp;<span class="math notranslate nohighlight">\(k=2\pi/\lambda\)</span> and <span class="math notranslate nohighlight">\(r=\sqrt{x^2+y^2}\)</span> the distance, here in 2 dimensions. Note that the total wavefunction also contains a temporal part such that</p>
+<p>where <span class="math notranslate nohighlight">\(U_{0}\)</span> is the amplitude, <span class="math notranslate nohighlight">\(k\)</span> the magnitude of the k-vector, i.e. <span class="math notranslate nohighlight">\(k=2\pi/\lambda\)</span> and <span class="math notranslate nohighlight">\(r=\sqrt{x^2+y^2}\)</span> the distance, here in 2 dimensions. Note that the total wavefunction also contains a temporal part such that</p>
 <p><span class="math">\begin{equation}
 U(r,t)=U_{0}\frac{e^{-i\,k r}}{r}*e^{i\omega t}
 \end{equation}</span></p>
@@ -1681,7 +1699,7 @@ I(r)\propto |U(r)|^2
 
 
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">Z</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">x01</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">lmda</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">x02</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">lmda</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">Z</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">x01</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">lmda</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">X</span><span class="o">-</span><span class="n">x02</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">lmda</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -1702,7 +1720,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_57_0.png"><img alt="../../_images/notebooks_L2_2_plotting_57_0.png" src="../../_images/notebooks_L2_2_plotting_57_0.png" style="width: 389px; height: 359px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_57_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_57_0.png" style="width: 389px; height: 359px;" />
 </div>
 </div>
 </div>
@@ -1724,7 +1742,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_59_0.png"><img alt="../../_images/notebooks_L2_2_plotting_59_0.png" src="../../_images/notebooks_L2_2_plotting_59_0.png" style="width: 415px; height: 365px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_59_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_59_0.png" style="width: 415px; height: 365px;" />
 </div>
 </div>
 </div>
@@ -1747,7 +1765,7 @@ I(r)\propto |U(r)|^2
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_61_0.png"><img alt="../../_images/notebooks_L2_2_plotting_61_0.png" src="../../_images/notebooks_L2_2_plotting_61_0.png" style="width: 415px; height: 352px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_61_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_61_0.png" style="width: 415px; height: 352px;" />
 </div>
 </div>
 </div>
@@ -1793,7 +1811,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_66_1.png"><img alt="../../_images/notebooks_L2_2_plotting_66_1.png" src="../../_images/notebooks_L2_2_plotting_66_1.png" style="width: 572px; height: 340px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_66_1.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_66_1.png" style="width: 572px; height: 340px;" />
 </div>
 </div>
 <p>With this three-dimensional axes enabled, we can now plot a variety of three-dimensional plot types. Three-dimensional plotting is one of the functionalities that benefits immensely from viewing figures interactively rather than statically in the notebook; recall that to use interactive figures, you can use %matplotlib notebook rather than %matplotlib inline when running this code.</p>
@@ -1829,7 +1847,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_69_0.png"><img alt="../../_images/notebooks_L2_2_plotting_69_0.png" src="../../_images/notebooks_L2_2_plotting_69_0.png" style="width: 572px; height: 340px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_69_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_69_0.png" style="width: 572px; height: 340px;" />
 </div>
 </div>
 <p>Notice that by default, the scatter points have their transparency adjusted to give a sense of depth on the page. While the three-dimensional effect is sometimes difficult to see within a static image, an interactive view can lead to some nice intuition about the layout of the points. Use the <code class="docutils literal notranslate"><span class="pre">scatter3D</span></code> or the <code class="docutils literal notranslate"><span class="pre">plot3D</span></code> method to plot a random walk in 3-dimensions in your exercise.</p>
@@ -1886,7 +1904,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_74_0.png"><img alt="../../_images/notebooks_L2_2_plotting_74_0.png" src="../../_images/notebooks_L2_2_plotting_74_0.png" style="width: 572px; height: 340px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_74_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_74_0.png" style="width: 572px; height: 340px;" />
 </div>
 </div>
 </div>
@@ -1935,7 +1953,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_79_0.png"><img alt="../../_images/notebooks_L2_2_plotting_79_0.png" src="../../_images/notebooks_L2_2_plotting_79_0.png" style="width: 458px; height: 345px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_79_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_79_0.png" style="width: 458px; height: 345px;" />
 </div>
 </div>
 </div>
@@ -1966,7 +1984,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_81_0.png"><img alt="../../_images/notebooks_L2_2_plotting_81_0.png" src="../../_images/notebooks_L2_2_plotting_81_0.png" style="width: 349px; height: 231px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_81_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_81_0.png" style="width: 349px; height: 231px;" />
 </div>
 </div>
 </div>
@@ -1979,7 +1997,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># polar plot using add_axes and polar projection</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">],</span> <span class="n">polar</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">],</span> <span class="n">polar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
 </pre></div>
@@ -1989,7 +2007,7 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_83_0.png"><img alt="../../_images/notebooks_L2_2_plotting_83_0.png" src="../../_images/notebooks_L2_2_plotting_83_0.png" style="width: 236px; height: 223px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_83_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_83_0.png" style="width: 236px; height: 223px;" />
 </div>
 </div>
 </div>
@@ -2015,11 +2033,11 @@ Text(0.5, 0, &#39;z&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L2_2_plotting_86_0.png"><img alt="../../_images/notebooks_L2_2_plotting_86_0.png" src="../../_images/notebooks_L2_2_plotting_86_0.png" style="width: 378px; height: 250px;" /></a>
+<img alt="../../_images/notebooks_L2_2_plotting_86_0.png" class="no-scaled-link" src="../../_images/notebooks_L2_2_plotting_86_0.png" style="width: 378px; height: 250px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 
@@ -2043,14 +2061,22 @@ Text(0.5, 0, &#39;z&#39;)
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -2061,7 +2087,6 @@ Text(0.5, 0, &#39;z&#39;)
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

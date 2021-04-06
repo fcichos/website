@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,31 +11,33 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"processClass": "math|output_area", "processEscapes": true, "ignoreClass": "document", "inlineMath": [["$", "$"], ["\\(", "\\)"]]}})</script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"equationNumbers": {"autoNumber": "AMS", "useLabelIds": true}}, "tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Lecture Contents" href="../../lectures/L6/overview_6.html" />
@@ -54,7 +55,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Introduction to Computer-based Physical Modeling
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Introduction to Computer-based Physical Modeling
           
 
           
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -550,7 +552,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../L9/3_huygens_principle.html">Huygens principle</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Diffraction-pattern-of-a-single-slit">Diffraction pattern of a single slit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs.&nbsp;nearfield">Farfield vs.&nbsp;nearfield</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Farfield-vs. nearfield">Farfield vs. nearfield</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../L9/3_huygens_principle.html#Comparison-to-the-analytical-solution">Comparison to the analytical solution</a></li>
 </ul>
 </li>
@@ -829,6 +831,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -867,7 +870,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Solving ODEs</li>
     
@@ -956,20 +959,33 @@ div.nboutput.container div.prompt pre {
 /* all prompts */
 div.nbinput.container div.prompt,
 div.nboutput.container div.prompt {
-    min-width: 5ex;
-    padding-top: 0.3rem;
-    padding-right: 0.3rem;
-    text-align: right;
-    flex: 0;
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
     div.nbinput.container div.prompt,
     div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
     div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
@@ -1062,7 +1078,7 @@ div.nboutput.container div.output_area div[class*=highlight].math,
 div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 0.3rem;
+    padding: 5px;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1133,8 +1149,9 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="admonition note">
-This page was generated from <a href="#id6"><span class="problematic" id="id7">`source/notebooks/L5/3_solving_ODEs.ipynb`_</span></a>.
-<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L5/3_solving_ODEs.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></div>
+<p>This page was generated from <a href="#id6"><span class="problematic" id="id7">`source/notebooks/L5/3_solving_ODEs.ipynb`_</span></a>.
+<span class="raw-html"><br/><a href="https://mybinder.org/v2/gh/fcichos/website/master?urlpath=tree/source/notebooks/L5/3_solving_ODEs.ipynb"><img alt="Binder badge" src="https://img.shields.io/badge/launch-full%20binder-red.svg" style="vertical-align:text-bottom"></a></span></p>
+</div>
 <div class="section" id="Solving-ODEs">
 <h1>Solving ODEs<a class="headerlink" href="#Solving-ODEs" title="Permalink to this headline">¶</a></h1>
 <p>All the stuff we have defined in the previous sections is useful for solving ordinary differential equations. This will bring us closer to solving out physics problems now.</p>
@@ -1143,8 +1160,8 @@ This page was generated from <a href="#id6"><span class="problematic" id="id7">`
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
 
@@ -1159,9 +1176,9 @@ This page was generated from <a href="#id6"><span class="problematic" id="id7">`
                      <span class="s1">&#39;lines.markersize&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.labelsize&#39;</span> <span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;xtick.top&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;xtick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
-                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+                     <span class="s1">&#39;ytick.right&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
                      <span class="s1">&#39;ytick.direction&#39;</span> <span class="p">:</span> <span class="s1">&#39;in&#39;</span><span class="p">,})</span>
 </pre></div>
 </div>
@@ -1180,7 +1197,7 @@ This page was generated from <a href="#id6"><span class="problematic" id="id7">`
 </div>
 <div class="section" id="Implicit-Solution---Crank-Nicholson">
 <h2>Implicit Solution - Crank Nicholson<a class="headerlink" href="#Implicit-Solution---Crank-Nicholson" title="Permalink to this headline">¶</a></h2>
-<p>Lets start with the matrix appraoch we have just learned about. Using the matrix version, we can transform the above equation into a system of coupled equations, which we can solve with some standard methods available from e.g.&nbsp;the <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module.</p>
+<p>Lets start with the matrix appraoch we have just learned about. Using the matrix version, we can transform the above equation into a system of coupled equations, which we can solve with some standard methods available from e.g. the <code class="docutils literal notranslate"><span class="pre">SciPy</span></code> module.</p>
 <div class="section" id="Define-Matrices">
 <h3>Define Matrices<a class="headerlink" href="#Define-Matrices" title="Permalink to this headline">¶</a></h3>
 <p>Our matrix will consist of two parts. The first containing the second derivative and the second just the elongation. Suppose we want to calculate the position <span class="math notranslate nohighlight">\(x(t)\)</span> at 6 instances in time <span class="math notranslate nohighlight">\(t_{i}\)</span> then the matrix version of the second derivative reads as</p>
@@ -1237,9 +1254,9 @@ v_{0}\delta t\\
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">diags</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">k</span> <span class="o">=</span> <span class="mf">3.5</span> <span class="c1"># spring constant</span>
 <span class="n">m</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="c1"># mass</span>
@@ -1287,7 +1304,7 @@ v_{0}\delta t\\
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_18_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_18_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_18_0.png" style="width: 527px; height: 389px;" /></a>
+<img alt="../../_images/notebooks_L5_3_solving_ODEs_18_0.png" class="no-scaled-link" src="../../_images/notebooks_L5_3_solving_ODEs_18_0.png" style="width: 527px; height: 389px;" />
 </div>
 </div>
 </div>
@@ -1331,8 +1348,8 @@ v
 <p>This defines the differential equation we’re solving.</p>
 <p>This vector notation allows us to break the process into two parts:</p>
 <ul class="simple">
-<li>defining the problem and</li>
-<li>solving the problem.</li>
+<li><p>defining the problem and</p></li>
+<li><p>solving the problem.</p></li>
 </ul>
 <p>We define the problem with a function that returns the derivatives of each element in <span class="math notranslate nohighlight">\(y\)</span>. The solution has to be done by defining a function that is integrating the equation of motion according to one of the many possible integration methods. To keep it simple, we will introduce the <strong>Euler</strong>, the <strong>Euler Cromer</strong> and the <strong>Midpoint</strong> method. All of them are numerical integration methods and help us to solve first order differential equations.</p>
 <p>There are much more accurate methods beyond the ones listed below, for example the <strong>Runge Kutta Methods</strong>. We leave that to you to study these methods and to possibly implement them.</p>
@@ -1454,7 +1471,7 @@ x(t+\Delta t) = x(t) + \frac{\dot{x}(t+\Delta t)+\dot{x}(t)}{2} \Delta t
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_31_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_31_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_31_0.png" style="width: 514px; height: 441px;" /></a>
+<img alt="../../_images/notebooks_L5_3_solving_ODEs_31_0.png" class="no-scaled-link" src="../../_images/notebooks_L5_3_solving_ODEs_31_0.png" style="width: 514px; height: 441px;" />
 </div>
 </div>
 </div>
@@ -1462,8 +1479,8 @@ x(t+\Delta t) = x(t) + \frac{\dot{x}(t+\Delta t)+\dot{x}(t)}{2} \Delta t
 <h3>Putting it all together<a class="headerlink" href="#Putting-it-all-together" title="Permalink to this headline">¶</a></h3>
 <p>We are now in the position to put all the details together and carry out our explicit scheme. In case you have forgotten already what the details were, here is the list of what we have to do again:</p>
 <ul class="simple">
-<li>defining the problem and</li>
-<li>solving the problem.</li>
+<li><p>defining the problem and</p></li>
+<li><p>solving the problem.</p></li>
 </ul>
 <div class="section" id="The-definition-of-the-problem">
 <h4>The definition of the problem<a class="headerlink" href="#The-definition-of-the-problem" title="Permalink to this headline">¶</a></h4>
@@ -1572,7 +1589,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_36_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_36_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_36_0.png" style="width: 709px; height: 348px;" /></a>
+<img alt="../../_images/notebooks_L5_3_solving_ODEs_36_0.png" class="no-scaled-link" src="../../_images/notebooks_L5_3_solving_ODEs_36_0.png" style="width: 709px; height: 348px;" />
 </div>
 </div>
 </div>
@@ -1672,7 +1689,7 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_46_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_46_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_46_0.png" style="width: 709px; height: 348px;" /></a>
+<img alt="../../_images/notebooks_L5_3_solving_ODEs_46_0.png" class="no-scaled-link" src="../../_images/notebooks_L5_3_solving_ODEs_46_0.png" style="width: 709px; height: 348px;" />
 </div>
 </div>
 </div>
@@ -1759,11 +1776,11 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<a class="reference internal image-reference" href="../../_images/notebooks_L5_3_solving_ODEs_56_0.png"><img alt="../../_images/notebooks_L5_3_solving_ODEs_56_0.png" src="../../_images/notebooks_L5_3_solving_ODEs_56_0.png" style="width: 527px; height: 387px;" /></a>
+<img alt="../../_images/notebooks_L5_3_solving_ODEs_56_0.png" class="no-scaled-link" src="../../_images/notebooks_L5_3_solving_ODEs_56_0.png" style="width: 527px; height: 387px;" />
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {}, "version_minor": 0, "version_major": 2}
+{"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 </div>
@@ -1788,14 +1805,22 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Frank Cichos
       <span class="lastupdated">
-        Last updated on Jul 14, 2020.
+        Last updated on Apr 06, 2021.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1806,7 +1831,6 @@ method and the <em>Runge Kutta</em> method (which we have not really addressed).
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
